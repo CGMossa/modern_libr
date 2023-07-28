@@ -32,8 +32,17 @@ fn main() {
 
     let binder = bindgen::builder()
         .header("wrapper_head.h")
+        .blocklist_file(".*stddef\\.h")
         .blocklist_file(".*wrapper_header\\.h")
         .merge_extern_blocks(true)
+        // does nothing
+        // .generate_block(true)
+        // does nothing
+        // .generate_comments(true)
+        // does nothing?
+        // .clang_arg("-fparse-all-comments")
+        // does something
+        // .generate_cstr(true)
         //FIXME: enable this maybe?
         .allowlist_recursively(false)
         .clang_arg(format!("-I{}", r_include.display()));
