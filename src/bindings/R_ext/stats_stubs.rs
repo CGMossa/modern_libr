@@ -682,11 +682,14 @@ fn bindgen_test_layout__float_const() {
         )
     );
 }
-#[doc = ", MAYBE"]
-pub const Rboolean_FALSE: Rboolean = 0;
-#[doc = ", MAYBE"]
-pub const Rboolean_TRUE: Rboolean = 1;
-pub type Rboolean = ::std::os::raw::c_int;
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum Rboolean {
+    #[doc = ", MAYBE"]
+    FALSE = 0,
+    #[doc = ", MAYBE"]
+    TRUE = 1,
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union Rcomplex {
@@ -895,12 +898,15 @@ pub struct Rf_RegisteredNativeSymbol {
     _unused: [u8; 0],
 }
 pub type R_RegisteredNativeSymbol = Rf_RegisteredNativeSymbol;
-pub const NativeSymbolType_R_ANY_SYM: NativeSymbolType = 0;
-pub const NativeSymbolType_R_C_SYM: NativeSymbolType = 1;
-pub const NativeSymbolType_R_CALL_SYM: NativeSymbolType = 2;
-pub const NativeSymbolType_R_FORTRAN_SYM: NativeSymbolType = 3;
-pub const NativeSymbolType_R_EXTERNAL_SYM: NativeSymbolType = 4;
-pub type NativeSymbolType = ::std::os::raw::c_int;
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum NativeSymbolType {
+    R_ANY_SYM = 0,
+    R_C_SYM = 1,
+    R_CALL_SYM = 2,
+    R_FORTRAN_SYM = 3,
+    R_EXTERNAL_SYM = 4,
+}
 pub type Rbyte = ::std::os::raw::c_uchar;
 #[doc = " type for length of (standard, not long) vectors etc"]
 pub type R_len_t = ::std::os::raw::c_int;
@@ -921,28 +927,37 @@ pub struct R_allocator {
     _unused: [u8; 0],
 }
 pub type R_allocator_t = R_allocator;
-pub const nchar_type_Bytes: nchar_type = 0;
-pub const nchar_type_Chars: nchar_type = 1;
-pub const nchar_type_Width: nchar_type = 2;
+#[repr(i32)]
 #[doc = " ../main/character.c :"]
-pub type nchar_type = ::std::os::raw::c_int;
-pub const cetype_t_CE_NATIVE: cetype_t = 0;
-pub const cetype_t_CE_UTF8: cetype_t = 1;
-pub const cetype_t_CE_LATIN1: cetype_t = 2;
-pub const cetype_t_CE_BYTES: cetype_t = 3;
-pub const cetype_t_CE_SYMBOL: cetype_t = 5;
-pub const cetype_t_CE_ANY: cetype_t = 99;
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum nchar_type {
+    Bytes = 0,
+    Chars = 1,
+    Width = 2,
+}
+#[repr(i32)]
 #[doc = " cetype_t is an identifier reseved by POSIX, but it is\nwell established as public.  Could remap by a #define though"]
-pub type cetype_t = ::std::os::raw::c_int;
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum cetype_t {
+    CE_NATIVE = 0,
+    CE_UTF8 = 1,
+    CE_LATIN1 = 2,
+    CE_BYTES = 3,
+    CE_SYMBOL = 5,
+    CE_ANY = 99,
+}
 #[doc = " Finalization interface"]
 pub type R_CFinalizer_t = ::std::option::Option<unsafe extern "C" fn(arg1: SEXP)>;
 pub type R_pstream_data_t = *mut ::std::os::raw::c_void;
-pub const R_pstream_format_t_R_pstream_any_format: R_pstream_format_t = 0;
-pub const R_pstream_format_t_R_pstream_ascii_format: R_pstream_format_t = 1;
-pub const R_pstream_format_t_R_pstream_binary_format: R_pstream_format_t = 2;
-pub const R_pstream_format_t_R_pstream_xdr_format: R_pstream_format_t = 3;
-pub const R_pstream_format_t_R_pstream_asciihex_format: R_pstream_format_t = 4;
-pub type R_pstream_format_t = ::std::os::raw::c_int;
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum R_pstream_format_t {
+    R_pstream_any_format = 0,
+    R_pstream_ascii_format = 1,
+    R_pstream_binary_format = 2,
+    R_pstream_xdr_format = 3,
+    R_pstream_asciihex_format = 4,
+}
 pub type R_outpstream_t = *mut R_outpstream_st;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1176,15 +1191,24 @@ fn bindgen_test_layout_R_inpstream_st() {
         )
     );
 }
-pub const SORTED_DECR_NA_1ST: _bindgen_ty_1 = -2;
-pub const SORTED_DECR: _bindgen_ty_1 = -1;
-#[doc = "INT_MIN is NA_INTEGER!"]
-pub const UNKNOWN_SORTEDNESS: _bindgen_ty_1 = -2147483648;
-pub const SORTED_INCR: _bindgen_ty_1 = 1;
-pub const SORTED_INCR_NA_1ST: _bindgen_ty_1 = 2;
-pub const KNOWN_UNSORTED: _bindgen_ty_1 = 0;
+pub const SORTED_DECR_NA_1ST: _bindgen_ty_1 = _bindgen_ty_1::SORTED_DECR_NA_1ST;
+pub const SORTED_DECR: _bindgen_ty_1 = _bindgen_ty_1::SORTED_DECR;
+pub const UNKNOWN_SORTEDNESS: _bindgen_ty_1 = _bindgen_ty_1::UNKNOWN_SORTEDNESS;
+pub const SORTED_INCR: _bindgen_ty_1 = _bindgen_ty_1::SORTED_INCR;
+pub const SORTED_INCR_NA_1ST: _bindgen_ty_1 = _bindgen_ty_1::SORTED_INCR_NA_1ST;
+pub const KNOWN_UNSORTED: _bindgen_ty_1 = _bindgen_ty_1::KNOWN_UNSORTED;
+#[repr(i32)]
 #[doc = " ALTREP sorting support"]
-pub type _bindgen_ty_1 = ::std::os::raw::c_int;
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum _bindgen_ty_1 {
+    SORTED_DECR_NA_1ST = -2,
+    SORTED_DECR = -1,
+    #[doc = "INT_MIN is NA_INTEGER!"]
+    UNKNOWN_SORTEDNESS = -2147483648,
+    SORTED_INCR = 1,
+    SORTED_INCR_NA_1ST = 2,
+    KNOWN_UNSORTED = 0,
+}
 #[doc = " try to allow some type checking"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1216,58 +1240,69 @@ fn bindgen_test_layout_R_hashtab_type() {
         )
     );
 }
-pub const AlgType_NREG: AlgType = 1;
-pub const AlgType_OPT: AlgType = 2;
-pub type AlgType = ::std::os::raw::c_int;
-pub const VPos_F: VPos = 9;
-pub const VPos_F0: VPos = 12;
-pub const VPos_FDIF: VPos = 10;
-pub const VPos_G: VPos = 27;
-pub const VPos_HC: VPos = 70;
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum AlgType {
+    NREG = 1,
+    OPT = 2,
+}
+#[repr(i32)]
 #[doc = " 0-based indices into v"]
-pub type VPos = ::std::os::raw::c_int;
-pub const IVPos_AI: IVPos = 90;
-pub const IVPos_AM: IVPos = 94;
-pub const IVPos_ALGSAV: IVPos = 50;
-pub const IVPos_COVMAT: IVPos = 25;
-pub const IVPos_COVPRT: IVPos = 13;
-pub const IVPos_COVREQ: IVPos = 14;
-pub const IVPos_DRADPR: IVPos = 100;
-pub const IVPos_DTYPE: IVPos = 15;
-pub const IVPos_IERR: IVPos = 74;
-pub const IVPos_INITH: IVPos = 24;
-pub const IVPos_INITS: IVPos = 24;
-pub const IVPos_IPIVOT: IVPos = 75;
-pub const IVPos_IVNEED: IVPos = 2;
-pub const IVPos_LASTIV: IVPos = 42;
-pub const IVPos_LASTV: IVPos = 44;
-pub const IVPos_LMAT: IVPos = 41;
-pub const IVPos_MXFCAL: IVPos = 16;
-pub const IVPos_MXITER: IVPos = 17;
-pub const IVPos_NEXTV: IVPos = 46;
-pub const IVPos_NFCALL: IVPos = 5;
-pub const IVPos_NFCOV: IVPos = 51;
-pub const IVPos_NFGCAL: IVPos = 6;
-pub const IVPos_NGCOV: IVPos = 52;
-pub const IVPos_NITER: IVPos = 30;
-pub const IVPos_NVDFLT: IVPos = 49;
-pub const IVPos_NVSAVE: IVPos = 8;
-pub const IVPos_OUTLEV: IVPos = 18;
-pub const IVPos_PARPRT: IVPos = 19;
-pub const IVPos_PARSAV: IVPos = 48;
-pub const IVPos_PERM: IVPos = 57;
-pub const IVPos_PRUNIT: IVPos = 20;
-pub const IVPos_QRTYP: IVPos = 79;
-pub const IVPos_RDREQ: IVPos = 56;
-pub const IVPos_RMAT: IVPos = 77;
-pub const IVPos_SOLPRT: IVPos = 21;
-pub const IVPos_STATPR: IVPos = 22;
-pub const IVPos_TOOBIG: IVPos = 1;
-pub const IVPos_VNEED: IVPos = 3;
-pub const IVPos_VSAVE: IVPos = 59;
-pub const IVPos_X0PRT: IVPos = 23;
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum VPos {
+    F = 9,
+    F0 = 12,
+    FDIF = 10,
+    G = 27,
+    HC = 70,
+}
+impl IVPos {
+    pub const INITS: IVPos = IVPos::INITH;
+}
+#[repr(i32)]
 #[doc = " 0-based indices into iv"]
-pub type IVPos = ::std::os::raw::c_int;
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum IVPos {
+    AI = 90,
+    AM = 94,
+    ALGSAV = 50,
+    COVMAT = 25,
+    COVPRT = 13,
+    COVREQ = 14,
+    DRADPR = 100,
+    DTYPE = 15,
+    IERR = 74,
+    INITH = 24,
+    IPIVOT = 75,
+    IVNEED = 2,
+    LASTIV = 42,
+    LASTV = 44,
+    LMAT = 41,
+    MXFCAL = 16,
+    MXITER = 17,
+    NEXTV = 46,
+    NFCALL = 5,
+    NFCOV = 51,
+    NFGCAL = 6,
+    NGCOV = 52,
+    NITER = 30,
+    NVDFLT = 49,
+    NVSAVE = 8,
+    OUTLEV = 18,
+    PARPRT = 19,
+    PARSAV = 48,
+    PERM = 57,
+    PRUNIT = 20,
+    QRTYP = 79,
+    RDREQ = 56,
+    RMAT = 77,
+    SOLPRT = 21,
+    STATPR = 22,
+    TOOBIG = 1,
+    VNEED = 3,
+    VSAVE = 59,
+    X0PRT = 23,
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __crt_locale_data {

@@ -617,11 +617,14 @@ fn bindgen_test_layout__float_const() {
         )
     );
 }
-#[doc = ", MAYBE"]
-pub const Rboolean_FALSE: Rboolean = 0;
-#[doc = ", MAYBE"]
-pub const Rboolean_TRUE: Rboolean = 1;
-pub type Rboolean = ::std::os::raw::c_int;
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum Rboolean {
+    #[doc = ", MAYBE"]
+    FALSE = 0,
+    #[doc = ", MAYBE"]
+    TRUE = 1,
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __crt_locale_data {

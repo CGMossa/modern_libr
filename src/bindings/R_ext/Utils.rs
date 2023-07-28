@@ -7,11 +7,14 @@ pub struct __BindgenComplex<T> {
     pub im: T,
 }
 pub type max_align_t = f64;
-#[doc = ", MAYBE"]
-pub const Rboolean_FALSE: Rboolean = 0;
-#[doc = ", MAYBE"]
-pub const Rboolean_TRUE: Rboolean = 1;
-pub type Rboolean = ::std::os::raw::c_int;
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum Rboolean {
+    #[doc = ", MAYBE"]
+    FALSE = 0,
+    #[doc = ", MAYBE"]
+    TRUE = 1,
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union Rcomplex {

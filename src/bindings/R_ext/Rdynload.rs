@@ -2,11 +2,14 @@
 
 pub const SINGLESXP: u32 = 302;
 pub type max_align_t = f64;
-#[doc = ", MAYBE"]
-pub const Rboolean_FALSE: Rboolean = 0;
-#[doc = ", MAYBE"]
-pub const Rboolean_TRUE: Rboolean = 1;
-pub type Rboolean = ::std::os::raw::c_int;
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum Rboolean {
+    #[doc = ", MAYBE"]
+    FALSE = 0,
+    #[doc = ", MAYBE"]
+    TRUE = 1,
+}
 #[doc = " Called with a variable argument set after casting to a compatible\nfunction pointer."]
 pub type DL_FUNC = ::std::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>;
 pub type R_NativePrimitiveArgType = ::std::os::raw::c_uint;
@@ -141,12 +144,15 @@ pub struct Rf_RegisteredNativeSymbol {
     _unused: [u8; 0],
 }
 pub type R_RegisteredNativeSymbol = Rf_RegisteredNativeSymbol;
-pub const NativeSymbolType_R_ANY_SYM: NativeSymbolType = 0;
-pub const NativeSymbolType_R_C_SYM: NativeSymbolType = 1;
-pub const NativeSymbolType_R_CALL_SYM: NativeSymbolType = 2;
-pub const NativeSymbolType_R_FORTRAN_SYM: NativeSymbolType = 3;
-pub const NativeSymbolType_R_EXTERNAL_SYM: NativeSymbolType = 4;
-pub type NativeSymbolType = ::std::os::raw::c_int;
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum NativeSymbolType {
+    R_ANY_SYM = 0,
+    R_C_SYM = 1,
+    R_CALL_SYM = 2,
+    R_FORTRAN_SYM = 3,
+    R_EXTERNAL_SYM = 4,
+}
 extern "C" {
     pub fn R_registerRoutines(
         info: *mut DllInfo,

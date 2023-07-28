@@ -82,26 +82,35 @@ where
 }
 pub const RSTART_VERSION: u32 = 1;
 pub type max_align_t = f64;
-#[doc = ", MAYBE"]
-pub const Rboolean_FALSE: Rboolean = 0;
-#[doc = ", MAYBE"]
-pub const Rboolean_TRUE: Rboolean = 1;
-pub type Rboolean = ::std::os::raw::c_int;
-pub const UImode_RGui: UImode = 0;
-pub const UImode_RTerm: UImode = 1;
-pub const UImode_LinkDLL: UImode = 2;
-pub type UImode = ::std::os::raw::c_int;
-#[doc = " = 0"]
-pub const SA_TYPE_SA_NORESTORE: SA_TYPE = 0;
-pub const SA_TYPE_SA_RESTORE: SA_TYPE = 1;
-#[doc = " was === SA_RESTORE"]
-pub const SA_TYPE_SA_DEFAULT: SA_TYPE = 2;
-pub const SA_TYPE_SA_NOSAVE: SA_TYPE = 3;
-pub const SA_TYPE_SA_SAVE: SA_TYPE = 4;
-pub const SA_TYPE_SA_SAVEASK: SA_TYPE = 5;
-pub const SA_TYPE_SA_SUICIDE: SA_TYPE = 6;
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum Rboolean {
+    #[doc = ", MAYBE"]
+    FALSE = 0,
+    #[doc = ", MAYBE"]
+    TRUE = 1,
+}
+#[repr(i32)]
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum UImode {
+    RGui = 0,
+    RTerm = 1,
+    LinkDLL = 2,
+}
+#[repr(i32)]
 #[doc = " Startup Actions"]
-pub type SA_TYPE = ::std::os::raw::c_int;
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum SA_TYPE {
+    #[doc = " = 0"]
+    SA_NORESTORE = 0,
+    SA_RESTORE = 1,
+    #[doc = " was === SA_RESTORE"]
+    SA_DEFAULT = 2,
+    SA_NOSAVE = 3,
+    SA_SAVE = 4,
+    SA_SAVEASK = 5,
+    SA_SUICIDE = 6,
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct structRstart {
