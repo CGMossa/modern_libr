@@ -33,6 +33,7 @@ fn main() {
     let r_path = r_home.join("bin/x64/R");
 
     let binder = bindgen::builder()
+        .layout_tests(false)
         .header("wrapper_head.h")
         .blocklist_file(".*stddef\\.h")
         .blocklist_file(".*wrapper_header\\.h")
