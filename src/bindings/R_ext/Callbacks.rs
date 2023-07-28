@@ -187,12 +187,13 @@ pub const IDENT_USE_SRCREF: u32 = 32;
 pub const IDENT_EXTPTR_AS_REF: u32 = 64;
 pub const HT_TYPE_IDENTICAL: u32 = 0;
 pub const HT_TYPE_ADDRESS: u32 = 1;
+pub type wchar_t = ::std::os::raw::c_ushort;
+pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
 pub type __vcrt_bool = bool;
-pub type wchar_t = ::std::os::raw::c_ushort;
 extern "C" {
     pub fn __security_init_cookie();
 }
@@ -1073,7 +1074,6 @@ extern "C" {
 extern "C" {
     pub fn rmtmp() -> ::std::os::raw::c_int;
 }
-pub type max_align_t = f64;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _exception {
@@ -2199,13 +2199,13 @@ fn bindgen_test_layout_Rcomplex() {
     );
 }
 extern "C" {
-    pub fn Rf_error(arg1: *const ::std::os::raw::c_char, ...);
+    pub fn Rf_error(arg1: *const ::std::os::raw::c_char, ...) -> !;
 }
 extern "C" {
-    pub fn UNIMPLEMENTED(arg1: *const ::std::os::raw::c_char);
+    pub fn UNIMPLEMENTED(arg1: *const ::std::os::raw::c_char) -> !;
 }
 extern "C" {
-    pub fn WrongArgCount(arg1: *const ::std::os::raw::c_char);
+    pub fn WrongArgCount(arg1: *const ::std::os::raw::c_char) -> !;
 }
 extern "C" {
     pub fn Rf_warning(arg1: *const ::std::os::raw::c_char, ...);
@@ -2317,6 +2317,11 @@ extern "C" {
 }
 extern "C" {
     pub fn R_ExpandFileName(arg1: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn R_ExpandFileNameUTF8(
+        arg1: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
     pub fn Rf_setIVector(
@@ -2737,7 +2742,7 @@ extern "C" {
     pub fn STRING_PTR_RO(x: SEXP) -> *const SEXP;
 }
 extern "C" {
-    pub fn VECTOR_PTR(x: SEXP) -> *mut SEXP;
+    pub fn VECTOR_PTR(x: SEXP) -> !;
 }
 extern "C" {
     pub fn INTEGER_GET_REGION(
@@ -3577,7 +3582,7 @@ extern "C" {
     pub fn R_MakeUnwindCont() -> SEXP;
 }
 extern "C" {
-    pub fn R_ContinueUnwind(cont: SEXP);
+    pub fn R_ContinueUnwind(cont: SEXP) -> !;
 }
 extern "C" {
     pub fn R_UnwindProtect(
@@ -3639,7 +3644,7 @@ extern "C" {
     pub fn R_HasFancyBindings(rho: SEXP) -> Rboolean;
 }
 extern "C" {
-    pub fn Rf_errorcall(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...);
+    pub fn Rf_errorcall(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...) -> !;
 }
 extern "C" {
     pub fn Rf_warningcall(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...);

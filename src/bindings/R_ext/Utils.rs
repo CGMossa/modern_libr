@@ -6,6 +6,8 @@ pub struct __BindgenComplex<T> {
     pub re: T,
     pub im: T,
 }
+pub type wchar_t = ::std::os::raw::c_ushort;
+pub type max_align_t = f64;
 pub const Rboolean_FALSE: Rboolean = 0;
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
@@ -82,8 +84,6 @@ fn bindgen_test_layout_Rcomplex() {
         )
     );
 }
-pub type wchar_t = ::std::os::raw::c_ushort;
-pub type max_align_t = f64;
 extern "C" {
     pub fn R_isort(arg1: *mut ::std::os::raw::c_int, arg2: ::std::os::raw::c_int);
 }
@@ -144,6 +144,11 @@ extern "C" {
 }
 extern "C" {
     pub fn R_ExpandFileName(arg1: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn R_ExpandFileNameUTF8(
+        arg1: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
 }
 extern "C" {
     pub fn Rf_setIVector(

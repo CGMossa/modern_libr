@@ -9,3 +9,5 @@ pub const R_YEAR: &[u8; 5] = b"2023\0";
 pub const R_MONTH: &[u8; 3] = b"06\0";
 pub const R_DAY: &[u8; 3] = b"16\0";
 pub const R_SVN_REVISION: u32 = 84548;
+pub type wchar_t = ::std::os::raw::c_ushort;
+pub type max_align_t = f64;

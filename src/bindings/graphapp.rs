@@ -241,12 +241,13 @@ pub const GA_Focus: u32 = 32;
 pub const YES: u32 = 1;
 pub const NO: i32 = -1;
 pub const CANCEL: u32 = 0;
+pub type wchar_t = ::std::os::raw::c_ushort;
+pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
 pub type __vcrt_bool = bool;
-pub type wchar_t = ::std::os::raw::c_ushort;
 extern "C" {
     pub fn __security_init_cookie();
 }
@@ -1241,7 +1242,6 @@ extern "C" {
         _Alignment: usize,
     ) -> *mut ::std::os::raw::c_void;
 }
-pub type max_align_t = f64;
 pub type _CoreCrtSecureSearchSortCompareFunction = ::std::option::Option<
     unsafe extern "C" fn(
         arg1: *mut ::std::os::raw::c_void,

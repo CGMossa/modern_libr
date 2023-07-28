@@ -112,12 +112,55 @@ pub const M_LN_2PI: f64 = 1.8378770664093456;
 pub const M_LN_SQRT_PI: f64 = 0.5723649429247001;
 pub const M_LN_SQRT_2PI: f64 = 0.9189385332046728;
 pub const M_LN_SQRT_PId2: f64 = 0.22579135264472744;
+pub type wchar_t = ::std::os::raw::c_ushort;
+pub type max_align_t = f64;
+#[doc = " <div rustbindgen replaces=\"Rcomplex\"></div>"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct Rcomplex {
+    pub r: f64,
+    pub i: f64,
+}
+#[test]
+fn bindgen_test_layout_Rcomplex() {
+    const UNINIT: ::std::mem::MaybeUninit<Rcomplex> = ::std::mem::MaybeUninit::uninit();
+    let ptr = UNINIT.as_ptr();
+    assert_eq!(
+        ::std::mem::size_of::<Rcomplex>(),
+        16usize,
+        concat!("Size of: ", stringify!(Rcomplex))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<Rcomplex>(),
+        8usize,
+        concat!("Alignment of ", stringify!(Rcomplex))
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).r) as usize - ptr as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(Rcomplex),
+            "::",
+            stringify!(r)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).i) as usize - ptr as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(Rcomplex),
+            "::",
+            stringify!(i)
+        )
+    );
+}
 pub type va_list = *mut ::std::os::raw::c_char;
 extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
 pub type __vcrt_bool = bool;
-pub type wchar_t = ::std::os::raw::c_ushort;
 extern "C" {
     pub fn __security_init_cookie();
 }
@@ -1348,10 +1391,10 @@ extern "C" {
     pub fn exp_rand() -> f64;
 }
 extern "C" {
-    pub fn Rf_dnorm4(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dnorm4(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pnorm5(
+    pub fn pnorm5(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1360,7 +1403,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qnorm5(
+    pub fn qnorm5(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1369,10 +1412,10 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rnorm(arg1: f64, arg2: f64) -> f64;
+    pub fn rnorm(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_pnorm_both(
+    pub fn pnorm_both(
         arg1: f64,
         arg2: *mut f64,
         arg3: *mut f64,
@@ -1381,10 +1424,10 @@ extern "C" {
     );
 }
 extern "C" {
-    pub fn Rf_dunif(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dunif(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_punif(
+    pub fn punif(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1393,7 +1436,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qunif(
+    pub fn qunif(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1402,13 +1445,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_runif(arg1: f64, arg2: f64) -> f64;
+    pub fn runif(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dgamma(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dgamma(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pgamma(
+    pub fn pgamma(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1417,7 +1460,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qgamma(
+    pub fn qgamma(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1426,34 +1469,34 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rgamma(arg1: f64, arg2: f64) -> f64;
+    pub fn rgamma(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_log1pmx(arg1: f64) -> f64;
+    pub fn log1pmx(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_log1pexp(arg1: f64) -> f64;
+    pub fn log1pexp(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_log1mexp(arg1: f64) -> f64;
+    pub fn log1mexp(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_lgamma1p(arg1: f64) -> f64;
+    pub fn lgamma1p(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_logspace_add(arg1: f64, arg2: f64) -> f64;
+    pub fn logspace_add(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_logspace_sub(arg1: f64, arg2: f64) -> f64;
+    pub fn logspace_sub(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_logspace_sum(arg1: *const f64, arg2: ::std::os::raw::c_int) -> f64;
+    pub fn logspace_sum(arg1: *const f64, arg2: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_dbeta(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dbeta(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pbeta(
+    pub fn pbeta(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1462,7 +1505,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qbeta(
+    pub fn qbeta(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1471,13 +1514,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rbeta(arg1: f64, arg2: f64) -> f64;
+    pub fn rbeta(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dlnorm(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dlnorm(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_plnorm(
+    pub fn plnorm(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1486,7 +1529,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qlnorm(
+    pub fn qlnorm(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1495,13 +1538,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rlnorm(arg1: f64, arg2: f64) -> f64;
+    pub fn rlnorm(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dchisq(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
+    pub fn dchisq(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pchisq(
+    pub fn pchisq(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1509,7 +1552,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qchisq(
+    pub fn qchisq(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1517,13 +1560,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rchisq(arg1: f64) -> f64;
+    pub fn rchisq(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dnchisq(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dnchisq(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pnchisq(
+    pub fn pnchisq(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1532,7 +1575,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qnchisq(
+    pub fn qnchisq(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1541,13 +1584,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rnchisq(arg1: f64, arg2: f64) -> f64;
+    pub fn rnchisq(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_df(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn df(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pf(
+    pub fn pf(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1556,7 +1599,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qf(
+    pub fn qf(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1565,13 +1608,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rf(arg1: f64, arg2: f64) -> f64;
+    pub fn rf(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dt(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
+    pub fn dt(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pt(
+    pub fn pt(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1579,7 +1622,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qt(
+    pub fn qt(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1587,16 +1630,16 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rt(arg1: f64) -> f64;
+    pub fn rt(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dbinom_raw(x: f64, n: f64, p: f64, q: f64, give_log: ::std::os::raw::c_int) -> f64;
+    pub fn dbinom_raw(x: f64, n: f64, p: f64, q: f64, give_log: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_dbinom(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dbinom(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pbinom(
+    pub fn pbinom(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1605,7 +1648,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qbinom(
+    pub fn qbinom(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1614,10 +1657,10 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rbinom(arg1: f64, arg2: f64) -> f64;
+    pub fn rbinom(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_rmultinom(
+    pub fn rmultinom(
         arg1: ::std::os::raw::c_int,
         arg2: *mut f64,
         arg3: ::std::os::raw::c_int,
@@ -1625,10 +1668,10 @@ extern "C" {
     );
 }
 extern "C" {
-    pub fn Rf_dcauchy(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dcauchy(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pcauchy(
+    pub fn pcauchy(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1637,7 +1680,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qcauchy(
+    pub fn qcauchy(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1646,13 +1689,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rcauchy(arg1: f64, arg2: f64) -> f64;
+    pub fn rcauchy(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dexp(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
+    pub fn dexp(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pexp(
+    pub fn pexp(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1660,7 +1703,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qexp(
+    pub fn qexp(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1668,13 +1711,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rexp(arg1: f64) -> f64;
+    pub fn rexp(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dgeom(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
+    pub fn dgeom(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pgeom(
+    pub fn pgeom(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1682,7 +1725,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qgeom(
+    pub fn qgeom(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1690,19 +1733,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rgeom(arg1: f64) -> f64;
+    pub fn rgeom(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dhyper(
-        arg1: f64,
-        arg2: f64,
-        arg3: f64,
-        arg4: f64,
-        arg5: ::std::os::raw::c_int,
-    ) -> f64;
+    pub fn dhyper(arg1: f64, arg2: f64, arg3: f64, arg4: f64, arg5: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_phyper(
+    pub fn phyper(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1712,7 +1749,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qhyper(
+    pub fn qhyper(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1722,13 +1759,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rhyper(arg1: f64, arg2: f64, arg3: f64) -> f64;
+    pub fn rhyper(arg1: f64, arg2: f64, arg3: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dnbinom(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dnbinom(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pnbinom(
+    pub fn pnbinom(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1737,7 +1774,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qnbinom(
+    pub fn qnbinom(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1746,13 +1783,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rnbinom(arg1: f64, arg2: f64) -> f64;
+    pub fn rnbinom(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dnbinom_mu(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dnbinom_mu(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pnbinom_mu(
+    pub fn pnbinom_mu(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1761,7 +1798,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qnbinom_mu(
+    pub fn qnbinom_mu(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1770,16 +1807,16 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rnbinom_mu(arg1: f64, arg2: f64) -> f64;
+    pub fn rnbinom_mu(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dpois_raw(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
+    pub fn dpois_raw(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_dpois(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
+    pub fn dpois(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_ppois(
+    pub fn ppois(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1787,7 +1824,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qpois(
+    pub fn qpois(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1795,13 +1832,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rpois(arg1: f64) -> f64;
+    pub fn rpois(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dweibull(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dweibull(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pweibull(
+    pub fn pweibull(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1810,7 +1847,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qweibull(
+    pub fn qweibull(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1819,13 +1856,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rweibull(arg1: f64, arg2: f64) -> f64;
+    pub fn rweibull(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dlogis(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dlogis(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_plogis(
+    pub fn plogis(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1834,7 +1871,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qlogis(
+    pub fn qlogis(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1843,19 +1880,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rlogis(arg1: f64, arg2: f64) -> f64;
+    pub fn rlogis(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dnbeta(
-        arg1: f64,
-        arg2: f64,
-        arg3: f64,
-        arg4: f64,
-        arg5: ::std::os::raw::c_int,
-    ) -> f64;
+    pub fn dnbeta(arg1: f64, arg2: f64, arg3: f64, arg4: f64, arg5: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pnbeta(
+    pub fn pnbeta(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1865,7 +1896,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qnbeta(
+    pub fn qnbeta(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1875,13 +1906,13 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rnbeta(arg1: f64, arg2: f64, arg3: f64) -> f64;
+    pub fn rnbeta(arg1: f64, arg2: f64, arg3: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_dnf(arg1: f64, arg2: f64, arg3: f64, arg4: f64, arg5: ::std::os::raw::c_int) -> f64;
+    pub fn dnf(arg1: f64, arg2: f64, arg3: f64, arg4: f64, arg5: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pnf(
+    pub fn pnf(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1891,7 +1922,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qnf(
+    pub fn qnf(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1901,10 +1932,10 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_dnt(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dnt(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pnt(
+    pub fn pnt(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1913,7 +1944,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qnt(
+    pub fn qnt(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1922,7 +1953,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_ptukey(
+    pub fn ptukey(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1932,7 +1963,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qtukey(
+    pub fn qtukey(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1942,10 +1973,10 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_dwilcox(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
+    pub fn dwilcox(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_pwilcox(
+    pub fn pwilcox(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1954,7 +1985,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qwilcox(
+    pub fn qwilcox(
         arg1: f64,
         arg2: f64,
         arg3: f64,
@@ -1963,16 +1994,16 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rwilcox(arg1: f64, arg2: f64) -> f64;
+    pub fn rwilcox(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
     pub fn wilcox_free();
 }
 extern "C" {
-    pub fn Rf_dsignrank(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
+    pub fn dsignrank(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_psignrank(
+    pub fn psignrank(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1980,7 +2011,7 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_qsignrank(
+    pub fn qsignrank(
         arg1: f64,
         arg2: f64,
         arg3: ::std::os::raw::c_int,
@@ -1988,22 +2019,22 @@ extern "C" {
     ) -> f64;
 }
 extern "C" {
-    pub fn Rf_rsignrank(arg1: f64) -> f64;
+    pub fn rsignrank(arg1: f64) -> f64;
 }
 extern "C" {
     pub fn signrank_free();
 }
 extern "C" {
-    pub fn Rf_gammafn(arg1: f64) -> f64;
+    pub fn gammafn(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_lgammafn(arg1: f64) -> f64;
+    pub fn lgammafn(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_lgammafn_sign(arg1: f64, arg2: *mut ::std::os::raw::c_int) -> f64;
+    pub fn lgammafn_sign(arg1: f64, arg2: *mut ::std::os::raw::c_int) -> f64;
 }
 extern "C" {
-    pub fn Rf_dpsifn(
+    pub fn dpsifn(
         arg1: f64,
         arg2: ::std::os::raw::c_int,
         arg3: ::std::os::raw::c_int,
@@ -2014,88 +2045,84 @@ extern "C" {
     );
 }
 extern "C" {
-    pub fn Rf_psigamma(arg1: f64, arg2: f64) -> f64;
+    pub fn psigamma(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_digamma(arg1: f64) -> f64;
+    pub fn digamma(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_trigamma(arg1: f64) -> f64;
+    pub fn trigamma(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_tetragamma(arg1: f64) -> f64;
+    pub fn tetragamma(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_pentagamma(arg1: f64) -> f64;
+    pub fn pentagamma(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_beta(arg1: f64, arg2: f64) -> f64;
+    pub fn beta(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_lbeta(arg1: f64, arg2: f64) -> f64;
+    pub fn lbeta(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_choose(arg1: f64, arg2: f64) -> f64;
+    pub fn choose(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_lchoose(arg1: f64, arg2: f64) -> f64;
+    pub fn lchoose(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_bessel_i(arg1: f64, arg2: f64, arg3: f64) -> f64;
+    pub fn bessel_i(arg1: f64, arg2: f64, arg3: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_bessel_j(arg1: f64, arg2: f64) -> f64;
+    pub fn bessel_j(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_bessel_k(arg1: f64, arg2: f64, arg3: f64) -> f64;
+    pub fn bessel_k(arg1: f64, arg2: f64, arg3: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_bessel_y(arg1: f64, arg2: f64) -> f64;
+    pub fn bessel_y(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_bessel_i_ex(arg1: f64, arg2: f64, arg3: f64, arg4: *mut f64) -> f64;
+    pub fn bessel_i_ex(arg1: f64, arg2: f64, arg3: f64, arg4: *mut f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_bessel_j_ex(arg1: f64, arg2: f64, arg3: *mut f64) -> f64;
+    pub fn bessel_j_ex(arg1: f64, arg2: f64, arg3: *mut f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_bessel_k_ex(arg1: f64, arg2: f64, arg3: f64, arg4: *mut f64) -> f64;
+    pub fn bessel_k_ex(arg1: f64, arg2: f64, arg3: f64, arg4: *mut f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_bessel_y_ex(arg1: f64, arg2: f64, arg3: *mut f64) -> f64;
+    pub fn bessel_y_ex(arg1: f64, arg2: f64, arg3: *mut f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_imax2(
-        arg1: ::std::os::raw::c_int,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
+    pub fn imax2(arg1: ::std::os::raw::c_int, arg2: ::std::os::raw::c_int)
+        -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn Rf_imin2(
-        arg1: ::std::os::raw::c_int,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
+    pub fn imin2(arg1: ::std::os::raw::c_int, arg2: ::std::os::raw::c_int)
+        -> ::std::os::raw::c_int;
 }
 extern "C" {
-    pub fn Rf_fmax2(arg1: f64, arg2: f64) -> f64;
+    pub fn fmax2(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_fmin2(arg1: f64, arg2: f64) -> f64;
+    pub fn fmin2(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_sign(arg1: f64) -> f64;
+    pub fn sign(arg1: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_fprec(arg1: f64, arg2: f64) -> f64;
+    pub fn fprec(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_fround(arg1: f64, arg2: f64) -> f64;
+    pub fn fround(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_fsign(arg1: f64, arg2: f64) -> f64;
+    pub fn fsign(arg1: f64, arg2: f64) -> f64;
 }
 extern "C" {
-    pub fn Rf_ftrunc(arg1: f64) -> f64;
+    pub fn ftrunc(arg1: f64) -> f64;
 }
 extern "C" {
     pub fn cospi(arg1: f64) -> f64;

@@ -125,6 +125,8 @@ pub const ENABLE_NLS: u32 = 1;
 pub const PR18534fixed: u32 = 1;
 pub const SIZEOF_SIZE_T: u32 = 8;
 pub const HAVE_UINTPTR_T: u32 = 1;
+pub type wchar_t = ::std::os::raw::c_ushort;
+pub type max_align_t = f64;
 pub const Rboolean_FALSE: Rboolean = 0;
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
@@ -133,7 +135,6 @@ extern "C" {
     pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
 }
 pub type __vcrt_bool = bool;
-pub type wchar_t = ::std::os::raw::c_ushort;
 extern "C" {
     pub fn __security_init_cookie();
 }
@@ -1065,7 +1066,6 @@ extern "C" {
 extern "C" {
     pub fn strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
 }
-pub type max_align_t = f64;
 extern "C" {
     pub fn R_chk_calloc(arg1: usize, arg2: usize) -> *mut ::std::os::raw::c_void;
 }

@@ -86,6 +86,10 @@ pub type max_align_t = f64;
 pub const Rboolean_FALSE: Rboolean = 0;
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
+pub const UImode_RGui: UImode = 0;
+pub const UImode_RTerm: UImode = 1;
+pub const UImode_LinkDLL: UImode = 2;
+pub type UImode = ::std::os::raw::c_int;
 pub const SA_TYPE_SA_NORESTORE: SA_TYPE = 0;
 pub const SA_TYPE_SA_RESTORE: SA_TYPE = 1;
 pub const SA_TYPE_SA_DEFAULT: SA_TYPE = 2;
@@ -113,7 +117,46 @@ pub struct structRstart {
     pub ppsize: usize,
     pub _bitfield_align_1: [u16; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-    pub __bindgen_padding_0: u32,
+    pub rhome: *mut ::std::os::raw::c_char,
+    pub home: *mut ::std::os::raw::c_char,
+    pub ReadConsole: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *const ::std::os::raw::c_char,
+            arg2: *mut ::std::os::raw::c_uchar,
+            arg3: ::std::os::raw::c_int,
+            arg4: ::std::os::raw::c_int,
+        ) -> ::std::os::raw::c_int,
+    >,
+    pub WriteConsole: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *const ::std::os::raw::c_char, arg2: ::std::os::raw::c_int),
+    >,
+    pub CallBack: ::std::option::Option<unsafe extern "C" fn()>,
+    pub ShowMessage:
+        ::std::option::Option<unsafe extern "C" fn(arg1: *const ::std::os::raw::c_char)>,
+    pub YesNoCancel: ::std::option::Option<
+        unsafe extern "C" fn(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int,
+    >,
+    pub Busy: ::std::option::Option<unsafe extern "C" fn(arg1: ::std::os::raw::c_int)>,
+    pub CharacterMode: UImode,
+    pub WriteConsoleEx: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: *const ::std::os::raw::c_char,
+            arg2: ::std::os::raw::c_int,
+            arg3: ::std::os::raw::c_int,
+        ),
+    >,
+    pub EmitEmbeddedUTF8: Rboolean,
+    pub CleanUp: ::std::option::Option<
+        unsafe extern "C" fn(
+            arg1: SA_TYPE,
+            arg2: ::std::os::raw::c_int,
+            arg3: ::std::os::raw::c_int,
+        ),
+    >,
+    pub ClearerrConsole: ::std::option::Option<unsafe extern "C" fn()>,
+    pub FlushConsole: ::std::option::Option<unsafe extern "C" fn()>,
+    pub ResetConsole: ::std::option::Option<unsafe extern "C" fn()>,
+    pub Suicide: ::std::option::Option<unsafe extern "C" fn(s: *const ::std::os::raw::c_char)>,
 }
 #[test]
 fn bindgen_test_layout_structRstart() {
@@ -121,7 +164,7 @@ fn bindgen_test_layout_structRstart() {
     let ptr = UNINIT.as_ptr();
     assert_eq!(
         ::std::mem::size_of::<structRstart>(),
-        88usize,
+        216usize,
         concat!("Size of: ", stringify!(structRstart))
     );
     assert_eq!(
@@ -267,6 +310,166 @@ fn bindgen_test_layout_structRstart() {
             stringify!(structRstart),
             "::",
             stringify!(ppsize)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).rhome) as usize - ptr as usize },
+        88usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(rhome)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).home) as usize - ptr as usize },
+        96usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(home)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ReadConsole) as usize - ptr as usize },
+        104usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(ReadConsole)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).WriteConsole) as usize - ptr as usize },
+        112usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(WriteConsole)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).CallBack) as usize - ptr as usize },
+        120usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(CallBack)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ShowMessage) as usize - ptr as usize },
+        128usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(ShowMessage)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).YesNoCancel) as usize - ptr as usize },
+        136usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(YesNoCancel)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).Busy) as usize - ptr as usize },
+        144usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(Busy)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).CharacterMode) as usize - ptr as usize },
+        152usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(CharacterMode)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).WriteConsoleEx) as usize - ptr as usize },
+        160usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(WriteConsoleEx)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).EmitEmbeddedUTF8) as usize - ptr as usize },
+        168usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(EmitEmbeddedUTF8)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).CleanUp) as usize - ptr as usize },
+        176usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(CleanUp)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ClearerrConsole) as usize - ptr as usize },
+        184usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(ClearerrConsole)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).FlushConsole) as usize - ptr as usize },
+        192usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(FlushConsole)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).ResetConsole) as usize - ptr as usize },
+        200usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(ResetConsole)
+        )
+    );
+    assert_eq!(
+        unsafe { ::std::ptr::addr_of!((*ptr).Suicide) as usize - ptr as usize },
+        208usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(structRstart),
+            "::",
+            stringify!(Suicide)
         )
     );
 }
