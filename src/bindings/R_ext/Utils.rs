@@ -27,67 +27,6 @@ pub struct Rcomplex__bindgen_ty_1 {
     pub r: f64,
     pub i: f64,
 }
-#[test]
-fn bindgen_test_layout_Rcomplex__bindgen_ty_1() {
-    const UNINIT: ::std::mem::MaybeUninit<Rcomplex__bindgen_ty_1> =
-        ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<Rcomplex__bindgen_ty_1>(),
-        16usize,
-        concat!("Size of: ", stringify!(Rcomplex__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<Rcomplex__bindgen_ty_1>(),
-        8usize,
-        concat!("Alignment of ", stringify!(Rcomplex__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).r) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(Rcomplex__bindgen_ty_1),
-            "::",
-            stringify!(r)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).i) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(Rcomplex__bindgen_ty_1),
-            "::",
-            stringify!(i)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_Rcomplex() {
-    const UNINIT: ::std::mem::MaybeUninit<Rcomplex> = ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<Rcomplex>(),
-        16usize,
-        concat!("Size of: ", stringify!(Rcomplex))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<Rcomplex>(),
-        8usize,
-        concat!("Alignment of ", stringify!(Rcomplex))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).private_data_c) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(Rcomplex),
-            "::",
-            stringify!(private_data_c)
-        )
-    );
-}
 extern "C" {
     #[doc = " ../../main/sort.c :"]
     pub fn R_isort(arg1: *mut ::std::os::raw::c_int, arg2: ::std::os::raw::c_int);

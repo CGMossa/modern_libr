@@ -22,61 +22,6 @@ pub struct R_CMethodDef {
     pub numArgs: ::std::os::raw::c_int,
     pub types: *mut R_NativePrimitiveArgType,
 }
-#[test]
-fn bindgen_test_layout_R_CMethodDef() {
-    const UNINIT: ::std::mem::MaybeUninit<R_CMethodDef> = ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<R_CMethodDef>(),
-        32usize,
-        concat!("Size of: ", stringify!(R_CMethodDef))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<R_CMethodDef>(),
-        8usize,
-        concat!("Alignment of ", stringify!(R_CMethodDef))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(R_CMethodDef),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).fun) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(R_CMethodDef),
-            "::",
-            stringify!(fun)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).numArgs) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(R_CMethodDef),
-            "::",
-            stringify!(numArgs)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).types) as usize - ptr as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(R_CMethodDef),
-            "::",
-            stringify!(types)
-        )
-    );
-}
 #[doc = "These are very similar to those in Rdynpriv.h,\nbut we maintain them separately to give us more freedom to do\nsome computations on the internal versions that are derived from\nthese definitions."]
 pub type R_FortranMethodDef = R_CMethodDef;
 #[repr(C)]
@@ -85,51 +30,6 @@ pub struct R_CallMethodDef {
     pub name: *const ::std::os::raw::c_char,
     pub fun: DL_FUNC,
     pub numArgs: ::std::os::raw::c_int,
-}
-#[test]
-fn bindgen_test_layout_R_CallMethodDef() {
-    const UNINIT: ::std::mem::MaybeUninit<R_CallMethodDef> = ::std::mem::MaybeUninit::uninit();
-    let ptr = UNINIT.as_ptr();
-    assert_eq!(
-        ::std::mem::size_of::<R_CallMethodDef>(),
-        24usize,
-        concat!("Size of: ", stringify!(R_CallMethodDef))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<R_CallMethodDef>(),
-        8usize,
-        concat!("Alignment of ", stringify!(R_CallMethodDef))
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).name) as usize - ptr as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(R_CallMethodDef),
-            "::",
-            stringify!(name)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).fun) as usize - ptr as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(R_CallMethodDef),
-            "::",
-            stringify!(fun)
-        )
-    );
-    assert_eq!(
-        unsafe { ::std::ptr::addr_of!((*ptr).numArgs) as usize - ptr as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(R_CallMethodDef),
-            "::",
-            stringify!(numArgs)
-        )
-    );
 }
 pub type R_ExternalMethodDef = R_CallMethodDef;
 #[repr(C)]
