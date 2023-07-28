@@ -33,6 +33,7 @@ fn main() {
     let binder = bindgen::builder()
         .header("wrapper_head.h")
         .blocklist_file(".*wrapper_header\\.h")
+        .merge_extern_blocks(true)
         //FIXME: enable this maybe?
         .allowlist_recursively(false)
         .clang_arg(format!("-I{}", r_include.display()));
