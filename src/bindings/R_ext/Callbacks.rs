@@ -682,7 +682,9 @@ fn bindgen_test_layout__float_const() {
         )
     );
 }
+#[doc = ", MAYBE"]
 pub const Rboolean_FALSE: Rboolean = 0;
+#[doc = ", MAYBE"]
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
 #[repr(C)]
@@ -759,8 +761,10 @@ fn bindgen_test_layout_Rcomplex() {
     );
 }
 pub type __gnuc_va_list = __builtin_va_list;
+#[doc = " Called with a variable argument set after casting to a compatible\nfunction pointer."]
 pub type DL_FUNC = ::std::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>;
 pub type R_NativePrimitiveArgType = ::std::os::raw::c_uint;
+#[doc = "These are very similar to those in Rdynpriv.h,\nbut we maintain them separately to give us more freedom to do\nsome computations on the internal versions that are derived from\nthese definitions."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct R_CMethodDef {
@@ -824,6 +828,7 @@ fn bindgen_test_layout_R_CMethodDef() {
         )
     );
 }
+#[doc = "These are very similar to those in Rdynpriv.h,\nbut we maintain them separately to give us more freedom to do\nsome computations on the internal versions that are derived from\nthese definitions."]
 pub type R_FortranMethodDef = R_CMethodDef;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -897,8 +902,10 @@ pub const NativeSymbolType_R_FORTRAN_SYM: NativeSymbolType = 3;
 pub const NativeSymbolType_R_EXTERNAL_SYM: NativeSymbolType = 4;
 pub type NativeSymbolType = ::std::os::raw::c_int;
 pub type Rbyte = ::std::os::raw::c_uchar;
+#[doc = " type for length of (standard, not long) vectors etc"]
 pub type R_len_t = ::std::os::raw::c_int;
 pub type R_xlen_t = isize;
+#[doc = " NOT YET using enum:\n  1)\tThe internal SEXPREC struct has 'SEXPTYPE type : 5'\n\t(making FUNSXP and CLOSXP equivalent in there),\n\tgiving (-Wall only ?) warnings all over the place\n 2)\tMany switch(type) { case ... } statements need a final `default:'\n\tadded in order to avoid warnings like [e.g. l.170 of ../main/util.c]\n\t  \"enumeration value `FUNSXP' not handled in switch\""]
 pub type SEXPTYPE = ::std::os::raw::c_uint;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -906,6 +913,7 @@ pub struct SEXPREC {
     _unused: [u8; 0],
 }
 pub type SEXP = *mut SEXPREC;
+#[doc = " We sometimes need to coerce a protected value and place the new\ncoerced value under protection.  For these cases PROTECT_WITH_INDEX\nsaves an index of the protection location that can be used to\nreplace the protected value using REPROTECT."]
 pub type PROTECT_INDEX = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -916,6 +924,7 @@ pub type R_allocator_t = R_allocator;
 pub const nchar_type_Bytes: nchar_type = 0;
 pub const nchar_type_Chars: nchar_type = 1;
 pub const nchar_type_Width: nchar_type = 2;
+#[doc = " ../main/character.c :"]
 pub type nchar_type = ::std::os::raw::c_int;
 pub const cetype_t_CE_NATIVE: cetype_t = 0;
 pub const cetype_t_CE_UTF8: cetype_t = 1;
@@ -923,7 +932,9 @@ pub const cetype_t_CE_LATIN1: cetype_t = 2;
 pub const cetype_t_CE_BYTES: cetype_t = 3;
 pub const cetype_t_CE_SYMBOL: cetype_t = 5;
 pub const cetype_t_CE_ANY: cetype_t = 99;
+#[doc = " cetype_t is an identifier reseved by POSIX, but it is\nwell established as public.  Could remap by a #define though"]
 pub type cetype_t = ::std::os::raw::c_int;
+#[doc = " Finalization interface"]
 pub type R_CFinalizer_t = ::std::option::Option<unsafe extern "C" fn(arg1: SEXP)>;
 pub type R_pstream_data_t = *mut ::std::os::raw::c_void;
 pub const R_pstream_format_t_R_pstream_any_format: R_pstream_format_t = 0;
@@ -1167,11 +1178,14 @@ fn bindgen_test_layout_R_inpstream_st() {
 }
 pub const SORTED_DECR_NA_1ST: _bindgen_ty_1 = -2;
 pub const SORTED_DECR: _bindgen_ty_1 = -1;
+#[doc = "INT_MIN is NA_INTEGER!"]
 pub const UNKNOWN_SORTEDNESS: _bindgen_ty_1 = -2147483648;
 pub const SORTED_INCR: _bindgen_ty_1 = 1;
 pub const SORTED_INCR_NA_1ST: _bindgen_ty_1 = 2;
 pub const KNOWN_UNSORTED: _bindgen_ty_1 = 0;
+#[doc = " ALTREP sorting support"]
 pub type _bindgen_ty_1 = ::std::os::raw::c_int;
+#[doc = " try to allow some type checking"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct R_hashtab_type {
@@ -1218,10 +1232,15 @@ pub type R_ToplevelCallbackEl = _ToplevelCallback;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _ToplevelCallback {
+    #[doc = " the C routine to call."]
     pub cb: R_ToplevelCallback,
+    #[doc = " the user-level data to pass to the call to cb()"]
     pub data: *mut ::std::os::raw::c_void,
+    #[doc = " Called when the callback is removed."]
     pub finalizer: ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void)>,
+    #[doc = " a name by which to identify this element."]
     pub name: *mut ::std::os::raw::c_char,
+    #[doc = " the next element in the linked list."]
     pub next: *mut R_ToplevelCallbackEl,
 }
 #[test]
@@ -1289,7 +1308,9 @@ fn bindgen_test_layout__ToplevelCallback() {
         )
     );
 }
+#[doc = "The following definitions are for callbacks to R functions and\nmethods related to user-level tables.  This was implemented in a\nseparate package formerly available from Omegahat and these\ndeclarations allow the package to interface to the internal R code.\n\nSee https://developer.r-project.org/RObjectTables.pdf."]
 pub type R_ObjectTable = _R_ObjectTable;
+#[doc = " Do we actually need the exists() since it is never called but R\nuses get to see if the symbol is bound to anything?"]
 pub type Rdb_exists = ::std::option::Option<
     unsafe extern "C" fn(
         name: *const ::std::os::raw::c_char,
@@ -2136,11 +2157,17 @@ extern "C" {
     pub fn y0(_X: f64) -> f64;
     pub fn y1(_X: f64) -> f64;
     pub fn yn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
+    #[doc = " IEEE NaN"]
     pub static mut R_NaN: f64;
+    #[doc = " IEEE Inf"]
     pub static mut R_PosInf: f64;
+    #[doc = " IEEE -Inf"]
     pub static mut R_NegInf: f64;
+    #[doc = " NA_REAL: IEEE"]
     pub static mut R_NaReal: f64;
+    #[doc = " NA_INTEGER:= INT_MIN currently"]
     pub static mut R_NaInt: ::std::os::raw::c_int;
+    #[doc = " NA_STRING is a SEXP, so defined in Rinternals.h"]
     pub fn R_IsNA(arg1: f64) -> ::std::os::raw::c_int;
     pub fn R_IsNaN(arg1: f64) -> ::std::os::raw::c_int;
     pub fn R_finite(arg1: f64) -> ::std::os::raw::c_int;
@@ -2171,6 +2198,7 @@ extern "C" {
         arg1: *mut ::std::os::raw::c_void,
         arg2: usize,
     ) -> *mut ::std::os::raw::c_void;
+    #[doc = " ../../main/sort.c :"]
     pub fn R_isort(arg1: *mut ::std::os::raw::c_int, arg2: ::std::os::raw::c_int);
     pub fn R_rsort(arg1: *mut f64, arg2: ::std::os::raw::c_int);
     pub fn R_csort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int);
@@ -2191,6 +2219,7 @@ extern "C" {
     );
     pub fn Rf_rPsort(arg1: *mut f64, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
     pub fn Rf_cPsort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
+    #[doc = " ../../main/qsort.c : */\n/* dummy renamed to II to avoid problems with g++ on Solaris"]
     pub fn R_qsort(v: *mut f64, i: usize, j: usize);
     pub fn R_qsort_I(
         v: *mut f64,
@@ -2205,6 +2234,7 @@ extern "C" {
         i: ::std::os::raw::c_int,
         j: ::std::os::raw::c_int,
     );
+    #[doc = " ../../main/util.c  and others :"]
     pub fn R_ExpandFileName(arg1: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
     pub fn R_ExpandFileNameUTF8(
         arg1: *const ::std::os::raw::c_char,
@@ -2218,6 +2248,7 @@ extern "C" {
     pub fn Rf_StringFalse(arg1: *const ::std::os::raw::c_char) -> Rboolean;
     pub fn Rf_StringTrue(arg1: *const ::std::os::raw::c_char) -> Rboolean;
     pub fn Rf_isBlankString(arg1: *const ::std::os::raw::c_char) -> Rboolean;
+    #[doc = " These two are guaranteed to use '.' as the decimal point,\nand to accept \"NA\"."]
     pub fn R_atof(str_: *const ::std::os::raw::c_char) -> f64;
     pub fn R_strtod(c: *const ::std::os::raw::c_char, end: *mut *mut ::std::os::raw::c_char)
         -> f64;
@@ -2234,6 +2265,7 @@ extern "C" {
     pub fn R_CheckUserInterrupt();
     pub fn R_CheckStack();
     pub fn R_CheckStack2(arg1: usize);
+    #[doc = " ../../appl/interv.c: also in Applic.h"]
     pub fn findInterval(
         xt: *mut f64,
         n: ::std::os::raw::c_int,
@@ -2262,6 +2294,7 @@ extern "C" {
         all_inside: *mut ::std::os::raw::c_int,
         indx: *mut ::std::os::raw::c_int,
     );
+    #[doc = " ../../appl/maxcol.c: also in Applic.h"]
     pub fn R_max_col(
         matrix: *mut f64,
         nr: *mut ::std::os::raw::c_int,
@@ -2283,12 +2316,14 @@ extern "C" {
     pub fn R_useDynamicSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
     pub fn R_forceSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
     pub fn R_getDllInfo(name: *const ::std::os::raw::c_char) -> *mut DllInfo;
+    #[doc = " To be used by applications embedding R to register their symbols\nthat are not related to any dynamic module"]
     pub fn R_getEmbeddingDllInfo() -> *mut DllInfo;
     pub fn R_FindSymbol(
         arg1: *const ::std::os::raw::c_char,
         arg2: *const ::std::os::raw::c_char,
         symbol: *mut R_RegisteredNativeSymbol,
     ) -> DL_FUNC;
+    #[doc = " Interface for exporting and importing functions from one package\nfor use from C code in a package.  The registration part probably\nought to be integrated with the other registrations.  The naming of\nthese routines may be less than ideal."]
     pub fn R_RegisterCCallable(
         package: *const ::std::os::raw::c_char,
         name: *const ::std::os::raw::c_char,
@@ -2299,6 +2334,7 @@ extern "C" {
         name: *const ::std::os::raw::c_char,
     ) -> DL_FUNC;
     pub fn R_CHAR(x: SEXP) -> *const ::std::os::raw::c_char;
+    #[doc = " Various tests with macro versions in the internal headers"]
     pub fn Rf_isNull(s: SEXP) -> Rboolean;
     pub fn Rf_isSymbol(s: SEXP) -> Rboolean;
     pub fn Rf_isLogical(s: SEXP) -> Rboolean;
@@ -2308,6 +2344,7 @@ extern "C" {
     pub fn Rf_isEnvironment(s: SEXP) -> Rboolean;
     pub fn Rf_isString(s: SEXP) -> Rboolean;
     pub fn Rf_isObject(s: SEXP) -> Rboolean;
+    #[doc = " General Cons Cell Attributes"]
     pub fn ATTRIB(x: SEXP) -> SEXP;
     pub fn OBJECT(x: SEXP) -> ::std::os::raw::c_int;
     pub fn MARK(x: SEXP) -> ::std::os::raw::c_int;
@@ -2318,7 +2355,9 @@ extern "C" {
     pub fn DUPLICATE_ATTRIB(to: SEXP, from: SEXP);
     pub fn SHALLOW_DUPLICATE_ATTRIB(to: SEXP, from: SEXP);
     pub fn MARK_NOT_MUTABLE(x: SEXP);
+    #[doc = " S4 object testing"]
     pub fn IS_S4_OBJECT(x: SEXP) -> ::std::os::raw::c_int;
+    #[doc = " Vector Access Functions"]
     pub fn LENGTH(x: SEXP) -> ::std::os::raw::c_int;
     pub fn XLENGTH(x: SEXP) -> R_xlen_t;
     pub fn TRUELENGTH(x: SEXP) -> R_xlen_t;
@@ -2334,6 +2373,7 @@ extern "C" {
     pub fn RAW_RO(x: SEXP) -> *const Rbyte;
     pub fn REAL_RO(x: SEXP) -> *const f64;
     pub fn COMPLEX_RO(x: SEXP) -> *const Rcomplex;
+    #[doc = "SEXP (STRING_ELT)(SEXP x, R_xlen_t i);"]
     pub fn VECTOR_ELT(x: SEXP, i: R_xlen_t) -> SEXP;
     pub fn SET_STRING_ELT(x: SEXP, i: R_xlen_t, v: SEXP);
     pub fn SET_VECTOR_ELT(x: SEXP, i: R_xlen_t, v: SEXP) -> SEXP;
@@ -2355,6 +2395,7 @@ extern "C" {
     ) -> R_xlen_t;
     pub fn COMPLEX_GET_REGION(sx: SEXP, i: R_xlen_t, n: R_xlen_t, buf: *mut Rcomplex) -> R_xlen_t;
     pub fn RAW_GET_REGION(sx: SEXP, i: R_xlen_t, n: R_xlen_t, buf: *mut Rbyte) -> R_xlen_t;
+    #[doc = " metadata access"]
     pub fn INTEGER_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
     pub fn INTEGER_NO_NA(x: SEXP) -> ::std::os::raw::c_int;
     pub fn REAL_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
@@ -2382,6 +2423,7 @@ extern "C" {
     pub fn SETCADDR(x: SEXP, y: SEXP) -> SEXP;
     pub fn SETCADDDR(x: SEXP, y: SEXP) -> SEXP;
     pub fn SETCAD4R(e: SEXP, y: SEXP) -> SEXP;
+    #[doc = " Closure Access Functions"]
     pub fn FORMALS(x: SEXP) -> SEXP;
     pub fn BODY(x: SEXP) -> SEXP;
     pub fn CLOENV(x: SEXP) -> SEXP;
@@ -2394,77 +2436,137 @@ extern "C" {
     pub fn SET_FORMALS(x: SEXP, v: SEXP);
     pub fn SET_BODY(x: SEXP, v: SEXP);
     pub fn SET_CLOENV(x: SEXP, v: SEXP);
+    #[doc = " Symbol Access Functions"]
     pub fn PRINTNAME(x: SEXP) -> SEXP;
     pub fn SYMVALUE(x: SEXP) -> SEXP;
     pub fn INTERNAL(x: SEXP) -> SEXP;
     pub fn DDVAL(x: SEXP) -> ::std::os::raw::c_int;
+    #[doc = " Environment Access Functions"]
     pub fn FRAME(x: SEXP) -> SEXP;
     pub fn ENCLOS(x: SEXP) -> SEXP;
     pub fn HASHTAB(x: SEXP) -> SEXP;
     pub fn ENVFLAGS(x: SEXP) -> ::std::os::raw::c_int;
+    #[doc = " Promise Access Functions"]
     pub fn PRCODE(x: SEXP) -> SEXP;
     pub fn PRENV(x: SEXP) -> SEXP;
     pub fn PRVALUE(x: SEXP) -> SEXP;
     pub fn PRSEEN(x: SEXP) -> ::std::os::raw::c_int;
+    #[doc = " External pointer access macros"]
     pub fn EXTPTR_PROT(arg1: SEXP) -> SEXP;
     pub fn EXTPTR_TAG(arg1: SEXP) -> SEXP;
     pub fn EXTPTR_PTR(arg1: SEXP) -> *mut ::std::os::raw::c_void;
+    #[doc = " The \"global\" environment"]
     pub static mut R_GlobalEnv: SEXP;
+    #[doc = " An empty environment at the root of the\nenvironment tree"]
     pub static mut R_EmptyEnv: SEXP;
+    #[doc = " The base environment; formerly R_NilValue"]
     pub static mut R_BaseEnv: SEXP;
+    #[doc = " The (fake) namespace for base"]
     pub static mut R_BaseNamespace: SEXP;
+    #[doc = " Registry for registered namespaces"]
     pub static mut R_NamespaceRegistry: SEXP;
+    #[doc = " Current srcref, for debuggers"]
     pub static mut R_Srcref: SEXP;
+    #[doc = " The nil object"]
     pub static mut R_NilValue: SEXP;
+    #[doc = " Unbound marker"]
     pub static mut R_UnboundValue: SEXP;
+    #[doc = " Missing argument marker"]
     pub static mut R_MissingArg: SEXP;
+    #[doc = " To be found in BC interp. state\n(marker)"]
     pub static mut R_InBCInterpreter: SEXP;
+    #[doc = " Use current expression (marker)"]
     pub static mut R_CurrentExpression: SEXP;
+    #[doc = " Marker for restarted function calls"]
     pub static mut R_RestartToken: SEXP;
+    #[doc = " \"as.character\""]
     pub static mut R_AsCharacterSymbol: SEXP;
+    #[doc = " \"@\""]
     pub static mut R_AtsignSymbol: SEXP;
+    #[doc = " <-- backcompatible version of:"]
     pub static mut R_baseSymbol: SEXP;
+    #[doc = " \"base\""]
     pub static mut R_BaseSymbol: SEXP;
+    #[doc = " \"{\""]
     pub static mut R_BraceSymbol: SEXP;
+    #[doc = " \"[[\""]
     pub static mut R_Bracket2Symbol: SEXP;
+    #[doc = " \"[\""]
     pub static mut R_BracketSymbol: SEXP;
+    #[doc = " \"class\""]
     pub static mut R_ClassSymbol: SEXP;
+    #[doc = " \".Device\""]
     pub static mut R_DeviceSymbol: SEXP;
+    #[doc = " \"dimnames\""]
     pub static mut R_DimNamesSymbol: SEXP;
+    #[doc = " \"dim\""]
     pub static mut R_DimSymbol: SEXP;
+    #[doc = " \"$\""]
     pub static mut R_DollarSymbol: SEXP;
+    #[doc = " \"...\""]
     pub static mut R_DotsSymbol: SEXP;
+    #[doc = " \"::\""]
     pub static mut R_DoubleColonSymbol: SEXP;
+    #[doc = " \"drop\""]
     pub static mut R_DropSymbol: SEXP;
+    #[doc = " \"eval\""]
     pub static mut R_EvalSymbol: SEXP;
+    #[doc = " \"function\""]
     pub static mut R_FunctionSymbol: SEXP;
+    #[doc = " \".Last.value\""]
     pub static mut R_LastvalueSymbol: SEXP;
+    #[doc = " \"levels\""]
     pub static mut R_LevelsSymbol: SEXP;
+    #[doc = " \"mode\""]
     pub static mut R_ModeSymbol: SEXP;
+    #[doc = " \"na.rm\""]
     pub static mut R_NaRmSymbol: SEXP;
+    #[doc = " \"name\""]
     pub static mut R_NameSymbol: SEXP;
+    #[doc = " \"names\""]
     pub static mut R_NamesSymbol: SEXP;
+    #[doc = " \".__NAMESPACE__.\""]
     pub static mut R_NamespaceEnvSymbol: SEXP;
+    #[doc = " \"package\""]
     pub static mut R_PackageSymbol: SEXP;
+    #[doc = " \"previous\""]
     pub static mut R_PreviousSymbol: SEXP;
+    #[doc = " \"quote\""]
     pub static mut R_QuoteSymbol: SEXP;
+    #[doc = " \"row.names\""]
     pub static mut R_RowNamesSymbol: SEXP;
+    #[doc = " \".Random.seed\""]
     pub static mut R_SeedsSymbol: SEXP;
+    #[doc = " \"sort.list\""]
     pub static mut R_SortListSymbol: SEXP;
+    #[doc = " \"source\""]
     pub static mut R_SourceSymbol: SEXP;
+    #[doc = " \"spec\""]
     pub static mut R_SpecSymbol: SEXP;
+    #[doc = " \":::\""]
     pub static mut R_TripleColonSymbol: SEXP;
+    #[doc = " \"tsp\""]
     pub static mut R_TspSymbol: SEXP;
+    #[doc = " \".defined\""]
     pub static mut R_dot_defined: SEXP;
+    #[doc = " \".Method\""]
     pub static mut R_dot_Method: SEXP;
+    #[doc = " \".packageName\""]
     pub static mut R_dot_packageName: SEXP;
+    #[doc = " \".target\""]
     pub static mut R_dot_target: SEXP;
+    #[doc = " \".Generic\""]
     pub static mut R_dot_Generic: SEXP;
+    #[doc = " NA_STRING as a CHARSXP"]
     pub static mut R_NaString: SEXP;
+    #[doc = " \"\" as a CHARSXP"]
     pub static mut R_BlankString: SEXP;
+    #[doc = " \"\" as a STRSXP"]
     pub static mut R_BlankScalarString: SEXP;
+    #[doc = " srcref related functions"]
     pub fn R_GetCurrentSrcref(arg1: ::std::os::raw::c_int) -> SEXP;
     pub fn R_GetSrcFilename(arg1: SEXP) -> SEXP;
+    #[doc = " Type Coercions of all kinds"]
     pub fn Rf_asChar(arg1: SEXP) -> SEXP;
     pub fn Rf_coerceVector(arg1: SEXP, arg2: SEXPTYPE) -> SEXP;
     pub fn Rf_PairToVectorList(x: SEXP) -> SEXP;
@@ -2474,6 +2576,7 @@ extern "C" {
     pub fn Rf_asInteger(x: SEXP) -> ::std::os::raw::c_int;
     pub fn Rf_asReal(x: SEXP) -> f64;
     pub fn Rf_asComplex(x: SEXP) -> Rcomplex;
+    #[doc = " Other Internally Used Functions, excluding those which are inline-able"]
     pub fn Rf_acopy_string(arg1: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
     pub fn Rf_alloc3DArray(
         arg1: SEXPTYPE,
@@ -2508,6 +2611,7 @@ extern "C" {
     pub fn R_duplicate_attr(arg1: SEXP) -> SEXP;
     pub fn R_shallow_duplicate_attr(arg1: SEXP) -> SEXP;
     pub fn Rf_lazy_duplicate(arg1: SEXP) -> SEXP;
+    #[doc = " the next really should not be here and is also in Defn.h"]
     pub fn Rf_duplicated(arg1: SEXP, arg2: Rboolean) -> SEXP;
     pub fn Rf_eval(arg1: SEXP, arg2: SEXP) -> SEXP;
     pub fn Rf_findFun(arg1: SEXP, arg2: SEXP) -> SEXP;
@@ -2600,7 +2704,9 @@ extern "C" {
         tocode: *const ::std::os::raw::c_char,
         subst: ::std::os::raw::c_int,
     ) -> *const ::std::os::raw::c_char;
+    #[doc = " Calling a function with arguments evaluated"]
     pub fn R_forceAndCall(e: SEXP, n: ::std::os::raw::c_int, rho: SEXP) -> SEXP;
+    #[doc = " External pointer interface"]
     pub fn R_MakeExternalPtr(p: *mut ::std::os::raw::c_void, tag: SEXP, prot: SEXP) -> SEXP;
     pub fn R_ExternalPtrAddr(s: SEXP) -> *mut ::std::os::raw::c_void;
     pub fn R_ExternalPtrTag(s: SEXP) -> SEXP;
@@ -2609,6 +2715,7 @@ extern "C" {
     pub fn R_SetExternalPtrAddr(s: SEXP, p: *mut ::std::os::raw::c_void);
     pub fn R_SetExternalPtrTag(s: SEXP, tag: SEXP);
     pub fn R_SetExternalPtrProtected(s: SEXP, p: SEXP);
+    #[doc = " Added in R 3.4.0"]
     pub fn R_MakeExternalPtrFn(p: DL_FUNC, tag: SEXP, prot: SEXP) -> SEXP;
     pub fn R_ExternalPtrAddrFn(s: SEXP) -> DL_FUNC;
     pub fn R_RegisterFinalizer(s: SEXP, fun: SEXP);
@@ -2616,6 +2723,7 @@ extern "C" {
     pub fn R_RegisterFinalizerEx(s: SEXP, fun: SEXP, onexit: Rboolean);
     pub fn R_RegisterCFinalizerEx(s: SEXP, fun: R_CFinalizer_t, onexit: Rboolean);
     pub fn R_RunPendingFinalizers();
+    #[doc = " Weak reference interface"]
     pub fn R_MakeWeakRef(key: SEXP, val: SEXP, fin: SEXP, onexit: Rboolean) -> SEXP;
     pub fn R_MakeWeakRefC(key: SEXP, val: SEXP, fin: R_CFinalizer_t, onexit: Rboolean) -> SEXP;
     pub fn R_WeakRefKey(w: SEXP) -> SEXP;
@@ -2624,6 +2732,7 @@ extern "C" {
     pub fn R_PromiseExpr(arg1: SEXP) -> SEXP;
     pub fn R_ClosureExpr(arg1: SEXP) -> SEXP;
     pub fn R_BytecodeExpr(e: SEXP) -> SEXP;
+    #[doc = " Protected evaluation"]
     pub fn R_ToplevelExec(
         fun: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void)>,
         data: *mut ::std::os::raw::c_void,
@@ -2678,6 +2787,7 @@ extern "C" {
         cleandata: *mut ::std::os::raw::c_void,
         cont: SEXP,
     ) -> SEXP;
+    #[doc = " Environment and Binding Features"]
     pub fn R_NewEnv(arg1: SEXP, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int) -> SEXP;
     pub fn R_IsPackageEnv(rho: SEXP) -> Rboolean;
     pub fn R_PackageEnvName(rho: SEXP) -> SEXP;
@@ -2694,6 +2804,7 @@ extern "C" {
     pub fn R_BindingIsActive(sym: SEXP, env: SEXP) -> Rboolean;
     pub fn R_ActiveBindingFunction(sym: SEXP, env: SEXP) -> SEXP;
     pub fn R_HasFancyBindings(rho: SEXP) -> Rboolean;
+    #[doc = " ../main/errors.c : */\n/* needed for R_load/savehistory handling in front ends"]
     pub fn Rf_errorcall(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...) -> !;
     pub fn Rf_warningcall(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...);
     pub fn Rf_warningcall_immediate(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...);
@@ -2754,10 +2865,13 @@ extern "C" {
     pub fn R_Serialize(s: SEXP, ops: R_outpstream_t);
     pub fn R_Unserialize(ips: R_inpstream_t) -> SEXP;
     pub fn R_SerializeInfo(ips: R_inpstream_t) -> SEXP;
+    #[doc = " slot management (in attrib.c)"]
     pub fn R_do_slot(obj: SEXP, name: SEXP) -> SEXP;
     pub fn R_do_slot_assign(obj: SEXP, name: SEXP, value: SEXP) -> SEXP;
     pub fn R_has_slot(obj: SEXP, name: SEXP) -> ::std::os::raw::c_int;
+    #[doc = " S3-S4 class (inheritance), attrib.c"]
     pub fn R_S4_extends(klass: SEXP, useTable: SEXP) -> SEXP;
+    #[doc = " class definition, new objects (objects.c)"]
     pub fn R_do_MAKE_CLASS(what: *const ::std::os::raw::c_char) -> SEXP;
     pub fn R_getClassDef(what: *const ::std::os::raw::c_char) -> SEXP;
     pub fn R_getClassDef_R(what: SEXP) -> SEXP;
@@ -2765,6 +2879,7 @@ extern "C" {
     pub fn R_isVirtualClass(class_def: SEXP, env: SEXP) -> Rboolean;
     pub fn R_extends(class1: SEXP, class2: SEXP, env: SEXP) -> Rboolean;
     pub fn R_do_new_object(class_def: SEXP) -> SEXP;
+    #[doc = " supporting  a C-level version of  is(., .) :"]
     pub fn R_check_class_and_super(
         x: SEXP,
         valid: *mut *const ::std::os::raw::c_char,
@@ -2774,17 +2889,20 @@ extern "C" {
         x: SEXP,
         valid: *mut *const ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
+    #[doc = " preserve objects across GCs"]
     pub fn R_PreserveObject(arg1: SEXP);
     pub fn R_ReleaseObject(arg1: SEXP);
     pub fn R_NewPreciousMSet(arg1: ::std::os::raw::c_int) -> SEXP;
     pub fn R_PreserveInMSet(x: SEXP, mset: SEXP);
     pub fn R_ReleaseFromMSet(x: SEXP, mset: SEXP);
     pub fn R_ReleaseMSet(mset: SEXP, keepSize: ::std::os::raw::c_int);
+    #[doc = " Shutdown actions"]
     pub fn R_dot_Last();
     pub fn R_RunExitFinalizers();
     pub fn R_system(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
     pub fn R_compute_identical(arg1: SEXP, arg2: SEXP, arg3: ::std::os::raw::c_int) -> Rboolean;
     pub fn R_body_no_src(x: SEXP) -> SEXP;
+    #[doc = " C version of R's  indx <- order(..., na.last, decreasing) :\ne.g.  arglist = Rf_lang2(x,y)  or  Rf_lang3(x,y,z)"]
     pub fn R_orderVector(
         indx: *mut ::std::os::raw::c_int,
         n: ::std::os::raw::c_int,
@@ -2792,6 +2910,7 @@ extern "C" {
         nalast: Rboolean,
         decreasing: Rboolean,
     );
+    #[doc = " C version of R's  indx <- order(x, na.last, decreasing) :"]
     pub fn R_orderVector1(
         indx: *mut ::std::os::raw::c_int,
         n: ::std::os::raw::c_int,
@@ -2799,6 +2918,7 @@ extern "C" {
         nalast: Rboolean,
         decreasing: Rboolean,
     );
+    #[doc = "These are the public inlinable functions that are provided in\nRinlinedfuns.h It is *essential* that these do not appear in any\nother header file, with or without the Rf_ prefix."]
     pub fn Rf_allocVector(arg1: SEXPTYPE, arg2: R_xlen_t) -> SEXP;
     pub fn Rf_conformable(arg1: SEXP, arg2: SEXP) -> Rboolean;
     pub fn Rf_elt(arg1: SEXP, arg2: ::std::os::raw::c_int) -> SEXP;
@@ -2887,6 +3007,7 @@ extern "C" {
     pub fn SET_REAL_ELT(x: SEXP, i: R_xlen_t, v: f64);
     pub fn SET_COMPLEX_ELT(x: SEXP, i: R_xlen_t, v: Rcomplex);
     pub fn SET_RAW_ELT(x: SEXP, i: R_xlen_t, v: Rbyte);
+    #[doc = " ALTREP support"]
     pub fn ALTREP_CLASS(x: SEXP) -> SEXP;
     pub fn R_altrep_data1(x: SEXP) -> SEXP;
     pub fn R_altrep_data2(x: SEXP) -> SEXP;
@@ -2898,6 +3019,7 @@ extern "C" {
     pub fn COMPLEX0(x: SEXP) -> *mut Rcomplex;
     pub fn RAW0(x: SEXP) -> *mut Rbyte;
     pub fn ALTREP(x: SEXP) -> ::std::os::raw::c_int;
+    #[doc = " public C interface"]
     pub fn R_asHashtable(h: SEXP) -> R_hashtab_type;
     pub fn R_HashtabSEXP(h: R_hashtab_type) -> SEXP;
     pub fn R_isHashtable(h: SEXP) -> ::std::os::raw::c_int;
@@ -2917,6 +3039,7 @@ extern "C" {
         data: *mut ::std::os::raw::c_void,
     );
     pub fn R_clrhash(h: R_hashtab_type);
+    #[doc = " stuff that probably shouldn't be in the API but is getting used"]
     pub fn SET_TYPEOF(x: SEXP, v: ::std::os::raw::c_int);
     pub fn SET_OBJECT(x: SEXP, v: ::std::os::raw::c_int);
     pub fn SET_S4_OBJECT(x: SEXP);
@@ -2942,6 +3065,7 @@ extern "C" {
     pub fn IS_GROWABLE(x: SEXP) -> ::std::os::raw::c_int;
     pub fn SET_GROWABLE_BIT(x: SEXP);
     pub fn SET_NAMED(x: SEXP, v: ::std::os::raw::c_int);
+    #[doc = " used by BIOC::matter; mightbe reasonable to include in API"]
     pub fn R_tryWrap(arg1: SEXP) -> SEXP;
     pub fn Rf_removeTaskCallbackByIndex(id: ::std::os::raw::c_int) -> Rboolean;
     pub fn Rf_removeTaskCallbackByName(name: *const ::std::os::raw::c_char) -> Rboolean;

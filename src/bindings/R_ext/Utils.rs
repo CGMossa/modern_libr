@@ -7,7 +7,9 @@ pub struct __BindgenComplex<T> {
     pub im: T,
 }
 pub type max_align_t = f64;
+#[doc = ", MAYBE"]
 pub const Rboolean_FALSE: Rboolean = 0;
+#[doc = ", MAYBE"]
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
 #[repr(C)]
@@ -84,6 +86,7 @@ fn bindgen_test_layout_Rcomplex() {
     );
 }
 extern "C" {
+    #[doc = " ../../main/sort.c :"]
     pub fn R_isort(arg1: *mut ::std::os::raw::c_int, arg2: ::std::os::raw::c_int);
     pub fn R_rsort(arg1: *mut f64, arg2: ::std::os::raw::c_int);
     pub fn R_csort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int);
@@ -104,6 +107,7 @@ extern "C" {
     );
     pub fn Rf_rPsort(arg1: *mut f64, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
     pub fn Rf_cPsort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
+    #[doc = " ../../main/qsort.c : */\n/* dummy renamed to II to avoid problems with g++ on Solaris"]
     pub fn R_qsort(v: *mut f64, i: usize, j: usize);
     pub fn R_qsort_I(
         v: *mut f64,
@@ -118,6 +122,7 @@ extern "C" {
         i: ::std::os::raw::c_int,
         j: ::std::os::raw::c_int,
     );
+    #[doc = " ../../main/util.c  and others :"]
     pub fn R_ExpandFileName(arg1: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
     pub fn R_ExpandFileNameUTF8(
         arg1: *const ::std::os::raw::c_char,
@@ -131,6 +136,7 @@ extern "C" {
     pub fn Rf_StringFalse(arg1: *const ::std::os::raw::c_char) -> Rboolean;
     pub fn Rf_StringTrue(arg1: *const ::std::os::raw::c_char) -> Rboolean;
     pub fn Rf_isBlankString(arg1: *const ::std::os::raw::c_char) -> Rboolean;
+    #[doc = " These two are guaranteed to use '.' as the decimal point,\nand to accept \"NA\"."]
     pub fn R_atof(str_: *const ::std::os::raw::c_char) -> f64;
     pub fn R_strtod(c: *const ::std::os::raw::c_char, end: *mut *mut ::std::os::raw::c_char)
         -> f64;
@@ -147,6 +153,7 @@ extern "C" {
     pub fn R_CheckUserInterrupt();
     pub fn R_CheckStack();
     pub fn R_CheckStack2(arg1: usize);
+    #[doc = " ../../appl/interv.c: also in Applic.h"]
     pub fn findInterval(
         xt: *mut f64,
         n: ::std::os::raw::c_int,
@@ -175,6 +182,7 @@ extern "C" {
         all_inside: *mut ::std::os::raw::c_int,
         indx: *mut ::std::os::raw::c_int,
     );
+    #[doc = " ../../appl/maxcol.c: also in Applic.h"]
     pub fn R_max_col(
         matrix: *mut f64,
         nr: *mut ::std::os::raw::c_int,

@@ -11,9 +11,13 @@ pub type custom_free_t = ::std::option::Option<
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct R_allocator {
+    #[doc = " malloc equivalent"]
     pub mem_alloc: custom_alloc_t,
+    #[doc = " free equivalent"]
     pub mem_free: custom_free_t,
+    #[doc = " reserved (maybe for copy) - must be NULL"]
     pub res: *mut ::std::os::raw::c_void,
+    #[doc = " custom data for the allocator implementation"]
     pub data: *mut ::std::os::raw::c_void,
 }
 #[test]

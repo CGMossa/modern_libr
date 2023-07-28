@@ -126,7 +126,9 @@ pub const PR18534fixed: u32 = 1;
 pub const SIZEOF_SIZE_T: u32 = 8;
 pub const HAVE_UINTPTR_T: u32 = 1;
 pub type max_align_t = f64;
+#[doc = ", MAYBE"]
 pub const Rboolean_FALSE: Rboolean = 0;
+#[doc = ", MAYBE"]
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
 pub type va_list = *mut ::std::os::raw::c_char;
@@ -361,9 +363,11 @@ fn bindgen_test_layout_Rcomplex() {
         )
     );
 }
+#[doc = " ../../appl/integrate.c"]
 pub type integr_fn = ::std::option::Option<
     unsafe extern "C" fn(x: *mut f64, n: ::std::os::raw::c_int, ex: *mut ::std::os::raw::c_void),
 >;
+#[doc = " main/optim.c"]
 pub type optimfn = ::std::option::Option<
     unsafe extern "C" fn(
         arg1: ::std::os::raw::c_int,
@@ -379,6 +383,7 @@ pub type optimgr = ::std::option::Option<
         arg4: *mut ::std::os::raw::c_void,
     ),
 >;
+#[doc = " type of pointer to the target and gradient functions"]
 pub type fcn_p = ::std::option::Option<
     unsafe extern "C" fn(
         arg1: ::std::os::raw::c_int,
@@ -387,6 +392,7 @@ pub type fcn_p = ::std::option::Option<
         arg4: *mut ::std::os::raw::c_void,
     ),
 >;
+#[doc = " type of pointer to the hessian functions"]
 pub type d2fcn_p = ::std::option::Option<
     unsafe extern "C" fn(
         arg1: ::std::os::raw::c_int,
@@ -888,6 +894,7 @@ extern "C" {
         _Value: ::std::os::raw::c_int,
     ) -> *mut ::std::os::raw::c_char;
     pub fn strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    #[doc = " S Like Memory Management"]
     pub fn R_chk_calloc(arg1: usize, arg2: usize) -> *mut ::std::os::raw::c_void;
     pub fn R_chk_realloc(
         arg1: *mut ::std::os::raw::c_void,
@@ -1694,6 +1701,7 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
+    #[doc = " vectorizing function   f(x[1:n], ...) -> x[]  {overwriting x[]}."]
     pub fn Rdqags(
         f: integr_fn,
         ex: *mut ::std::os::raw::c_void,
@@ -1811,6 +1819,7 @@ extern "C" {
         trace: ::std::os::raw::c_int,
         ex: *mut ::std::os::raw::c_void,
     );
+    #[doc = " appl/interv.c: Also in Utils.h, used in package eco"]
     pub fn findInterval(
         xt: *mut f64,
         n: ::std::os::raw::c_int,
@@ -1866,6 +1875,7 @@ extern "C" {
         ny: *mut ::std::os::raw::c_int,
         xb: *mut f64,
     );
+    #[doc = " appl/pretty.c: for use in engine.c and util.c"]
     pub fn R_pretty(
         lo: *mut f64,
         up: *mut f64,
@@ -1889,6 +1899,7 @@ extern "C" {
         ndigit: ::std::os::raw::c_int,
         typx: *mut f64,
     );
+    #[doc = " Also used in packages nlme, pcaPP"]
     pub fn optif9(
         nr: ::std::os::raw::c_int,
         n: ::std::os::raw::c_int,

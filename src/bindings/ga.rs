@@ -749,6 +749,7 @@ fn bindgen_test_layout__LDBL12() {
         )
     );
 }
+#[doc = "  Types."]
 pub type GAbyte = ::std::os::raw::c_uchar;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -837,9 +838,13 @@ fn bindgen_test_layout_point() {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct rect {
+    #[doc = " top-left point inside rect"]
     pub x: ::std::os::raw::c_int,
+    #[doc = " top-left point inside rect"]
     pub y: ::std::os::raw::c_int,
+    #[doc = " width and height of rect"]
     pub width: ::std::os::raw::c_int,
+    #[doc = " width and height of rect"]
     pub height: ::std::os::raw::c_int,
 }
 #[test]
@@ -1068,6 +1073,7 @@ fn bindgen_test_layout_imagedata() {
         )
     );
 }
+#[doc = "  Call-backs."]
 pub type voidfn = ::std::option::Option<unsafe extern "C" fn()>;
 pub type timerfn = ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void)>;
 pub type actionfn = ::std::option::Option<unsafe extern "C" fn(c: control)>;
@@ -1086,6 +1092,7 @@ pub type dropfn =
     ::std::option::Option<unsafe extern "C" fn(c: control, data: *mut ::std::os::raw::c_char)>;
 pub type imfn =
     ::std::option::Option<unsafe extern "C" fn(c: control, f: *mut font, xy: *mut point)>;
+#[doc = " gmenus.c"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct MenuItem {
@@ -1150,7 +1157,9 @@ fn bindgen_test_layout_MenuItem() {
     );
 }
 pub type popup = menu;
+#[doc = " printer.c"]
 pub type printer = objptr;
+#[doc = " metafile.c"]
 pub type metafile = objptr;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]

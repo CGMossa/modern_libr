@@ -113,7 +113,7 @@ pub const M_LN_SQRT_PI: f64 = 0.5723649429247001;
 pub const M_LN_SQRT_2PI: f64 = 0.9189385332046728;
 pub const M_LN_SQRT_PId2: f64 = 0.22579135264472744;
 pub type max_align_t = f64;
-#[doc = " <div rustbindgen replaces=\"Rcomplex\"></div>"]
+#[doc = " R 4.3 redefined `Rcomplex` to a union for compatibility with Fortran.\n But the old definition is compatible both the union version\n and the struct version.\n See: https://github.com/extendr/extendr/issues/524\n <div rustbindgen replaces=\"Rcomplex\"></div>"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Rcomplex {
@@ -617,7 +617,9 @@ fn bindgen_test_layout__float_const() {
         )
     );
 }
+#[doc = ", MAYBE"]
 pub const Rboolean_FALSE: Rboolean = 0;
+#[doc = ", MAYBE"]
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
 #[repr(C)]
@@ -888,8 +890,10 @@ extern "C" {
     pub fn y0(_X: f64) -> f64;
     pub fn y1(_X: f64) -> f64;
     pub fn yn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
+    #[doc = " R's versions with !R_FINITE checks"]
     pub fn R_pow(x: f64, y: f64) -> f64;
     pub fn R_pow_di(arg1: f64, arg2: ::std::os::raw::c_int) -> f64;
+    #[doc = " Random Number Generators"]
     pub fn norm_rand() -> f64;
     pub fn unif_rand() -> f64;
     pub fn R_unif_index(arg1: f64) -> f64;
@@ -917,6 +921,7 @@ extern "C" {
         arg4: ::std::os::raw::c_int,
         arg5: ::std::os::raw::c_int,
     );
+    #[doc = " Uniform Distribution"]
     pub fn dunif(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn punif(
         arg1: f64,
@@ -933,6 +938,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn runif(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Gamma Distribution"]
     pub fn dgamma(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pgamma(
         arg1: f64,
@@ -953,9 +959,11 @@ extern "C" {
     pub fn log1pexp(arg1: f64) -> f64;
     pub fn log1mexp(arg1: f64) -> f64;
     pub fn lgamma1p(arg1: f64) -> f64;
+    #[doc = " Compute the log of a sum or difference from logs of terms, i.e.,\n\n     log (exp (logx) + exp (logy))\n or  log (exp (logx) - exp (logy))\n\n without causing overflows or throwing away too much accuracy:"]
     pub fn logspace_add(arg1: f64, arg2: f64) -> f64;
     pub fn logspace_sub(arg1: f64, arg2: f64) -> f64;
     pub fn logspace_sum(arg1: *const f64, arg2: ::std::os::raw::c_int) -> f64;
+    #[doc = " Beta Distribution"]
     pub fn dbeta(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pbeta(
         arg1: f64,
@@ -972,6 +980,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rbeta(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Lognormal Distribution"]
     pub fn dlnorm(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn plnorm(
         arg1: f64,
@@ -988,6 +997,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rlnorm(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Chi-squared Distribution"]
     pub fn dchisq(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
     pub fn pchisq(
         arg1: f64,
@@ -1002,6 +1012,7 @@ extern "C" {
         arg4: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rchisq(arg1: f64) -> f64;
+    #[doc = " Non-central Chi-squared Distribution"]
     pub fn dnchisq(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pnchisq(
         arg1: f64,
@@ -1018,6 +1029,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rnchisq(arg1: f64, arg2: f64) -> f64;
+    #[doc = " F Distribution"]
     pub fn df(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pf(
         arg1: f64,
@@ -1034,6 +1046,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rf(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Student t Distribution"]
     pub fn dt(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
     pub fn pt(
         arg1: f64,
@@ -1048,6 +1061,7 @@ extern "C" {
         arg4: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rt(arg1: f64) -> f64;
+    #[doc = " Binomial Distribution"]
     pub fn dbinom_raw(x: f64, n: f64, p: f64, q: f64, give_log: ::std::os::raw::c_int) -> f64;
     pub fn dbinom(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pbinom(
@@ -1065,12 +1079,14 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rbinom(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Multinomial Distribution"]
     pub fn rmultinom(
         arg1: ::std::os::raw::c_int,
         arg2: *mut f64,
         arg3: ::std::os::raw::c_int,
         arg4: *mut ::std::os::raw::c_int,
     );
+    #[doc = " Cauchy Distribution"]
     pub fn dcauchy(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pcauchy(
         arg1: f64,
@@ -1087,6 +1103,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rcauchy(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Exponential Distribution"]
     pub fn dexp(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
     pub fn pexp(
         arg1: f64,
@@ -1101,6 +1118,7 @@ extern "C" {
         arg4: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rexp(arg1: f64) -> f64;
+    #[doc = " Geometric Distribution"]
     pub fn dgeom(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
     pub fn pgeom(
         arg1: f64,
@@ -1115,6 +1133,7 @@ extern "C" {
         arg4: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rgeom(arg1: f64) -> f64;
+    #[doc = " Hypergeometric Distribution"]
     pub fn dhyper(arg1: f64, arg2: f64, arg3: f64, arg4: f64, arg5: ::std::os::raw::c_int) -> f64;
     pub fn phyper(
         arg1: f64,
@@ -1133,6 +1152,7 @@ extern "C" {
         arg6: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rhyper(arg1: f64, arg2: f64, arg3: f64) -> f64;
+    #[doc = " Negative Binomial Distribution"]
     pub fn dnbinom(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pnbinom(
         arg1: f64,
@@ -1165,6 +1185,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rnbinom_mu(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Poisson Distribution"]
     pub fn dpois_raw(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
     pub fn dpois(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
     pub fn ppois(
@@ -1180,6 +1201,7 @@ extern "C" {
         arg4: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rpois(arg1: f64) -> f64;
+    #[doc = " Weibull Distribution"]
     pub fn dweibull(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pweibull(
         arg1: f64,
@@ -1196,6 +1218,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rweibull(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Logistic Distribution"]
     pub fn dlogis(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn plogis(
         arg1: f64,
@@ -1212,6 +1235,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rlogis(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Non-central Beta Distribution"]
     pub fn dnbeta(arg1: f64, arg2: f64, arg3: f64, arg4: f64, arg5: ::std::os::raw::c_int) -> f64;
     pub fn pnbeta(
         arg1: f64,
@@ -1230,6 +1254,7 @@ extern "C" {
         arg6: ::std::os::raw::c_int,
     ) -> f64;
     pub fn rnbeta(arg1: f64, arg2: f64, arg3: f64) -> f64;
+    #[doc = " Non-central F Distribution"]
     pub fn dnf(arg1: f64, arg2: f64, arg3: f64, arg4: f64, arg5: ::std::os::raw::c_int) -> f64;
     pub fn pnf(
         arg1: f64,
@@ -1247,6 +1272,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
         arg6: ::std::os::raw::c_int,
     ) -> f64;
+    #[doc = " Non-central Student t Distribution"]
     pub fn dnt(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pnt(
         arg1: f64,
@@ -1262,6 +1288,7 @@ extern "C" {
         arg4: ::std::os::raw::c_int,
         arg5: ::std::os::raw::c_int,
     ) -> f64;
+    #[doc = " Studentized Range Distribution"]
     pub fn ptukey(
         arg1: f64,
         arg2: f64,
@@ -1278,6 +1305,7 @@ extern "C" {
         arg5: ::std::os::raw::c_int,
         arg6: ::std::os::raw::c_int,
     ) -> f64;
+    #[doc = " Wilcoxon Rank Sum Distribution"]
     pub fn dwilcox(arg1: f64, arg2: f64, arg3: f64, arg4: ::std::os::raw::c_int) -> f64;
     pub fn pwilcox(
         arg1: f64,
@@ -1295,6 +1323,7 @@ extern "C" {
     ) -> f64;
     pub fn rwilcox(arg1: f64, arg2: f64) -> f64;
     pub fn wilcox_free();
+    #[doc = " Wilcoxon Signed Rank Distribution"]
     pub fn dsignrank(arg1: f64, arg2: f64, arg3: ::std::os::raw::c_int) -> f64;
     pub fn psignrank(
         arg1: f64,
@@ -1310,6 +1339,7 @@ extern "C" {
     ) -> f64;
     pub fn rsignrank(arg1: f64) -> f64;
     pub fn signrank_free();
+    #[doc = " Gamma and Related Functions"]
     pub fn gammafn(arg1: f64) -> f64;
     pub fn lgammafn(arg1: f64) -> f64;
     pub fn lgammafn_sign(arg1: f64, arg2: *mut ::std::os::raw::c_int) -> f64;
@@ -1331,6 +1361,7 @@ extern "C" {
     pub fn lbeta(arg1: f64, arg2: f64) -> f64;
     pub fn choose(arg1: f64, arg2: f64) -> f64;
     pub fn lchoose(arg1: f64, arg2: f64) -> f64;
+    #[doc = " Bessel Functions"]
     pub fn bessel_i(arg1: f64, arg2: f64, arg3: f64) -> f64;
     pub fn bessel_j(arg1: f64, arg2: f64) -> f64;
     pub fn bessel_k(arg1: f64, arg2: f64, arg3: f64) -> f64;
@@ -1339,6 +1370,7 @@ extern "C" {
     pub fn bessel_j_ex(arg1: f64, arg2: f64, arg3: *mut f64) -> f64;
     pub fn bessel_k_ex(arg1: f64, arg2: f64, arg3: f64, arg4: *mut f64) -> f64;
     pub fn bessel_y_ex(arg1: f64, arg2: f64, arg3: *mut f64) -> f64;
+    #[doc = " General Support Functions"]
     pub fn imax2(arg1: ::std::os::raw::c_int, arg2: ::std::os::raw::c_int)
         -> ::std::os::raw::c_int;
     pub fn imin2(arg1: ::std::os::raw::c_int, arg2: ::std::os::raw::c_int)

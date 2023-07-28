@@ -637,7 +637,9 @@ fn bindgen_test_layout__float_const() {
         )
     );
 }
+#[doc = ", MAYBE"]
 pub const Rboolean_FALSE: Rboolean = 0;
+#[doc = ", MAYBE"]
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
 #[repr(C)]
@@ -714,8 +716,10 @@ fn bindgen_test_layout_Rcomplex() {
     );
 }
 pub type __gnuc_va_list = __builtin_va_list;
+#[doc = " Called with a variable argument set after casting to a compatible\nfunction pointer."]
 pub type DL_FUNC = ::std::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>;
 pub type R_NativePrimitiveArgType = ::std::os::raw::c_uint;
+#[doc = "These are very similar to those in Rdynpriv.h,\nbut we maintain them separately to give us more freedom to do\nsome computations on the internal versions that are derived from\nthese definitions."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct R_CMethodDef {
@@ -779,6 +783,7 @@ fn bindgen_test_layout_R_CMethodDef() {
         )
     );
 }
+#[doc = "These are very similar to those in Rdynpriv.h,\nbut we maintain them separately to give us more freedom to do\nsome computations on the internal versions that are derived from\nthese definitions."]
 pub type R_FortranMethodDef = R_CMethodDef;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1665,11 +1670,17 @@ extern "C" {
     pub fn y0(_X: f64) -> f64;
     pub fn y1(_X: f64) -> f64;
     pub fn yn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
+    #[doc = " IEEE NaN"]
     pub static mut R_NaN: f64;
+    #[doc = " IEEE Inf"]
     pub static mut R_PosInf: f64;
+    #[doc = " IEEE -Inf"]
     pub static mut R_NegInf: f64;
+    #[doc = " NA_REAL: IEEE"]
     pub static mut R_NaReal: f64;
+    #[doc = " NA_INTEGER:= INT_MIN currently"]
     pub static mut R_NaInt: ::std::os::raw::c_int;
+    #[doc = " NA_STRING is a SEXP, so defined in Rinternals.h"]
     pub fn R_IsNA(arg1: f64) -> ::std::os::raw::c_int;
     pub fn R_IsNaN(arg1: f64) -> ::std::os::raw::c_int;
     pub fn R_finite(arg1: f64) -> ::std::os::raw::c_int;
@@ -1700,6 +1711,7 @@ extern "C" {
         arg1: *mut ::std::os::raw::c_void,
         arg2: usize,
     ) -> *mut ::std::os::raw::c_void;
+    #[doc = " ../../main/sort.c :"]
     pub fn R_isort(arg1: *mut ::std::os::raw::c_int, arg2: ::std::os::raw::c_int);
     pub fn R_rsort(arg1: *mut f64, arg2: ::std::os::raw::c_int);
     pub fn R_csort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int);
@@ -1720,6 +1732,7 @@ extern "C" {
     );
     pub fn Rf_rPsort(arg1: *mut f64, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
     pub fn Rf_cPsort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
+    #[doc = " ../../main/qsort.c : */\n/* dummy renamed to II to avoid problems with g++ on Solaris"]
     pub fn R_qsort(v: *mut f64, i: usize, j: usize);
     pub fn R_qsort_I(
         v: *mut f64,
@@ -1734,6 +1747,7 @@ extern "C" {
         i: ::std::os::raw::c_int,
         j: ::std::os::raw::c_int,
     );
+    #[doc = " ../../main/util.c  and others :"]
     pub fn R_ExpandFileName(arg1: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
     pub fn R_ExpandFileNameUTF8(
         arg1: *const ::std::os::raw::c_char,
@@ -1747,6 +1761,7 @@ extern "C" {
     pub fn Rf_StringFalse(arg1: *const ::std::os::raw::c_char) -> Rboolean;
     pub fn Rf_StringTrue(arg1: *const ::std::os::raw::c_char) -> Rboolean;
     pub fn Rf_isBlankString(arg1: *const ::std::os::raw::c_char) -> Rboolean;
+    #[doc = " These two are guaranteed to use '.' as the decimal point,\nand to accept \"NA\"."]
     pub fn R_atof(str_: *const ::std::os::raw::c_char) -> f64;
     pub fn R_strtod(c: *const ::std::os::raw::c_char, end: *mut *mut ::std::os::raw::c_char)
         -> f64;
@@ -1763,6 +1778,7 @@ extern "C" {
     pub fn R_CheckUserInterrupt();
     pub fn R_CheckStack();
     pub fn R_CheckStack2(arg1: usize);
+    #[doc = " ../../appl/interv.c: also in Applic.h"]
     pub fn findInterval(
         xt: *mut f64,
         n: ::std::os::raw::c_int,
@@ -1791,6 +1807,7 @@ extern "C" {
         all_inside: *mut ::std::os::raw::c_int,
         indx: *mut ::std::os::raw::c_int,
     );
+    #[doc = " ../../appl/maxcol.c: also in Applic.h"]
     pub fn R_max_col(
         matrix: *mut f64,
         nr: *mut ::std::os::raw::c_int,
@@ -1812,12 +1829,14 @@ extern "C" {
     pub fn R_useDynamicSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
     pub fn R_forceSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
     pub fn R_getDllInfo(name: *const ::std::os::raw::c_char) -> *mut DllInfo;
+    #[doc = " To be used by applications embedding R to register their symbols\nthat are not related to any dynamic module"]
     pub fn R_getEmbeddingDllInfo() -> *mut DllInfo;
     pub fn R_FindSymbol(
         arg1: *const ::std::os::raw::c_char,
         arg2: *const ::std::os::raw::c_char,
         symbol: *mut R_RegisteredNativeSymbol,
     ) -> DL_FUNC;
+    #[doc = " Interface for exporting and importing functions from one package\nfor use from C code in a package.  The registration part probably\nought to be integrated with the other registrations.  The naming of\nthese routines may be less than ideal."]
     pub fn R_RegisterCCallable(
         package: *const ::std::os::raw::c_char,
         name: *const ::std::os::raw::c_char,

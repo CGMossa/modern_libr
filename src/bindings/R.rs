@@ -1056,7 +1056,9 @@ fn bindgen_test_layout__float_const() {
         )
     );
 }
+#[doc = ", MAYBE"]
 pub const Rboolean_FALSE: Rboolean = 0;
+#[doc = ", MAYBE"]
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
 #[repr(C)]
@@ -1148,9 +1150,11 @@ pub const N01type_BOX_MULLER: N01type = 2;
 pub const N01type_USER_NORM: N01type = 3;
 pub const N01type_INVERSION: N01type = 4;
 pub const N01type_KINDERMAN_RAMAGE: N01type = 5;
+#[doc = " Different kinds of \"N(0,1)\" generators :"]
 pub type N01type = ::std::os::raw::c_int;
 pub const Sampletype_ROUNDING: Sampletype = 0;
 pub const Sampletype_REJECTION: Sampletype = 1;
+#[doc = " Different ways to generate discrete uniform samples"]
 pub type Sampletype = ::std::os::raw::c_int;
 pub type Int32 = ::std::os::raw::c_uint;
 #[repr(C)]
@@ -2697,11 +2701,17 @@ extern "C" {
     pub fn y0(_X: f64) -> f64;
     pub fn y1(_X: f64) -> f64;
     pub fn yn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
+    #[doc = " IEEE NaN"]
     pub static mut R_NaN: f64;
+    #[doc = " IEEE Inf"]
     pub static mut R_PosInf: f64;
+    #[doc = " IEEE -Inf"]
     pub static mut R_NegInf: f64;
+    #[doc = " NA_REAL: IEEE"]
     pub static mut R_NaReal: f64;
+    #[doc = " NA_INTEGER:= INT_MIN currently"]
     pub static mut R_NaInt: ::std::os::raw::c_int;
+    #[doc = " NA_STRING is a SEXP, so defined in Rinternals.h"]
     pub fn R_IsNA(arg1: f64) -> ::std::os::raw::c_int;
     pub fn R_IsNaN(arg1: f64) -> ::std::os::raw::c_int;
     pub fn R_finite(arg1: f64) -> ::std::os::raw::c_int;
@@ -2741,6 +2751,7 @@ extern "C" {
     pub fn PutRNGstate();
     pub fn unif_rand() -> f64;
     pub fn R_unif_index(arg1: f64) -> f64;
+    #[doc = " These are also defined in Rmath.h"]
     pub fn norm_rand() -> f64;
     pub fn exp_rand() -> f64;
     pub fn user_unif_rand() -> *mut f64;
@@ -2748,6 +2759,7 @@ extern "C" {
     pub fn user_unif_nseed() -> *mut ::std::os::raw::c_int;
     pub fn user_unif_seedloc() -> *mut ::std::os::raw::c_int;
     pub fn user_norm_rand() -> *mut f64;
+    #[doc = " ../../main/sort.c :"]
     pub fn R_isort(arg1: *mut ::std::os::raw::c_int, arg2: ::std::os::raw::c_int);
     pub fn R_rsort(arg1: *mut f64, arg2: ::std::os::raw::c_int);
     pub fn R_csort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int);
@@ -2768,6 +2780,7 @@ extern "C" {
     );
     pub fn Rf_rPsort(arg1: *mut f64, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
     pub fn Rf_cPsort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
+    #[doc = " ../../main/qsort.c : */\n/* dummy renamed to II to avoid problems with g++ on Solaris"]
     pub fn R_qsort(v: *mut f64, i: usize, j: usize);
     pub fn R_qsort_I(
         v: *mut f64,
@@ -2782,6 +2795,7 @@ extern "C" {
         i: ::std::os::raw::c_int,
         j: ::std::os::raw::c_int,
     );
+    #[doc = " ../../main/util.c  and others :"]
     pub fn R_ExpandFileName(arg1: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
     pub fn R_ExpandFileNameUTF8(
         arg1: *const ::std::os::raw::c_char,
@@ -2795,6 +2809,7 @@ extern "C" {
     pub fn Rf_StringFalse(arg1: *const ::std::os::raw::c_char) -> Rboolean;
     pub fn Rf_StringTrue(arg1: *const ::std::os::raw::c_char) -> Rboolean;
     pub fn Rf_isBlankString(arg1: *const ::std::os::raw::c_char) -> Rboolean;
+    #[doc = " These two are guaranteed to use '.' as the decimal point,\nand to accept \"NA\"."]
     pub fn R_atof(str_: *const ::std::os::raw::c_char) -> f64;
     pub fn R_strtod(c: *const ::std::os::raw::c_char, end: *mut *mut ::std::os::raw::c_char)
         -> f64;
@@ -2811,6 +2826,7 @@ extern "C" {
     pub fn R_CheckUserInterrupt();
     pub fn R_CheckStack();
     pub fn R_CheckStack2(arg1: usize);
+    #[doc = " ../../appl/interv.c: also in Applic.h"]
     pub fn findInterval(
         xt: *mut f64,
         n: ::std::os::raw::c_int,
@@ -2839,6 +2855,7 @@ extern "C" {
         all_inside: *mut ::std::os::raw::c_int,
         indx: *mut ::std::os::raw::c_int,
     );
+    #[doc = " ../../appl/maxcol.c: also in Applic.h"]
     pub fn R_max_col(
         matrix: *mut f64,
         nr: *mut ::std::os::raw::c_int,
@@ -3307,6 +3324,7 @@ extern "C" {
         _Value: ::std::os::raw::c_int,
     ) -> *mut ::std::os::raw::c_char;
     pub fn strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    #[doc = " S Like Memory Management"]
     pub fn R_chk_calloc(arg1: usize, arg2: usize) -> *mut ::std::os::raw::c_void;
     pub fn R_chk_realloc(
         arg1: *mut ::std::os::raw::c_void,
@@ -3314,6 +3332,7 @@ extern "C" {
     ) -> *mut ::std::os::raw::c_void;
     pub fn R_chk_free(arg1: *mut ::std::os::raw::c_void);
     pub fn R_FlushConsole();
+    #[doc = " always declared, but only usable under Win32 and Aqua"]
     pub fn R_ProcessEvents();
     pub fn R_WaitEvent();
 }

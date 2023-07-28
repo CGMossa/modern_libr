@@ -82,20 +82,25 @@ where
 }
 pub const RSTART_VERSION: u32 = 1;
 pub type max_align_t = f64;
+#[doc = ", MAYBE"]
 pub const Rboolean_FALSE: Rboolean = 0;
+#[doc = ", MAYBE"]
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
 pub const UImode_RGui: UImode = 0;
 pub const UImode_RTerm: UImode = 1;
 pub const UImode_LinkDLL: UImode = 2;
 pub type UImode = ::std::os::raw::c_int;
+#[doc = " = 0"]
 pub const SA_TYPE_SA_NORESTORE: SA_TYPE = 0;
 pub const SA_TYPE_SA_RESTORE: SA_TYPE = 1;
+#[doc = " was === SA_RESTORE"]
 pub const SA_TYPE_SA_DEFAULT: SA_TYPE = 2;
 pub const SA_TYPE_SA_NOSAVE: SA_TYPE = 3;
 pub const SA_TYPE_SA_SAVE: SA_TYPE = 4;
 pub const SA_TYPE_SA_SAVEASK: SA_TYPE = 5;
 pub const SA_TYPE_SA_SUICIDE: SA_TYPE = 6;
+#[doc = " Startup Actions"]
 pub type SA_TYPE = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -116,7 +121,9 @@ pub struct structRstart {
     pub ppsize: usize,
     pub _bitfield_align_1: [u16; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
+    #[doc = " R_HOME"]
     pub rhome: *mut ::std::os::raw::c_char,
+    #[doc = " HOME"]
     pub home: *mut ::std::os::raw::c_char,
     pub ReadConsole: ::std::option::Option<
         unsafe extern "C" fn(
@@ -129,14 +136,17 @@ pub struct structRstart {
     pub WriteConsole: ::std::option::Option<
         unsafe extern "C" fn(arg1: *const ::std::os::raw::c_char, arg2: ::std::os::raw::c_int),
     >,
+    #[doc = " ProcessEvents under Unix"]
     pub CallBack: ::std::option::Option<unsafe extern "C" fn()>,
     pub ShowMessage:
         ::std::option::Option<unsafe extern "C" fn(arg1: *const ::std::os::raw::c_char)>,
     pub YesNoCancel: ::std::option::Option<
         unsafe extern "C" fn(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int,
     >,
+    #[doc = " Return value here is expected to be 1 for Yes, -1 for No and\n0 for Cancel: symbolic constants in graphapp.h"]
     pub Busy: ::std::option::Option<unsafe extern "C" fn(arg1: ::std::os::raw::c_int)>,
     pub CharacterMode: UImode,
+    #[doc = " The following field has been added in R 2.5.0"]
     pub WriteConsoleEx: ::std::option::Option<
         unsafe extern "C" fn(
             arg1: *const ::std::os::raw::c_char,
@@ -144,7 +154,9 @@ pub struct structRstart {
             arg3: ::std::os::raw::c_int,
         ),
     >,
+    #[doc = " The following field has been added in R 4.0.0."]
     pub EmitEmbeddedUTF8: Rboolean,
+    #[doc = " The following fields have been added in R 4.2.0 and are only\navailable with RstarVersion 1."]
     pub CleanUp: ::std::option::Option<
         unsafe extern "C" fn(
             arg1: SA_TYPE,
@@ -516,6 +528,7 @@ pub type Rstart = *mut structRstart;
 extern "C" {
     pub fn R_DefParams(arg1: Rstart);
     pub fn R_DefParamsEx(arg1: Rstart, arg2: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    #[doc = " New code should always use R_DefParamsEx(Rstart, RSTART_VERSION) to\ninform R about the version of the structure used. R_DefParams(Rstart)\nonly supports version 0 of the structure."]
     pub fn R_SetParams(arg1: Rstart);
     pub fn R_DefCallbacks(arg1: Rstart, arg2: ::std::os::raw::c_int);
     pub fn R_SetWin32(arg1: Rstart);

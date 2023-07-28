@@ -17,6 +17,7 @@ pub const VPos_F0: VPos = 12;
 pub const VPos_FDIF: VPos = 10;
 pub const VPos_G: VPos = 27;
 pub const VPos_HC: VPos = 70;
+#[doc = " 0-based indices into v"]
 pub type VPos = ::std::os::raw::c_int;
 pub const IVPos_AI: IVPos = 90;
 pub const IVPos_AM: IVPos = 94;
@@ -58,6 +59,7 @@ pub const IVPos_TOOBIG: IVPos = 1;
 pub const IVPos_VNEED: IVPos = 3;
 pub const IVPos_VSAVE: IVPos = 59;
 pub const IVPos_X0PRT: IVPos = 23;
+#[doc = " 0-based indices into iv"]
 pub type IVPos = ::std::os::raw::c_int;
 extern "C" {
     pub fn S_Rf_divset(
