@@ -34,6 +34,7 @@ fn main() {
 
     let binder = bindgen::builder()
         .layout_tests(false)
+        .sort_semantically(true)
         .header("wrapper_head.h")
         .blocklist_file(".*stddef\\.h")
         .blocklist_file(".*wrapper_header\\.h")
