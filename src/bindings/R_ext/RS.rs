@@ -241,7 +241,7 @@ extern "C" {
         _Dst: *mut ::std::os::raw::c_void,
         _Src: *const ::std::os::raw::c_void,
         _Val: ::std::os::raw::c_int,
-        _Size: ::std::os::raw::c_ulonglong,
+        _Size: usize,
     ) -> *mut ::std::os::raw::c_void;
     pub fn memicmp(
         _Buf1: *const ::std::os::raw::c_void,
