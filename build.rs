@@ -1,8 +1,4 @@
-use std::{
-    path::{Path, PathBuf},
-    process::Command,
-    str::FromStr,
-};
+use std::{path::PathBuf, process::Command, str::FromStr};
 
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
@@ -29,23 +25,18 @@ fn main() {
     let r_headers = read_dir_recursively(r_include.as_path());
     // dbg!(&r_home);
     // dbg!(&r_headers);
-    // FIXME:
+    // FIXME: other platforms
     let r_path = r_home.join("bin/x64/R");
 
-    let mut binder = bindgen::builder()
-        // FIXME: enable this
-        // .header("wrapper_head.h")
+    let binder = bindgen::builder()
+        .header("wrapper_head.h")
+        .blocklist_file(".*wrapper_header\\.h")
+        //FIXME: enable this maybe?
+        .allowlist_recursively(false)
         .clang_arg(format!("-I{}", r_include.display()));
-    for header in &r_headers {
-        let header = header.strip_prefix(&r_include).unwrap();
-        let header = header.to_str().unwrap();
-        let header = header.replace("\\", "/");
-        dbg!(&header);
-        // FIXME: enable this to get rid of bloated bindings
-        // binder = binder.allowlist_file(header);
-    }
 
     let crate_root: PathBuf = env!("CARGO_MANIFEST_DIR").into();
+
     for header in &r_headers {
         let bind_header = header
             .strip_prefix(&r_include)
@@ -54,21 +45,22 @@ fn main() {
         let bind_header = crate_root.join("src").join("bindings").join(bind_header);
 
         std::fs::create_dir_all(bind_header.parent().unwrap()).unwrap();
-        dbg!(&bind_header);
+        // dbg!(&bind_header);
 
         let mut binder = binder.clone();
 
         let specific_header = header.strip_prefix(&r_include).unwrap().to_str().unwrap();
         match specific_header {
             "Rmath.h" => {
-                // FIXME: enable this
-                // binder = binder.header("wrapper_head_Rcomplex.h");
+                binder = binder.header("wrapper_head_Rcomplex.h");
             }
             "R_ext\\Parse.h" => {
                 binder = binder.header("Rinternals.h");
+                binder = binder.blocklist_file(".*Rinternals\\.h");
             }
             "R_ext\\Altrep.h" => {
                 binder = binder.header("Rinternals.h");
+                binder = binder.blocklist_file(".*Rinternals\\.h");
             }
             "R_ext\\GraphicsEngine.h" | "R_ext\\GraphicsDevice.h" | "R_ext\\Connections.h" => {
                 // ignore for now
@@ -86,7 +78,7 @@ fn main() {
     }
 }
 
-fn read_dir_recursively(root: &Path) -> Vec<PathBuf> {
+fn read_dir_recursively(root: &std::path::Path) -> Vec<PathBuf> {
     let mut result = Vec::new();
     // FIXME: maybe this let should be reversed?
     let mut candidates: Vec<_> = root.read_dir().unwrap().flatten().collect();
