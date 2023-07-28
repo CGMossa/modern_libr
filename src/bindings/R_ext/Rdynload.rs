@@ -131,27 +131,6 @@ pub struct _DllInfo {
     _unused: [u8; 0],
 }
 pub type DllInfo = _DllInfo;
-extern "C" {
-    pub fn R_registerRoutines(
-        info: *mut DllInfo,
-        croutines: *const R_CMethodDef,
-        callRoutines: *const R_CallMethodDef,
-        fortranRoutines: *const R_FortranMethodDef,
-        externalRoutines: *const R_ExternalMethodDef,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_useDynamicSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
-}
-extern "C" {
-    pub fn R_forceSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
-}
-extern "C" {
-    pub fn R_getDllInfo(name: *const ::std::os::raw::c_char) -> *mut DllInfo;
-}
-extern "C" {
-    pub fn R_getEmbeddingDllInfo() -> *mut DllInfo;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Rf_RegisteredNativeSymbol {
@@ -165,20 +144,27 @@ pub const NativeSymbolType_R_FORTRAN_SYM: NativeSymbolType = 3;
 pub const NativeSymbolType_R_EXTERNAL_SYM: NativeSymbolType = 4;
 pub type NativeSymbolType = ::std::os::raw::c_int;
 extern "C" {
+    pub fn R_registerRoutines(
+        info: *mut DllInfo,
+        croutines: *const R_CMethodDef,
+        callRoutines: *const R_CallMethodDef,
+        fortranRoutines: *const R_FortranMethodDef,
+        externalRoutines: *const R_ExternalMethodDef,
+    ) -> ::std::os::raw::c_int;
+    pub fn R_useDynamicSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
+    pub fn R_forceSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
+    pub fn R_getDllInfo(name: *const ::std::os::raw::c_char) -> *mut DllInfo;
+    pub fn R_getEmbeddingDllInfo() -> *mut DllInfo;
     pub fn R_FindSymbol(
         arg1: *const ::std::os::raw::c_char,
         arg2: *const ::std::os::raw::c_char,
         symbol: *mut R_RegisteredNativeSymbol,
     ) -> DL_FUNC;
-}
-extern "C" {
     pub fn R_RegisterCCallable(
         package: *const ::std::os::raw::c_char,
         name: *const ::std::os::raw::c_char,
         fptr: DL_FUNC,
     );
-}
-extern "C" {
     pub fn R_GetCCallable(
         package: *const ::std::os::raw::c_char,
         name: *const ::std::os::raw::c_char,

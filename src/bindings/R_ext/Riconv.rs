@@ -7,8 +7,6 @@ extern "C" {
         tocode: *const ::std::os::raw::c_char,
         fromcode: *const ::std::os::raw::c_char,
     ) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
     pub fn Riconv(
         cd: *mut ::std::os::raw::c_void,
         inbuf: *mut *const ::std::os::raw::c_char,
@@ -16,7 +14,5 @@ extern "C" {
         outbuf: *mut *mut ::std::os::raw::c_char,
         outbytesleft: *mut usize,
     ) -> usize;
-}
-extern "C" {
     pub fn Riconv_close(cd: *mut ::std::os::raw::c_void) -> ::std::os::raw::c_int;
 }

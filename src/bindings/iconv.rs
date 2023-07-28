@@ -8,8 +8,6 @@ extern "C" {
         tocode: *const ::std::os::raw::c_char,
         fromcode: *const ::std::os::raw::c_char,
     ) -> libiconv_t;
-}
-extern "C" {
     pub fn libiconv(
         cd: libiconv_t,
         inbuf: *mut *const ::std::os::raw::c_char,
@@ -17,11 +15,7 @@ extern "C" {
         outbuf: *mut *mut ::std::os::raw::c_char,
         outbytesleft: *mut usize,
     ) -> usize;
-}
-extern "C" {
     pub fn libiconv_close(cd: libiconv_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn libiconvlist(
         do_one: ::std::option::Option<
             unsafe extern "C" fn(

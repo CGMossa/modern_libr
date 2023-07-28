@@ -24,40 +24,18 @@ pub type N01type = ::std::os::raw::c_int;
 pub const Sampletype_ROUNDING: Sampletype = 0;
 pub const Sampletype_REJECTION: Sampletype = 1;
 pub type Sampletype = ::std::os::raw::c_int;
-extern "C" {
-    pub fn R_sample_kind() -> Sampletype;
-}
-extern "C" {
-    pub fn GetRNGstate();
-}
-extern "C" {
-    pub fn PutRNGstate();
-}
-extern "C" {
-    pub fn unif_rand() -> f64;
-}
-extern "C" {
-    pub fn R_unif_index(arg1: f64) -> f64;
-}
-extern "C" {
-    pub fn norm_rand() -> f64;
-}
-extern "C" {
-    pub fn exp_rand() -> f64;
-}
 pub type Int32 = ::std::os::raw::c_uint;
 extern "C" {
+    pub fn R_sample_kind() -> Sampletype;
+    pub fn GetRNGstate();
+    pub fn PutRNGstate();
+    pub fn unif_rand() -> f64;
+    pub fn R_unif_index(arg1: f64) -> f64;
+    pub fn norm_rand() -> f64;
+    pub fn exp_rand() -> f64;
     pub fn user_unif_rand() -> *mut f64;
-}
-extern "C" {
     pub fn user_unif_init(arg1: Int32);
-}
-extern "C" {
     pub fn user_unif_nseed() -> *mut ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn user_unif_seedloc() -> *mut ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn user_norm_rand() -> *mut f64;
 }

@@ -190,38 +190,8 @@ pub const HT_TYPE_ADDRESS: u32 = 1;
 pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
-extern "C" {
-    pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
-}
 pub type __vcrt_bool = bool;
-extern "C" {
-    pub fn __security_init_cookie();
-}
-extern "C" {
-    pub fn __security_check_cookie(_StackCookie: usize);
-}
-extern "C" {
-    pub fn __report_gsfailure(_StackCookie: usize) -> !;
-}
-extern "C" {
-    pub static mut __security_cookie: usize;
-}
 pub type __crt_bool = bool;
-extern "C" {
-    pub fn _invalid_parameter_noinfo();
-}
-extern "C" {
-    pub fn _invalid_parameter_noinfo_noreturn() -> !;
-}
-extern "C" {
-    pub fn _invoke_watson(
-        _Expression: *const wchar_t,
-        _FunctionName: *const wchar_t,
-        _FileName: *const wchar_t,
-        _LineNo: ::std::os::raw::c_uint,
-        _Reserved: usize,
-    ) -> !;
-}
 pub type errno_t = ::std::os::raw::c_int;
 pub type wint_t = ::std::os::raw::c_ushort;
 pub type wctype_t = ::std::os::raw::c_ushort;
@@ -409,671 +379,7 @@ fn bindgen_test_layout__iobuf() {
     );
 }
 pub type FILE = _iobuf;
-extern "C" {
-    pub fn __acrt_iob_func(_Ix: ::std::os::raw::c_uint) -> *mut FILE;
-}
-extern "C" {
-    pub fn fgetwc(_Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn _fgetwchar() -> wint_t;
-}
-extern "C" {
-    pub fn fputwc(_Character: wchar_t, _Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn _fputwchar(_Character: wchar_t) -> wint_t;
-}
-extern "C" {
-    pub fn getwc(_Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn getwchar() -> wint_t;
-}
-extern "C" {
-    pub fn fgetws(
-        _Buffer: *mut wchar_t,
-        _BufferCount: ::std::os::raw::c_int,
-        _Stream: *mut FILE,
-    ) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn fputws(_Buffer: *const wchar_t, _Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _getws_s(_Buffer: *mut wchar_t, _BufferCount: usize) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn putwc(_Character: wchar_t, _Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn putwchar(_Character: wchar_t) -> wint_t;
-}
-extern "C" {
-    pub fn _putws(_Buffer: *const wchar_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn ungetwc(_Character: wint_t, _Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn _wfdopen(_FileHandle: ::std::os::raw::c_int, _Mode: *const wchar_t) -> *mut FILE;
-}
-extern "C" {
-    pub fn _wfopen(_FileName: *const wchar_t, _Mode: *const wchar_t) -> *mut FILE;
-}
-extern "C" {
-    pub fn _wfopen_s(
-        _Stream: *mut *mut FILE,
-        _FileName: *const wchar_t,
-        _Mode: *const wchar_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn _wfreopen(
-        _FileName: *const wchar_t,
-        _Mode: *const wchar_t,
-        _OldStream: *mut FILE,
-    ) -> *mut FILE;
-}
-extern "C" {
-    pub fn _wfreopen_s(
-        _Stream: *mut *mut FILE,
-        _FileName: *const wchar_t,
-        _Mode: *const wchar_t,
-        _OldStream: *mut FILE,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn _wfsopen(
-        _FileName: *const wchar_t,
-        _Mode: *const wchar_t,
-        _ShFlag: ::std::os::raw::c_int,
-    ) -> *mut FILE;
-}
-extern "C" {
-    pub fn _wperror(_ErrorMessage: *const wchar_t);
-}
-extern "C" {
-    pub fn _wpopen(_Command: *const wchar_t, _Mode: *const wchar_t) -> *mut FILE;
-}
-extern "C" {
-    pub fn _wremove(_FileName: *const wchar_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wtempnam(_Directory: *const wchar_t, _FilePrefix: *const wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wtmpnam_s(_Buffer: *mut wchar_t, _BufferCount: usize) -> errno_t;
-}
-extern "C" {
-    pub fn _wtmpnam(_Buffer: *mut wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _fgetwc_nolock(_Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn _fputwc_nolock(_Character: wchar_t, _Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn _getwc_nolock(_Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn _putwc_nolock(_Character: wchar_t, _Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn _ungetwc_nolock(_Character: wint_t, _Stream: *mut FILE) -> wint_t;
-}
-extern "C" {
-    pub fn __stdio_common_vfwprintf(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-        _Format: *const wchar_t,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vfwprintf_s(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-        _Format: *const wchar_t,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vfwprintf_p(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-        _Format: *const wchar_t,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vfwscanf(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-        _Format: *const wchar_t,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vswprintf(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *mut wchar_t,
-        _BufferCount: usize,
-        _Format: *const wchar_t,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vswprintf_s(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *mut wchar_t,
-        _BufferCount: usize,
-        _Format: *const wchar_t,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vsnwprintf_s(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *mut wchar_t,
-        _BufferCount: usize,
-        _MaxCount: usize,
-        _Format: *const wchar_t,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vswprintf_p(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *mut wchar_t,
-        _BufferCount: usize,
-        _Format: *const wchar_t,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vswscanf(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *const wchar_t,
-        _BufferCount: usize,
-        _Format: *const wchar_t,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
 pub type fpos_t = ::std::os::raw::c_longlong;
-extern "C" {
-    pub fn _get_stream_buffer_pointers(
-        _Stream: *mut FILE,
-        _Base: *mut *mut *mut ::std::os::raw::c_char,
-        _Pointer: *mut *mut *mut ::std::os::raw::c_char,
-        _Count: *mut *mut ::std::os::raw::c_int,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn clearerr_s(_Stream: *mut FILE) -> errno_t;
-}
-extern "C" {
-    pub fn fopen_s(
-        _Stream: *mut *mut FILE,
-        _FileName: *const ::std::os::raw::c_char,
-        _Mode: *const ::std::os::raw::c_char,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn fread_s(
-        _Buffer: *mut ::std::os::raw::c_void,
-        _BufferSize: usize,
-        _ElementSize: usize,
-        _ElementCount: usize,
-        _Stream: *mut FILE,
-    ) -> usize;
-}
-extern "C" {
-    pub fn freopen_s(
-        _Stream: *mut *mut FILE,
-        _FileName: *const ::std::os::raw::c_char,
-        _Mode: *const ::std::os::raw::c_char,
-        _OldStream: *mut FILE,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn gets_s(
-        _Buffer: *mut ::std::os::raw::c_char,
-        _Size: rsize_t,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn tmpfile_s(_Stream: *mut *mut FILE) -> errno_t;
-}
-extern "C" {
-    pub fn tmpnam_s(_Buffer: *mut ::std::os::raw::c_char, _Size: rsize_t) -> errno_t;
-}
-extern "C" {
-    pub fn clearerr(_Stream: *mut FILE);
-}
-extern "C" {
-    pub fn fclose(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fcloseall() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fdopen(
-        _FileHandle: ::std::os::raw::c_int,
-        _Mode: *const ::std::os::raw::c_char,
-    ) -> *mut FILE;
-}
-extern "C" {
-    pub fn feof(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn ferror(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fflush(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fgetc(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fgetchar() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fgetpos(_Stream: *mut FILE, _Position: *mut fpos_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fgets(
-        _Buffer: *mut ::std::os::raw::c_char,
-        _MaxCount: ::std::os::raw::c_int,
-        _Stream: *mut FILE,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _fileno(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _flushall() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fopen(
-        _FileName: *const ::std::os::raw::c_char,
-        _Mode: *const ::std::os::raw::c_char,
-    ) -> *mut FILE;
-}
-extern "C" {
-    pub fn fputc(_Character: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fputchar(_Character: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fputs(
-        _Buffer: *const ::std::os::raw::c_char,
-        _Stream: *mut FILE,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fread(
-        _Buffer: *mut ::std::os::raw::c_void,
-        _ElementSize: ::std::os::raw::c_ulonglong,
-        _ElementCount: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-    ) -> ::std::os::raw::c_ulonglong;
-}
-extern "C" {
-    pub fn freopen(
-        _FileName: *const ::std::os::raw::c_char,
-        _Mode: *const ::std::os::raw::c_char,
-        _Stream: *mut FILE,
-    ) -> *mut FILE;
-}
-extern "C" {
-    pub fn _fsopen(
-        _FileName: *const ::std::os::raw::c_char,
-        _Mode: *const ::std::os::raw::c_char,
-        _ShFlag: ::std::os::raw::c_int,
-    ) -> *mut FILE;
-}
-extern "C" {
-    pub fn fsetpos(_Stream: *mut FILE, _Position: *const fpos_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fseek(
-        _Stream: *mut FILE,
-        _Offset: ::std::os::raw::c_long,
-        _Origin: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fseeki64(
-        _Stream: *mut FILE,
-        _Offset: ::std::os::raw::c_longlong,
-        _Origin: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn ftell(_Stream: *mut FILE) -> ::std::os::raw::c_long;
-}
-extern "C" {
-    pub fn _ftelli64(_Stream: *mut FILE) -> ::std::os::raw::c_longlong;
-}
-extern "C" {
-    pub fn fwrite(
-        _Buffer: *const ::std::os::raw::c_void,
-        _ElementSize: ::std::os::raw::c_ulonglong,
-        _ElementCount: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-    ) -> ::std::os::raw::c_ulonglong;
-}
-extern "C" {
-    pub fn getc(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn getchar() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _getmaxstdio() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _getw(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn perror(_ErrorMessage: *const ::std::os::raw::c_char);
-}
-extern "C" {
-    pub fn _pclose(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _popen(
-        _Command: *const ::std::os::raw::c_char,
-        _Mode: *const ::std::os::raw::c_char,
-    ) -> *mut FILE;
-}
-extern "C" {
-    pub fn putc(_Character: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn putchar(_Character: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn puts(_Buffer: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _putw(_Word: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn remove(_FileName: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn rename(
-        _OldFileName: *const ::std::os::raw::c_char,
-        _NewFileName: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _unlink(_FileName: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn unlink(_FileName: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn rewind(_Stream: *mut FILE);
-}
-extern "C" {
-    pub fn _rmtmp() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn setbuf(_Stream: *mut FILE, _Buffer: *mut ::std::os::raw::c_char);
-}
-extern "C" {
-    pub fn _setmaxstdio(_Maximum: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn setvbuf(
-        _Stream: *mut FILE,
-        _Buffer: *mut ::std::os::raw::c_char,
-        _Mode: ::std::os::raw::c_int,
-        _Size: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _tempnam(
-        _DirectoryName: *const ::std::os::raw::c_char,
-        _FilePrefix: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn tmpfile() -> *mut FILE;
-}
-extern "C" {
-    pub fn tmpnam(_Buffer: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn ungetc(_Character: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _lock_file(_Stream: *mut FILE);
-}
-extern "C" {
-    pub fn _unlock_file(_Stream: *mut FILE);
-}
-extern "C" {
-    pub fn _fclose_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fflush_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fgetc_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fputc_nolock(
-        _Character: ::std::os::raw::c_int,
-        _Stream: *mut FILE,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fread_nolock(
-        _Buffer: *mut ::std::os::raw::c_void,
-        _ElementSize: usize,
-        _ElementCount: usize,
-        _Stream: *mut FILE,
-    ) -> usize;
-}
-extern "C" {
-    pub fn _fread_nolock_s(
-        _Buffer: *mut ::std::os::raw::c_void,
-        _BufferSize: usize,
-        _ElementSize: usize,
-        _ElementCount: usize,
-        _Stream: *mut FILE,
-    ) -> usize;
-}
-extern "C" {
-    pub fn _fseek_nolock(
-        _Stream: *mut FILE,
-        _Offset: ::std::os::raw::c_long,
-        _Origin: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fseeki64_nolock(
-        _Stream: *mut FILE,
-        _Offset: ::std::os::raw::c_longlong,
-        _Origin: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _ftell_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_long;
-}
-extern "C" {
-    pub fn _ftelli64_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_longlong;
-}
-extern "C" {
-    pub fn _fwrite_nolock(
-        _Buffer: *const ::std::os::raw::c_void,
-        _ElementSize: usize,
-        _ElementCount: usize,
-        _Stream: *mut FILE,
-    ) -> usize;
-}
-extern "C" {
-    pub fn _getc_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _putc_nolock(
-        _Character: ::std::os::raw::c_int,
-        _Stream: *mut FILE,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _ungetc_nolock(
-        _Character: ::std::os::raw::c_int,
-        _Stream: *mut FILE,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __p__commode() -> *mut ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vfprintf(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-        _Format: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vfprintf_s(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-        _Format: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vfprintf_p(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-        _Format: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _set_printf_count_output(_Value: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _get_printf_count_output() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vfscanf(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Stream: *mut FILE,
-        _Format: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-        _Arglist: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vsprintf(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *mut ::std::os::raw::c_char,
-        _BufferCount: usize,
-        _Format: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vsprintf_s(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *mut ::std::os::raw::c_char,
-        _BufferCount: usize,
-        _Format: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vsnprintf_s(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *mut ::std::os::raw::c_char,
-        _BufferCount: usize,
-        _MaxCount: usize,
-        _Format: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vsprintf_p(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *mut ::std::os::raw::c_char,
-        _BufferCount: usize,
-        _Format: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __stdio_common_vsscanf(
-        _Options: ::std::os::raw::c_ulonglong,
-        _Buffer: *const ::std::os::raw::c_char,
-        _BufferCount: usize,
-        _Format: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-        _ArgList: va_list,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn tempnam(
-        _Directory: *const ::std::os::raw::c_char,
-        _FilePrefix: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn fcloseall() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fdopen(
-        _FileHandle: ::std::os::raw::c_int,
-        _Format: *const ::std::os::raw::c_char,
-    ) -> *mut FILE;
-}
-extern "C" {
-    pub fn fgetchar() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fileno(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn flushall() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn fputchar(_Ch: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn getw(_Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn putw(_Ch: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn rmtmp() -> ::std::os::raw::c_int;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _exception {
@@ -1191,121 +497,6 @@ fn bindgen_test_layout__complex() {
 }
 pub type float_t = f32;
 pub type double_t = f64;
-extern "C" {
-    pub static _HUGE: f64;
-}
-extern "C" {
-    pub fn _fperrraise(_Except: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn _dclass(_X: f64) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _ldclass(_X: f64) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _fdclass(_X: f32) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _dsign(_X: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _ldsign(_X: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fdsign(_X: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _dpcomp(_X: f64, _Y: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _ldpcomp(_X: f64, _Y: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fdpcomp(_X: f32, _Y: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _dtest(_Px: *mut f64) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _ldtest(_Px: *mut f64) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _fdtest(_Px: *mut f32) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _d_int(_Px: *mut f64, _Xexp: ::std::os::raw::c_short) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _ld_int(_Px: *mut f64, _Xexp: ::std::os::raw::c_short) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _fd_int(_Px: *mut f32, _Xexp: ::std::os::raw::c_short) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _dscale(_Px: *mut f64, _Lexp: ::std::os::raw::c_long) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _ldscale(_Px: *mut f64, _Lexp: ::std::os::raw::c_long) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _fdscale(_Px: *mut f32, _Lexp: ::std::os::raw::c_long) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _dunscale(_Pex: *mut ::std::os::raw::c_short, _Px: *mut f64) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _ldunscale(_Pex: *mut ::std::os::raw::c_short, _Px: *mut f64)
-        -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _fdunscale(_Pex: *mut ::std::os::raw::c_short, _Px: *mut f32)
-        -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _dexp(_Px: *mut f64, _Y: f64, _Eoff: ::std::os::raw::c_long) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _ldexp(_Px: *mut f64, _Y: f64, _Eoff: ::std::os::raw::c_long)
-        -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _fdexp(_Px: *mut f32, _Y: f32, _Eoff: ::std::os::raw::c_long)
-        -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _dnorm(_Ps: *mut ::std::os::raw::c_ushort) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _fdnorm(_Ps: *mut ::std::os::raw::c_ushort) -> ::std::os::raw::c_short;
-}
-extern "C" {
-    pub fn _dpoly(_X: f64, _Tab: *const f64, _N: ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn _ldpoly(_X: f64, _Tab: *const f64, _N: ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn _fdpoly(_X: f32, _Tab: *const f32, _N: ::std::os::raw::c_int) -> f32;
-}
-extern "C" {
-    pub fn _dlog(_X: f64, _Baseflag: ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn _ldlog(_X: f64, _Baseflag: ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn _fdlog(_X: f32, _Baseflag: ::std::os::raw::c_int) -> f32;
-}
-extern "C" {
-    pub fn _dsin(_X: f64, _Qoff: ::std::os::raw::c_uint) -> f64;
-}
-extern "C" {
-    pub fn _ldsin(_X: f64, _Qoff: ::std::os::raw::c_uint) -> f64;
-}
-extern "C" {
-    pub fn _fdsin(_X: f32, _Qoff: ::std::os::raw::c_uint) -> f32;
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union _double_val {
@@ -1492,636 +683,6 @@ fn bindgen_test_layout__float_const() {
         )
     );
 }
-extern "C" {
-    pub static _Denorm_C: _float_const;
-}
-extern "C" {
-    pub static _Inf_C: _float_const;
-}
-extern "C" {
-    pub static _Nan_C: _float_const;
-}
-extern "C" {
-    pub static _Snan_C: _float_const;
-}
-extern "C" {
-    pub static _Hugeval_C: _float_const;
-}
-extern "C" {
-    pub static _FDenorm_C: _float_const;
-}
-extern "C" {
-    pub static _FInf_C: _float_const;
-}
-extern "C" {
-    pub static _FNan_C: _float_const;
-}
-extern "C" {
-    pub static _FSnan_C: _float_const;
-}
-extern "C" {
-    pub static _LDenorm_C: _float_const;
-}
-extern "C" {
-    pub static _LInf_C: _float_const;
-}
-extern "C" {
-    pub static _LNan_C: _float_const;
-}
-extern "C" {
-    pub static _LSnan_C: _float_const;
-}
-extern "C" {
-    pub static _Eps_C: _float_const;
-}
-extern "C" {
-    pub static _Rteps_C: _float_const;
-}
-extern "C" {
-    pub static _FEps_C: _float_const;
-}
-extern "C" {
-    pub static _FRteps_C: _float_const;
-}
-extern "C" {
-    pub static _LEps_C: _float_const;
-}
-extern "C" {
-    pub static _LRteps_C: _float_const;
-}
-extern "C" {
-    pub static _Zero_C: f64;
-}
-extern "C" {
-    pub static _Xbig_C: f64;
-}
-extern "C" {
-    pub static _FZero_C: f32;
-}
-extern "C" {
-    pub static _FXbig_C: f32;
-}
-extern "C" {
-    pub static _LZero_C: f64;
-}
-extern "C" {
-    pub static _LXbig_C: f64;
-}
-extern "C" {
-    pub fn abs(_X: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn labs(_X: ::std::os::raw::c_long) -> ::std::os::raw::c_long;
-}
-extern "C" {
-    pub fn llabs(_X: ::std::os::raw::c_longlong) -> ::std::os::raw::c_longlong;
-}
-extern "C" {
-    pub fn acos(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn asin(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn atan(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn atan2(_Y: f64, _X: f64) -> f64;
-}
-extern "C" {
-    pub fn cos(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn cosh(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn exp(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn fabs(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn fmod(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn log(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn log10(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn pow(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn sin(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn sinh(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn sqrt(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn tan(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn tanh(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn acosh(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn asinh(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn atanh(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn atof(_String: *const ::std::os::raw::c_char) -> f64;
-}
-extern "C" {
-    pub fn _atof_l(_String: *const ::std::os::raw::c_char, _Locale: _locale_t) -> f64;
-}
-extern "C" {
-    pub fn _cabs(_Complex_value: _complex) -> f64;
-}
-extern "C" {
-    pub fn cbrt(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn ceil(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn _chgsign(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn copysign(_Number: f64, _Sign: f64) -> f64;
-}
-extern "C" {
-    pub fn _copysign(_Number: f64, _Sign: f64) -> f64;
-}
-extern "C" {
-    pub fn erf(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn erfc(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn exp2(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn expm1(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn fdim(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn floor(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn fma(_X: f64, _Y: f64, _Z: f64) -> f64;
-}
-extern "C" {
-    pub fn fmax(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn fmin(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn frexp(_X: f64, _Y: *mut ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn hypot(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn _hypot(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn ilogb(_X: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn ldexp(_X: f64, _Y: ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn lgamma(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn llrint(_X: f64) -> ::std::os::raw::c_longlong;
-}
-extern "C" {
-    pub fn llround(_X: f64) -> ::std::os::raw::c_longlong;
-}
-extern "C" {
-    pub fn log1p(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn log2(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn logb(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn lrint(_X: f64) -> ::std::os::raw::c_long;
-}
-extern "C" {
-    pub fn lround(_X: f64) -> ::std::os::raw::c_long;
-}
-extern "C" {
-    pub fn _matherr(_Except: *mut _exception) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn modf(_X: f64, _Y: *mut f64) -> f64;
-}
-extern "C" {
-    pub fn nan(_X: *const ::std::os::raw::c_char) -> f64;
-}
-extern "C" {
-    pub fn nearbyint(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn nextafter(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn nexttoward(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn remainder(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn remquo(_X: f64, _Y: f64, _Z: *mut ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn rint(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn round(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn scalbln(_X: f64, _Y: ::std::os::raw::c_long) -> f64;
-}
-extern "C" {
-    pub fn scalbn(_X: f64, _Y: ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn tgamma(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn trunc(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn _j0(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn _j1(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn _jn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn _y0(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn _y1(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn _yn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn acoshf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn asinhf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn atanhf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn cbrtf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn _chgsignf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn copysignf(_Number: f32, _Sign: f32) -> f32;
-}
-extern "C" {
-    pub fn _copysignf(_Number: f32, _Sign: f32) -> f32;
-}
-extern "C" {
-    pub fn erff(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn erfcf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn expm1f(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn exp2f(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn fdimf(_X: f32, _Y: f32) -> f32;
-}
-extern "C" {
-    pub fn fmaf(_X: f32, _Y: f32, _Z: f32) -> f32;
-}
-extern "C" {
-    pub fn fmaxf(_X: f32, _Y: f32) -> f32;
-}
-extern "C" {
-    pub fn fminf(_X: f32, _Y: f32) -> f32;
-}
-extern "C" {
-    pub fn _hypotf(_X: f32, _Y: f32) -> f32;
-}
-extern "C" {
-    pub fn ilogbf(_X: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn lgammaf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn llrintf(_X: f32) -> ::std::os::raw::c_longlong;
-}
-extern "C" {
-    pub fn llroundf(_X: f32) -> ::std::os::raw::c_longlong;
-}
-extern "C" {
-    pub fn log1pf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn log2f(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn logbf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn lrintf(_X: f32) -> ::std::os::raw::c_long;
-}
-extern "C" {
-    pub fn lroundf(_X: f32) -> ::std::os::raw::c_long;
-}
-extern "C" {
-    pub fn nanf(_X: *const ::std::os::raw::c_char) -> f32;
-}
-extern "C" {
-    pub fn nearbyintf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn nextafterf(_X: f32, _Y: f32) -> f32;
-}
-extern "C" {
-    pub fn nexttowardf(_X: f32, _Y: f64) -> f32;
-}
-extern "C" {
-    pub fn remainderf(_X: f32, _Y: f32) -> f32;
-}
-extern "C" {
-    pub fn remquof(_X: f32, _Y: f32, _Z: *mut ::std::os::raw::c_int) -> f32;
-}
-extern "C" {
-    pub fn rintf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn roundf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn scalblnf(_X: f32, _Y: ::std::os::raw::c_long) -> f32;
-}
-extern "C" {
-    pub fn scalbnf(_X: f32, _Y: ::std::os::raw::c_int) -> f32;
-}
-extern "C" {
-    pub fn tgammaf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn truncf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn _logbf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn _nextafterf(_X: f32, _Y: f32) -> f32;
-}
-extern "C" {
-    pub fn _finitef(_X: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _isnanf(_X: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _fpclassf(_X: f32) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _set_FMA3_enable(_Flag: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _get_FMA3_enable() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn acosf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn asinf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn atan2f(_Y: f32, _X: f32) -> f32;
-}
-extern "C" {
-    pub fn atanf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn ceilf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn cosf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn coshf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn expf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn floorf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn fmodf(_X: f32, _Y: f32) -> f32;
-}
-extern "C" {
-    pub fn log10f(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn logf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn modff(_X: f32, _Y: *mut f32) -> f32;
-}
-extern "C" {
-    pub fn powf(_X: f32, _Y: f32) -> f32;
-}
-extern "C" {
-    pub fn sinf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn sinhf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn sqrtf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn tanf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn tanhf(_X: f32) -> f32;
-}
-extern "C" {
-    pub fn acoshl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn asinhl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn atanhl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn cbrtl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn copysignl(_Number: f64, _Sign: f64) -> f64;
-}
-extern "C" {
-    pub fn erfl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn erfcl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn exp2l(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn expm1l(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn fdiml(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn fmal(_X: f64, _Y: f64, _Z: f64) -> f64;
-}
-extern "C" {
-    pub fn fmaxl(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn fminl(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn ilogbl(_X: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn lgammal(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn llrintl(_X: f64) -> ::std::os::raw::c_longlong;
-}
-extern "C" {
-    pub fn llroundl(_X: f64) -> ::std::os::raw::c_longlong;
-}
-extern "C" {
-    pub fn log1pl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn log2l(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn logbl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn lrintl(_X: f64) -> ::std::os::raw::c_long;
-}
-extern "C" {
-    pub fn lroundl(_X: f64) -> ::std::os::raw::c_long;
-}
-extern "C" {
-    pub fn nanl(_X: *const ::std::os::raw::c_char) -> f64;
-}
-extern "C" {
-    pub fn nearbyintl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn nextafterl(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn nexttowardl(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn remainderl(_X: f64, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn remquol(_X: f64, _Y: f64, _Z: *mut ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn rintl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn roundl(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn scalblnl(_X: f64, _Y: ::std::os::raw::c_long) -> f64;
-}
-extern "C" {
-    pub fn scalbnl(_X: f64, _Y: ::std::os::raw::c_int) -> f64;
-}
-extern "C" {
-    pub fn tgammal(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn truncl(_X: f64) -> f64;
-}
-extern "C" {
-    pub static mut HUGE: f64;
-}
-extern "C" {
-    pub fn j0(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn j1(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn jn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
-}
-extern "C" {
-    pub fn y0(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn y1(_X: f64) -> f64;
-}
-extern "C" {
-    pub fn yn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
-}
-extern "C" {
-    pub static mut R_NaN: f64;
-}
-extern "C" {
-    pub static mut R_PosInf: f64;
-}
-extern "C" {
-    pub static mut R_NegInf: f64;
-}
-extern "C" {
-    pub static mut R_NaReal: f64;
-}
-extern "C" {
-    pub static mut R_NaInt: ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_IsNA(arg1: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_IsNaN(arg1: f64) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_finite(arg1: f64) -> ::std::os::raw::c_int;
-}
 pub const Rboolean_FALSE: Rboolean = 0;
 pub const Rboolean_TRUE: Rboolean = 1;
 pub type Rboolean = ::std::os::raw::c_int;
@@ -2198,238 +759,7 @@ fn bindgen_test_layout_Rcomplex() {
         )
     );
 }
-extern "C" {
-    pub fn Rf_error(arg1: *const ::std::os::raw::c_char, ...) -> !;
-}
-extern "C" {
-    pub fn UNIMPLEMENTED(arg1: *const ::std::os::raw::c_char) -> !;
-}
-extern "C" {
-    pub fn WrongArgCount(arg1: *const ::std::os::raw::c_char) -> !;
-}
-extern "C" {
-    pub fn Rf_warning(arg1: *const ::std::os::raw::c_char, ...);
-}
-extern "C" {
-    pub fn R_ShowMessage(s: *const ::std::os::raw::c_char);
-}
-extern "C" {
-    pub fn vmaxget() -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn vmaxset(arg1: *const ::std::os::raw::c_void);
-}
-extern "C" {
-    pub fn R_gc();
-}
-extern "C" {
-    pub fn R_gc_running() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_alloc(arg1: usize, arg2: ::std::os::raw::c_int) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn R_allocLD(nelem: usize) -> *mut f64;
-}
-extern "C" {
-    pub fn S_alloc(
-        arg1: ::std::os::raw::c_long,
-        arg2: ::std::os::raw::c_int,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn S_realloc(
-        arg1: *mut ::std::os::raw::c_char,
-        arg2: ::std::os::raw::c_long,
-        arg3: ::std::os::raw::c_long,
-        arg4: ::std::os::raw::c_int,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn R_malloc_gc(arg1: usize) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn R_calloc_gc(arg1: usize, arg2: usize) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn R_realloc_gc(
-        arg1: *mut ::std::os::raw::c_void,
-        arg2: usize,
-    ) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn R_isort(arg1: *mut ::std::os::raw::c_int, arg2: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn R_rsort(arg1: *mut f64, arg2: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn R_csort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn rsort_with_index(
-        arg1: *mut f64,
-        arg2: *mut ::std::os::raw::c_int,
-        arg3: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn Rf_revsort(
-        arg1: *mut f64,
-        arg2: *mut ::std::os::raw::c_int,
-        arg3: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn Rf_iPsort(
-        arg1: *mut ::std::os::raw::c_int,
-        arg2: ::std::os::raw::c_int,
-        arg3: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn Rf_rPsort(arg1: *mut f64, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn Rf_cPsort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn R_qsort(v: *mut f64, i: usize, j: usize);
-}
-extern "C" {
-    pub fn R_qsort_I(
-        v: *mut f64,
-        II: *mut ::std::os::raw::c_int,
-        i: ::std::os::raw::c_int,
-        j: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn R_qsort_int(iv: *mut ::std::os::raw::c_int, i: usize, j: usize);
-}
-extern "C" {
-    pub fn R_qsort_int_I(
-        iv: *mut ::std::os::raw::c_int,
-        II: *mut ::std::os::raw::c_int,
-        i: ::std::os::raw::c_int,
-        j: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn R_ExpandFileName(arg1: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn R_ExpandFileNameUTF8(
-        arg1: *const ::std::os::raw::c_char,
-    ) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_setIVector(
-        arg1: *mut ::std::os::raw::c_int,
-        arg2: ::std::os::raw::c_int,
-        arg3: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn Rf_setRVector(arg1: *mut f64, arg2: ::std::os::raw::c_int, arg3: f64);
-}
-extern "C" {
-    pub fn Rf_StringFalse(arg1: *const ::std::os::raw::c_char) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_StringTrue(arg1: *const ::std::os::raw::c_char) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isBlankString(arg1: *const ::std::os::raw::c_char) -> Rboolean;
-}
-extern "C" {
-    pub fn R_atof(str_: *const ::std::os::raw::c_char) -> f64;
-}
-extern "C" {
-    pub fn R_strtod(c: *const ::std::os::raw::c_char, end: *mut *mut ::std::os::raw::c_char)
-        -> f64;
-}
-extern "C" {
-    pub fn R_tmpnam(
-        prefix: *const ::std::os::raw::c_char,
-        tempdir: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn R_tmpnam2(
-        prefix: *const ::std::os::raw::c_char,
-        tempdir: *const ::std::os::raw::c_char,
-        fileext: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn R_free_tmpnam(name: *mut ::std::os::raw::c_char);
-}
-extern "C" {
-    pub fn R_CheckUserInterrupt();
-}
-extern "C" {
-    pub fn R_CheckStack();
-}
-extern "C" {
-    pub fn R_CheckStack2(arg1: usize);
-}
-extern "C" {
-    pub fn findInterval(
-        xt: *mut f64,
-        n: ::std::os::raw::c_int,
-        x: f64,
-        rightmost_closed: Rboolean,
-        all_inside: Rboolean,
-        ilo: ::std::os::raw::c_int,
-        mflag: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn findInterval2(
-        xt: *mut f64,
-        n: ::std::os::raw::c_int,
-        x: f64,
-        rightmost_closed: Rboolean,
-        all_inside: Rboolean,
-        left_open: Rboolean,
-        ilo: ::std::os::raw::c_int,
-        mflag: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn find_interv_vec(
-        xt: *mut f64,
-        n: *mut ::std::os::raw::c_int,
-        x: *mut f64,
-        nx: *mut ::std::os::raw::c_int,
-        rightmost_closed: *mut ::std::os::raw::c_int,
-        all_inside: *mut ::std::os::raw::c_int,
-        indx: *mut ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn R_max_col(
-        matrix: *mut f64,
-        nr: *mut ::std::os::raw::c_int,
-        nc: *mut ::std::os::raw::c_int,
-        maxes: *mut ::std::os::raw::c_int,
-        ties_meth: *mut ::std::os::raw::c_int,
-    );
-}
 pub type __gnuc_va_list = __builtin_va_list;
-extern "C" {
-    pub fn Rprintf(arg1: *const ::std::os::raw::c_char, ...);
-}
-extern "C" {
-    pub fn REprintf(arg1: *const ::std::os::raw::c_char, ...);
-}
-extern "C" {
-    pub fn Rvprintf(arg1: *const ::std::os::raw::c_char, arg2: va_list);
-}
-extern "C" {
-    pub fn REvprintf(arg1: *const ::std::os::raw::c_char, arg2: va_list);
-}
 pub type DL_FUNC = ::std::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>;
 pub type R_NativePrimitiveArgType = ::std::os::raw::c_uint;
 #[repr(C)]
@@ -2555,27 +885,6 @@ pub struct _DllInfo {
     _unused: [u8; 0],
 }
 pub type DllInfo = _DllInfo;
-extern "C" {
-    pub fn R_registerRoutines(
-        info: *mut DllInfo,
-        croutines: *const R_CMethodDef,
-        callRoutines: *const R_CallMethodDef,
-        fortranRoutines: *const R_FortranMethodDef,
-        externalRoutines: *const R_ExternalMethodDef,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_useDynamicSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
-}
-extern "C" {
-    pub fn R_forceSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
-}
-extern "C" {
-    pub fn R_getDllInfo(name: *const ::std::os::raw::c_char) -> *mut DllInfo;
-}
-extern "C" {
-    pub fn R_getEmbeddingDllInfo() -> *mut DllInfo;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Rf_RegisteredNativeSymbol {
@@ -2588,26 +897,6 @@ pub const NativeSymbolType_R_CALL_SYM: NativeSymbolType = 2;
 pub const NativeSymbolType_R_FORTRAN_SYM: NativeSymbolType = 3;
 pub const NativeSymbolType_R_EXTERNAL_SYM: NativeSymbolType = 4;
 pub type NativeSymbolType = ::std::os::raw::c_int;
-extern "C" {
-    pub fn R_FindSymbol(
-        arg1: *const ::std::os::raw::c_char,
-        arg2: *const ::std::os::raw::c_char,
-        symbol: *mut R_RegisteredNativeSymbol,
-    ) -> DL_FUNC;
-}
-extern "C" {
-    pub fn R_RegisterCCallable(
-        package: *const ::std::os::raw::c_char,
-        name: *const ::std::os::raw::c_char,
-        fptr: DL_FUNC,
-    );
-}
-extern "C" {
-    pub fn R_GetCCallable(
-        package: *const ::std::os::raw::c_char,
-        name: *const ::std::os::raw::c_char,
-    ) -> DL_FUNC;
-}
 pub type Rbyte = ::std::os::raw::c_uchar;
 pub type R_len_t = ::std::os::raw::c_int;
 pub type R_xlen_t = isize;
@@ -2618,804 +907,17 @@ pub struct SEXPREC {
     _unused: [u8; 0],
 }
 pub type SEXP = *mut SEXPREC;
-extern "C" {
-    pub fn R_CHAR(x: SEXP) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_isNull(s: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isSymbol(s: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isLogical(s: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isReal(s: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isComplex(s: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isExpression(s: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isEnvironment(s: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isString(s: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isObject(s: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn ATTRIB(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn OBJECT(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn MARK(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn TYPEOF(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn NAMED(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn REFCNT(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn SET_ATTRIB(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn DUPLICATE_ATTRIB(to: SEXP, from: SEXP);
-}
-extern "C" {
-    pub fn SHALLOW_DUPLICATE_ATTRIB(to: SEXP, from: SEXP);
-}
-extern "C" {
-    pub fn MARK_NOT_MUTABLE(x: SEXP);
-}
-extern "C" {
-    pub fn IS_S4_OBJECT(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn LENGTH(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn XLENGTH(x: SEXP) -> R_xlen_t;
-}
-extern "C" {
-    pub fn TRUELENGTH(x: SEXP) -> R_xlen_t;
-}
-extern "C" {
-    pub fn IS_LONG_VEC(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn LEVELS(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn LOGICAL(x: SEXP) -> *mut ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn INTEGER(x: SEXP) -> *mut ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn RAW(x: SEXP) -> *mut Rbyte;
-}
-extern "C" {
-    pub fn REAL(x: SEXP) -> *mut f64;
-}
-extern "C" {
-    pub fn COMPLEX(x: SEXP) -> *mut Rcomplex;
-}
-extern "C" {
-    pub fn LOGICAL_RO(x: SEXP) -> *const ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn INTEGER_RO(x: SEXP) -> *const ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn RAW_RO(x: SEXP) -> *const Rbyte;
-}
-extern "C" {
-    pub fn REAL_RO(x: SEXP) -> *const f64;
-}
-extern "C" {
-    pub fn COMPLEX_RO(x: SEXP) -> *const Rcomplex;
-}
-extern "C" {
-    pub fn VECTOR_ELT(x: SEXP, i: R_xlen_t) -> SEXP;
-}
-extern "C" {
-    pub fn SET_STRING_ELT(x: SEXP, i: R_xlen_t, v: SEXP);
-}
-extern "C" {
-    pub fn SET_VECTOR_ELT(x: SEXP, i: R_xlen_t, v: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn STRING_PTR(x: SEXP) -> *mut SEXP;
-}
-extern "C" {
-    pub fn STRING_PTR_RO(x: SEXP) -> *const SEXP;
-}
-extern "C" {
-    pub fn VECTOR_PTR(x: SEXP) -> !;
-}
-extern "C" {
-    pub fn INTEGER_GET_REGION(
-        sx: SEXP,
-        i: R_xlen_t,
-        n: R_xlen_t,
-        buf: *mut ::std::os::raw::c_int,
-    ) -> R_xlen_t;
-}
-extern "C" {
-    pub fn REAL_GET_REGION(sx: SEXP, i: R_xlen_t, n: R_xlen_t, buf: *mut f64) -> R_xlen_t;
-}
-extern "C" {
-    pub fn LOGICAL_GET_REGION(
-        sx: SEXP,
-        i: R_xlen_t,
-        n: R_xlen_t,
-        buf: *mut ::std::os::raw::c_int,
-    ) -> R_xlen_t;
-}
-extern "C" {
-    pub fn COMPLEX_GET_REGION(sx: SEXP, i: R_xlen_t, n: R_xlen_t, buf: *mut Rcomplex) -> R_xlen_t;
-}
-extern "C" {
-    pub fn RAW_GET_REGION(sx: SEXP, i: R_xlen_t, n: R_xlen_t, buf: *mut Rbyte) -> R_xlen_t;
-}
-extern "C" {
-    pub fn INTEGER_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn INTEGER_NO_NA(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn REAL_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn REAL_NO_NA(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn LOGICAL_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn LOGICAL_NO_NA(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn STRING_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn STRING_NO_NA(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn TAG(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CDR(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CAAR(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CDAR(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CADR(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CDDR(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CDDDR(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CADDR(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CADDDR(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CAD4R(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CAD5R(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn MISSING(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn SET_TAG(x: SEXP, y: SEXP);
-}
-extern "C" {
-    pub fn SETCAR(x: SEXP, y: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn SETCDR(x: SEXP, y: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn SETCADR(x: SEXP, y: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn SETCADDR(x: SEXP, y: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn SETCADDDR(x: SEXP, y: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn SETCAD4R(e: SEXP, y: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn FORMALS(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn BODY(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn CLOENV(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn RDEBUG(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn RSTEP(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn RTRACE(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn SET_RDEBUG(x: SEXP, v: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn SET_RSTEP(x: SEXP, v: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn SET_RTRACE(x: SEXP, v: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn SET_FORMALS(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn SET_BODY(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn SET_CLOENV(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn PRINTNAME(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn SYMVALUE(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn INTERNAL(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn DDVAL(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn FRAME(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn ENCLOS(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn HASHTAB(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn ENVFLAGS(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn PRCODE(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn PRENV(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn PRVALUE(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn PRSEEN(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn EXTPTR_PROT(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn EXTPTR_TAG(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn EXTPTR_PTR(arg1: SEXP) -> *mut ::std::os::raw::c_void;
-}
 pub type PROTECT_INDEX = ::std::os::raw::c_int;
-extern "C" {
-    pub static mut R_GlobalEnv: SEXP;
-}
-extern "C" {
-    pub static mut R_EmptyEnv: SEXP;
-}
-extern "C" {
-    pub static mut R_BaseEnv: SEXP;
-}
-extern "C" {
-    pub static mut R_BaseNamespace: SEXP;
-}
-extern "C" {
-    pub static mut R_NamespaceRegistry: SEXP;
-}
-extern "C" {
-    pub static mut R_Srcref: SEXP;
-}
-extern "C" {
-    pub static mut R_NilValue: SEXP;
-}
-extern "C" {
-    pub static mut R_UnboundValue: SEXP;
-}
-extern "C" {
-    pub static mut R_MissingArg: SEXP;
-}
-extern "C" {
-    pub static mut R_InBCInterpreter: SEXP;
-}
-extern "C" {
-    pub static mut R_CurrentExpression: SEXP;
-}
-extern "C" {
-    pub static mut R_RestartToken: SEXP;
-}
-extern "C" {
-    pub static mut R_AsCharacterSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_AtsignSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_baseSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_BaseSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_BraceSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_Bracket2Symbol: SEXP;
-}
-extern "C" {
-    pub static mut R_BracketSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_ClassSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_DeviceSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_DimNamesSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_DimSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_DollarSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_DotsSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_DoubleColonSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_DropSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_EvalSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_FunctionSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_LastvalueSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_LevelsSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_ModeSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_NaRmSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_NameSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_NamesSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_NamespaceEnvSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_PackageSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_PreviousSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_QuoteSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_RowNamesSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_SeedsSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_SortListSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_SourceSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_SpecSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_TripleColonSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_TspSymbol: SEXP;
-}
-extern "C" {
-    pub static mut R_dot_defined: SEXP;
-}
-extern "C" {
-    pub static mut R_dot_Method: SEXP;
-}
-extern "C" {
-    pub static mut R_dot_packageName: SEXP;
-}
-extern "C" {
-    pub static mut R_dot_target: SEXP;
-}
-extern "C" {
-    pub static mut R_dot_Generic: SEXP;
-}
-extern "C" {
-    pub static mut R_NaString: SEXP;
-}
-extern "C" {
-    pub static mut R_BlankString: SEXP;
-}
-extern "C" {
-    pub static mut R_BlankScalarString: SEXP;
-}
-extern "C" {
-    pub fn R_GetCurrentSrcref(arg1: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn R_GetSrcFilename(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_asChar(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_coerceVector(arg1: SEXP, arg2: SEXPTYPE) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_PairToVectorList(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_VectorToPairList(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_asCharacterFactor(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_asLogical(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_asInteger(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_asReal(x: SEXP) -> f64;
-}
-extern "C" {
-    pub fn Rf_asComplex(x: SEXP) -> Rcomplex;
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct R_allocator {
     _unused: [u8; 0],
 }
 pub type R_allocator_t = R_allocator;
-extern "C" {
-    pub fn Rf_acopy_string(arg1: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_alloc3DArray(
-        arg1: SEXPTYPE,
-        arg2: ::std::os::raw::c_int,
-        arg3: ::std::os::raw::c_int,
-        arg4: ::std::os::raw::c_int,
-    ) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_allocArray(arg1: SEXPTYPE, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_allocMatrix(
-        arg1: SEXPTYPE,
-        arg2: ::std::os::raw::c_int,
-        arg3: ::std::os::raw::c_int,
-    ) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_allocList(arg1: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_allocS4Object() -> SEXP;
-}
-extern "C" {
-    pub fn Rf_allocSExp(arg1: SEXPTYPE) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_allocVector3(arg1: SEXPTYPE, arg2: R_xlen_t, arg3: *mut R_allocator_t) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_any_duplicated(x: SEXP, from_last: Rboolean) -> R_xlen_t;
-}
-extern "C" {
-    pub fn Rf_any_duplicated3(x: SEXP, incomp: SEXP, from_last: Rboolean) -> R_xlen_t;
-}
-extern "C" {
-    pub fn Rf_applyClosure(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_classgets(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_cons(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_copyMatrix(arg1: SEXP, arg2: SEXP, arg3: Rboolean);
-}
-extern "C" {
-    pub fn Rf_copyListMatrix(arg1: SEXP, arg2: SEXP, arg3: Rboolean);
-}
-extern "C" {
-    pub fn Rf_copyMostAttrib(arg1: SEXP, arg2: SEXP);
-}
-extern "C" {
-    pub fn Rf_copyVector(arg1: SEXP, arg2: SEXP);
-}
-extern "C" {
-    pub fn Rf_defineVar(arg1: SEXP, arg2: SEXP, arg3: SEXP);
-}
-extern "C" {
-    pub fn Rf_dimgets(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_dimnamesgets(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_duplicate(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_shallow_duplicate(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_duplicate_attr(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_shallow_duplicate_attr(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_lazy_duplicate(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_duplicated(arg1: SEXP, arg2: Rboolean) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_eval(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_findFun(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_findVar(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_findVarInFrame(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_findVarInFrame3(arg1: SEXP, arg2: SEXP, arg3: Rboolean) -> SEXP;
-}
-extern "C" {
-    pub fn R_existsVarInFrame(arg1: SEXP, arg2: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn R_removeVarFromFrame(arg1: SEXP, arg2: SEXP);
-}
-extern "C" {
-    pub fn Rf_getAttrib(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_GetArrayDimnames(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_GetColNames(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_GetMatrixDimnames(
-        arg1: SEXP,
-        arg2: *mut SEXP,
-        arg3: *mut SEXP,
-        arg4: *mut *const ::std::os::raw::c_char,
-        arg5: *mut *const ::std::os::raw::c_char,
-    );
-}
-extern "C" {
-    pub fn Rf_GetOption(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_GetOption1(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_GetOptionDigits() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_GetOptionWidth() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_GetRowNames(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_gsetVar(arg1: SEXP, arg2: SEXP, arg3: SEXP);
-}
-extern "C" {
-    pub fn Rf_install(arg1: *const ::std::os::raw::c_char) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_installChar(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_installNoTrChar(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_installTrChar(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_isOrdered(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isUnordered(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isUnsorted(arg1: SEXP, arg2: Rboolean) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_lengthgets(arg1: SEXP, arg2: R_len_t) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_xlengthgets(arg1: SEXP, arg2: R_xlen_t) -> SEXP;
-}
-extern "C" {
-    pub fn R_lsInternal(arg1: SEXP, arg2: Rboolean) -> SEXP;
-}
-extern "C" {
-    pub fn R_lsInternal3(arg1: SEXP, arg2: Rboolean, arg3: Rboolean) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_match(arg1: SEXP, arg2: SEXP, arg3: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_namesgets(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_mkChar(arg1: *const ::std::os::raw::c_char) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_mkCharLen(arg1: *const ::std::os::raw::c_char, arg2: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_NonNullStringMatch(arg1: SEXP, arg2: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_ncols(arg1: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_nrows(arg1: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_nthcdr(arg1: SEXP, arg2: ::std::os::raw::c_int) -> SEXP;
-}
 pub const nchar_type_Bytes: nchar_type = 0;
 pub const nchar_type_Chars: nchar_type = 1;
 pub const nchar_type_Width: nchar_type = 2;
 pub type nchar_type = ::std::os::raw::c_int;
-extern "C" {
-    pub fn R_nchar(
-        string: SEXP,
-        type_: nchar_type,
-        allowNA: Rboolean,
-        keepNA: Rboolean,
-        msg_name: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_ParseEvalString(arg1: *const ::std::os::raw::c_char, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_ParseString(arg1: *const ::std::os::raw::c_char) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_PrintValue(arg1: SEXP);
-}
-extern "C" {
-    pub fn Rf_setAttrib(arg1: SEXP, arg2: SEXP, arg3: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_setVar(arg1: SEXP, arg2: SEXP, arg3: SEXP);
-}
-extern "C" {
-    pub fn Rf_str2type(arg1: *const ::std::os::raw::c_char) -> SEXPTYPE;
-}
-extern "C" {
-    pub fn Rf_StringBlank(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_substitute(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_topenv(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_translateChar(arg1: SEXP) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_translateCharUTF8(arg1: SEXP) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_type2char(arg1: SEXPTYPE) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_type2rstr(arg1: SEXPTYPE) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_type2str(arg1: SEXPTYPE) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_type2str_nowarn(arg1: SEXPTYPE) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_unprotect_ptr(arg1: SEXP);
-}
-extern "C" {
-    pub fn R_tryEval(arg1: SEXP, arg2: SEXP, arg3: *mut ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn R_tryEvalSilent(arg1: SEXP, arg2: SEXP, arg3: *mut ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn R_GetCurrentEnv() -> SEXP;
-}
-extern "C" {
-    pub fn Rf_isS4(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_asS4(arg1: SEXP, arg2: Rboolean, arg3: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_S3Class(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_isBasicClass(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
-}
 pub const cetype_t_CE_NATIVE: cetype_t = 0;
 pub const cetype_t_CE_UTF8: cetype_t = 1;
 pub const cetype_t_CE_LATIN1: cetype_t = 2;
@@ -3423,247 +925,7 @@ pub const cetype_t_CE_BYTES: cetype_t = 3;
 pub const cetype_t_CE_SYMBOL: cetype_t = 5;
 pub const cetype_t_CE_ANY: cetype_t = 99;
 pub type cetype_t = ::std::os::raw::c_int;
-extern "C" {
-    pub fn Rf_getCharCE(arg1: SEXP) -> cetype_t;
-}
-extern "C" {
-    pub fn Rf_mkCharCE(arg1: *const ::std::os::raw::c_char, arg2: cetype_t) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_mkCharLenCE(
-        arg1: *const ::std::os::raw::c_char,
-        arg2: ::std::os::raw::c_int,
-        arg3: cetype_t,
-    ) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_reEnc(
-        x: *const ::std::os::raw::c_char,
-        ce_in: cetype_t,
-        ce_out: cetype_t,
-        subst: ::std::os::raw::c_int,
-    ) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_reEnc3(
-        x: *const ::std::os::raw::c_char,
-        fromcode: *const ::std::os::raw::c_char,
-        tocode: *const ::std::os::raw::c_char,
-        subst: ::std::os::raw::c_int,
-    ) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn R_forceAndCall(e: SEXP, n: ::std::os::raw::c_int, rho: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_MakeExternalPtr(p: *mut ::std::os::raw::c_void, tag: SEXP, prot: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_ExternalPtrAddr(s: SEXP) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn R_ExternalPtrTag(s: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_ExternalPtrProtected(s: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_ClearExternalPtr(s: SEXP);
-}
-extern "C" {
-    pub fn R_SetExternalPtrAddr(s: SEXP, p: *mut ::std::os::raw::c_void);
-}
-extern "C" {
-    pub fn R_SetExternalPtrTag(s: SEXP, tag: SEXP);
-}
-extern "C" {
-    pub fn R_SetExternalPtrProtected(s: SEXP, p: SEXP);
-}
-extern "C" {
-    pub fn R_MakeExternalPtrFn(p: DL_FUNC, tag: SEXP, prot: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_ExternalPtrAddrFn(s: SEXP) -> DL_FUNC;
-}
 pub type R_CFinalizer_t = ::std::option::Option<unsafe extern "C" fn(arg1: SEXP)>;
-extern "C" {
-    pub fn R_RegisterFinalizer(s: SEXP, fun: SEXP);
-}
-extern "C" {
-    pub fn R_RegisterCFinalizer(s: SEXP, fun: R_CFinalizer_t);
-}
-extern "C" {
-    pub fn R_RegisterFinalizerEx(s: SEXP, fun: SEXP, onexit: Rboolean);
-}
-extern "C" {
-    pub fn R_RegisterCFinalizerEx(s: SEXP, fun: R_CFinalizer_t, onexit: Rboolean);
-}
-extern "C" {
-    pub fn R_RunPendingFinalizers();
-}
-extern "C" {
-    pub fn R_MakeWeakRef(key: SEXP, val: SEXP, fin: SEXP, onexit: Rboolean) -> SEXP;
-}
-extern "C" {
-    pub fn R_MakeWeakRefC(key: SEXP, val: SEXP, fin: R_CFinalizer_t, onexit: Rboolean) -> SEXP;
-}
-extern "C" {
-    pub fn R_WeakRefKey(w: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_WeakRefValue(w: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_RunWeakRefFinalizer(w: SEXP);
-}
-extern "C" {
-    pub fn R_PromiseExpr(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_ClosureExpr(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_BytecodeExpr(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_ToplevelExec(
-        fun: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void)>,
-        data: *mut ::std::os::raw::c_void,
-    ) -> Rboolean;
-}
-extern "C" {
-    pub fn R_ExecWithCleanup(
-        fun: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> SEXP>,
-        data: *mut ::std::os::raw::c_void,
-        cleanfun: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void)>,
-        cleandata: *mut ::std::os::raw::c_void,
-    ) -> SEXP;
-}
-extern "C" {
-    pub fn R_tryCatch(
-        arg1: ::std::option::Option<
-            unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> SEXP,
-        >,
-        arg2: *mut ::std::os::raw::c_void,
-        arg3: SEXP,
-        arg4: ::std::option::Option<
-            unsafe extern "C" fn(arg1: SEXP, arg2: *mut ::std::os::raw::c_void) -> SEXP,
-        >,
-        arg5: *mut ::std::os::raw::c_void,
-        arg6: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void)>,
-        arg7: *mut ::std::os::raw::c_void,
-    ) -> SEXP;
-}
-extern "C" {
-    pub fn R_tryCatchError(
-        arg1: ::std::option::Option<
-            unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> SEXP,
-        >,
-        arg2: *mut ::std::os::raw::c_void,
-        arg3: ::std::option::Option<
-            unsafe extern "C" fn(arg1: SEXP, arg2: *mut ::std::os::raw::c_void) -> SEXP,
-        >,
-        arg4: *mut ::std::os::raw::c_void,
-    ) -> SEXP;
-}
-extern "C" {
-    pub fn R_withCallingErrorHandler(
-        arg1: ::std::option::Option<
-            unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> SEXP,
-        >,
-        arg2: *mut ::std::os::raw::c_void,
-        arg3: ::std::option::Option<
-            unsafe extern "C" fn(arg1: SEXP, arg2: *mut ::std::os::raw::c_void) -> SEXP,
-        >,
-        arg4: *mut ::std::os::raw::c_void,
-    ) -> SEXP;
-}
-extern "C" {
-    pub fn R_MakeUnwindCont() -> SEXP;
-}
-extern "C" {
-    pub fn R_ContinueUnwind(cont: SEXP) -> !;
-}
-extern "C" {
-    pub fn R_UnwindProtect(
-        fun: ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void) -> SEXP>,
-        data: *mut ::std::os::raw::c_void,
-        cleanfun: ::std::option::Option<
-            unsafe extern "C" fn(data: *mut ::std::os::raw::c_void, jump: Rboolean),
-        >,
-        cleandata: *mut ::std::os::raw::c_void,
-        cont: SEXP,
-    ) -> SEXP;
-}
-extern "C" {
-    pub fn R_NewEnv(arg1: SEXP, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn R_IsPackageEnv(rho: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn R_PackageEnvName(rho: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_FindPackageEnv(info: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_IsNamespaceEnv(rho: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn R_NamespaceEnvSpec(rho: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_FindNamespace(info: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_LockEnvironment(env: SEXP, bindings: Rboolean);
-}
-extern "C" {
-    pub fn R_EnvironmentIsLocked(env: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn R_LockBinding(sym: SEXP, env: SEXP);
-}
-extern "C" {
-    pub fn R_unLockBinding(sym: SEXP, env: SEXP);
-}
-extern "C" {
-    pub fn R_MakeActiveBinding(sym: SEXP, fun: SEXP, env: SEXP);
-}
-extern "C" {
-    pub fn R_BindingIsLocked(sym: SEXP, env: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn R_BindingIsActive(sym: SEXP, env: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn R_ActiveBindingFunction(sym: SEXP, env: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_HasFancyBindings(rho: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_errorcall(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...) -> !;
-}
-extern "C" {
-    pub fn Rf_warningcall(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...);
-}
-extern "C" {
-    pub fn Rf_warningcall_immediate(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...);
-}
-extern "C" {
-    pub fn R_XDREncodeDouble(d: f64, buf: *mut ::std::os::raw::c_void);
-}
-extern "C" {
-    pub fn R_XDRDecodeDouble(buf: *mut ::std::os::raw::c_void) -> f64;
-}
-extern "C" {
-    pub fn R_XDREncodeInteger(i: ::std::os::raw::c_int, buf: *mut ::std::os::raw::c_void);
-}
-extern "C" {
-    pub fn R_XDRDecodeInteger(buf: *mut ::std::os::raw::c_void) -> ::std::os::raw::c_int;
-}
 pub type R_pstream_data_t = *mut ::std::os::raw::c_void;
 pub const R_pstream_format_t_R_pstream_any_format: R_pstream_format_t = 0;
 pub const R_pstream_format_t_R_pstream_ascii_format: R_pstream_format_t = 1;
@@ -3904,449 +1166,6 @@ fn bindgen_test_layout_R_inpstream_st() {
         )
     );
 }
-extern "C" {
-    pub fn R_InitInPStream(
-        stream: R_inpstream_t,
-        data: R_pstream_data_t,
-        type_: R_pstream_format_t,
-        inchar: ::std::option::Option<
-            unsafe extern "C" fn(arg1: R_inpstream_t) -> ::std::os::raw::c_int,
-        >,
-        inbytes: ::std::option::Option<
-            unsafe extern "C" fn(
-                arg1: R_inpstream_t,
-                arg2: *mut ::std::os::raw::c_void,
-                arg3: ::std::os::raw::c_int,
-            ),
-        >,
-        phook: ::std::option::Option<unsafe extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
-        pdata: SEXP,
-    );
-}
-extern "C" {
-    pub fn R_InitOutPStream(
-        stream: R_outpstream_t,
-        data: R_pstream_data_t,
-        type_: R_pstream_format_t,
-        version: ::std::os::raw::c_int,
-        outchar: ::std::option::Option<
-            unsafe extern "C" fn(arg1: R_outpstream_t, arg2: ::std::os::raw::c_int),
-        >,
-        outbytes: ::std::option::Option<
-            unsafe extern "C" fn(
-                arg1: R_outpstream_t,
-                arg2: *mut ::std::os::raw::c_void,
-                arg3: ::std::os::raw::c_int,
-            ),
-        >,
-        phook: ::std::option::Option<unsafe extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
-        pdata: SEXP,
-    );
-}
-extern "C" {
-    pub fn R_InitFileInPStream(
-        stream: R_inpstream_t,
-        fp: *mut FILE,
-        type_: R_pstream_format_t,
-        phook: ::std::option::Option<unsafe extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
-        pdata: SEXP,
-    );
-}
-extern "C" {
-    pub fn R_InitFileOutPStream(
-        stream: R_outpstream_t,
-        fp: *mut FILE,
-        type_: R_pstream_format_t,
-        version: ::std::os::raw::c_int,
-        phook: ::std::option::Option<unsafe extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
-        pdata: SEXP,
-    );
-}
-extern "C" {
-    pub fn R_Serialize(s: SEXP, ops: R_outpstream_t);
-}
-extern "C" {
-    pub fn R_Unserialize(ips: R_inpstream_t) -> SEXP;
-}
-extern "C" {
-    pub fn R_SerializeInfo(ips: R_inpstream_t) -> SEXP;
-}
-extern "C" {
-    pub fn R_do_slot(obj: SEXP, name: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_do_slot_assign(obj: SEXP, name: SEXP, value: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_has_slot(obj: SEXP, name: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_S4_extends(klass: SEXP, useTable: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_do_MAKE_CLASS(what: *const ::std::os::raw::c_char) -> SEXP;
-}
-extern "C" {
-    pub fn R_getClassDef(what: *const ::std::os::raw::c_char) -> SEXP;
-}
-extern "C" {
-    pub fn R_getClassDef_R(what: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_has_methods_attached() -> Rboolean;
-}
-extern "C" {
-    pub fn R_isVirtualClass(class_def: SEXP, env: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn R_extends(class1: SEXP, class2: SEXP, env: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn R_do_new_object(class_def: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_check_class_and_super(
-        x: SEXP,
-        valid: *mut *const ::std::os::raw::c_char,
-        rho: SEXP,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_check_class_etc(
-        x: SEXP,
-        valid: *mut *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_PreserveObject(arg1: SEXP);
-}
-extern "C" {
-    pub fn R_ReleaseObject(arg1: SEXP);
-}
-extern "C" {
-    pub fn R_NewPreciousMSet(arg1: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn R_PreserveInMSet(x: SEXP, mset: SEXP);
-}
-extern "C" {
-    pub fn R_ReleaseFromMSet(x: SEXP, mset: SEXP);
-}
-extern "C" {
-    pub fn R_ReleaseMSet(mset: SEXP, keepSize: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn R_dot_Last();
-}
-extern "C" {
-    pub fn R_RunExitFinalizers();
-}
-extern "C" {
-    pub fn R_system(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_compute_identical(arg1: SEXP, arg2: SEXP, arg3: ::std::os::raw::c_int) -> Rboolean;
-}
-extern "C" {
-    pub fn R_body_no_src(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_orderVector(
-        indx: *mut ::std::os::raw::c_int,
-        n: ::std::os::raw::c_int,
-        arglist: SEXP,
-        nalast: Rboolean,
-        decreasing: Rboolean,
-    );
-}
-extern "C" {
-    pub fn R_orderVector1(
-        indx: *mut ::std::os::raw::c_int,
-        n: ::std::os::raw::c_int,
-        x: SEXP,
-        nalast: Rboolean,
-        decreasing: Rboolean,
-    );
-}
-extern "C" {
-    pub fn Rf_allocVector(arg1: SEXPTYPE, arg2: R_xlen_t) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_conformable(arg1: SEXP, arg2: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_elt(arg1: SEXP, arg2: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_inherits(arg1: SEXP, arg2: *const ::std::os::raw::c_char) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isArray(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isFactor(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isFrame(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isFunction(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isInteger(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isLanguage(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isList(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isMatrix(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isNewList(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isNumber(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isNumeric(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isPairList(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isPrimitive(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isTs(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isUserBinop(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isValidString(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isValidStringF(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isVector(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isVectorAtomic(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isVectorList(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_isVectorizable(arg1: SEXP) -> Rboolean;
-}
-extern "C" {
-    pub fn Rf_lang1(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_lang2(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_lang3(arg1: SEXP, arg2: SEXP, arg3: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_lang4(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_lang5(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_lang6(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP, arg6: SEXP)
-        -> SEXP;
-}
-extern "C" {
-    pub fn Rf_lastElt(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_lcons(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_length(arg1: SEXP) -> R_len_t;
-}
-extern "C" {
-    pub fn Rf_list1(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_list2(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_list3(arg1: SEXP, arg2: SEXP, arg3: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_list4(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_list5(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_list6(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP, arg6: SEXP)
-        -> SEXP;
-}
-extern "C" {
-    pub fn Rf_listAppend(arg1: SEXP, arg2: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_mkNamed(arg1: SEXPTYPE, arg2: *mut *const ::std::os::raw::c_char) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_mkString(arg1: *const ::std::os::raw::c_char) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_nlevels(arg1: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_stringPositionTr(
-        arg1: SEXP,
-        arg2: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_ScalarComplex(arg1: Rcomplex) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_ScalarInteger(arg1: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_ScalarLogical(arg1: ::std::os::raw::c_int) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_ScalarRaw(arg1: Rbyte) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_ScalarReal(arg1: f64) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_ScalarString(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_xlength(arg1: SEXP) -> R_xlen_t;
-}
-extern "C" {
-    pub fn XTRUELENGTH(x: SEXP) -> R_xlen_t;
-}
-extern "C" {
-    pub fn LENGTH_EX(
-        x: SEXP,
-        file: *const ::std::os::raw::c_char,
-        line: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn XLENGTH_EX(x: SEXP) -> R_xlen_t;
-}
-extern "C" {
-    pub fn Rf_protect(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_unprotect(arg1: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn R_ProtectWithIndex(arg1: SEXP, arg2: *mut PROTECT_INDEX);
-}
-extern "C" {
-    pub fn R_Reprotect(arg1: SEXP, arg2: PROTECT_INDEX);
-}
-extern "C" {
-    pub fn CAR(e: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn DATAPTR(x: SEXP) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn DATAPTR_RO(x: SEXP) -> *const ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn DATAPTR_OR_NULL(x: SEXP) -> *const ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn LOGICAL_OR_NULL(x: SEXP) -> *const ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn INTEGER_OR_NULL(x: SEXP) -> *const ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn REAL_OR_NULL(x: SEXP) -> *const f64;
-}
-extern "C" {
-    pub fn COMPLEX_OR_NULL(x: SEXP) -> *const Rcomplex;
-}
-extern "C" {
-    pub fn RAW_OR_NULL(x: SEXP) -> *const Rbyte;
-}
-extern "C" {
-    pub fn INTEGER_ELT(x: SEXP, i: R_xlen_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn REAL_ELT(x: SEXP, i: R_xlen_t) -> f64;
-}
-extern "C" {
-    pub fn LOGICAL_ELT(x: SEXP, i: R_xlen_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn COMPLEX_ELT(x: SEXP, i: R_xlen_t) -> Rcomplex;
-}
-extern "C" {
-    pub fn RAW_ELT(x: SEXP, i: R_xlen_t) -> Rbyte;
-}
-extern "C" {
-    pub fn STRING_ELT(x: SEXP, i: R_xlen_t) -> SEXP;
-}
-extern "C" {
-    pub fn SET_LOGICAL_ELT(x: SEXP, i: R_xlen_t, v: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn SET_INTEGER_ELT(x: SEXP, i: R_xlen_t, v: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn SET_REAL_ELT(x: SEXP, i: R_xlen_t, v: f64);
-}
-extern "C" {
-    pub fn SET_COMPLEX_ELT(x: SEXP, i: R_xlen_t, v: Rcomplex);
-}
-extern "C" {
-    pub fn SET_RAW_ELT(x: SEXP, i: R_xlen_t, v: Rbyte);
-}
-extern "C" {
-    pub fn ALTREP_CLASS(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_altrep_data1(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_altrep_data2(x: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_set_altrep_data1(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn R_set_altrep_data2(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn LOGICAL0(x: SEXP) -> *mut ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn INTEGER0(x: SEXP) -> *mut ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn REAL0(x: SEXP) -> *mut f64;
-}
-extern "C" {
-    pub fn COMPLEX0(x: SEXP) -> *mut Rcomplex;
-}
-extern "C" {
-    pub fn RAW0(x: SEXP) -> *mut Rbyte;
-}
-extern "C" {
-    pub fn ALTREP(x: SEXP) -> ::std::os::raw::c_int;
-}
 pub const SORTED_DECR_NA_1ST: _bindgen_ty_1 = -2;
 pub const SORTED_DECR: _bindgen_ty_1 = -1;
 pub const UNKNOWN_SORTEDNESS: _bindgen_ty_1 = -2147483648;
@@ -4384,259 +1203,6 @@ fn bindgen_test_layout_R_hashtab_type() {
         )
     );
 }
-extern "C" {
-    pub fn R_asHashtable(h: SEXP) -> R_hashtab_type;
-}
-extern "C" {
-    pub fn R_HashtabSEXP(h: R_hashtab_type) -> SEXP;
-}
-extern "C" {
-    pub fn R_isHashtable(h: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_mkhashtab(type_: ::std::os::raw::c_int, arg1: ::std::os::raw::c_int)
-        -> R_hashtab_type;
-}
-extern "C" {
-    pub fn R_gethash(h: R_hashtab_type, key: SEXP, nomatch: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_sethash(h: R_hashtab_type, key: SEXP, value: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_remhash(h: R_hashtab_type, key: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_numhash(h: R_hashtab_type) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_typhash(h: R_hashtab_type) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn R_maphash(h: R_hashtab_type, FUN: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn R_maphashC(
-        h: R_hashtab_type,
-        FUN: ::std::option::Option<
-            unsafe extern "C" fn(arg1: SEXP, arg2: SEXP, arg3: *mut ::std::os::raw::c_void),
-        >,
-        data: *mut ::std::os::raw::c_void,
-    );
-}
-extern "C" {
-    pub fn R_clrhash(h: R_hashtab_type);
-}
-extern "C" {
-    pub fn SET_TYPEOF(x: SEXP, v: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn SET_OBJECT(x: SEXP, v: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn SET_S4_OBJECT(x: SEXP);
-}
-extern "C" {
-    pub fn UNSET_S4_OBJECT(x: SEXP);
-}
-extern "C" {
-    pub fn R_curErrorBuf() -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn IS_SCALAR(x: SEXP, type_: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_psmatch(
-        arg1: *const ::std::os::raw::c_char,
-        arg2: *const ::std::os::raw::c_char,
-        arg3: Rboolean,
-    ) -> Rboolean;
-}
-extern "C" {
-    pub fn SETLENGTH(x: SEXP, v: R_xlen_t);
-}
-extern "C" {
-    pub fn SET_TRUELENGTH(x: SEXP, v: R_xlen_t);
-}
-extern "C" {
-    pub fn SETLEVELS(x: SEXP, v: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn SET_ENVFLAGS(x: SEXP, v: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn SET_FRAME(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn SET_ENCLOS(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn SET_HASHTAB(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn SET_PRENV(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn SET_PRVALUE(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn SET_PRCODE(x: SEXP, v: SEXP);
-}
-extern "C" {
-    pub fn STDVEC_DATAPTR(x: SEXP) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn IS_GROWABLE(x: SEXP) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn SET_GROWABLE_BIT(x: SEXP);
-}
-extern "C" {
-    pub fn SET_NAMED(x: SEXP, v: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn R_tryWrap(arg1: SEXP) -> SEXP;
-}
-extern "C" {
-    pub fn Rf_formatLogical(
-        arg1: *const ::std::os::raw::c_int,
-        arg2: R_xlen_t,
-        arg3: *mut ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn Rf_formatInteger(
-        arg1: *const ::std::os::raw::c_int,
-        arg2: R_xlen_t,
-        arg3: *mut ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn Rf_formatReal(
-        arg1: *const f64,
-        arg2: R_xlen_t,
-        arg3: *mut ::std::os::raw::c_int,
-        arg4: *mut ::std::os::raw::c_int,
-        arg5: *mut ::std::os::raw::c_int,
-        arg6: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn Rf_formatComplex(
-        arg1: *const Rcomplex,
-        arg2: R_xlen_t,
-        arg3: *mut ::std::os::raw::c_int,
-        arg4: *mut ::std::os::raw::c_int,
-        arg5: *mut ::std::os::raw::c_int,
-        arg6: *mut ::std::os::raw::c_int,
-        arg7: *mut ::std::os::raw::c_int,
-        arg8: *mut ::std::os::raw::c_int,
-        arg9: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn formatLogicalS(arg1: SEXP, arg2: R_xlen_t, arg3: *mut ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn formatIntegerS(arg1: SEXP, arg2: R_xlen_t, arg3: *mut ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn formatRealS(
-        arg1: SEXP,
-        arg2: R_xlen_t,
-        arg3: *mut ::std::os::raw::c_int,
-        arg4: *mut ::std::os::raw::c_int,
-        arg5: *mut ::std::os::raw::c_int,
-        arg6: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn formatComplexS(
-        arg1: SEXP,
-        arg2: R_xlen_t,
-        arg3: *mut ::std::os::raw::c_int,
-        arg4: *mut ::std::os::raw::c_int,
-        arg5: *mut ::std::os::raw::c_int,
-        arg6: *mut ::std::os::raw::c_int,
-        arg7: *mut ::std::os::raw::c_int,
-        arg8: *mut ::std::os::raw::c_int,
-        arg9: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn Rf_EncodeLogical(
-        arg1: ::std::os::raw::c_int,
-        arg2: ::std::os::raw::c_int,
-    ) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_EncodeInteger(
-        arg1: ::std::os::raw::c_int,
-        arg2: ::std::os::raw::c_int,
-    ) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_EncodeReal0(
-        arg1: f64,
-        arg2: ::std::os::raw::c_int,
-        arg3: ::std::os::raw::c_int,
-        arg4: ::std::os::raw::c_int,
-        arg5: *const ::std::os::raw::c_char,
-    ) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_EncodeComplex(
-        arg1: Rcomplex,
-        arg2: ::std::os::raw::c_int,
-        arg3: ::std::os::raw::c_int,
-        arg4: ::std::os::raw::c_int,
-        arg5: ::std::os::raw::c_int,
-        arg6: ::std::os::raw::c_int,
-        arg7: ::std::os::raw::c_int,
-        arg8: *const ::std::os::raw::c_char,
-    ) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_EncodeReal(
-        arg1: f64,
-        arg2: ::std::os::raw::c_int,
-        arg3: ::std::os::raw::c_int,
-        arg4: ::std::os::raw::c_int,
-        arg5: ::std::os::raw::c_char,
-    ) -> *const ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn Rf_IndexWidth(arg1: R_xlen_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn Rf_VectorIndex(arg1: R_xlen_t, arg2: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn Rf_printIntegerVector(
-        arg1: *const ::std::os::raw::c_int,
-        arg2: R_xlen_t,
-        arg3: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn Rf_printRealVector(arg1: *const f64, arg2: R_xlen_t, arg3: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn Rf_printComplexVector(
-        arg1: *const Rcomplex,
-        arg2: R_xlen_t,
-        arg3: ::std::os::raw::c_int,
-    );
-}
-extern "C" {
-    pub fn printIntegerVectorS(arg1: SEXP, arg2: R_xlen_t, arg3: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn printRealVectorS(arg1: SEXP, arg2: R_xlen_t, arg3: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn printComplexVectorS(arg1: SEXP, arg2: R_xlen_t, arg3: ::std::os::raw::c_int);
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __crt_locale_data {
@@ -4648,3 +1214,1559 @@ pub struct __crt_multibyte_data {
     pub _address: u8,
 }
 pub type __builtin_va_list = *mut ::std::os::raw::c_char;
+extern "C" {
+    pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
+    pub fn __security_init_cookie();
+    pub fn __security_check_cookie(_StackCookie: usize);
+    pub fn __report_gsfailure(_StackCookie: usize) -> !;
+    pub static mut __security_cookie: usize;
+    pub fn _invalid_parameter_noinfo();
+    pub fn _invalid_parameter_noinfo_noreturn() -> !;
+    pub fn _invoke_watson(
+        _Expression: *const wchar_t,
+        _FunctionName: *const wchar_t,
+        _FileName: *const wchar_t,
+        _LineNo: ::std::os::raw::c_uint,
+        _Reserved: usize,
+    ) -> !;
+    pub fn __acrt_iob_func(_Ix: ::std::os::raw::c_uint) -> *mut FILE;
+    pub fn fgetwc(_Stream: *mut FILE) -> wint_t;
+    pub fn _fgetwchar() -> wint_t;
+    pub fn fputwc(_Character: wchar_t, _Stream: *mut FILE) -> wint_t;
+    pub fn _fputwchar(_Character: wchar_t) -> wint_t;
+    pub fn getwc(_Stream: *mut FILE) -> wint_t;
+    pub fn getwchar() -> wint_t;
+    pub fn fgetws(
+        _Buffer: *mut wchar_t,
+        _BufferCount: ::std::os::raw::c_int,
+        _Stream: *mut FILE,
+    ) -> *mut wchar_t;
+    pub fn fputws(_Buffer: *const wchar_t, _Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _getws_s(_Buffer: *mut wchar_t, _BufferCount: usize) -> *mut wchar_t;
+    pub fn putwc(_Character: wchar_t, _Stream: *mut FILE) -> wint_t;
+    pub fn putwchar(_Character: wchar_t) -> wint_t;
+    pub fn _putws(_Buffer: *const wchar_t) -> ::std::os::raw::c_int;
+    pub fn ungetwc(_Character: wint_t, _Stream: *mut FILE) -> wint_t;
+    pub fn _wfdopen(_FileHandle: ::std::os::raw::c_int, _Mode: *const wchar_t) -> *mut FILE;
+    pub fn _wfopen(_FileName: *const wchar_t, _Mode: *const wchar_t) -> *mut FILE;
+    pub fn _wfopen_s(
+        _Stream: *mut *mut FILE,
+        _FileName: *const wchar_t,
+        _Mode: *const wchar_t,
+    ) -> errno_t;
+    pub fn _wfreopen(
+        _FileName: *const wchar_t,
+        _Mode: *const wchar_t,
+        _OldStream: *mut FILE,
+    ) -> *mut FILE;
+    pub fn _wfreopen_s(
+        _Stream: *mut *mut FILE,
+        _FileName: *const wchar_t,
+        _Mode: *const wchar_t,
+        _OldStream: *mut FILE,
+    ) -> errno_t;
+    pub fn _wfsopen(
+        _FileName: *const wchar_t,
+        _Mode: *const wchar_t,
+        _ShFlag: ::std::os::raw::c_int,
+    ) -> *mut FILE;
+    pub fn _wperror(_ErrorMessage: *const wchar_t);
+    pub fn _wpopen(_Command: *const wchar_t, _Mode: *const wchar_t) -> *mut FILE;
+    pub fn _wremove(_FileName: *const wchar_t) -> ::std::os::raw::c_int;
+    pub fn _wtempnam(_Directory: *const wchar_t, _FilePrefix: *const wchar_t) -> *mut wchar_t;
+    pub fn _wtmpnam_s(_Buffer: *mut wchar_t, _BufferCount: usize) -> errno_t;
+    pub fn _wtmpnam(_Buffer: *mut wchar_t) -> *mut wchar_t;
+    pub fn _fgetwc_nolock(_Stream: *mut FILE) -> wint_t;
+    pub fn _fputwc_nolock(_Character: wchar_t, _Stream: *mut FILE) -> wint_t;
+    pub fn _getwc_nolock(_Stream: *mut FILE) -> wint_t;
+    pub fn _putwc_nolock(_Character: wchar_t, _Stream: *mut FILE) -> wint_t;
+    pub fn _ungetwc_nolock(_Character: wint_t, _Stream: *mut FILE) -> wint_t;
+    pub fn __stdio_common_vfwprintf(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+        _Format: *const wchar_t,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vfwprintf_s(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+        _Format: *const wchar_t,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vfwprintf_p(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+        _Format: *const wchar_t,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vfwscanf(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+        _Format: *const wchar_t,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vswprintf(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *mut wchar_t,
+        _BufferCount: usize,
+        _Format: *const wchar_t,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vswprintf_s(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *mut wchar_t,
+        _BufferCount: usize,
+        _Format: *const wchar_t,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vsnwprintf_s(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *mut wchar_t,
+        _BufferCount: usize,
+        _MaxCount: usize,
+        _Format: *const wchar_t,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vswprintf_p(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *mut wchar_t,
+        _BufferCount: usize,
+        _Format: *const wchar_t,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vswscanf(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *const wchar_t,
+        _BufferCount: usize,
+        _Format: *const wchar_t,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn _get_stream_buffer_pointers(
+        _Stream: *mut FILE,
+        _Base: *mut *mut *mut ::std::os::raw::c_char,
+        _Pointer: *mut *mut *mut ::std::os::raw::c_char,
+        _Count: *mut *mut ::std::os::raw::c_int,
+    ) -> errno_t;
+    pub fn clearerr_s(_Stream: *mut FILE) -> errno_t;
+    pub fn fopen_s(
+        _Stream: *mut *mut FILE,
+        _FileName: *const ::std::os::raw::c_char,
+        _Mode: *const ::std::os::raw::c_char,
+    ) -> errno_t;
+    pub fn fread_s(
+        _Buffer: *mut ::std::os::raw::c_void,
+        _BufferSize: usize,
+        _ElementSize: usize,
+        _ElementCount: usize,
+        _Stream: *mut FILE,
+    ) -> usize;
+    pub fn freopen_s(
+        _Stream: *mut *mut FILE,
+        _FileName: *const ::std::os::raw::c_char,
+        _Mode: *const ::std::os::raw::c_char,
+        _OldStream: *mut FILE,
+    ) -> errno_t;
+    pub fn gets_s(
+        _Buffer: *mut ::std::os::raw::c_char,
+        _Size: rsize_t,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn tmpfile_s(_Stream: *mut *mut FILE) -> errno_t;
+    pub fn tmpnam_s(_Buffer: *mut ::std::os::raw::c_char, _Size: rsize_t) -> errno_t;
+    pub fn clearerr(_Stream: *mut FILE);
+    pub fn fclose(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _fcloseall() -> ::std::os::raw::c_int;
+    pub fn _fdopen(
+        _FileHandle: ::std::os::raw::c_int,
+        _Mode: *const ::std::os::raw::c_char,
+    ) -> *mut FILE;
+    pub fn feof(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn ferror(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn fflush(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn fgetc(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _fgetchar() -> ::std::os::raw::c_int;
+    pub fn fgetpos(_Stream: *mut FILE, _Position: *mut fpos_t) -> ::std::os::raw::c_int;
+    pub fn fgets(
+        _Buffer: *mut ::std::os::raw::c_char,
+        _MaxCount: ::std::os::raw::c_int,
+        _Stream: *mut FILE,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn _fileno(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _flushall() -> ::std::os::raw::c_int;
+    pub fn fopen(
+        _FileName: *const ::std::os::raw::c_char,
+        _Mode: *const ::std::os::raw::c_char,
+    ) -> *mut FILE;
+    pub fn fputc(_Character: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _fputchar(_Character: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn fputs(
+        _Buffer: *const ::std::os::raw::c_char,
+        _Stream: *mut FILE,
+    ) -> ::std::os::raw::c_int;
+    pub fn fread(
+        _Buffer: *mut ::std::os::raw::c_void,
+        _ElementSize: ::std::os::raw::c_ulonglong,
+        _ElementCount: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+    ) -> ::std::os::raw::c_ulonglong;
+    pub fn freopen(
+        _FileName: *const ::std::os::raw::c_char,
+        _Mode: *const ::std::os::raw::c_char,
+        _Stream: *mut FILE,
+    ) -> *mut FILE;
+    pub fn _fsopen(
+        _FileName: *const ::std::os::raw::c_char,
+        _Mode: *const ::std::os::raw::c_char,
+        _ShFlag: ::std::os::raw::c_int,
+    ) -> *mut FILE;
+    pub fn fsetpos(_Stream: *mut FILE, _Position: *const fpos_t) -> ::std::os::raw::c_int;
+    pub fn fseek(
+        _Stream: *mut FILE,
+        _Offset: ::std::os::raw::c_long,
+        _Origin: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+    pub fn _fseeki64(
+        _Stream: *mut FILE,
+        _Offset: ::std::os::raw::c_longlong,
+        _Origin: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+    pub fn ftell(_Stream: *mut FILE) -> ::std::os::raw::c_long;
+    pub fn _ftelli64(_Stream: *mut FILE) -> ::std::os::raw::c_longlong;
+    pub fn fwrite(
+        _Buffer: *const ::std::os::raw::c_void,
+        _ElementSize: ::std::os::raw::c_ulonglong,
+        _ElementCount: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+    ) -> ::std::os::raw::c_ulonglong;
+    pub fn getc(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn getchar() -> ::std::os::raw::c_int;
+    pub fn _getmaxstdio() -> ::std::os::raw::c_int;
+    pub fn _getw(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn perror(_ErrorMessage: *const ::std::os::raw::c_char);
+    pub fn _pclose(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _popen(
+        _Command: *const ::std::os::raw::c_char,
+        _Mode: *const ::std::os::raw::c_char,
+    ) -> *mut FILE;
+    pub fn putc(_Character: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn putchar(_Character: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn puts(_Buffer: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+    pub fn _putw(_Word: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn remove(_FileName: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+    pub fn rename(
+        _OldFileName: *const ::std::os::raw::c_char,
+        _NewFileName: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn _unlink(_FileName: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+    pub fn unlink(_FileName: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+    pub fn rewind(_Stream: *mut FILE);
+    pub fn _rmtmp() -> ::std::os::raw::c_int;
+    pub fn setbuf(_Stream: *mut FILE, _Buffer: *mut ::std::os::raw::c_char);
+    pub fn _setmaxstdio(_Maximum: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn setvbuf(
+        _Stream: *mut FILE,
+        _Buffer: *mut ::std::os::raw::c_char,
+        _Mode: ::std::os::raw::c_int,
+        _Size: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn _tempnam(
+        _DirectoryName: *const ::std::os::raw::c_char,
+        _FilePrefix: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn tmpfile() -> *mut FILE;
+    pub fn tmpnam(_Buffer: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn ungetc(_Character: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _lock_file(_Stream: *mut FILE);
+    pub fn _unlock_file(_Stream: *mut FILE);
+    pub fn _fclose_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _fflush_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _fgetc_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _fputc_nolock(
+        _Character: ::std::os::raw::c_int,
+        _Stream: *mut FILE,
+    ) -> ::std::os::raw::c_int;
+    pub fn _fread_nolock(
+        _Buffer: *mut ::std::os::raw::c_void,
+        _ElementSize: usize,
+        _ElementCount: usize,
+        _Stream: *mut FILE,
+    ) -> usize;
+    pub fn _fread_nolock_s(
+        _Buffer: *mut ::std::os::raw::c_void,
+        _BufferSize: usize,
+        _ElementSize: usize,
+        _ElementCount: usize,
+        _Stream: *mut FILE,
+    ) -> usize;
+    pub fn _fseek_nolock(
+        _Stream: *mut FILE,
+        _Offset: ::std::os::raw::c_long,
+        _Origin: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+    pub fn _fseeki64_nolock(
+        _Stream: *mut FILE,
+        _Offset: ::std::os::raw::c_longlong,
+        _Origin: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+    pub fn _ftell_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_long;
+    pub fn _ftelli64_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_longlong;
+    pub fn _fwrite_nolock(
+        _Buffer: *const ::std::os::raw::c_void,
+        _ElementSize: usize,
+        _ElementCount: usize,
+        _Stream: *mut FILE,
+    ) -> usize;
+    pub fn _getc_nolock(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn _putc_nolock(
+        _Character: ::std::os::raw::c_int,
+        _Stream: *mut FILE,
+    ) -> ::std::os::raw::c_int;
+    pub fn _ungetc_nolock(
+        _Character: ::std::os::raw::c_int,
+        _Stream: *mut FILE,
+    ) -> ::std::os::raw::c_int;
+    pub fn __p__commode() -> *mut ::std::os::raw::c_int;
+    pub fn __stdio_common_vfprintf(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+        _Format: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vfprintf_s(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+        _Format: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vfprintf_p(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+        _Format: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn _set_printf_count_output(_Value: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn _get_printf_count_output() -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vfscanf(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Stream: *mut FILE,
+        _Format: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+        _Arglist: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vsprintf(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *mut ::std::os::raw::c_char,
+        _BufferCount: usize,
+        _Format: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vsprintf_s(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *mut ::std::os::raw::c_char,
+        _BufferCount: usize,
+        _Format: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vsnprintf_s(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *mut ::std::os::raw::c_char,
+        _BufferCount: usize,
+        _MaxCount: usize,
+        _Format: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vsprintf_p(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *mut ::std::os::raw::c_char,
+        _BufferCount: usize,
+        _Format: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn __stdio_common_vsscanf(
+        _Options: ::std::os::raw::c_ulonglong,
+        _Buffer: *const ::std::os::raw::c_char,
+        _BufferCount: usize,
+        _Format: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+        _ArgList: va_list,
+    ) -> ::std::os::raw::c_int;
+    pub fn tempnam(
+        _Directory: *const ::std::os::raw::c_char,
+        _FilePrefix: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn fcloseall() -> ::std::os::raw::c_int;
+    pub fn fdopen(
+        _FileHandle: ::std::os::raw::c_int,
+        _Format: *const ::std::os::raw::c_char,
+    ) -> *mut FILE;
+    pub fn fgetchar() -> ::std::os::raw::c_int;
+    pub fn fileno(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn flushall() -> ::std::os::raw::c_int;
+    pub fn fputchar(_Ch: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn getw(_Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn putw(_Ch: ::std::os::raw::c_int, _Stream: *mut FILE) -> ::std::os::raw::c_int;
+    pub fn rmtmp() -> ::std::os::raw::c_int;
+    pub static _HUGE: f64;
+    pub fn _fperrraise(_Except: ::std::os::raw::c_int);
+    pub fn _dclass(_X: f64) -> ::std::os::raw::c_short;
+    pub fn _ldclass(_X: f64) -> ::std::os::raw::c_short;
+    pub fn _fdclass(_X: f32) -> ::std::os::raw::c_short;
+    pub fn _dsign(_X: f64) -> ::std::os::raw::c_int;
+    pub fn _ldsign(_X: f64) -> ::std::os::raw::c_int;
+    pub fn _fdsign(_X: f32) -> ::std::os::raw::c_int;
+    pub fn _dpcomp(_X: f64, _Y: f64) -> ::std::os::raw::c_int;
+    pub fn _ldpcomp(_X: f64, _Y: f64) -> ::std::os::raw::c_int;
+    pub fn _fdpcomp(_X: f32, _Y: f32) -> ::std::os::raw::c_int;
+    pub fn _dtest(_Px: *mut f64) -> ::std::os::raw::c_short;
+    pub fn _ldtest(_Px: *mut f64) -> ::std::os::raw::c_short;
+    pub fn _fdtest(_Px: *mut f32) -> ::std::os::raw::c_short;
+    pub fn _d_int(_Px: *mut f64, _Xexp: ::std::os::raw::c_short) -> ::std::os::raw::c_short;
+    pub fn _ld_int(_Px: *mut f64, _Xexp: ::std::os::raw::c_short) -> ::std::os::raw::c_short;
+    pub fn _fd_int(_Px: *mut f32, _Xexp: ::std::os::raw::c_short) -> ::std::os::raw::c_short;
+    pub fn _dscale(_Px: *mut f64, _Lexp: ::std::os::raw::c_long) -> ::std::os::raw::c_short;
+    pub fn _ldscale(_Px: *mut f64, _Lexp: ::std::os::raw::c_long) -> ::std::os::raw::c_short;
+    pub fn _fdscale(_Px: *mut f32, _Lexp: ::std::os::raw::c_long) -> ::std::os::raw::c_short;
+    pub fn _dunscale(_Pex: *mut ::std::os::raw::c_short, _Px: *mut f64) -> ::std::os::raw::c_short;
+    pub fn _ldunscale(_Pex: *mut ::std::os::raw::c_short, _Px: *mut f64)
+        -> ::std::os::raw::c_short;
+    pub fn _fdunscale(_Pex: *mut ::std::os::raw::c_short, _Px: *mut f32)
+        -> ::std::os::raw::c_short;
+    pub fn _dexp(_Px: *mut f64, _Y: f64, _Eoff: ::std::os::raw::c_long) -> ::std::os::raw::c_short;
+    pub fn _ldexp(_Px: *mut f64, _Y: f64, _Eoff: ::std::os::raw::c_long)
+        -> ::std::os::raw::c_short;
+    pub fn _fdexp(_Px: *mut f32, _Y: f32, _Eoff: ::std::os::raw::c_long)
+        -> ::std::os::raw::c_short;
+    pub fn _dnorm(_Ps: *mut ::std::os::raw::c_ushort) -> ::std::os::raw::c_short;
+    pub fn _fdnorm(_Ps: *mut ::std::os::raw::c_ushort) -> ::std::os::raw::c_short;
+    pub fn _dpoly(_X: f64, _Tab: *const f64, _N: ::std::os::raw::c_int) -> f64;
+    pub fn _ldpoly(_X: f64, _Tab: *const f64, _N: ::std::os::raw::c_int) -> f64;
+    pub fn _fdpoly(_X: f32, _Tab: *const f32, _N: ::std::os::raw::c_int) -> f32;
+    pub fn _dlog(_X: f64, _Baseflag: ::std::os::raw::c_int) -> f64;
+    pub fn _ldlog(_X: f64, _Baseflag: ::std::os::raw::c_int) -> f64;
+    pub fn _fdlog(_X: f32, _Baseflag: ::std::os::raw::c_int) -> f32;
+    pub fn _dsin(_X: f64, _Qoff: ::std::os::raw::c_uint) -> f64;
+    pub fn _ldsin(_X: f64, _Qoff: ::std::os::raw::c_uint) -> f64;
+    pub fn _fdsin(_X: f32, _Qoff: ::std::os::raw::c_uint) -> f32;
+    pub static _Denorm_C: _float_const;
+    pub static _Inf_C: _float_const;
+    pub static _Nan_C: _float_const;
+    pub static _Snan_C: _float_const;
+    pub static _Hugeval_C: _float_const;
+    pub static _FDenorm_C: _float_const;
+    pub static _FInf_C: _float_const;
+    pub static _FNan_C: _float_const;
+    pub static _FSnan_C: _float_const;
+    pub static _LDenorm_C: _float_const;
+    pub static _LInf_C: _float_const;
+    pub static _LNan_C: _float_const;
+    pub static _LSnan_C: _float_const;
+    pub static _Eps_C: _float_const;
+    pub static _Rteps_C: _float_const;
+    pub static _FEps_C: _float_const;
+    pub static _FRteps_C: _float_const;
+    pub static _LEps_C: _float_const;
+    pub static _LRteps_C: _float_const;
+    pub static _Zero_C: f64;
+    pub static _Xbig_C: f64;
+    pub static _FZero_C: f32;
+    pub static _FXbig_C: f32;
+    pub static _LZero_C: f64;
+    pub static _LXbig_C: f64;
+    pub fn abs(_X: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn labs(_X: ::std::os::raw::c_long) -> ::std::os::raw::c_long;
+    pub fn llabs(_X: ::std::os::raw::c_longlong) -> ::std::os::raw::c_longlong;
+    pub fn acos(_X: f64) -> f64;
+    pub fn asin(_X: f64) -> f64;
+    pub fn atan(_X: f64) -> f64;
+    pub fn atan2(_Y: f64, _X: f64) -> f64;
+    pub fn cos(_X: f64) -> f64;
+    pub fn cosh(_X: f64) -> f64;
+    pub fn exp(_X: f64) -> f64;
+    pub fn fabs(_X: f64) -> f64;
+    pub fn fmod(_X: f64, _Y: f64) -> f64;
+    pub fn log(_X: f64) -> f64;
+    pub fn log10(_X: f64) -> f64;
+    pub fn pow(_X: f64, _Y: f64) -> f64;
+    pub fn sin(_X: f64) -> f64;
+    pub fn sinh(_X: f64) -> f64;
+    pub fn sqrt(_X: f64) -> f64;
+    pub fn tan(_X: f64) -> f64;
+    pub fn tanh(_X: f64) -> f64;
+    pub fn acosh(_X: f64) -> f64;
+    pub fn asinh(_X: f64) -> f64;
+    pub fn atanh(_X: f64) -> f64;
+    pub fn atof(_String: *const ::std::os::raw::c_char) -> f64;
+    pub fn _atof_l(_String: *const ::std::os::raw::c_char, _Locale: _locale_t) -> f64;
+    pub fn _cabs(_Complex_value: _complex) -> f64;
+    pub fn cbrt(_X: f64) -> f64;
+    pub fn ceil(_X: f64) -> f64;
+    pub fn _chgsign(_X: f64) -> f64;
+    pub fn copysign(_Number: f64, _Sign: f64) -> f64;
+    pub fn _copysign(_Number: f64, _Sign: f64) -> f64;
+    pub fn erf(_X: f64) -> f64;
+    pub fn erfc(_X: f64) -> f64;
+    pub fn exp2(_X: f64) -> f64;
+    pub fn expm1(_X: f64) -> f64;
+    pub fn fdim(_X: f64, _Y: f64) -> f64;
+    pub fn floor(_X: f64) -> f64;
+    pub fn fma(_X: f64, _Y: f64, _Z: f64) -> f64;
+    pub fn fmax(_X: f64, _Y: f64) -> f64;
+    pub fn fmin(_X: f64, _Y: f64) -> f64;
+    pub fn frexp(_X: f64, _Y: *mut ::std::os::raw::c_int) -> f64;
+    pub fn hypot(_X: f64, _Y: f64) -> f64;
+    pub fn _hypot(_X: f64, _Y: f64) -> f64;
+    pub fn ilogb(_X: f64) -> ::std::os::raw::c_int;
+    pub fn ldexp(_X: f64, _Y: ::std::os::raw::c_int) -> f64;
+    pub fn lgamma(_X: f64) -> f64;
+    pub fn llrint(_X: f64) -> ::std::os::raw::c_longlong;
+    pub fn llround(_X: f64) -> ::std::os::raw::c_longlong;
+    pub fn log1p(_X: f64) -> f64;
+    pub fn log2(_X: f64) -> f64;
+    pub fn logb(_X: f64) -> f64;
+    pub fn lrint(_X: f64) -> ::std::os::raw::c_long;
+    pub fn lround(_X: f64) -> ::std::os::raw::c_long;
+    pub fn _matherr(_Except: *mut _exception) -> ::std::os::raw::c_int;
+    pub fn modf(_X: f64, _Y: *mut f64) -> f64;
+    pub fn nan(_X: *const ::std::os::raw::c_char) -> f64;
+    pub fn nearbyint(_X: f64) -> f64;
+    pub fn nextafter(_X: f64, _Y: f64) -> f64;
+    pub fn nexttoward(_X: f64, _Y: f64) -> f64;
+    pub fn remainder(_X: f64, _Y: f64) -> f64;
+    pub fn remquo(_X: f64, _Y: f64, _Z: *mut ::std::os::raw::c_int) -> f64;
+    pub fn rint(_X: f64) -> f64;
+    pub fn round(_X: f64) -> f64;
+    pub fn scalbln(_X: f64, _Y: ::std::os::raw::c_long) -> f64;
+    pub fn scalbn(_X: f64, _Y: ::std::os::raw::c_int) -> f64;
+    pub fn tgamma(_X: f64) -> f64;
+    pub fn trunc(_X: f64) -> f64;
+    pub fn _j0(_X: f64) -> f64;
+    pub fn _j1(_X: f64) -> f64;
+    pub fn _jn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
+    pub fn _y0(_X: f64) -> f64;
+    pub fn _y1(_X: f64) -> f64;
+    pub fn _yn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
+    pub fn acoshf(_X: f32) -> f32;
+    pub fn asinhf(_X: f32) -> f32;
+    pub fn atanhf(_X: f32) -> f32;
+    pub fn cbrtf(_X: f32) -> f32;
+    pub fn _chgsignf(_X: f32) -> f32;
+    pub fn copysignf(_Number: f32, _Sign: f32) -> f32;
+    pub fn _copysignf(_Number: f32, _Sign: f32) -> f32;
+    pub fn erff(_X: f32) -> f32;
+    pub fn erfcf(_X: f32) -> f32;
+    pub fn expm1f(_X: f32) -> f32;
+    pub fn exp2f(_X: f32) -> f32;
+    pub fn fdimf(_X: f32, _Y: f32) -> f32;
+    pub fn fmaf(_X: f32, _Y: f32, _Z: f32) -> f32;
+    pub fn fmaxf(_X: f32, _Y: f32) -> f32;
+    pub fn fminf(_X: f32, _Y: f32) -> f32;
+    pub fn _hypotf(_X: f32, _Y: f32) -> f32;
+    pub fn ilogbf(_X: f32) -> ::std::os::raw::c_int;
+    pub fn lgammaf(_X: f32) -> f32;
+    pub fn llrintf(_X: f32) -> ::std::os::raw::c_longlong;
+    pub fn llroundf(_X: f32) -> ::std::os::raw::c_longlong;
+    pub fn log1pf(_X: f32) -> f32;
+    pub fn log2f(_X: f32) -> f32;
+    pub fn logbf(_X: f32) -> f32;
+    pub fn lrintf(_X: f32) -> ::std::os::raw::c_long;
+    pub fn lroundf(_X: f32) -> ::std::os::raw::c_long;
+    pub fn nanf(_X: *const ::std::os::raw::c_char) -> f32;
+    pub fn nearbyintf(_X: f32) -> f32;
+    pub fn nextafterf(_X: f32, _Y: f32) -> f32;
+    pub fn nexttowardf(_X: f32, _Y: f64) -> f32;
+    pub fn remainderf(_X: f32, _Y: f32) -> f32;
+    pub fn remquof(_X: f32, _Y: f32, _Z: *mut ::std::os::raw::c_int) -> f32;
+    pub fn rintf(_X: f32) -> f32;
+    pub fn roundf(_X: f32) -> f32;
+    pub fn scalblnf(_X: f32, _Y: ::std::os::raw::c_long) -> f32;
+    pub fn scalbnf(_X: f32, _Y: ::std::os::raw::c_int) -> f32;
+    pub fn tgammaf(_X: f32) -> f32;
+    pub fn truncf(_X: f32) -> f32;
+    pub fn _logbf(_X: f32) -> f32;
+    pub fn _nextafterf(_X: f32, _Y: f32) -> f32;
+    pub fn _finitef(_X: f32) -> ::std::os::raw::c_int;
+    pub fn _isnanf(_X: f32) -> ::std::os::raw::c_int;
+    pub fn _fpclassf(_X: f32) -> ::std::os::raw::c_int;
+    pub fn _set_FMA3_enable(_Flag: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn _get_FMA3_enable() -> ::std::os::raw::c_int;
+    pub fn acosf(_X: f32) -> f32;
+    pub fn asinf(_X: f32) -> f32;
+    pub fn atan2f(_Y: f32, _X: f32) -> f32;
+    pub fn atanf(_X: f32) -> f32;
+    pub fn ceilf(_X: f32) -> f32;
+    pub fn cosf(_X: f32) -> f32;
+    pub fn coshf(_X: f32) -> f32;
+    pub fn expf(_X: f32) -> f32;
+    pub fn floorf(_X: f32) -> f32;
+    pub fn fmodf(_X: f32, _Y: f32) -> f32;
+    pub fn log10f(_X: f32) -> f32;
+    pub fn logf(_X: f32) -> f32;
+    pub fn modff(_X: f32, _Y: *mut f32) -> f32;
+    pub fn powf(_X: f32, _Y: f32) -> f32;
+    pub fn sinf(_X: f32) -> f32;
+    pub fn sinhf(_X: f32) -> f32;
+    pub fn sqrtf(_X: f32) -> f32;
+    pub fn tanf(_X: f32) -> f32;
+    pub fn tanhf(_X: f32) -> f32;
+    pub fn acoshl(_X: f64) -> f64;
+    pub fn asinhl(_X: f64) -> f64;
+    pub fn atanhl(_X: f64) -> f64;
+    pub fn cbrtl(_X: f64) -> f64;
+    pub fn copysignl(_Number: f64, _Sign: f64) -> f64;
+    pub fn erfl(_X: f64) -> f64;
+    pub fn erfcl(_X: f64) -> f64;
+    pub fn exp2l(_X: f64) -> f64;
+    pub fn expm1l(_X: f64) -> f64;
+    pub fn fdiml(_X: f64, _Y: f64) -> f64;
+    pub fn fmal(_X: f64, _Y: f64, _Z: f64) -> f64;
+    pub fn fmaxl(_X: f64, _Y: f64) -> f64;
+    pub fn fminl(_X: f64, _Y: f64) -> f64;
+    pub fn ilogbl(_X: f64) -> ::std::os::raw::c_int;
+    pub fn lgammal(_X: f64) -> f64;
+    pub fn llrintl(_X: f64) -> ::std::os::raw::c_longlong;
+    pub fn llroundl(_X: f64) -> ::std::os::raw::c_longlong;
+    pub fn log1pl(_X: f64) -> f64;
+    pub fn log2l(_X: f64) -> f64;
+    pub fn logbl(_X: f64) -> f64;
+    pub fn lrintl(_X: f64) -> ::std::os::raw::c_long;
+    pub fn lroundl(_X: f64) -> ::std::os::raw::c_long;
+    pub fn nanl(_X: *const ::std::os::raw::c_char) -> f64;
+    pub fn nearbyintl(_X: f64) -> f64;
+    pub fn nextafterl(_X: f64, _Y: f64) -> f64;
+    pub fn nexttowardl(_X: f64, _Y: f64) -> f64;
+    pub fn remainderl(_X: f64, _Y: f64) -> f64;
+    pub fn remquol(_X: f64, _Y: f64, _Z: *mut ::std::os::raw::c_int) -> f64;
+    pub fn rintl(_X: f64) -> f64;
+    pub fn roundl(_X: f64) -> f64;
+    pub fn scalblnl(_X: f64, _Y: ::std::os::raw::c_long) -> f64;
+    pub fn scalbnl(_X: f64, _Y: ::std::os::raw::c_int) -> f64;
+    pub fn tgammal(_X: f64) -> f64;
+    pub fn truncl(_X: f64) -> f64;
+    pub static mut HUGE: f64;
+    pub fn j0(_X: f64) -> f64;
+    pub fn j1(_X: f64) -> f64;
+    pub fn jn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
+    pub fn y0(_X: f64) -> f64;
+    pub fn y1(_X: f64) -> f64;
+    pub fn yn(_X: ::std::os::raw::c_int, _Y: f64) -> f64;
+    pub static mut R_NaN: f64;
+    pub static mut R_PosInf: f64;
+    pub static mut R_NegInf: f64;
+    pub static mut R_NaReal: f64;
+    pub static mut R_NaInt: ::std::os::raw::c_int;
+    pub fn R_IsNA(arg1: f64) -> ::std::os::raw::c_int;
+    pub fn R_IsNaN(arg1: f64) -> ::std::os::raw::c_int;
+    pub fn R_finite(arg1: f64) -> ::std::os::raw::c_int;
+    pub fn Rf_error(arg1: *const ::std::os::raw::c_char, ...) -> !;
+    pub fn UNIMPLEMENTED(arg1: *const ::std::os::raw::c_char) -> !;
+    pub fn WrongArgCount(arg1: *const ::std::os::raw::c_char) -> !;
+    pub fn Rf_warning(arg1: *const ::std::os::raw::c_char, ...);
+    pub fn R_ShowMessage(s: *const ::std::os::raw::c_char);
+    pub fn vmaxget() -> *mut ::std::os::raw::c_void;
+    pub fn vmaxset(arg1: *const ::std::os::raw::c_void);
+    pub fn R_gc();
+    pub fn R_gc_running() -> ::std::os::raw::c_int;
+    pub fn R_alloc(arg1: usize, arg2: ::std::os::raw::c_int) -> *mut ::std::os::raw::c_char;
+    pub fn R_allocLD(nelem: usize) -> *mut f64;
+    pub fn S_alloc(
+        arg1: ::std::os::raw::c_long,
+        arg2: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn S_realloc(
+        arg1: *mut ::std::os::raw::c_char,
+        arg2: ::std::os::raw::c_long,
+        arg3: ::std::os::raw::c_long,
+        arg4: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn R_malloc_gc(arg1: usize) -> *mut ::std::os::raw::c_void;
+    pub fn R_calloc_gc(arg1: usize, arg2: usize) -> *mut ::std::os::raw::c_void;
+    pub fn R_realloc_gc(
+        arg1: *mut ::std::os::raw::c_void,
+        arg2: usize,
+    ) -> *mut ::std::os::raw::c_void;
+    pub fn R_isort(arg1: *mut ::std::os::raw::c_int, arg2: ::std::os::raw::c_int);
+    pub fn R_rsort(arg1: *mut f64, arg2: ::std::os::raw::c_int);
+    pub fn R_csort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int);
+    pub fn rsort_with_index(
+        arg1: *mut f64,
+        arg2: *mut ::std::os::raw::c_int,
+        arg3: ::std::os::raw::c_int,
+    );
+    pub fn Rf_revsort(
+        arg1: *mut f64,
+        arg2: *mut ::std::os::raw::c_int,
+        arg3: ::std::os::raw::c_int,
+    );
+    pub fn Rf_iPsort(
+        arg1: *mut ::std::os::raw::c_int,
+        arg2: ::std::os::raw::c_int,
+        arg3: ::std::os::raw::c_int,
+    );
+    pub fn Rf_rPsort(arg1: *mut f64, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
+    pub fn Rf_cPsort(arg1: *mut Rcomplex, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int);
+    pub fn R_qsort(v: *mut f64, i: usize, j: usize);
+    pub fn R_qsort_I(
+        v: *mut f64,
+        II: *mut ::std::os::raw::c_int,
+        i: ::std::os::raw::c_int,
+        j: ::std::os::raw::c_int,
+    );
+    pub fn R_qsort_int(iv: *mut ::std::os::raw::c_int, i: usize, j: usize);
+    pub fn R_qsort_int_I(
+        iv: *mut ::std::os::raw::c_int,
+        II: *mut ::std::os::raw::c_int,
+        i: ::std::os::raw::c_int,
+        j: ::std::os::raw::c_int,
+    );
+    pub fn R_ExpandFileName(arg1: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
+    pub fn R_ExpandFileNameUTF8(
+        arg1: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+    pub fn Rf_setIVector(
+        arg1: *mut ::std::os::raw::c_int,
+        arg2: ::std::os::raw::c_int,
+        arg3: ::std::os::raw::c_int,
+    );
+    pub fn Rf_setRVector(arg1: *mut f64, arg2: ::std::os::raw::c_int, arg3: f64);
+    pub fn Rf_StringFalse(arg1: *const ::std::os::raw::c_char) -> Rboolean;
+    pub fn Rf_StringTrue(arg1: *const ::std::os::raw::c_char) -> Rboolean;
+    pub fn Rf_isBlankString(arg1: *const ::std::os::raw::c_char) -> Rboolean;
+    pub fn R_atof(str_: *const ::std::os::raw::c_char) -> f64;
+    pub fn R_strtod(c: *const ::std::os::raw::c_char, end: *mut *mut ::std::os::raw::c_char)
+        -> f64;
+    pub fn R_tmpnam(
+        prefix: *const ::std::os::raw::c_char,
+        tempdir: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn R_tmpnam2(
+        prefix: *const ::std::os::raw::c_char,
+        tempdir: *const ::std::os::raw::c_char,
+        fileext: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn R_free_tmpnam(name: *mut ::std::os::raw::c_char);
+    pub fn R_CheckUserInterrupt();
+    pub fn R_CheckStack();
+    pub fn R_CheckStack2(arg1: usize);
+    pub fn findInterval(
+        xt: *mut f64,
+        n: ::std::os::raw::c_int,
+        x: f64,
+        rightmost_closed: Rboolean,
+        all_inside: Rboolean,
+        ilo: ::std::os::raw::c_int,
+        mflag: *mut ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+    pub fn findInterval2(
+        xt: *mut f64,
+        n: ::std::os::raw::c_int,
+        x: f64,
+        rightmost_closed: Rboolean,
+        all_inside: Rboolean,
+        left_open: Rboolean,
+        ilo: ::std::os::raw::c_int,
+        mflag: *mut ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+    pub fn find_interv_vec(
+        xt: *mut f64,
+        n: *mut ::std::os::raw::c_int,
+        x: *mut f64,
+        nx: *mut ::std::os::raw::c_int,
+        rightmost_closed: *mut ::std::os::raw::c_int,
+        all_inside: *mut ::std::os::raw::c_int,
+        indx: *mut ::std::os::raw::c_int,
+    );
+    pub fn R_max_col(
+        matrix: *mut f64,
+        nr: *mut ::std::os::raw::c_int,
+        nc: *mut ::std::os::raw::c_int,
+        maxes: *mut ::std::os::raw::c_int,
+        ties_meth: *mut ::std::os::raw::c_int,
+    );
+    pub fn Rprintf(arg1: *const ::std::os::raw::c_char, ...);
+    pub fn REprintf(arg1: *const ::std::os::raw::c_char, ...);
+    pub fn Rvprintf(arg1: *const ::std::os::raw::c_char, arg2: va_list);
+    pub fn REvprintf(arg1: *const ::std::os::raw::c_char, arg2: va_list);
+    pub fn R_registerRoutines(
+        info: *mut DllInfo,
+        croutines: *const R_CMethodDef,
+        callRoutines: *const R_CallMethodDef,
+        fortranRoutines: *const R_FortranMethodDef,
+        externalRoutines: *const R_ExternalMethodDef,
+    ) -> ::std::os::raw::c_int;
+    pub fn R_useDynamicSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
+    pub fn R_forceSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
+    pub fn R_getDllInfo(name: *const ::std::os::raw::c_char) -> *mut DllInfo;
+    pub fn R_getEmbeddingDllInfo() -> *mut DllInfo;
+    pub fn R_FindSymbol(
+        arg1: *const ::std::os::raw::c_char,
+        arg2: *const ::std::os::raw::c_char,
+        symbol: *mut R_RegisteredNativeSymbol,
+    ) -> DL_FUNC;
+    pub fn R_RegisterCCallable(
+        package: *const ::std::os::raw::c_char,
+        name: *const ::std::os::raw::c_char,
+        fptr: DL_FUNC,
+    );
+    pub fn R_GetCCallable(
+        package: *const ::std::os::raw::c_char,
+        name: *const ::std::os::raw::c_char,
+    ) -> DL_FUNC;
+    pub fn R_CHAR(x: SEXP) -> *const ::std::os::raw::c_char;
+    pub fn Rf_isNull(s: SEXP) -> Rboolean;
+    pub fn Rf_isSymbol(s: SEXP) -> Rboolean;
+    pub fn Rf_isLogical(s: SEXP) -> Rboolean;
+    pub fn Rf_isReal(s: SEXP) -> Rboolean;
+    pub fn Rf_isComplex(s: SEXP) -> Rboolean;
+    pub fn Rf_isExpression(s: SEXP) -> Rboolean;
+    pub fn Rf_isEnvironment(s: SEXP) -> Rboolean;
+    pub fn Rf_isString(s: SEXP) -> Rboolean;
+    pub fn Rf_isObject(s: SEXP) -> Rboolean;
+    pub fn ATTRIB(x: SEXP) -> SEXP;
+    pub fn OBJECT(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn MARK(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn TYPEOF(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn NAMED(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn REFCNT(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn SET_ATTRIB(x: SEXP, v: SEXP);
+    pub fn DUPLICATE_ATTRIB(to: SEXP, from: SEXP);
+    pub fn SHALLOW_DUPLICATE_ATTRIB(to: SEXP, from: SEXP);
+    pub fn MARK_NOT_MUTABLE(x: SEXP);
+    pub fn IS_S4_OBJECT(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn LENGTH(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn XLENGTH(x: SEXP) -> R_xlen_t;
+    pub fn TRUELENGTH(x: SEXP) -> R_xlen_t;
+    pub fn IS_LONG_VEC(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn LEVELS(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn LOGICAL(x: SEXP) -> *mut ::std::os::raw::c_int;
+    pub fn INTEGER(x: SEXP) -> *mut ::std::os::raw::c_int;
+    pub fn RAW(x: SEXP) -> *mut Rbyte;
+    pub fn REAL(x: SEXP) -> *mut f64;
+    pub fn COMPLEX(x: SEXP) -> *mut Rcomplex;
+    pub fn LOGICAL_RO(x: SEXP) -> *const ::std::os::raw::c_int;
+    pub fn INTEGER_RO(x: SEXP) -> *const ::std::os::raw::c_int;
+    pub fn RAW_RO(x: SEXP) -> *const Rbyte;
+    pub fn REAL_RO(x: SEXP) -> *const f64;
+    pub fn COMPLEX_RO(x: SEXP) -> *const Rcomplex;
+    pub fn VECTOR_ELT(x: SEXP, i: R_xlen_t) -> SEXP;
+    pub fn SET_STRING_ELT(x: SEXP, i: R_xlen_t, v: SEXP);
+    pub fn SET_VECTOR_ELT(x: SEXP, i: R_xlen_t, v: SEXP) -> SEXP;
+    pub fn STRING_PTR(x: SEXP) -> *mut SEXP;
+    pub fn STRING_PTR_RO(x: SEXP) -> *const SEXP;
+    pub fn VECTOR_PTR(x: SEXP) -> !;
+    pub fn INTEGER_GET_REGION(
+        sx: SEXP,
+        i: R_xlen_t,
+        n: R_xlen_t,
+        buf: *mut ::std::os::raw::c_int,
+    ) -> R_xlen_t;
+    pub fn REAL_GET_REGION(sx: SEXP, i: R_xlen_t, n: R_xlen_t, buf: *mut f64) -> R_xlen_t;
+    pub fn LOGICAL_GET_REGION(
+        sx: SEXP,
+        i: R_xlen_t,
+        n: R_xlen_t,
+        buf: *mut ::std::os::raw::c_int,
+    ) -> R_xlen_t;
+    pub fn COMPLEX_GET_REGION(sx: SEXP, i: R_xlen_t, n: R_xlen_t, buf: *mut Rcomplex) -> R_xlen_t;
+    pub fn RAW_GET_REGION(sx: SEXP, i: R_xlen_t, n: R_xlen_t, buf: *mut Rbyte) -> R_xlen_t;
+    pub fn INTEGER_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn INTEGER_NO_NA(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn REAL_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn REAL_NO_NA(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn LOGICAL_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn LOGICAL_NO_NA(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn STRING_IS_SORTED(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn STRING_NO_NA(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn TAG(e: SEXP) -> SEXP;
+    pub fn CDR(e: SEXP) -> SEXP;
+    pub fn CAAR(e: SEXP) -> SEXP;
+    pub fn CDAR(e: SEXP) -> SEXP;
+    pub fn CADR(e: SEXP) -> SEXP;
+    pub fn CDDR(e: SEXP) -> SEXP;
+    pub fn CDDDR(e: SEXP) -> SEXP;
+    pub fn CADDR(e: SEXP) -> SEXP;
+    pub fn CADDDR(e: SEXP) -> SEXP;
+    pub fn CAD4R(e: SEXP) -> SEXP;
+    pub fn CAD5R(e: SEXP) -> SEXP;
+    pub fn MISSING(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn SET_TAG(x: SEXP, y: SEXP);
+    pub fn SETCAR(x: SEXP, y: SEXP) -> SEXP;
+    pub fn SETCDR(x: SEXP, y: SEXP) -> SEXP;
+    pub fn SETCADR(x: SEXP, y: SEXP) -> SEXP;
+    pub fn SETCADDR(x: SEXP, y: SEXP) -> SEXP;
+    pub fn SETCADDDR(x: SEXP, y: SEXP) -> SEXP;
+    pub fn SETCAD4R(e: SEXP, y: SEXP) -> SEXP;
+    pub fn FORMALS(x: SEXP) -> SEXP;
+    pub fn BODY(x: SEXP) -> SEXP;
+    pub fn CLOENV(x: SEXP) -> SEXP;
+    pub fn RDEBUG(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn RSTEP(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn RTRACE(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn SET_RDEBUG(x: SEXP, v: ::std::os::raw::c_int);
+    pub fn SET_RSTEP(x: SEXP, v: ::std::os::raw::c_int);
+    pub fn SET_RTRACE(x: SEXP, v: ::std::os::raw::c_int);
+    pub fn SET_FORMALS(x: SEXP, v: SEXP);
+    pub fn SET_BODY(x: SEXP, v: SEXP);
+    pub fn SET_CLOENV(x: SEXP, v: SEXP);
+    pub fn PRINTNAME(x: SEXP) -> SEXP;
+    pub fn SYMVALUE(x: SEXP) -> SEXP;
+    pub fn INTERNAL(x: SEXP) -> SEXP;
+    pub fn DDVAL(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn FRAME(x: SEXP) -> SEXP;
+    pub fn ENCLOS(x: SEXP) -> SEXP;
+    pub fn HASHTAB(x: SEXP) -> SEXP;
+    pub fn ENVFLAGS(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn PRCODE(x: SEXP) -> SEXP;
+    pub fn PRENV(x: SEXP) -> SEXP;
+    pub fn PRVALUE(x: SEXP) -> SEXP;
+    pub fn PRSEEN(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn EXTPTR_PROT(arg1: SEXP) -> SEXP;
+    pub fn EXTPTR_TAG(arg1: SEXP) -> SEXP;
+    pub fn EXTPTR_PTR(arg1: SEXP) -> *mut ::std::os::raw::c_void;
+    pub static mut R_GlobalEnv: SEXP;
+    pub static mut R_EmptyEnv: SEXP;
+    pub static mut R_BaseEnv: SEXP;
+    pub static mut R_BaseNamespace: SEXP;
+    pub static mut R_NamespaceRegistry: SEXP;
+    pub static mut R_Srcref: SEXP;
+    pub static mut R_NilValue: SEXP;
+    pub static mut R_UnboundValue: SEXP;
+    pub static mut R_MissingArg: SEXP;
+    pub static mut R_InBCInterpreter: SEXP;
+    pub static mut R_CurrentExpression: SEXP;
+    pub static mut R_RestartToken: SEXP;
+    pub static mut R_AsCharacterSymbol: SEXP;
+    pub static mut R_AtsignSymbol: SEXP;
+    pub static mut R_baseSymbol: SEXP;
+    pub static mut R_BaseSymbol: SEXP;
+    pub static mut R_BraceSymbol: SEXP;
+    pub static mut R_Bracket2Symbol: SEXP;
+    pub static mut R_BracketSymbol: SEXP;
+    pub static mut R_ClassSymbol: SEXP;
+    pub static mut R_DeviceSymbol: SEXP;
+    pub static mut R_DimNamesSymbol: SEXP;
+    pub static mut R_DimSymbol: SEXP;
+    pub static mut R_DollarSymbol: SEXP;
+    pub static mut R_DotsSymbol: SEXP;
+    pub static mut R_DoubleColonSymbol: SEXP;
+    pub static mut R_DropSymbol: SEXP;
+    pub static mut R_EvalSymbol: SEXP;
+    pub static mut R_FunctionSymbol: SEXP;
+    pub static mut R_LastvalueSymbol: SEXP;
+    pub static mut R_LevelsSymbol: SEXP;
+    pub static mut R_ModeSymbol: SEXP;
+    pub static mut R_NaRmSymbol: SEXP;
+    pub static mut R_NameSymbol: SEXP;
+    pub static mut R_NamesSymbol: SEXP;
+    pub static mut R_NamespaceEnvSymbol: SEXP;
+    pub static mut R_PackageSymbol: SEXP;
+    pub static mut R_PreviousSymbol: SEXP;
+    pub static mut R_QuoteSymbol: SEXP;
+    pub static mut R_RowNamesSymbol: SEXP;
+    pub static mut R_SeedsSymbol: SEXP;
+    pub static mut R_SortListSymbol: SEXP;
+    pub static mut R_SourceSymbol: SEXP;
+    pub static mut R_SpecSymbol: SEXP;
+    pub static mut R_TripleColonSymbol: SEXP;
+    pub static mut R_TspSymbol: SEXP;
+    pub static mut R_dot_defined: SEXP;
+    pub static mut R_dot_Method: SEXP;
+    pub static mut R_dot_packageName: SEXP;
+    pub static mut R_dot_target: SEXP;
+    pub static mut R_dot_Generic: SEXP;
+    pub static mut R_NaString: SEXP;
+    pub static mut R_BlankString: SEXP;
+    pub static mut R_BlankScalarString: SEXP;
+    pub fn R_GetCurrentSrcref(arg1: ::std::os::raw::c_int) -> SEXP;
+    pub fn R_GetSrcFilename(arg1: SEXP) -> SEXP;
+    pub fn Rf_asChar(arg1: SEXP) -> SEXP;
+    pub fn Rf_coerceVector(arg1: SEXP, arg2: SEXPTYPE) -> SEXP;
+    pub fn Rf_PairToVectorList(x: SEXP) -> SEXP;
+    pub fn Rf_VectorToPairList(x: SEXP) -> SEXP;
+    pub fn Rf_asCharacterFactor(x: SEXP) -> SEXP;
+    pub fn Rf_asLogical(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn Rf_asInteger(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn Rf_asReal(x: SEXP) -> f64;
+    pub fn Rf_asComplex(x: SEXP) -> Rcomplex;
+    pub fn Rf_acopy_string(arg1: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn Rf_alloc3DArray(
+        arg1: SEXPTYPE,
+        arg2: ::std::os::raw::c_int,
+        arg3: ::std::os::raw::c_int,
+        arg4: ::std::os::raw::c_int,
+    ) -> SEXP;
+    pub fn Rf_allocArray(arg1: SEXPTYPE, arg2: SEXP) -> SEXP;
+    pub fn Rf_allocMatrix(
+        arg1: SEXPTYPE,
+        arg2: ::std::os::raw::c_int,
+        arg3: ::std::os::raw::c_int,
+    ) -> SEXP;
+    pub fn Rf_allocList(arg1: ::std::os::raw::c_int) -> SEXP;
+    pub fn Rf_allocS4Object() -> SEXP;
+    pub fn Rf_allocSExp(arg1: SEXPTYPE) -> SEXP;
+    pub fn Rf_allocVector3(arg1: SEXPTYPE, arg2: R_xlen_t, arg3: *mut R_allocator_t) -> SEXP;
+    pub fn Rf_any_duplicated(x: SEXP, from_last: Rboolean) -> R_xlen_t;
+    pub fn Rf_any_duplicated3(x: SEXP, incomp: SEXP, from_last: Rboolean) -> R_xlen_t;
+    pub fn Rf_applyClosure(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP) -> SEXP;
+    pub fn Rf_classgets(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_cons(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_copyMatrix(arg1: SEXP, arg2: SEXP, arg3: Rboolean);
+    pub fn Rf_copyListMatrix(arg1: SEXP, arg2: SEXP, arg3: Rboolean);
+    pub fn Rf_copyMostAttrib(arg1: SEXP, arg2: SEXP);
+    pub fn Rf_copyVector(arg1: SEXP, arg2: SEXP);
+    pub fn Rf_defineVar(arg1: SEXP, arg2: SEXP, arg3: SEXP);
+    pub fn Rf_dimgets(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_dimnamesgets(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_duplicate(arg1: SEXP) -> SEXP;
+    pub fn Rf_shallow_duplicate(arg1: SEXP) -> SEXP;
+    pub fn R_duplicate_attr(arg1: SEXP) -> SEXP;
+    pub fn R_shallow_duplicate_attr(arg1: SEXP) -> SEXP;
+    pub fn Rf_lazy_duplicate(arg1: SEXP) -> SEXP;
+    pub fn Rf_duplicated(arg1: SEXP, arg2: Rboolean) -> SEXP;
+    pub fn Rf_eval(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_findFun(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_findVar(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_findVarInFrame(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_findVarInFrame3(arg1: SEXP, arg2: SEXP, arg3: Rboolean) -> SEXP;
+    pub fn R_existsVarInFrame(arg1: SEXP, arg2: SEXP) -> Rboolean;
+    pub fn R_removeVarFromFrame(arg1: SEXP, arg2: SEXP);
+    pub fn Rf_getAttrib(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_GetArrayDimnames(arg1: SEXP) -> SEXP;
+    pub fn Rf_GetColNames(arg1: SEXP) -> SEXP;
+    pub fn Rf_GetMatrixDimnames(
+        arg1: SEXP,
+        arg2: *mut SEXP,
+        arg3: *mut SEXP,
+        arg4: *mut *const ::std::os::raw::c_char,
+        arg5: *mut *const ::std::os::raw::c_char,
+    );
+    pub fn Rf_GetOption(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_GetOption1(arg1: SEXP) -> SEXP;
+    pub fn Rf_GetOptionDigits() -> ::std::os::raw::c_int;
+    pub fn Rf_GetOptionWidth() -> ::std::os::raw::c_int;
+    pub fn Rf_GetRowNames(arg1: SEXP) -> SEXP;
+    pub fn Rf_gsetVar(arg1: SEXP, arg2: SEXP, arg3: SEXP);
+    pub fn Rf_install(arg1: *const ::std::os::raw::c_char) -> SEXP;
+    pub fn Rf_installChar(arg1: SEXP) -> SEXP;
+    pub fn Rf_installNoTrChar(arg1: SEXP) -> SEXP;
+    pub fn Rf_installTrChar(arg1: SEXP) -> SEXP;
+    pub fn Rf_isOrdered(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isUnordered(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isUnsorted(arg1: SEXP, arg2: Rboolean) -> Rboolean;
+    pub fn Rf_lengthgets(arg1: SEXP, arg2: R_len_t) -> SEXP;
+    pub fn Rf_xlengthgets(arg1: SEXP, arg2: R_xlen_t) -> SEXP;
+    pub fn R_lsInternal(arg1: SEXP, arg2: Rboolean) -> SEXP;
+    pub fn R_lsInternal3(arg1: SEXP, arg2: Rboolean, arg3: Rboolean) -> SEXP;
+    pub fn Rf_match(arg1: SEXP, arg2: SEXP, arg3: ::std::os::raw::c_int) -> SEXP;
+    pub fn Rf_namesgets(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_mkChar(arg1: *const ::std::os::raw::c_char) -> SEXP;
+    pub fn Rf_mkCharLen(arg1: *const ::std::os::raw::c_char, arg2: ::std::os::raw::c_int) -> SEXP;
+    pub fn Rf_NonNullStringMatch(arg1: SEXP, arg2: SEXP) -> Rboolean;
+    pub fn Rf_ncols(arg1: SEXP) -> ::std::os::raw::c_int;
+    pub fn Rf_nrows(arg1: SEXP) -> ::std::os::raw::c_int;
+    pub fn Rf_nthcdr(arg1: SEXP, arg2: ::std::os::raw::c_int) -> SEXP;
+    pub fn R_nchar(
+        string: SEXP,
+        type_: nchar_type,
+        allowNA: Rboolean,
+        keepNA: Rboolean,
+        msg_name: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn R_ParseEvalString(arg1: *const ::std::os::raw::c_char, arg2: SEXP) -> SEXP;
+    pub fn R_ParseString(arg1: *const ::std::os::raw::c_char) -> SEXP;
+    pub fn Rf_PrintValue(arg1: SEXP);
+    pub fn Rf_setAttrib(arg1: SEXP, arg2: SEXP, arg3: SEXP) -> SEXP;
+    pub fn Rf_setVar(arg1: SEXP, arg2: SEXP, arg3: SEXP);
+    pub fn Rf_str2type(arg1: *const ::std::os::raw::c_char) -> SEXPTYPE;
+    pub fn Rf_StringBlank(arg1: SEXP) -> Rboolean;
+    pub fn Rf_substitute(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_topenv(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_translateChar(arg1: SEXP) -> *const ::std::os::raw::c_char;
+    pub fn Rf_translateCharUTF8(arg1: SEXP) -> *const ::std::os::raw::c_char;
+    pub fn Rf_type2char(arg1: SEXPTYPE) -> *const ::std::os::raw::c_char;
+    pub fn Rf_type2rstr(arg1: SEXPTYPE) -> SEXP;
+    pub fn Rf_type2str(arg1: SEXPTYPE) -> SEXP;
+    pub fn Rf_type2str_nowarn(arg1: SEXPTYPE) -> SEXP;
+    pub fn Rf_unprotect_ptr(arg1: SEXP);
+    pub fn R_tryEval(arg1: SEXP, arg2: SEXP, arg3: *mut ::std::os::raw::c_int) -> SEXP;
+    pub fn R_tryEvalSilent(arg1: SEXP, arg2: SEXP, arg3: *mut ::std::os::raw::c_int) -> SEXP;
+    pub fn R_GetCurrentEnv() -> SEXP;
+    pub fn Rf_isS4(arg1: SEXP) -> Rboolean;
+    pub fn Rf_asS4(arg1: SEXP, arg2: Rboolean, arg3: ::std::os::raw::c_int) -> SEXP;
+    pub fn Rf_S3Class(arg1: SEXP) -> SEXP;
+    pub fn Rf_isBasicClass(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+    pub fn Rf_getCharCE(arg1: SEXP) -> cetype_t;
+    pub fn Rf_mkCharCE(arg1: *const ::std::os::raw::c_char, arg2: cetype_t) -> SEXP;
+    pub fn Rf_mkCharLenCE(
+        arg1: *const ::std::os::raw::c_char,
+        arg2: ::std::os::raw::c_int,
+        arg3: cetype_t,
+    ) -> SEXP;
+    pub fn Rf_reEnc(
+        x: *const ::std::os::raw::c_char,
+        ce_in: cetype_t,
+        ce_out: cetype_t,
+        subst: ::std::os::raw::c_int,
+    ) -> *const ::std::os::raw::c_char;
+    pub fn Rf_reEnc3(
+        x: *const ::std::os::raw::c_char,
+        fromcode: *const ::std::os::raw::c_char,
+        tocode: *const ::std::os::raw::c_char,
+        subst: ::std::os::raw::c_int,
+    ) -> *const ::std::os::raw::c_char;
+    pub fn R_forceAndCall(e: SEXP, n: ::std::os::raw::c_int, rho: SEXP) -> SEXP;
+    pub fn R_MakeExternalPtr(p: *mut ::std::os::raw::c_void, tag: SEXP, prot: SEXP) -> SEXP;
+    pub fn R_ExternalPtrAddr(s: SEXP) -> *mut ::std::os::raw::c_void;
+    pub fn R_ExternalPtrTag(s: SEXP) -> SEXP;
+    pub fn R_ExternalPtrProtected(s: SEXP) -> SEXP;
+    pub fn R_ClearExternalPtr(s: SEXP);
+    pub fn R_SetExternalPtrAddr(s: SEXP, p: *mut ::std::os::raw::c_void);
+    pub fn R_SetExternalPtrTag(s: SEXP, tag: SEXP);
+    pub fn R_SetExternalPtrProtected(s: SEXP, p: SEXP);
+    pub fn R_MakeExternalPtrFn(p: DL_FUNC, tag: SEXP, prot: SEXP) -> SEXP;
+    pub fn R_ExternalPtrAddrFn(s: SEXP) -> DL_FUNC;
+    pub fn R_RegisterFinalizer(s: SEXP, fun: SEXP);
+    pub fn R_RegisterCFinalizer(s: SEXP, fun: R_CFinalizer_t);
+    pub fn R_RegisterFinalizerEx(s: SEXP, fun: SEXP, onexit: Rboolean);
+    pub fn R_RegisterCFinalizerEx(s: SEXP, fun: R_CFinalizer_t, onexit: Rboolean);
+    pub fn R_RunPendingFinalizers();
+    pub fn R_MakeWeakRef(key: SEXP, val: SEXP, fin: SEXP, onexit: Rboolean) -> SEXP;
+    pub fn R_MakeWeakRefC(key: SEXP, val: SEXP, fin: R_CFinalizer_t, onexit: Rboolean) -> SEXP;
+    pub fn R_WeakRefKey(w: SEXP) -> SEXP;
+    pub fn R_WeakRefValue(w: SEXP) -> SEXP;
+    pub fn R_RunWeakRefFinalizer(w: SEXP);
+    pub fn R_PromiseExpr(arg1: SEXP) -> SEXP;
+    pub fn R_ClosureExpr(arg1: SEXP) -> SEXP;
+    pub fn R_BytecodeExpr(e: SEXP) -> SEXP;
+    pub fn R_ToplevelExec(
+        fun: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void)>,
+        data: *mut ::std::os::raw::c_void,
+    ) -> Rboolean;
+    pub fn R_ExecWithCleanup(
+        fun: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> SEXP>,
+        data: *mut ::std::os::raw::c_void,
+        cleanfun: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void)>,
+        cleandata: *mut ::std::os::raw::c_void,
+    ) -> SEXP;
+    pub fn R_tryCatch(
+        arg1: ::std::option::Option<
+            unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> SEXP,
+        >,
+        arg2: *mut ::std::os::raw::c_void,
+        arg3: SEXP,
+        arg4: ::std::option::Option<
+            unsafe extern "C" fn(arg1: SEXP, arg2: *mut ::std::os::raw::c_void) -> SEXP,
+        >,
+        arg5: *mut ::std::os::raw::c_void,
+        arg6: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void)>,
+        arg7: *mut ::std::os::raw::c_void,
+    ) -> SEXP;
+    pub fn R_tryCatchError(
+        arg1: ::std::option::Option<
+            unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> SEXP,
+        >,
+        arg2: *mut ::std::os::raw::c_void,
+        arg3: ::std::option::Option<
+            unsafe extern "C" fn(arg1: SEXP, arg2: *mut ::std::os::raw::c_void) -> SEXP,
+        >,
+        arg4: *mut ::std::os::raw::c_void,
+    ) -> SEXP;
+    pub fn R_withCallingErrorHandler(
+        arg1: ::std::option::Option<
+            unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> SEXP,
+        >,
+        arg2: *mut ::std::os::raw::c_void,
+        arg3: ::std::option::Option<
+            unsafe extern "C" fn(arg1: SEXP, arg2: *mut ::std::os::raw::c_void) -> SEXP,
+        >,
+        arg4: *mut ::std::os::raw::c_void,
+    ) -> SEXP;
+    pub fn R_MakeUnwindCont() -> SEXP;
+    pub fn R_ContinueUnwind(cont: SEXP) -> !;
+    pub fn R_UnwindProtect(
+        fun: ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void) -> SEXP>,
+        data: *mut ::std::os::raw::c_void,
+        cleanfun: ::std::option::Option<
+            unsafe extern "C" fn(data: *mut ::std::os::raw::c_void, jump: Rboolean),
+        >,
+        cleandata: *mut ::std::os::raw::c_void,
+        cont: SEXP,
+    ) -> SEXP;
+    pub fn R_NewEnv(arg1: SEXP, arg2: ::std::os::raw::c_int, arg3: ::std::os::raw::c_int) -> SEXP;
+    pub fn R_IsPackageEnv(rho: SEXP) -> Rboolean;
+    pub fn R_PackageEnvName(rho: SEXP) -> SEXP;
+    pub fn R_FindPackageEnv(info: SEXP) -> SEXP;
+    pub fn R_IsNamespaceEnv(rho: SEXP) -> Rboolean;
+    pub fn R_NamespaceEnvSpec(rho: SEXP) -> SEXP;
+    pub fn R_FindNamespace(info: SEXP) -> SEXP;
+    pub fn R_LockEnvironment(env: SEXP, bindings: Rboolean);
+    pub fn R_EnvironmentIsLocked(env: SEXP) -> Rboolean;
+    pub fn R_LockBinding(sym: SEXP, env: SEXP);
+    pub fn R_unLockBinding(sym: SEXP, env: SEXP);
+    pub fn R_MakeActiveBinding(sym: SEXP, fun: SEXP, env: SEXP);
+    pub fn R_BindingIsLocked(sym: SEXP, env: SEXP) -> Rboolean;
+    pub fn R_BindingIsActive(sym: SEXP, env: SEXP) -> Rboolean;
+    pub fn R_ActiveBindingFunction(sym: SEXP, env: SEXP) -> SEXP;
+    pub fn R_HasFancyBindings(rho: SEXP) -> Rboolean;
+    pub fn Rf_errorcall(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...) -> !;
+    pub fn Rf_warningcall(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...);
+    pub fn Rf_warningcall_immediate(arg1: SEXP, arg2: *const ::std::os::raw::c_char, ...);
+    pub fn R_XDREncodeDouble(d: f64, buf: *mut ::std::os::raw::c_void);
+    pub fn R_XDRDecodeDouble(buf: *mut ::std::os::raw::c_void) -> f64;
+    pub fn R_XDREncodeInteger(i: ::std::os::raw::c_int, buf: *mut ::std::os::raw::c_void);
+    pub fn R_XDRDecodeInteger(buf: *mut ::std::os::raw::c_void) -> ::std::os::raw::c_int;
+    pub fn R_InitInPStream(
+        stream: R_inpstream_t,
+        data: R_pstream_data_t,
+        type_: R_pstream_format_t,
+        inchar: ::std::option::Option<
+            unsafe extern "C" fn(arg1: R_inpstream_t) -> ::std::os::raw::c_int,
+        >,
+        inbytes: ::std::option::Option<
+            unsafe extern "C" fn(
+                arg1: R_inpstream_t,
+                arg2: *mut ::std::os::raw::c_void,
+                arg3: ::std::os::raw::c_int,
+            ),
+        >,
+        phook: ::std::option::Option<unsafe extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
+        pdata: SEXP,
+    );
+    pub fn R_InitOutPStream(
+        stream: R_outpstream_t,
+        data: R_pstream_data_t,
+        type_: R_pstream_format_t,
+        version: ::std::os::raw::c_int,
+        outchar: ::std::option::Option<
+            unsafe extern "C" fn(arg1: R_outpstream_t, arg2: ::std::os::raw::c_int),
+        >,
+        outbytes: ::std::option::Option<
+            unsafe extern "C" fn(
+                arg1: R_outpstream_t,
+                arg2: *mut ::std::os::raw::c_void,
+                arg3: ::std::os::raw::c_int,
+            ),
+        >,
+        phook: ::std::option::Option<unsafe extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
+        pdata: SEXP,
+    );
+    pub fn R_InitFileInPStream(
+        stream: R_inpstream_t,
+        fp: *mut FILE,
+        type_: R_pstream_format_t,
+        phook: ::std::option::Option<unsafe extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
+        pdata: SEXP,
+    );
+    pub fn R_InitFileOutPStream(
+        stream: R_outpstream_t,
+        fp: *mut FILE,
+        type_: R_pstream_format_t,
+        version: ::std::os::raw::c_int,
+        phook: ::std::option::Option<unsafe extern "C" fn(arg1: SEXP, arg2: SEXP) -> SEXP>,
+        pdata: SEXP,
+    );
+    pub fn R_Serialize(s: SEXP, ops: R_outpstream_t);
+    pub fn R_Unserialize(ips: R_inpstream_t) -> SEXP;
+    pub fn R_SerializeInfo(ips: R_inpstream_t) -> SEXP;
+    pub fn R_do_slot(obj: SEXP, name: SEXP) -> SEXP;
+    pub fn R_do_slot_assign(obj: SEXP, name: SEXP, value: SEXP) -> SEXP;
+    pub fn R_has_slot(obj: SEXP, name: SEXP) -> ::std::os::raw::c_int;
+    pub fn R_S4_extends(klass: SEXP, useTable: SEXP) -> SEXP;
+    pub fn R_do_MAKE_CLASS(what: *const ::std::os::raw::c_char) -> SEXP;
+    pub fn R_getClassDef(what: *const ::std::os::raw::c_char) -> SEXP;
+    pub fn R_getClassDef_R(what: SEXP) -> SEXP;
+    pub fn R_has_methods_attached() -> Rboolean;
+    pub fn R_isVirtualClass(class_def: SEXP, env: SEXP) -> Rboolean;
+    pub fn R_extends(class1: SEXP, class2: SEXP, env: SEXP) -> Rboolean;
+    pub fn R_do_new_object(class_def: SEXP) -> SEXP;
+    pub fn R_check_class_and_super(
+        x: SEXP,
+        valid: *mut *const ::std::os::raw::c_char,
+        rho: SEXP,
+    ) -> ::std::os::raw::c_int;
+    pub fn R_check_class_etc(
+        x: SEXP,
+        valid: *mut *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn R_PreserveObject(arg1: SEXP);
+    pub fn R_ReleaseObject(arg1: SEXP);
+    pub fn R_NewPreciousMSet(arg1: ::std::os::raw::c_int) -> SEXP;
+    pub fn R_PreserveInMSet(x: SEXP, mset: SEXP);
+    pub fn R_ReleaseFromMSet(x: SEXP, mset: SEXP);
+    pub fn R_ReleaseMSet(mset: SEXP, keepSize: ::std::os::raw::c_int);
+    pub fn R_dot_Last();
+    pub fn R_RunExitFinalizers();
+    pub fn R_system(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+    pub fn R_compute_identical(arg1: SEXP, arg2: SEXP, arg3: ::std::os::raw::c_int) -> Rboolean;
+    pub fn R_body_no_src(x: SEXP) -> SEXP;
+    pub fn R_orderVector(
+        indx: *mut ::std::os::raw::c_int,
+        n: ::std::os::raw::c_int,
+        arglist: SEXP,
+        nalast: Rboolean,
+        decreasing: Rboolean,
+    );
+    pub fn R_orderVector1(
+        indx: *mut ::std::os::raw::c_int,
+        n: ::std::os::raw::c_int,
+        x: SEXP,
+        nalast: Rboolean,
+        decreasing: Rboolean,
+    );
+    pub fn Rf_allocVector(arg1: SEXPTYPE, arg2: R_xlen_t) -> SEXP;
+    pub fn Rf_conformable(arg1: SEXP, arg2: SEXP) -> Rboolean;
+    pub fn Rf_elt(arg1: SEXP, arg2: ::std::os::raw::c_int) -> SEXP;
+    pub fn Rf_inherits(arg1: SEXP, arg2: *const ::std::os::raw::c_char) -> Rboolean;
+    pub fn Rf_isArray(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isFactor(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isFrame(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isFunction(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isInteger(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isLanguage(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isList(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isMatrix(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isNewList(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isNumber(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isNumeric(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isPairList(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isPrimitive(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isTs(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isUserBinop(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isValidString(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isValidStringF(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isVector(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isVectorAtomic(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isVectorList(arg1: SEXP) -> Rboolean;
+    pub fn Rf_isVectorizable(arg1: SEXP) -> Rboolean;
+    pub fn Rf_lang1(arg1: SEXP) -> SEXP;
+    pub fn Rf_lang2(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_lang3(arg1: SEXP, arg2: SEXP, arg3: SEXP) -> SEXP;
+    pub fn Rf_lang4(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP) -> SEXP;
+    pub fn Rf_lang5(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP) -> SEXP;
+    pub fn Rf_lang6(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP, arg6: SEXP)
+        -> SEXP;
+    pub fn Rf_lastElt(arg1: SEXP) -> SEXP;
+    pub fn Rf_lcons(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_length(arg1: SEXP) -> R_len_t;
+    pub fn Rf_list1(arg1: SEXP) -> SEXP;
+    pub fn Rf_list2(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_list3(arg1: SEXP, arg2: SEXP, arg3: SEXP) -> SEXP;
+    pub fn Rf_list4(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP) -> SEXP;
+    pub fn Rf_list5(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP) -> SEXP;
+    pub fn Rf_list6(arg1: SEXP, arg2: SEXP, arg3: SEXP, arg4: SEXP, arg5: SEXP, arg6: SEXP)
+        -> SEXP;
+    pub fn Rf_listAppend(arg1: SEXP, arg2: SEXP) -> SEXP;
+    pub fn Rf_mkNamed(arg1: SEXPTYPE, arg2: *mut *const ::std::os::raw::c_char) -> SEXP;
+    pub fn Rf_mkString(arg1: *const ::std::os::raw::c_char) -> SEXP;
+    pub fn Rf_nlevels(arg1: SEXP) -> ::std::os::raw::c_int;
+    pub fn Rf_stringPositionTr(
+        arg1: SEXP,
+        arg2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn Rf_ScalarComplex(arg1: Rcomplex) -> SEXP;
+    pub fn Rf_ScalarInteger(arg1: ::std::os::raw::c_int) -> SEXP;
+    pub fn Rf_ScalarLogical(arg1: ::std::os::raw::c_int) -> SEXP;
+    pub fn Rf_ScalarRaw(arg1: Rbyte) -> SEXP;
+    pub fn Rf_ScalarReal(arg1: f64) -> SEXP;
+    pub fn Rf_ScalarString(arg1: SEXP) -> SEXP;
+    pub fn Rf_xlength(arg1: SEXP) -> R_xlen_t;
+    pub fn XTRUELENGTH(x: SEXP) -> R_xlen_t;
+    pub fn LENGTH_EX(
+        x: SEXP,
+        file: *const ::std::os::raw::c_char,
+        line: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+    pub fn XLENGTH_EX(x: SEXP) -> R_xlen_t;
+    pub fn Rf_protect(arg1: SEXP) -> SEXP;
+    pub fn Rf_unprotect(arg1: ::std::os::raw::c_int);
+    pub fn R_ProtectWithIndex(arg1: SEXP, arg2: *mut PROTECT_INDEX);
+    pub fn R_Reprotect(arg1: SEXP, arg2: PROTECT_INDEX);
+    pub fn CAR(e: SEXP) -> SEXP;
+    pub fn DATAPTR(x: SEXP) -> *mut ::std::os::raw::c_void;
+    pub fn DATAPTR_RO(x: SEXP) -> *const ::std::os::raw::c_void;
+    pub fn DATAPTR_OR_NULL(x: SEXP) -> *const ::std::os::raw::c_void;
+    pub fn LOGICAL_OR_NULL(x: SEXP) -> *const ::std::os::raw::c_int;
+    pub fn INTEGER_OR_NULL(x: SEXP) -> *const ::std::os::raw::c_int;
+    pub fn REAL_OR_NULL(x: SEXP) -> *const f64;
+    pub fn COMPLEX_OR_NULL(x: SEXP) -> *const Rcomplex;
+    pub fn RAW_OR_NULL(x: SEXP) -> *const Rbyte;
+    pub fn INTEGER_ELT(x: SEXP, i: R_xlen_t) -> ::std::os::raw::c_int;
+    pub fn REAL_ELT(x: SEXP, i: R_xlen_t) -> f64;
+    pub fn LOGICAL_ELT(x: SEXP, i: R_xlen_t) -> ::std::os::raw::c_int;
+    pub fn COMPLEX_ELT(x: SEXP, i: R_xlen_t) -> Rcomplex;
+    pub fn RAW_ELT(x: SEXP, i: R_xlen_t) -> Rbyte;
+    pub fn STRING_ELT(x: SEXP, i: R_xlen_t) -> SEXP;
+    pub fn SET_LOGICAL_ELT(x: SEXP, i: R_xlen_t, v: ::std::os::raw::c_int);
+    pub fn SET_INTEGER_ELT(x: SEXP, i: R_xlen_t, v: ::std::os::raw::c_int);
+    pub fn SET_REAL_ELT(x: SEXP, i: R_xlen_t, v: f64);
+    pub fn SET_COMPLEX_ELT(x: SEXP, i: R_xlen_t, v: Rcomplex);
+    pub fn SET_RAW_ELT(x: SEXP, i: R_xlen_t, v: Rbyte);
+    pub fn ALTREP_CLASS(x: SEXP) -> SEXP;
+    pub fn R_altrep_data1(x: SEXP) -> SEXP;
+    pub fn R_altrep_data2(x: SEXP) -> SEXP;
+    pub fn R_set_altrep_data1(x: SEXP, v: SEXP);
+    pub fn R_set_altrep_data2(x: SEXP, v: SEXP);
+    pub fn LOGICAL0(x: SEXP) -> *mut ::std::os::raw::c_int;
+    pub fn INTEGER0(x: SEXP) -> *mut ::std::os::raw::c_int;
+    pub fn REAL0(x: SEXP) -> *mut f64;
+    pub fn COMPLEX0(x: SEXP) -> *mut Rcomplex;
+    pub fn RAW0(x: SEXP) -> *mut Rbyte;
+    pub fn ALTREP(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn R_asHashtable(h: SEXP) -> R_hashtab_type;
+    pub fn R_HashtabSEXP(h: R_hashtab_type) -> SEXP;
+    pub fn R_isHashtable(h: SEXP) -> ::std::os::raw::c_int;
+    pub fn R_mkhashtab(type_: ::std::os::raw::c_int, arg1: ::std::os::raw::c_int)
+        -> R_hashtab_type;
+    pub fn R_gethash(h: R_hashtab_type, key: SEXP, nomatch: SEXP) -> SEXP;
+    pub fn R_sethash(h: R_hashtab_type, key: SEXP, value: SEXP) -> SEXP;
+    pub fn R_remhash(h: R_hashtab_type, key: SEXP) -> ::std::os::raw::c_int;
+    pub fn R_numhash(h: R_hashtab_type) -> ::std::os::raw::c_int;
+    pub fn R_typhash(h: R_hashtab_type) -> ::std::os::raw::c_int;
+    pub fn R_maphash(h: R_hashtab_type, FUN: SEXP) -> SEXP;
+    pub fn R_maphashC(
+        h: R_hashtab_type,
+        FUN: ::std::option::Option<
+            unsafe extern "C" fn(arg1: SEXP, arg2: SEXP, arg3: *mut ::std::os::raw::c_void),
+        >,
+        data: *mut ::std::os::raw::c_void,
+    );
+    pub fn R_clrhash(h: R_hashtab_type);
+    pub fn SET_TYPEOF(x: SEXP, v: ::std::os::raw::c_int);
+    pub fn SET_OBJECT(x: SEXP, v: ::std::os::raw::c_int);
+    pub fn SET_S4_OBJECT(x: SEXP);
+    pub fn UNSET_S4_OBJECT(x: SEXP);
+    pub fn R_curErrorBuf() -> *const ::std::os::raw::c_char;
+    pub fn IS_SCALAR(x: SEXP, type_: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn Rf_psmatch(
+        arg1: *const ::std::os::raw::c_char,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: Rboolean,
+    ) -> Rboolean;
+    pub fn SETLENGTH(x: SEXP, v: R_xlen_t);
+    pub fn SET_TRUELENGTH(x: SEXP, v: R_xlen_t);
+    pub fn SETLEVELS(x: SEXP, v: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn SET_ENVFLAGS(x: SEXP, v: ::std::os::raw::c_int);
+    pub fn SET_FRAME(x: SEXP, v: SEXP);
+    pub fn SET_ENCLOS(x: SEXP, v: SEXP);
+    pub fn SET_HASHTAB(x: SEXP, v: SEXP);
+    pub fn SET_PRENV(x: SEXP, v: SEXP);
+    pub fn SET_PRVALUE(x: SEXP, v: SEXP);
+    pub fn SET_PRCODE(x: SEXP, v: SEXP);
+    pub fn STDVEC_DATAPTR(x: SEXP) -> *mut ::std::os::raw::c_void;
+    pub fn IS_GROWABLE(x: SEXP) -> ::std::os::raw::c_int;
+    pub fn SET_GROWABLE_BIT(x: SEXP);
+    pub fn SET_NAMED(x: SEXP, v: ::std::os::raw::c_int);
+    pub fn R_tryWrap(arg1: SEXP) -> SEXP;
+    pub fn Rf_formatLogical(
+        arg1: *const ::std::os::raw::c_int,
+        arg2: R_xlen_t,
+        arg3: *mut ::std::os::raw::c_int,
+    );
+    pub fn Rf_formatInteger(
+        arg1: *const ::std::os::raw::c_int,
+        arg2: R_xlen_t,
+        arg3: *mut ::std::os::raw::c_int,
+    );
+    pub fn Rf_formatReal(
+        arg1: *const f64,
+        arg2: R_xlen_t,
+        arg3: *mut ::std::os::raw::c_int,
+        arg4: *mut ::std::os::raw::c_int,
+        arg5: *mut ::std::os::raw::c_int,
+        arg6: ::std::os::raw::c_int,
+    );
+    pub fn Rf_formatComplex(
+        arg1: *const Rcomplex,
+        arg2: R_xlen_t,
+        arg3: *mut ::std::os::raw::c_int,
+        arg4: *mut ::std::os::raw::c_int,
+        arg5: *mut ::std::os::raw::c_int,
+        arg6: *mut ::std::os::raw::c_int,
+        arg7: *mut ::std::os::raw::c_int,
+        arg8: *mut ::std::os::raw::c_int,
+        arg9: ::std::os::raw::c_int,
+    );
+    pub fn formatLogicalS(arg1: SEXP, arg2: R_xlen_t, arg3: *mut ::std::os::raw::c_int);
+    pub fn formatIntegerS(arg1: SEXP, arg2: R_xlen_t, arg3: *mut ::std::os::raw::c_int);
+    pub fn formatRealS(
+        arg1: SEXP,
+        arg2: R_xlen_t,
+        arg3: *mut ::std::os::raw::c_int,
+        arg4: *mut ::std::os::raw::c_int,
+        arg5: *mut ::std::os::raw::c_int,
+        arg6: ::std::os::raw::c_int,
+    );
+    pub fn formatComplexS(
+        arg1: SEXP,
+        arg2: R_xlen_t,
+        arg3: *mut ::std::os::raw::c_int,
+        arg4: *mut ::std::os::raw::c_int,
+        arg5: *mut ::std::os::raw::c_int,
+        arg6: *mut ::std::os::raw::c_int,
+        arg7: *mut ::std::os::raw::c_int,
+        arg8: *mut ::std::os::raw::c_int,
+        arg9: ::std::os::raw::c_int,
+    );
+    pub fn Rf_EncodeLogical(
+        arg1: ::std::os::raw::c_int,
+        arg2: ::std::os::raw::c_int,
+    ) -> *const ::std::os::raw::c_char;
+    pub fn Rf_EncodeInteger(
+        arg1: ::std::os::raw::c_int,
+        arg2: ::std::os::raw::c_int,
+    ) -> *const ::std::os::raw::c_char;
+    pub fn Rf_EncodeReal0(
+        arg1: f64,
+        arg2: ::std::os::raw::c_int,
+        arg3: ::std::os::raw::c_int,
+        arg4: ::std::os::raw::c_int,
+        arg5: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+    pub fn Rf_EncodeComplex(
+        arg1: Rcomplex,
+        arg2: ::std::os::raw::c_int,
+        arg3: ::std::os::raw::c_int,
+        arg4: ::std::os::raw::c_int,
+        arg5: ::std::os::raw::c_int,
+        arg6: ::std::os::raw::c_int,
+        arg7: ::std::os::raw::c_int,
+        arg8: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+    pub fn Rf_EncodeReal(
+        arg1: f64,
+        arg2: ::std::os::raw::c_int,
+        arg3: ::std::os::raw::c_int,
+        arg4: ::std::os::raw::c_int,
+        arg5: ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
+    pub fn Rf_IndexWidth(arg1: R_xlen_t) -> ::std::os::raw::c_int;
+    pub fn Rf_VectorIndex(arg1: R_xlen_t, arg2: ::std::os::raw::c_int);
+    pub fn Rf_printIntegerVector(
+        arg1: *const ::std::os::raw::c_int,
+        arg2: R_xlen_t,
+        arg3: ::std::os::raw::c_int,
+    );
+    pub fn Rf_printRealVector(arg1: *const f64, arg2: R_xlen_t, arg3: ::std::os::raw::c_int);
+    pub fn Rf_printComplexVector(
+        arg1: *const Rcomplex,
+        arg2: R_xlen_t,
+        arg3: ::std::os::raw::c_int,
+    );
+    pub fn printIntegerVectorS(arg1: SEXP, arg2: R_xlen_t, arg3: ::std::os::raw::c_int);
+    pub fn printRealVectorS(arg1: SEXP, arg2: R_xlen_t, arg3: ::std::os::raw::c_int);
+    pub fn printComplexVectorS(arg1: SEXP, arg2: R_xlen_t, arg3: ::std::os::raw::c_int);
+}

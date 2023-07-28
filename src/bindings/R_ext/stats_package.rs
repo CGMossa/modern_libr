@@ -68,8 +68,6 @@ extern "C" {
         lv: ::std::os::raw::c_int,
         v: *mut f64,
     );
-}
-extern "C" {
     pub fn S_nlsb_iterate(
         b: *mut f64,
         d: *mut f64,
@@ -85,8 +83,6 @@ extern "C" {
         v: *mut f64,
         x: *mut f64,
     );
-}
-extern "C" {
     pub fn S_nlminb_iterate(
         b: *mut f64,
         d: *mut f64,
@@ -100,8 +96,6 @@ extern "C" {
         v: *mut f64,
         x: *mut f64,
     );
-}
-extern "C" {
     pub fn S_rcont2(
         nrow: ::std::os::raw::c_int,
         ncol: ::std::os::raw::c_int,

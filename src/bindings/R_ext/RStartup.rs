@@ -516,35 +516,19 @@ impl structRstart {
 pub type Rstart = *mut structRstart;
 extern "C" {
     pub fn R_DefParams(arg1: Rstart);
-}
-extern "C" {
     pub fn R_DefParamsEx(arg1: Rstart, arg2: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn R_SetParams(arg1: Rstart);
-}
-extern "C" {
     pub fn R_DefCallbacks(arg1: Rstart, arg2: ::std::os::raw::c_int);
-}
-extern "C" {
     pub fn R_SetWin32(arg1: Rstart);
-}
-extern "C" {
     pub fn R_SizeFromEnv(arg1: Rstart);
-}
-extern "C" {
     pub fn R_common_command_line(
         arg1: *mut ::std::os::raw::c_int,
         arg2: *mut *mut ::std::os::raw::c_char,
         arg3: Rstart,
     );
-}
-extern "C" {
     pub fn R_set_command_line_arguments(
         argc: ::std::os::raw::c_int,
         argv: *mut *mut ::std::os::raw::c_char,
     );
-}
-extern "C" {
     pub fn setup_Rmainloop();
 }

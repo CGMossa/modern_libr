@@ -128,38 +128,8 @@ pub const HAVE_UINTPTR_T: u32 = 1;
 pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
-extern "C" {
-    pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
-}
 pub type __vcrt_bool = bool;
-extern "C" {
-    pub fn __security_init_cookie();
-}
-extern "C" {
-    pub fn __security_check_cookie(_StackCookie: usize);
-}
-extern "C" {
-    pub fn __report_gsfailure(_StackCookie: usize) -> !;
-}
-extern "C" {
-    pub static mut __security_cookie: usize;
-}
 pub type __crt_bool = bool;
-extern "C" {
-    pub fn _invalid_parameter_noinfo();
-}
-extern "C" {
-    pub fn _invalid_parameter_noinfo_noreturn() -> !;
-}
-extern "C" {
-    pub fn _invoke_watson(
-        _Expression: *const wchar_t,
-        _FunctionName: *const wchar_t,
-        _FileName: *const wchar_t,
-        _LineNo: ::std::os::raw::c_uint,
-        _Reserved: usize,
-    ) -> !;
-}
 pub type errno_t = ::std::os::raw::c_int;
 pub type wint_t = ::std::os::raw::c_ushort;
 pub type wctype_t = ::std::os::raw::c_ushort;
@@ -316,765 +286,6 @@ fn bindgen_test_layout__Mbstatet() {
 pub type mbstate_t = _Mbstatet;
 pub type time_t = __time64_t;
 pub type rsize_t = usize;
-extern "C" {
-    pub fn _errno() -> *mut ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _set_errno(_Value: ::std::os::raw::c_int) -> errno_t;
-}
-extern "C" {
-    pub fn _get_errno(_Value: *mut ::std::os::raw::c_int) -> errno_t;
-}
-extern "C" {
-    pub fn __doserrno() -> *mut ::std::os::raw::c_ulong;
-}
-extern "C" {
-    pub fn _set_doserrno(_Value: ::std::os::raw::c_ulong) -> errno_t;
-}
-extern "C" {
-    pub fn _get_doserrno(_Value: *mut ::std::os::raw::c_ulong) -> errno_t;
-}
-extern "C" {
-    pub fn memchr(
-        _Buf: *const ::std::os::raw::c_void,
-        _Val: ::std::os::raw::c_int,
-        _MaxCount: ::std::os::raw::c_ulonglong,
-    ) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn memcmp(
-        _Buf1: *const ::std::os::raw::c_void,
-        _Buf2: *const ::std::os::raw::c_void,
-        _Size: ::std::os::raw::c_ulonglong,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn memcpy(
-        _Dst: *mut ::std::os::raw::c_void,
-        _Src: *const ::std::os::raw::c_void,
-        _Size: ::std::os::raw::c_ulonglong,
-    ) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn memmove(
-        _Dst: *mut ::std::os::raw::c_void,
-        _Src: *const ::std::os::raw::c_void,
-        _Size: ::std::os::raw::c_ulonglong,
-    ) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn memset(
-        _Dst: *mut ::std::os::raw::c_void,
-        _Val: ::std::os::raw::c_int,
-        _Size: ::std::os::raw::c_ulonglong,
-    ) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn strchr(
-        _Str: *const ::std::os::raw::c_char,
-        _Val: ::std::os::raw::c_int,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strrchr(
-        _Str: *const ::std::os::raw::c_char,
-        _Ch: ::std::os::raw::c_int,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strstr(
-        _Str: *const ::std::os::raw::c_char,
-        _SubStr: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn wcschr(
-        _Str: *const ::std::os::raw::c_ushort,
-        _Ch: ::std::os::raw::c_ushort,
-    ) -> *mut ::std::os::raw::c_ushort;
-}
-extern "C" {
-    pub fn wcsrchr(_Str: *const wchar_t, _Ch: wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcsstr(_Str: *const wchar_t, _SubStr: *const wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _memicmp(
-        _Buf1: *const ::std::os::raw::c_void,
-        _Buf2: *const ::std::os::raw::c_void,
-        _Size: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _memicmp_l(
-        _Buf1: *const ::std::os::raw::c_void,
-        _Buf2: *const ::std::os::raw::c_void,
-        _Size: usize,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn memccpy(
-        _Dst: *mut ::std::os::raw::c_void,
-        _Src: *const ::std::os::raw::c_void,
-        _Val: ::std::os::raw::c_int,
-        _Size: ::std::os::raw::c_ulonglong,
-    ) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn memicmp(
-        _Buf1: *const ::std::os::raw::c_void,
-        _Buf2: *const ::std::os::raw::c_void,
-        _Size: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn wcscat_s(
-        _Destination: *mut wchar_t,
-        _SizeInWords: rsize_t,
-        _Source: *const wchar_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn wcscpy_s(
-        _Destination: *mut wchar_t,
-        _SizeInWords: rsize_t,
-        _Source: *const wchar_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn wcsncat_s(
-        _Destination: *mut wchar_t,
-        _SizeInWords: rsize_t,
-        _Source: *const wchar_t,
-        _MaxCount: rsize_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn wcsncpy_s(
-        _Destination: *mut wchar_t,
-        _SizeInWords: rsize_t,
-        _Source: *const wchar_t,
-        _MaxCount: rsize_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn wcstok_s(
-        _String: *mut wchar_t,
-        _Delimiter: *const wchar_t,
-        _Context: *mut *mut wchar_t,
-    ) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcsdup(_String: *const wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcscat(_Destination: *mut wchar_t, _Source: *const wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcscmp(
-        _String1: *const ::std::os::raw::c_ushort,
-        _String2: *const ::std::os::raw::c_ushort,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn wcscpy(_Destination: *mut wchar_t, _Source: *const wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcscspn(_String: *const wchar_t, _Control: *const wchar_t) -> usize;
-}
-extern "C" {
-    pub fn wcslen(_String: *const ::std::os::raw::c_ushort) -> ::std::os::raw::c_ulonglong;
-}
-extern "C" {
-    pub fn wcsnlen(_Source: *const wchar_t, _MaxCount: usize) -> usize;
-}
-extern "C" {
-    pub fn wcsncat(
-        _Destination: *mut wchar_t,
-        _Source: *const wchar_t,
-        _Count: usize,
-    ) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcsncmp(
-        _String1: *const ::std::os::raw::c_ushort,
-        _String2: *const ::std::os::raw::c_ushort,
-        _MaxCount: ::std::os::raw::c_ulonglong,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn wcsncpy(
-        _Destination: *mut wchar_t,
-        _Source: *const wchar_t,
-        _Count: usize,
-    ) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcspbrk(_String: *const wchar_t, _Control: *const wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcsspn(_String: *const wchar_t, _Control: *const wchar_t) -> usize;
-}
-extern "C" {
-    pub fn wcstok(
-        _String: *mut wchar_t,
-        _Delimiter: *const wchar_t,
-        _Context: *mut *mut wchar_t,
-    ) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcserror(_ErrorNumber: ::std::os::raw::c_int) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcserror_s(
-        _Buffer: *mut wchar_t,
-        _SizeInWords: usize,
-        _ErrorNumber: ::std::os::raw::c_int,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn __wcserror(_String: *const wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn __wcserror_s(
-        _Buffer: *mut wchar_t,
-        _SizeInWords: usize,
-        _ErrorMessage: *const wchar_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn _wcsicmp(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsicmp_l(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsnicmp(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _MaxCount: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsnicmp_l(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _MaxCount: usize,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsnset_s(
-        _Destination: *mut wchar_t,
-        _SizeInWords: usize,
-        _Value: wchar_t,
-        _MaxCount: usize,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn _wcsnset(_String: *mut wchar_t, _Value: wchar_t, _MaxCount: usize) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcsrev(_String: *mut wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcsset_s(_Destination: *mut wchar_t, _SizeInWords: usize, _Value: wchar_t) -> errno_t;
-}
-extern "C" {
-    pub fn _wcsset(_String: *mut wchar_t, _Value: wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcslwr_s(_String: *mut wchar_t, _SizeInWords: usize) -> errno_t;
-}
-extern "C" {
-    pub fn _wcslwr(_String: *mut wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcslwr_s_l(_String: *mut wchar_t, _SizeInWords: usize, _Locale: _locale_t) -> errno_t;
-}
-extern "C" {
-    pub fn _wcslwr_l(_String: *mut wchar_t, _Locale: _locale_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcsupr_s(_String: *mut wchar_t, _Size: usize) -> errno_t;
-}
-extern "C" {
-    pub fn _wcsupr(_String: *mut wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcsupr_s_l(_String: *mut wchar_t, _Size: usize, _Locale: _locale_t) -> errno_t;
-}
-extern "C" {
-    pub fn _wcsupr_l(_String: *mut wchar_t, _Locale: _locale_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcsxfrm(_Destination: *mut wchar_t, _Source: *const wchar_t, _MaxCount: usize) -> usize;
-}
-extern "C" {
-    pub fn _wcsxfrm_l(
-        _Destination: *mut wchar_t,
-        _Source: *const wchar_t,
-        _MaxCount: usize,
-        _Locale: _locale_t,
-    ) -> usize;
-}
-extern "C" {
-    pub fn wcscoll(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcscoll_l(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsicoll(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsicoll_l(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsncoll(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _MaxCount: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsncoll_l(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _MaxCount: usize,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsnicoll(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _MaxCount: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _wcsnicoll_l(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _MaxCount: usize,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn wcsdup(_String: *const wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcsicmp(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn wcsnicmp(
-        _String1: *const wchar_t,
-        _String2: *const wchar_t,
-        _MaxCount: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn wcsnset(_String: *mut wchar_t, _Value: wchar_t, _MaxCount: usize) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcsrev(_String: *mut wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcsset(_String: *mut wchar_t, _Value: wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcslwr(_String: *mut wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcsupr(_String: *mut wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn wcsicoll(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn strcpy_s(
-        _Destination: *mut ::std::os::raw::c_char,
-        _SizeInBytes: rsize_t,
-        _Source: *const ::std::os::raw::c_char,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn strcat_s(
-        _Destination: *mut ::std::os::raw::c_char,
-        _SizeInBytes: rsize_t,
-        _Source: *const ::std::os::raw::c_char,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn strerror_s(
-        _Buffer: *mut ::std::os::raw::c_char,
-        _SizeInBytes: usize,
-        _ErrorNumber: ::std::os::raw::c_int,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn strncat_s(
-        _Destination: *mut ::std::os::raw::c_char,
-        _SizeInBytes: rsize_t,
-        _Source: *const ::std::os::raw::c_char,
-        _MaxCount: rsize_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn strncpy_s(
-        _Destination: *mut ::std::os::raw::c_char,
-        _SizeInBytes: rsize_t,
-        _Source: *const ::std::os::raw::c_char,
-        _MaxCount: rsize_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn strtok_s(
-        _String: *mut ::std::os::raw::c_char,
-        _Delimiter: *const ::std::os::raw::c_char,
-        _Context: *mut *mut ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _memccpy(
-        _Dst: *mut ::std::os::raw::c_void,
-        _Src: *const ::std::os::raw::c_void,
-        _Val: ::std::os::raw::c_int,
-        _MaxCount: usize,
-    ) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn strcat(
-        _Destination: *mut ::std::os::raw::c_char,
-        _Source: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strcmp(
-        _Str1: *const ::std::os::raw::c_char,
-        _Str2: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _strcmpi(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn strcoll(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _strcoll_l(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn strcpy(
-        _Destination: *mut ::std::os::raw::c_char,
-        _Source: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strcspn(
-        _Str: *const ::std::os::raw::c_char,
-        _Control: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_ulonglong;
-}
-extern "C" {
-    pub fn _strdup(_Source: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _strerror(_ErrorMessage: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _strerror_s(
-        _Buffer: *mut ::std::os::raw::c_char,
-        _SizeInBytes: usize,
-        _ErrorMessage: *const ::std::os::raw::c_char,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn strerror(_ErrorMessage: ::std::os::raw::c_int) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _stricmp(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _stricoll(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _stricoll_l(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _stricmp_l(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn strlen(_Str: *const ::std::os::raw::c_char) -> ::std::os::raw::c_ulonglong;
-}
-extern "C" {
-    pub fn _strlwr_s(_String: *mut ::std::os::raw::c_char, _Size: usize) -> errno_t;
-}
-extern "C" {
-    pub fn _strlwr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _strlwr_s_l(
-        _String: *mut ::std::os::raw::c_char,
-        _Size: usize,
-        _Locale: _locale_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn _strlwr_l(
-        _String: *mut ::std::os::raw::c_char,
-        _Locale: _locale_t,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strncat(
-        _Destination: *mut ::std::os::raw::c_char,
-        _Source: *const ::std::os::raw::c_char,
-        _Count: ::std::os::raw::c_ulonglong,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strncmp(
-        _Str1: *const ::std::os::raw::c_char,
-        _Str2: *const ::std::os::raw::c_char,
-        _MaxCount: ::std::os::raw::c_ulonglong,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _strnicmp(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _MaxCount: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _strnicmp_l(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _MaxCount: usize,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _strnicoll(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _MaxCount: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _strnicoll_l(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _MaxCount: usize,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _strncoll(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _MaxCount: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn _strncoll_l(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _MaxCount: usize,
-        _Locale: _locale_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn __strncnt(_String: *const ::std::os::raw::c_char, _Count: usize) -> usize;
-}
-extern "C" {
-    pub fn strncpy(
-        _Destination: *mut ::std::os::raw::c_char,
-        _Source: *const ::std::os::raw::c_char,
-        _Count: ::std::os::raw::c_ulonglong,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strnlen(_String: *const ::std::os::raw::c_char, _MaxCount: usize) -> usize;
-}
-extern "C" {
-    pub fn _strnset_s(
-        _String: *mut ::std::os::raw::c_char,
-        _SizeInBytes: usize,
-        _Value: ::std::os::raw::c_int,
-        _MaxCount: usize,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn _strnset(
-        _Destination: *mut ::std::os::raw::c_char,
-        _Value: ::std::os::raw::c_int,
-        _Count: usize,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strpbrk(
-        _Str: *const ::std::os::raw::c_char,
-        _Control: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _strrev(_Str: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _strset_s(
-        _Destination: *mut ::std::os::raw::c_char,
-        _DestinationSize: usize,
-        _Value: ::std::os::raw::c_int,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn _strset(
-        _Destination: *mut ::std::os::raw::c_char,
-        _Value: ::std::os::raw::c_int,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strspn(
-        _Str: *const ::std::os::raw::c_char,
-        _Control: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_ulonglong;
-}
-extern "C" {
-    pub fn strtok(
-        _String: *mut ::std::os::raw::c_char,
-        _Delimiter: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _strupr_s(_String: *mut ::std::os::raw::c_char, _Size: usize) -> errno_t;
-}
-extern "C" {
-    pub fn _strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _strupr_s_l(
-        _String: *mut ::std::os::raw::c_char,
-        _Size: usize,
-        _Locale: _locale_t,
-    ) -> errno_t;
-}
-extern "C" {
-    pub fn _strupr_l(
-        _String: *mut ::std::os::raw::c_char,
-        _Locale: _locale_t,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strxfrm(
-        _Destination: *mut ::std::os::raw::c_char,
-        _Source: *const ::std::os::raw::c_char,
-        _MaxCount: ::std::os::raw::c_ulonglong,
-    ) -> ::std::os::raw::c_ulonglong;
-}
-extern "C" {
-    pub fn _strxfrm_l(
-        _Destination: *mut ::std::os::raw::c_char,
-        _Source: *const ::std::os::raw::c_char,
-        _MaxCount: usize,
-        _Locale: _locale_t,
-    ) -> usize;
-}
-extern "C" {
-    pub fn strdup(_String: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strcmpi(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn stricmp(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn strlwr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strnicmp(
-        _String1: *const ::std::os::raw::c_char,
-        _String2: *const ::std::os::raw::c_char,
-        _MaxCount: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn strnset(
-        _String: *mut ::std::os::raw::c_char,
-        _Value: ::std::os::raw::c_int,
-        _MaxCount: usize,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strrev(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strset(
-        _String: *mut ::std::os::raw::c_char,
-        _Value: ::std::os::raw::c_int,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn R_chk_calloc(arg1: usize, arg2: usize) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn R_chk_realloc(
-        arg1: *mut ::std::os::raw::c_void,
-        arg2: usize,
-    ) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn R_chk_free(arg1: *mut ::std::os::raw::c_void);
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union Rcomplex {
@@ -1148,14 +359,512 @@ fn bindgen_test_layout_Rcomplex() {
         )
     );
 }
+pub type L_fp = ::std::option::Option<
+    unsafe extern "C" fn(arg1: *mut f64, arg2: *mut f64, arg3: *mut f64) -> ::std::os::raw::c_int,
+>;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __crt_locale_data {
+    pub _address: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __crt_multibyte_data {
+    pub _address: u8,
+}
 extern "C" {
+    pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
+    pub fn __security_init_cookie();
+    pub fn __security_check_cookie(_StackCookie: usize);
+    pub fn __report_gsfailure(_StackCookie: usize) -> !;
+    pub static mut __security_cookie: usize;
+    pub fn _invalid_parameter_noinfo();
+    pub fn _invalid_parameter_noinfo_noreturn() -> !;
+    pub fn _invoke_watson(
+        _Expression: *const wchar_t,
+        _FunctionName: *const wchar_t,
+        _FileName: *const wchar_t,
+        _LineNo: ::std::os::raw::c_uint,
+        _Reserved: usize,
+    ) -> !;
+    pub fn _errno() -> *mut ::std::os::raw::c_int;
+    pub fn _set_errno(_Value: ::std::os::raw::c_int) -> errno_t;
+    pub fn _get_errno(_Value: *mut ::std::os::raw::c_int) -> errno_t;
+    pub fn __doserrno() -> *mut ::std::os::raw::c_ulong;
+    pub fn _set_doserrno(_Value: ::std::os::raw::c_ulong) -> errno_t;
+    pub fn _get_doserrno(_Value: *mut ::std::os::raw::c_ulong) -> errno_t;
+    pub fn memchr(
+        _Buf: *const ::std::os::raw::c_void,
+        _Val: ::std::os::raw::c_int,
+        _MaxCount: ::std::os::raw::c_ulonglong,
+    ) -> *mut ::std::os::raw::c_void;
+    pub fn memcmp(
+        _Buf1: *const ::std::os::raw::c_void,
+        _Buf2: *const ::std::os::raw::c_void,
+        _Size: ::std::os::raw::c_ulonglong,
+    ) -> ::std::os::raw::c_int;
+    pub fn memcpy(
+        _Dst: *mut ::std::os::raw::c_void,
+        _Src: *const ::std::os::raw::c_void,
+        _Size: ::std::os::raw::c_ulonglong,
+    ) -> *mut ::std::os::raw::c_void;
+    pub fn memmove(
+        _Dst: *mut ::std::os::raw::c_void,
+        _Src: *const ::std::os::raw::c_void,
+        _Size: ::std::os::raw::c_ulonglong,
+    ) -> *mut ::std::os::raw::c_void;
+    pub fn memset(
+        _Dst: *mut ::std::os::raw::c_void,
+        _Val: ::std::os::raw::c_int,
+        _Size: ::std::os::raw::c_ulonglong,
+    ) -> *mut ::std::os::raw::c_void;
+    pub fn strchr(
+        _Str: *const ::std::os::raw::c_char,
+        _Val: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strrchr(
+        _Str: *const ::std::os::raw::c_char,
+        _Ch: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strstr(
+        _Str: *const ::std::os::raw::c_char,
+        _SubStr: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn wcschr(
+        _Str: *const ::std::os::raw::c_ushort,
+        _Ch: ::std::os::raw::c_ushort,
+    ) -> *mut ::std::os::raw::c_ushort;
+    pub fn wcsrchr(_Str: *const wchar_t, _Ch: wchar_t) -> *mut wchar_t;
+    pub fn wcsstr(_Str: *const wchar_t, _SubStr: *const wchar_t) -> *mut wchar_t;
+    pub fn _memicmp(
+        _Buf1: *const ::std::os::raw::c_void,
+        _Buf2: *const ::std::os::raw::c_void,
+        _Size: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn _memicmp_l(
+        _Buf1: *const ::std::os::raw::c_void,
+        _Buf2: *const ::std::os::raw::c_void,
+        _Size: usize,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn memccpy(
+        _Dst: *mut ::std::os::raw::c_void,
+        _Src: *const ::std::os::raw::c_void,
+        _Val: ::std::os::raw::c_int,
+        _Size: ::std::os::raw::c_ulonglong,
+    ) -> *mut ::std::os::raw::c_void;
+    pub fn memicmp(
+        _Buf1: *const ::std::os::raw::c_void,
+        _Buf2: *const ::std::os::raw::c_void,
+        _Size: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn wcscat_s(
+        _Destination: *mut wchar_t,
+        _SizeInWords: rsize_t,
+        _Source: *const wchar_t,
+    ) -> errno_t;
+    pub fn wcscpy_s(
+        _Destination: *mut wchar_t,
+        _SizeInWords: rsize_t,
+        _Source: *const wchar_t,
+    ) -> errno_t;
+    pub fn wcsncat_s(
+        _Destination: *mut wchar_t,
+        _SizeInWords: rsize_t,
+        _Source: *const wchar_t,
+        _MaxCount: rsize_t,
+    ) -> errno_t;
+    pub fn wcsncpy_s(
+        _Destination: *mut wchar_t,
+        _SizeInWords: rsize_t,
+        _Source: *const wchar_t,
+        _MaxCount: rsize_t,
+    ) -> errno_t;
+    pub fn wcstok_s(
+        _String: *mut wchar_t,
+        _Delimiter: *const wchar_t,
+        _Context: *mut *mut wchar_t,
+    ) -> *mut wchar_t;
+    pub fn _wcsdup(_String: *const wchar_t) -> *mut wchar_t;
+    pub fn wcscat(_Destination: *mut wchar_t, _Source: *const wchar_t) -> *mut wchar_t;
+    pub fn wcscmp(
+        _String1: *const ::std::os::raw::c_ushort,
+        _String2: *const ::std::os::raw::c_ushort,
+    ) -> ::std::os::raw::c_int;
+    pub fn wcscpy(_Destination: *mut wchar_t, _Source: *const wchar_t) -> *mut wchar_t;
+    pub fn wcscspn(_String: *const wchar_t, _Control: *const wchar_t) -> usize;
+    pub fn wcslen(_String: *const ::std::os::raw::c_ushort) -> ::std::os::raw::c_ulonglong;
+    pub fn wcsnlen(_Source: *const wchar_t, _MaxCount: usize) -> usize;
+    pub fn wcsncat(
+        _Destination: *mut wchar_t,
+        _Source: *const wchar_t,
+        _Count: usize,
+    ) -> *mut wchar_t;
+    pub fn wcsncmp(
+        _String1: *const ::std::os::raw::c_ushort,
+        _String2: *const ::std::os::raw::c_ushort,
+        _MaxCount: ::std::os::raw::c_ulonglong,
+    ) -> ::std::os::raw::c_int;
+    pub fn wcsncpy(
+        _Destination: *mut wchar_t,
+        _Source: *const wchar_t,
+        _Count: usize,
+    ) -> *mut wchar_t;
+    pub fn wcspbrk(_String: *const wchar_t, _Control: *const wchar_t) -> *mut wchar_t;
+    pub fn wcsspn(_String: *const wchar_t, _Control: *const wchar_t) -> usize;
+    pub fn wcstok(
+        _String: *mut wchar_t,
+        _Delimiter: *const wchar_t,
+        _Context: *mut *mut wchar_t,
+    ) -> *mut wchar_t;
+    pub fn _wcserror(_ErrorNumber: ::std::os::raw::c_int) -> *mut wchar_t;
+    pub fn _wcserror_s(
+        _Buffer: *mut wchar_t,
+        _SizeInWords: usize,
+        _ErrorNumber: ::std::os::raw::c_int,
+    ) -> errno_t;
+    pub fn __wcserror(_String: *const wchar_t) -> *mut wchar_t;
+    pub fn __wcserror_s(
+        _Buffer: *mut wchar_t,
+        _SizeInWords: usize,
+        _ErrorMessage: *const wchar_t,
+    ) -> errno_t;
+    pub fn _wcsicmp(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
+    pub fn _wcsicmp_l(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn _wcsnicmp(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _MaxCount: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn _wcsnicmp_l(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _MaxCount: usize,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn _wcsnset_s(
+        _Destination: *mut wchar_t,
+        _SizeInWords: usize,
+        _Value: wchar_t,
+        _MaxCount: usize,
+    ) -> errno_t;
+    pub fn _wcsnset(_String: *mut wchar_t, _Value: wchar_t, _MaxCount: usize) -> *mut wchar_t;
+    pub fn _wcsrev(_String: *mut wchar_t) -> *mut wchar_t;
+    pub fn _wcsset_s(_Destination: *mut wchar_t, _SizeInWords: usize, _Value: wchar_t) -> errno_t;
+    pub fn _wcsset(_String: *mut wchar_t, _Value: wchar_t) -> *mut wchar_t;
+    pub fn _wcslwr_s(_String: *mut wchar_t, _SizeInWords: usize) -> errno_t;
+    pub fn _wcslwr(_String: *mut wchar_t) -> *mut wchar_t;
+    pub fn _wcslwr_s_l(_String: *mut wchar_t, _SizeInWords: usize, _Locale: _locale_t) -> errno_t;
+    pub fn _wcslwr_l(_String: *mut wchar_t, _Locale: _locale_t) -> *mut wchar_t;
+    pub fn _wcsupr_s(_String: *mut wchar_t, _Size: usize) -> errno_t;
+    pub fn _wcsupr(_String: *mut wchar_t) -> *mut wchar_t;
+    pub fn _wcsupr_s_l(_String: *mut wchar_t, _Size: usize, _Locale: _locale_t) -> errno_t;
+    pub fn _wcsupr_l(_String: *mut wchar_t, _Locale: _locale_t) -> *mut wchar_t;
+    pub fn wcsxfrm(_Destination: *mut wchar_t, _Source: *const wchar_t, _MaxCount: usize) -> usize;
+    pub fn _wcsxfrm_l(
+        _Destination: *mut wchar_t,
+        _Source: *const wchar_t,
+        _MaxCount: usize,
+        _Locale: _locale_t,
+    ) -> usize;
+    pub fn wcscoll(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
+    pub fn _wcscoll_l(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn _wcsicoll(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
+    pub fn _wcsicoll_l(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn _wcsncoll(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _MaxCount: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn _wcsncoll_l(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _MaxCount: usize,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn _wcsnicoll(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _MaxCount: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn _wcsnicoll_l(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _MaxCount: usize,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn wcsdup(_String: *const wchar_t) -> *mut wchar_t;
+    pub fn wcsicmp(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
+    pub fn wcsnicmp(
+        _String1: *const wchar_t,
+        _String2: *const wchar_t,
+        _MaxCount: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn wcsnset(_String: *mut wchar_t, _Value: wchar_t, _MaxCount: usize) -> *mut wchar_t;
+    pub fn wcsrev(_String: *mut wchar_t) -> *mut wchar_t;
+    pub fn wcsset(_String: *mut wchar_t, _Value: wchar_t) -> *mut wchar_t;
+    pub fn wcslwr(_String: *mut wchar_t) -> *mut wchar_t;
+    pub fn wcsupr(_String: *mut wchar_t) -> *mut wchar_t;
+    pub fn wcsicoll(_String1: *const wchar_t, _String2: *const wchar_t) -> ::std::os::raw::c_int;
+    pub fn strcpy_s(
+        _Destination: *mut ::std::os::raw::c_char,
+        _SizeInBytes: rsize_t,
+        _Source: *const ::std::os::raw::c_char,
+    ) -> errno_t;
+    pub fn strcat_s(
+        _Destination: *mut ::std::os::raw::c_char,
+        _SizeInBytes: rsize_t,
+        _Source: *const ::std::os::raw::c_char,
+    ) -> errno_t;
+    pub fn strerror_s(
+        _Buffer: *mut ::std::os::raw::c_char,
+        _SizeInBytes: usize,
+        _ErrorNumber: ::std::os::raw::c_int,
+    ) -> errno_t;
+    pub fn strncat_s(
+        _Destination: *mut ::std::os::raw::c_char,
+        _SizeInBytes: rsize_t,
+        _Source: *const ::std::os::raw::c_char,
+        _MaxCount: rsize_t,
+    ) -> errno_t;
+    pub fn strncpy_s(
+        _Destination: *mut ::std::os::raw::c_char,
+        _SizeInBytes: rsize_t,
+        _Source: *const ::std::os::raw::c_char,
+        _MaxCount: rsize_t,
+    ) -> errno_t;
+    pub fn strtok_s(
+        _String: *mut ::std::os::raw::c_char,
+        _Delimiter: *const ::std::os::raw::c_char,
+        _Context: *mut *mut ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn _memccpy(
+        _Dst: *mut ::std::os::raw::c_void,
+        _Src: *const ::std::os::raw::c_void,
+        _Val: ::std::os::raw::c_int,
+        _MaxCount: usize,
+    ) -> *mut ::std::os::raw::c_void;
+    pub fn strcat(
+        _Destination: *mut ::std::os::raw::c_char,
+        _Source: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strcmp(
+        _Str1: *const ::std::os::raw::c_char,
+        _Str2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn _strcmpi(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn strcoll(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn _strcoll_l(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn strcpy(
+        _Destination: *mut ::std::os::raw::c_char,
+        _Source: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strcspn(
+        _Str: *const ::std::os::raw::c_char,
+        _Control: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_ulonglong;
+    pub fn _strdup(_Source: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn _strerror(_ErrorMessage: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn _strerror_s(
+        _Buffer: *mut ::std::os::raw::c_char,
+        _SizeInBytes: usize,
+        _ErrorMessage: *const ::std::os::raw::c_char,
+    ) -> errno_t;
+    pub fn strerror(_ErrorMessage: ::std::os::raw::c_int) -> *mut ::std::os::raw::c_char;
+    pub fn _stricmp(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn _stricoll(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn _stricoll_l(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn _stricmp_l(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn strlen(_Str: *const ::std::os::raw::c_char) -> ::std::os::raw::c_ulonglong;
+    pub fn _strlwr_s(_String: *mut ::std::os::raw::c_char, _Size: usize) -> errno_t;
+    pub fn _strlwr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn _strlwr_s_l(
+        _String: *mut ::std::os::raw::c_char,
+        _Size: usize,
+        _Locale: _locale_t,
+    ) -> errno_t;
+    pub fn _strlwr_l(
+        _String: *mut ::std::os::raw::c_char,
+        _Locale: _locale_t,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strncat(
+        _Destination: *mut ::std::os::raw::c_char,
+        _Source: *const ::std::os::raw::c_char,
+        _Count: ::std::os::raw::c_ulonglong,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strncmp(
+        _Str1: *const ::std::os::raw::c_char,
+        _Str2: *const ::std::os::raw::c_char,
+        _MaxCount: ::std::os::raw::c_ulonglong,
+    ) -> ::std::os::raw::c_int;
+    pub fn _strnicmp(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _MaxCount: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn _strnicmp_l(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _MaxCount: usize,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn _strnicoll(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _MaxCount: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn _strnicoll_l(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _MaxCount: usize,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn _strncoll(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _MaxCount: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn _strncoll_l(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _MaxCount: usize,
+        _Locale: _locale_t,
+    ) -> ::std::os::raw::c_int;
+    pub fn __strncnt(_String: *const ::std::os::raw::c_char, _Count: usize) -> usize;
+    pub fn strncpy(
+        _Destination: *mut ::std::os::raw::c_char,
+        _Source: *const ::std::os::raw::c_char,
+        _Count: ::std::os::raw::c_ulonglong,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strnlen(_String: *const ::std::os::raw::c_char, _MaxCount: usize) -> usize;
+    pub fn _strnset_s(
+        _String: *mut ::std::os::raw::c_char,
+        _SizeInBytes: usize,
+        _Value: ::std::os::raw::c_int,
+        _MaxCount: usize,
+    ) -> errno_t;
+    pub fn _strnset(
+        _Destination: *mut ::std::os::raw::c_char,
+        _Value: ::std::os::raw::c_int,
+        _Count: usize,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strpbrk(
+        _Str: *const ::std::os::raw::c_char,
+        _Control: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn _strrev(_Str: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn _strset_s(
+        _Destination: *mut ::std::os::raw::c_char,
+        _DestinationSize: usize,
+        _Value: ::std::os::raw::c_int,
+    ) -> errno_t;
+    pub fn _strset(
+        _Destination: *mut ::std::os::raw::c_char,
+        _Value: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strspn(
+        _Str: *const ::std::os::raw::c_char,
+        _Control: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_ulonglong;
+    pub fn strtok(
+        _String: *mut ::std::os::raw::c_char,
+        _Delimiter: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn _strupr_s(_String: *mut ::std::os::raw::c_char, _Size: usize) -> errno_t;
+    pub fn _strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn _strupr_s_l(
+        _String: *mut ::std::os::raw::c_char,
+        _Size: usize,
+        _Locale: _locale_t,
+    ) -> errno_t;
+    pub fn _strupr_l(
+        _String: *mut ::std::os::raw::c_char,
+        _Locale: _locale_t,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strxfrm(
+        _Destination: *mut ::std::os::raw::c_char,
+        _Source: *const ::std::os::raw::c_char,
+        _MaxCount: ::std::os::raw::c_ulonglong,
+    ) -> ::std::os::raw::c_ulonglong;
+    pub fn _strxfrm_l(
+        _Destination: *mut ::std::os::raw::c_char,
+        _Source: *const ::std::os::raw::c_char,
+        _MaxCount: usize,
+        _Locale: _locale_t,
+    ) -> usize;
+    pub fn strdup(_String: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn strcmpi(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn stricmp(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+    pub fn strlwr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn strnicmp(
+        _String1: *const ::std::os::raw::c_char,
+        _String2: *const ::std::os::raw::c_char,
+        _MaxCount: usize,
+    ) -> ::std::os::raw::c_int;
+    pub fn strnset(
+        _String: *mut ::std::os::raw::c_char,
+        _Value: ::std::os::raw::c_int,
+        _MaxCount: usize,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strrev(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn strset(
+        _String: *mut ::std::os::raw::c_char,
+        _Value: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn R_chk_calloc(arg1: usize, arg2: usize) -> *mut ::std::os::raw::c_void;
+    pub fn R_chk_realloc(
+        arg1: *mut ::std::os::raw::c_void,
+        arg2: usize,
+    ) -> *mut ::std::os::raw::c_void;
+    pub fn R_chk_free(arg1: *mut ::std::os::raw::c_void);
     pub fn dasum_(
         n: *const ::std::os::raw::c_int,
         dx: *const f64,
         incx: *const ::std::os::raw::c_int,
     ) -> f64;
-}
-extern "C" {
     pub fn daxpy_(
         n: *const ::std::os::raw::c_int,
         da: *const f64,
@@ -1164,8 +873,6 @@ extern "C" {
         dy: *mut f64,
         incy: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dcopy_(
         n: *const ::std::os::raw::c_int,
         dx: *const f64,
@@ -1173,8 +880,6 @@ extern "C" {
         dy: *mut f64,
         incy: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn ddot_(
         n: *const ::std::os::raw::c_int,
         dx: *const f64,
@@ -1182,15 +887,11 @@ extern "C" {
         dy: *const f64,
         incy: *const ::std::os::raw::c_int,
     ) -> f64;
-}
-extern "C" {
     pub fn dnrm2_(
         n: *const ::std::os::raw::c_int,
         dx: *const f64,
         incx: *const ::std::os::raw::c_int,
     ) -> f64;
-}
-extern "C" {
     pub fn drot_(
         n: *const ::std::os::raw::c_int,
         dx: *mut f64,
@@ -1200,11 +901,7 @@ extern "C" {
         c: *const f64,
         s: *const f64,
     );
-}
-extern "C" {
     pub fn drotg_(a: *const f64, b: *const f64, c: *mut f64, s: *mut f64);
-}
-extern "C" {
     pub fn drotm_(
         n: *const ::std::os::raw::c_int,
         dx: *mut f64,
@@ -1213,8 +910,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         dparam: *const f64,
     );
-}
-extern "C" {
     pub fn drotmg_(
         dd1: *const f64,
         dd2: *const f64,
@@ -1222,16 +917,12 @@ extern "C" {
         dy1: *const f64,
         param: *mut f64,
     );
-}
-extern "C" {
     pub fn dscal_(
         n: *const ::std::os::raw::c_int,
         alpha: *const f64,
         dx: *mut f64,
         incx: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dswap_(
         n: *const ::std::os::raw::c_int,
         dx: *mut f64,
@@ -1239,15 +930,11 @@ extern "C" {
         dy: *mut f64,
         incy: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn idamax_(
         n: *const ::std::os::raw::c_int,
         dx: *const f64,
         incx: *const ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn dgbmv_(
         trans: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -1264,8 +951,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgemv_(
         trans: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -1280,8 +965,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsbmv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1296,8 +979,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dspmv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1310,8 +991,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsymv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1325,8 +1004,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dtbmv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1341,8 +1018,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtpmv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1355,8 +1030,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtrmv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1370,8 +1043,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtbsv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1386,8 +1057,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtpsv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1400,8 +1069,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtrsv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1415,8 +1082,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dger_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -1428,8 +1093,6 @@ extern "C" {
         a: *mut f64,
         lda: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dsyr_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1440,8 +1103,6 @@ extern "C" {
         lda: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dspr_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1451,8 +1112,6 @@ extern "C" {
         ap: *mut f64,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsyr2_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1465,8 +1124,6 @@ extern "C" {
         lda: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dspr2_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1478,8 +1135,6 @@ extern "C" {
         ap: *mut f64,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgemm_(
         transa: *const ::std::os::raw::c_char,
         transb: *const ::std::os::raw::c_char,
@@ -1497,8 +1152,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtrsm_(
         side: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -1516,8 +1169,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dtrmm_(
         side: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -1535,8 +1186,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dsymm_(
         side: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -1553,8 +1202,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsyrk_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1569,8 +1216,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsyr2k_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1587,32 +1232,22 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dcabs1_(z: *const Rcomplex) -> f64;
-}
-extern "C" {
     pub fn dzasum_(
         n: *const ::std::os::raw::c_int,
         zx: *const Rcomplex,
         incx: *const ::std::os::raw::c_int,
     ) -> f64;
-}
-extern "C" {
     pub fn dznrm2_(
         n: *const ::std::os::raw::c_int,
         x: *const Rcomplex,
         incx: *const ::std::os::raw::c_int,
     ) -> f64;
-}
-extern "C" {
     pub fn izamax_(
         n: *const ::std::os::raw::c_int,
         zx: *const Rcomplex,
         incx: *const ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn zaxpy_(
         n: *const ::std::os::raw::c_int,
         za: *const Rcomplex,
@@ -1621,8 +1256,6 @@ extern "C" {
         zy: *const Rcomplex,
         incy: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zcopy_(
         n: *const ::std::os::raw::c_int,
         zx: *const Rcomplex,
@@ -1630,8 +1263,6 @@ extern "C" {
         zy: *const Rcomplex,
         incy: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zdotc_(
         n: *const ::std::os::raw::c_int,
         zx: *const Rcomplex,
@@ -1639,8 +1270,6 @@ extern "C" {
         zy: *const Rcomplex,
         incy: *const ::std::os::raw::c_int,
     ) -> Rcomplex;
-}
-extern "C" {
     pub fn zdotu_(
         n: *const ::std::os::raw::c_int,
         zx: *const Rcomplex,
@@ -1648,8 +1277,6 @@ extern "C" {
         zy: *const Rcomplex,
         incy: *const ::std::os::raw::c_int,
     ) -> Rcomplex;
-}
-extern "C" {
     pub fn zdrot_(
         n: *const ::std::os::raw::c_int,
         zx: *const Rcomplex,
@@ -1659,16 +1286,12 @@ extern "C" {
         c: *const f64,
         s: *const f64,
     );
-}
-extern "C" {
     pub fn zdscal_(
         n: *const ::std::os::raw::c_int,
         da: *const f64,
         zx: *mut Rcomplex,
         incx: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgbmv_(
         trans: *const ::std::os::raw::c_char,
         m: *mut ::std::os::raw::c_int,
@@ -1685,8 +1308,6 @@ extern "C" {
         incy: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zgemm_(
         transa: *const ::std::os::raw::c_char,
         transb: *const ::std::os::raw::c_char,
@@ -1704,8 +1325,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zgemv_(
         trans: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -1720,8 +1339,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zgerc_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -1733,8 +1350,6 @@ extern "C" {
         a: *mut Rcomplex,
         lda: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgeru_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -1746,8 +1361,6 @@ extern "C" {
         a: *mut Rcomplex,
         lda: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zhbmv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1762,8 +1375,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zhemm_(
         side: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -1780,8 +1391,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zhemv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1795,8 +1404,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zher_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1807,8 +1414,6 @@ extern "C" {
         lda: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zher2_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1821,8 +1426,6 @@ extern "C" {
         lda: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zher2k_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1839,8 +1442,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zherk_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1855,8 +1456,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zhpmv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1869,8 +1468,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zhpr_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1880,8 +1477,6 @@ extern "C" {
         ap: *mut Rcomplex,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zhpr2_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -1893,19 +1488,13 @@ extern "C" {
         ap: *mut Rcomplex,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zrotg_(ca: *const Rcomplex, cb: *const Rcomplex, c: *mut f64, s: *mut Rcomplex);
-}
-extern "C" {
     pub fn zscal_(
         n: *const ::std::os::raw::c_int,
         za: *const Rcomplex,
         zx: *mut Rcomplex,
         incx: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zswap_(
         n: *const ::std::os::raw::c_int,
         zx: *mut Rcomplex,
@@ -1913,8 +1502,6 @@ extern "C" {
         zy: *mut Rcomplex,
         incy: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zsymm_(
         side: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -1931,8 +1518,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zsyr2k_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1949,8 +1534,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zsyrk_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1965,8 +1548,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn ztbmv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1981,8 +1562,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn ztbsv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -1997,8 +1576,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn ztpmv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -2011,8 +1588,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn ztpsv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -2025,8 +1600,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn ztrmm_(
         side: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -2044,8 +1617,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn ztrmv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -2059,8 +1630,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn ztrsm_(
         side: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -2078,8 +1647,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn ztrsv_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -2093,15 +1660,11 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn ilaver_(
         major: *mut ::std::os::raw::c_int,
         minor: *mut ::std::os::raw::c_int,
         patch: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dbdsqr_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2120,8 +1683,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn ddisna_(
         job: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -2131,8 +1692,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgbbrd_(
         vect: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -2154,8 +1713,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgbcon_(
         norm: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2171,8 +1728,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgbequ_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2187,8 +1742,6 @@ extern "C" {
         amax: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgbrfs_(
         trans: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2211,8 +1764,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgbsv_(
         n: *const ::std::os::raw::c_int,
         kl: *const ::std::os::raw::c_int,
@@ -2225,8 +1776,6 @@ extern "C" {
         ldb: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgbsvx_(
         fact: *const ::std::os::raw::c_int,
         trans: *const ::std::os::raw::c_char,
@@ -2255,8 +1804,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dgbtf2_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2267,8 +1814,6 @@ extern "C" {
         ipiv: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgbtrf_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2279,8 +1824,6 @@ extern "C" {
         ipiv: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgbtrs_(
         trans: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2295,8 +1838,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgebak_(
         job: *const ::std::os::raw::c_char,
         side: *const ::std::os::raw::c_char,
@@ -2311,8 +1852,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dgebal_(
         job: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2324,8 +1863,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgebd2_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2338,8 +1875,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgebrd_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2353,8 +1888,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgecon_(
         norm: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2367,8 +1900,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgeequ_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2381,8 +1912,6 @@ extern "C" {
         amax: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgees_(
         jobvs: *const ::std::os::raw::c_char,
         sort: *const ::std::os::raw::c_char,
@@ -2404,8 +1933,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dgeesx_(
         jobvs: *const ::std::os::raw::c_char,
         sort: *const ::std::os::raw::c_char,
@@ -2433,8 +1960,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dgeev_(
         jobvl: *const ::std::os::raw::c_char,
         jobvr: *const ::std::os::raw::c_char,
@@ -2453,8 +1978,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dgeevx_(
         balanc: *const ::std::os::raw::c_char,
         jobvl: *const ::std::os::raw::c_char,
@@ -2484,8 +2007,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dgehd2_(
         n: *const ::std::os::raw::c_int,
         ilo: *const ::std::os::raw::c_int,
@@ -2496,8 +2017,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgehrd_(
         n: *const ::std::os::raw::c_int,
         ilo: *const ::std::os::raw::c_int,
@@ -2509,8 +2028,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgelq2_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2520,8 +2037,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgelqf_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2532,8 +2047,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgels_(
         trans: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -2548,8 +2061,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgelss_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2565,8 +2076,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgelsy_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2582,8 +2091,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgeql2_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2593,8 +2100,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgeqlf_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2605,8 +2110,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgeqp3_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2618,8 +2121,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgeqr2_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2629,8 +2130,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgeqrf_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2641,8 +2140,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgerfs_(
         trans: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2663,8 +2160,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgerq2_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2674,8 +2169,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgerqf_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2686,8 +2179,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgesv_(
         n: *const ::std::os::raw::c_int,
         nrhs: *const ::std::os::raw::c_int,
@@ -2698,8 +2189,6 @@ extern "C" {
         ldb: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgesvd_(
         jobu: *const ::std::os::raw::c_char,
         jobvt: *const ::std::os::raw::c_char,
@@ -2718,8 +2207,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dgesvx_(
         fact: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -2747,8 +2234,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dgetf2_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2757,8 +2242,6 @@ extern "C" {
         ipiv: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgetrf_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2767,8 +2250,6 @@ extern "C" {
         ipiv: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgetri_(
         n: *const ::std::os::raw::c_int,
         a: *mut f64,
@@ -2778,8 +2259,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgetrs_(
         trans: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2792,8 +2271,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dggbak_(
         job: *const ::std::os::raw::c_char,
         side: *const ::std::os::raw::c_char,
@@ -2809,8 +2286,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dggbal_(
         job: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2826,8 +2301,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgges_(
         jobvsl: *const ::std::os::raw::c_char,
         jobvsr: *const ::std::os::raw::c_char,
@@ -2859,8 +2332,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dggglm_(
         n: *const ::std::os::raw::c_int,
         m: *const ::std::os::raw::c_int,
@@ -2876,8 +2347,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgghrd_(
         compq: *const ::std::os::raw::c_char,
         compz: *const ::std::os::raw::c_char,
@@ -2896,8 +2365,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dgglse_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -2913,8 +2380,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dggqrf_(
         n: *const ::std::os::raw::c_int,
         m: *const ::std::os::raw::c_int,
@@ -2929,8 +2394,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dggrqf_(
         m: *const ::std::os::raw::c_int,
         p: *const ::std::os::raw::c_int,
@@ -2945,8 +2408,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgtcon_(
         norm: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2962,8 +2423,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgtrfs_(
         trans: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -2987,8 +2446,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgtsv_(
         n: *const ::std::os::raw::c_int,
         nrhs: *const ::std::os::raw::c_int,
@@ -2999,8 +2456,6 @@ extern "C" {
         ldb: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgtsvx_(
         fact: *const ::std::os::raw::c_int,
         trans: *const ::std::os::raw::c_char,
@@ -3026,8 +2481,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgttrf_(
         n: *const ::std::os::raw::c_int,
         dl: *mut f64,
@@ -3037,8 +2490,6 @@ extern "C" {
         ipiv: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgttrs_(
         trans: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3053,8 +2504,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dopgtr_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3066,8 +2515,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dopmtr_(
         side: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -3084,8 +2531,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dorg2l_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -3096,8 +2541,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dorg2r_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -3108,8 +2551,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dorgbr_(
         vect: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -3123,8 +2564,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dorghr_(
         n: *const ::std::os::raw::c_int,
         ilo: *const ::std::os::raw::c_int,
@@ -3136,8 +2575,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dorgl2_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -3148,8 +2585,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dorglq_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -3161,8 +2596,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dorgql_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -3174,8 +2607,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dorgqr_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -3187,8 +2618,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dorgr2_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -3199,8 +2628,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dorgrq_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -3212,8 +2639,6 @@ extern "C" {
         lwork: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dorgtr_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3225,8 +2650,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dorm2l_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -3243,8 +2666,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dorm2r_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -3261,8 +2682,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dormbr_(
         vect: *const ::std::os::raw::c_char,
         side: *const ::std::os::raw::c_char,
@@ -3282,8 +2701,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dormhr_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -3302,8 +2719,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dorml2_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -3320,8 +2735,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dormlq_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -3339,8 +2752,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dormql_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -3358,8 +2769,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dormqr_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -3377,8 +2786,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dormr2_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -3395,8 +2802,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dormrq_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -3414,8 +2819,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dormtr_(
         side: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -3434,8 +2837,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dpbcon_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3449,8 +2850,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpbequ_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3463,8 +2862,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpbrfs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3485,8 +2882,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpbstf_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3496,8 +2891,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpbsv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3510,8 +2903,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpbsvx_(
         fact: *const ::std::os::raw::c_int,
         uplo: *const ::std::os::raw::c_char,
@@ -3537,8 +2928,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dpbtf2_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3548,8 +2937,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpbtrf_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3559,8 +2946,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpbtrs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3573,8 +2958,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpocon_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3587,8 +2970,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpoequ_(
         n: *const ::std::os::raw::c_int,
         a: *const f64,
@@ -3598,8 +2979,6 @@ extern "C" {
         amax: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dporfs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3619,8 +2998,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dposv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3632,8 +3009,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dposvx_(
         fact: *const ::std::os::raw::c_int,
         uplo: *const ::std::os::raw::c_char,
@@ -3658,8 +3033,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dpotf2_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3668,8 +3041,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpotrf_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3678,8 +3049,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpotri_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3688,8 +3057,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpotrs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3701,8 +3068,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dppcon_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3714,8 +3079,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dppequ_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3726,8 +3089,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpprfs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3745,8 +3106,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dppsv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3757,8 +3116,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dppsvx_(
         fact: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -3782,8 +3139,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dpptrf_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3791,8 +3146,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpptri_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3800,8 +3153,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dpptrs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3812,8 +3163,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dptcon_(
         n: *const ::std::os::raw::c_int,
         d: *const f64,
@@ -3823,8 +3172,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dpteqr_(
         compz: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -3836,8 +3183,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dptrfs_(
         n: *const ::std::os::raw::c_int,
         nrhs: *const ::std::os::raw::c_int,
@@ -3854,8 +3199,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dptsv_(
         n: *const ::std::os::raw::c_int,
         nrhs: *const ::std::os::raw::c_int,
@@ -3865,8 +3208,6 @@ extern "C" {
         ldb: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dptsvx_(
         fact: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -3885,16 +3226,12 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dpttrf_(
         n: *const ::std::os::raw::c_int,
         d: *mut f64,
         e: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dpttrs_(
         n: *const ::std::os::raw::c_int,
         nrhs: *const ::std::os::raw::c_int,
@@ -3904,16 +3241,12 @@ extern "C" {
         ldb: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn drscl_(
         n: *const ::std::os::raw::c_int,
         da: *const f64,
         x: *mut f64,
         incx: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dsbev_(
         jobz: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -3929,8 +3262,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsbevd_(
         jobz: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -3949,8 +3280,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsbevx_(
         jobz: *const ::std::os::raw::c_char,
         range: *const ::std::os::raw::c_char,
@@ -3978,8 +3307,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dsbgst_(
         vect: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -3997,8 +3324,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsbgv_(
         jobz: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -4017,8 +3342,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsbtrd_(
         vect: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -4035,8 +3358,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dspcon_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4049,8 +3370,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dspev_(
         jobz: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -4064,8 +3383,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dspevd_(
         jobz: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -4082,8 +3399,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dspevx_(
         jobz: *const ::std::os::raw::c_char,
         range: *const ::std::os::raw::c_char,
@@ -4107,8 +3422,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dspgst_(
         itype: *const ::std::os::raw::c_int,
         uplo: *const ::std::os::raw::c_char,
@@ -4118,8 +3431,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dspgv_(
         itype: *const ::std::os::raw::c_int,
         jobz: *const ::std::os::raw::c_char,
@@ -4136,8 +3447,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dsprfs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4156,8 +3465,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dspsv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4169,8 +3476,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dspsvx_(
         fact: *const ::std::os::raw::c_int,
         uplo: *const ::std::os::raw::c_char,
@@ -4191,8 +3496,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsptrd_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4203,8 +3506,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsptrf_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4213,8 +3514,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsptri_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4224,8 +3523,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsptrs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4237,8 +3534,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dstebz_(
         range: *const ::std::os::raw::c_char,
         order: *const ::std::os::raw::c_char,
@@ -4261,8 +3556,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dstedc_(
         compz: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4277,8 +3570,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dstein_(
         n: *const ::std::os::raw::c_int,
         d: *const f64,
@@ -4294,8 +3585,6 @@ extern "C" {
         ifail: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dsteqr_(
         compz: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4307,16 +3596,12 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsterf_(
         n: *const ::std::os::raw::c_int,
         d: *mut f64,
         e: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dstev_(
         jobz: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4328,8 +3613,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dstevd_(
         jobz: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4344,8 +3627,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dstevx_(
         jobz: *const ::std::os::raw::c_char,
         range: *const ::std::os::raw::c_char,
@@ -4368,8 +3649,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsycon_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4383,8 +3662,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsyev_(
         jobz: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -4398,8 +3675,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsyevd_(
         jobz: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -4415,8 +3690,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsyevx_(
         jobz: *const ::std::os::raw::c_char,
         range: *const ::std::os::raw::c_char,
@@ -4442,8 +3715,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dsyevr_(
         jobz: *const ::std::os::raw::c_char,
         range: *const ::std::os::raw::c_char,
@@ -4470,8 +3741,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dsygs2_(
         itype: *const ::std::os::raw::c_int,
         uplo: *const ::std::os::raw::c_char,
@@ -4483,8 +3752,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsygst_(
         itype: *const ::std::os::raw::c_int,
         uplo: *const ::std::os::raw::c_char,
@@ -4496,8 +3763,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsygv_(
         itype: *const ::std::os::raw::c_int,
         jobz: *const ::std::os::raw::c_char,
@@ -4514,8 +3779,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsyrfs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4536,8 +3799,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsysv_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4552,8 +3813,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsysvx_(
         fact: *const ::std::os::raw::c_int,
         uplo: *const ::std::os::raw::c_char,
@@ -4577,8 +3836,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsytd2_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4590,8 +3847,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsytf2_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4601,8 +3856,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsytrd_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4616,8 +3869,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsytrf_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4629,8 +3880,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsytri_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4641,8 +3890,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dsytrs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4655,8 +3902,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dtbcon_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -4673,8 +3918,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtbrfs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -4697,8 +3940,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtbtrs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -4715,8 +3956,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtgevc_(
         side: *const ::std::os::raw::c_char,
         howmny: *const ::std::os::raw::c_char,
@@ -4737,8 +3976,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtgsja_(
         jobu: *const ::std::os::raw::c_char,
         jobv: *const ::std::os::raw::c_char,
@@ -4769,8 +4006,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtpcon_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -4785,8 +4020,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtprfs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -4807,8 +4040,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtptri_(
         uplo: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
@@ -4818,8 +4049,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtptrs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -4833,8 +4062,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtrcon_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -4850,8 +4077,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtrevc_(
         side: *const ::std::os::raw::c_char,
         howmny: *const ::std::os::raw::c_char,
@@ -4870,8 +4095,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtrexc_(
         compq: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -4885,8 +4108,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dtrrfs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -4908,8 +4129,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtrsen_(
         job: *const ::std::os::raw::c_char,
         compq: *const ::std::os::raw::c_char,
@@ -4932,8 +4151,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtrsna_(
         job: *const ::std::os::raw::c_char,
         howmny: *const ::std::os::raw::c_char,
@@ -4956,8 +4173,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtrsyl_(
         trana: *const ::std::os::raw::c_char,
         tranb: *const ::std::os::raw::c_char,
@@ -4975,8 +4190,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtrti2_(
         uplo: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
@@ -4987,8 +4200,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtrtri_(
         uplo: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
@@ -4999,8 +4210,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtrtrs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -5016,8 +4225,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dhgeqz_(
         job: *const ::std::os::raw::c_char,
         compq: *const ::std::os::raw::c_char,
@@ -5043,8 +4250,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dhsein_(
         side: *const ::std::os::raw::c_char,
         eigsrc: *const ::std::os::raw::c_char,
@@ -5069,8 +4274,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dhseqr_(
         job: *const ::std::os::raw::c_char,
         compz: *const ::std::os::raw::c_char,
@@ -5089,11 +4292,7 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dlabad_(small: *mut f64, large: *mut f64);
-}
-extern "C" {
     pub fn dlabrd_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -5109,8 +4308,6 @@ extern "C" {
         y: *mut f64,
         ldy: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlacon_(
         n: *const ::std::os::raw::c_int,
         v: *mut f64,
@@ -5119,8 +4316,6 @@ extern "C" {
         est: *mut f64,
         kase: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlacpy_(
         uplo: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -5131,8 +4326,6 @@ extern "C" {
         ldb: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dladiv_(
         a: *const f64,
         b: *const f64,
@@ -5141,11 +4334,7 @@ extern "C" {
         p: *mut f64,
         q: *mut f64,
     );
-}
-extern "C" {
     pub fn dlae2_(a: *const f64, b: *const f64, c: *const f64, rt1: *mut f64, rt2: *mut f64);
-}
-extern "C" {
     pub fn dlaebz_(
         ijob: *const ::std::os::raw::c_int,
         nitmax: *const ::std::os::raw::c_int,
@@ -5168,8 +4357,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaed0_(
         icompq: *const ::std::os::raw::c_int,
         qsiz: *const ::std::os::raw::c_int,
@@ -5184,8 +4371,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaed1_(
         n: *const ::std::os::raw::c_int,
         d: *mut f64,
@@ -5198,8 +4383,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaed2_(
         k: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -5218,8 +4401,6 @@ extern "C" {
         coltyp: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaed3_(
         k: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -5236,8 +4417,6 @@ extern "C" {
         s: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaed4_(
         n: *const ::std::os::raw::c_int,
         i: *const ::std::os::raw::c_int,
@@ -5248,8 +4427,6 @@ extern "C" {
         dlam: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaed5_(
         i: *const ::std::os::raw::c_int,
         d: *const f64,
@@ -5258,8 +4435,6 @@ extern "C" {
         rho: *const f64,
         dlam: *mut f64,
     );
-}
-extern "C" {
     pub fn dlaed6_(
         kniter: *const ::std::os::raw::c_int,
         orgati: *const ::std::os::raw::c_int,
@@ -5270,8 +4445,6 @@ extern "C" {
         tau: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaed7_(
         icompq: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -5296,8 +4469,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaed8_(
         icompq: *const ::std::os::raw::c_int,
         k: *const ::std::os::raw::c_int,
@@ -5322,8 +4493,6 @@ extern "C" {
         indx: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaed9_(
         k: *const ::std::os::raw::c_int,
         kstart: *const ::std::os::raw::c_int,
@@ -5339,8 +4508,6 @@ extern "C" {
         lds: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaeda_(
         n: *const ::std::os::raw::c_int,
         tlvls: *const ::std::os::raw::c_int,
@@ -5357,8 +4524,6 @@ extern "C" {
         ztemp: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaein_(
         rightv: *const ::std::os::raw::c_int,
         noinit: *const ::std::os::raw::c_int,
@@ -5377,8 +4542,6 @@ extern "C" {
         bignum: *const f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaev2_(
         a: *const f64,
         b: *const f64,
@@ -5388,8 +4551,6 @@ extern "C" {
         cs1: *mut f64,
         sn1: *mut f64,
     );
-}
-extern "C" {
     pub fn dlaexc_(
         wantq: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -5403,8 +4564,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlag2_(
         a: *const f64,
         lda: *const ::std::os::raw::c_int,
@@ -5417,8 +4576,6 @@ extern "C" {
         wr2: *mut f64,
         wi: *mut f64,
     );
-}
-extern "C" {
     pub fn dlags2_(
         upper: *const ::std::os::raw::c_int,
         a1: *const f64,
@@ -5434,8 +4591,6 @@ extern "C" {
         csq: *mut f64,
         snq: *mut f64,
     );
-}
-extern "C" {
     pub fn dlagtf_(
         n: *const ::std::os::raw::c_int,
         a: *mut f64,
@@ -5447,8 +4602,6 @@ extern "C" {
         in_: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlagtm_(
         trans: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -5464,8 +4617,6 @@ extern "C" {
         ldb: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlagts_(
         job: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -5478,8 +4629,6 @@ extern "C" {
         tol: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlahqr_(
         wantt: *const ::std::os::raw::c_int,
         wantz: *const ::std::os::raw::c_int,
@@ -5496,8 +4645,6 @@ extern "C" {
         ldz: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaic1_(
         job: *const ::std::os::raw::c_int,
         j: *const ::std::os::raw::c_int,
@@ -5509,8 +4656,6 @@ extern "C" {
         s: *mut f64,
         c: *mut f64,
     );
-}
-extern "C" {
     pub fn dlaln2_(
         ltrans: *const ::std::os::raw::c_int,
         na: *const ::std::os::raw::c_int,
@@ -5531,11 +4676,7 @@ extern "C" {
         xnorm: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlamch_(cmach: *const ::std::os::raw::c_char, arg1: usize) -> f64;
-}
-extern "C" {
     pub fn dlamrg_(
         n1: *const ::std::os::raw::c_int,
         n2: *const ::std::os::raw::c_int,
@@ -5544,8 +4685,6 @@ extern "C" {
         dtrd2: *const ::std::os::raw::c_int,
         index: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlangb_(
         norm: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -5556,8 +4695,6 @@ extern "C" {
         work: *mut f64,
         arg1: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlange_(
         norm: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -5567,8 +4704,6 @@ extern "C" {
         work: *mut f64,
         arg1: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlangt_(
         norm: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -5577,8 +4712,6 @@ extern "C" {
         du: *const f64,
         arg1: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlanhs_(
         norm: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -5587,8 +4720,6 @@ extern "C" {
         work: *mut f64,
         arg1: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlansb_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -5600,8 +4731,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlansp_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -5611,8 +4740,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlanst_(
         norm: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -5620,8 +4747,6 @@ extern "C" {
         e: *const f64,
         arg1: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlansy_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -5632,8 +4757,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlantb_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -5647,8 +4770,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlantp_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -5660,8 +4781,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlantr_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -5675,8 +4794,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dlanv2_(
         a: *mut f64,
         b: *mut f64,
@@ -5689,8 +4806,6 @@ extern "C" {
         cs: *mut f64,
         sn: *mut f64,
     );
-}
-extern "C" {
     pub fn dlapll_(
         n: *const ::std::os::raw::c_int,
         x: *mut f64,
@@ -5699,8 +4814,6 @@ extern "C" {
         incy: *const ::std::os::raw::c_int,
         ssmin: *mut f64,
     );
-}
-extern "C" {
     pub fn dlapmt_(
         forwrd: *const ::std::os::raw::c_int,
         m: *const ::std::os::raw::c_int,
@@ -5709,14 +4822,8 @@ extern "C" {
         ldx: *const ::std::os::raw::c_int,
         k: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlapy2_(x: *const f64, y: *const f64) -> f64;
-}
-extern "C" {
     pub fn dlapy3_(x: *const f64, y: *const f64, z: *const f64) -> f64;
-}
-extern "C" {
     pub fn dlaqgb_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -5732,8 +4839,6 @@ extern "C" {
         equed: *const ::std::os::raw::c_char,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlaqge_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -5747,8 +4852,6 @@ extern "C" {
         equed: *const ::std::os::raw::c_char,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlaqsb_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -5762,8 +4865,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dlaqsp_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -5774,8 +4875,6 @@ extern "C" {
         equed: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlaqsy_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -5787,8 +4886,6 @@ extern "C" {
         equed: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlaqtr_(
         ltran: *const ::std::os::raw::c_int,
         lreal: *const ::std::os::raw::c_int,
@@ -5802,8 +4899,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlar2v_(
         n: *const ::std::os::raw::c_int,
         x: *mut f64,
@@ -5814,8 +4909,6 @@ extern "C" {
         s: *const f64,
         incc: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlarf_(
         side: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -5828,8 +4921,6 @@ extern "C" {
         work: *mut f64,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlarfb_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -5851,8 +4942,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dlarfg_(
         n: *const ::std::os::raw::c_int,
         alpha: *const f64,
@@ -5860,8 +4949,6 @@ extern "C" {
         incx: *const ::std::os::raw::c_int,
         tau: *mut f64,
     );
-}
-extern "C" {
     pub fn dlarft_(
         direct: *const ::std::os::raw::c_char,
         storev: *const ::std::os::raw::c_char,
@@ -5875,8 +4962,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dlarfx_(
         side: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -5888,8 +4973,6 @@ extern "C" {
         work: *mut f64,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlargv_(
         n: *const ::std::os::raw::c_int,
         x: *mut f64,
@@ -5899,19 +4982,13 @@ extern "C" {
         c: *mut f64,
         incc: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlarnv_(
         idist: *const ::std::os::raw::c_int,
         iseed: *mut ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
         x: *mut f64,
     );
-}
-extern "C" {
     pub fn dlartg_(f: *const f64, g: *const f64, cs: *mut f64, sn: *mut f64, r: *mut f64);
-}
-extern "C" {
     pub fn dlartv_(
         n: *const ::std::os::raw::c_int,
         x: *mut f64,
@@ -5922,14 +4999,8 @@ extern "C" {
         s: *const f64,
         incc: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlaruv_(iseed: *mut ::std::os::raw::c_int, n: *const ::std::os::raw::c_int, x: *mut f64);
-}
-extern "C" {
     pub fn dlas2_(f: *const f64, g: *const f64, h: *const f64, ssmin: *mut f64, ssmax: *mut f64);
-}
-extern "C" {
     pub fn dlascl_(
         type_: *const ::std::os::raw::c_char,
         kl: *const ::std::os::raw::c_int,
@@ -5943,8 +5014,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlaset_(
         uplo: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -5955,8 +5024,6 @@ extern "C" {
         lda: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlasq1_(
         n: *const ::std::os::raw::c_int,
         d: *mut f64,
@@ -5964,8 +5031,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasq2_(
         m: *const ::std::os::raw::c_int,
         q: *mut f64,
@@ -5979,8 +5044,6 @@ extern "C" {
         kend: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasq3_(
         n: *mut ::std::os::raw::c_int,
         q: *mut f64,
@@ -5997,8 +5060,6 @@ extern "C" {
         tol2: *const f64,
         small2: *const f64,
     );
-}
-extern "C" {
     pub fn dlasq4_(
         n: *const ::std::os::raw::c_int,
         q: *const f64,
@@ -6006,8 +5067,6 @@ extern "C" {
         tau: *mut f64,
         sup: *mut f64,
     );
-}
-extern "C" {
     pub fn dlasr_(
         side: *const ::std::os::raw::c_char,
         pivot: *const ::std::os::raw::c_char,
@@ -6022,8 +5081,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dlasrt_(
         id: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -6031,8 +5088,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlassq_(
         n: *const ::std::os::raw::c_int,
         x: *const f64,
@@ -6040,8 +5095,6 @@ extern "C" {
         scale: *mut f64,
         sumsq: *mut f64,
     );
-}
-extern "C" {
     pub fn dlasv2_(
         f: *const f64,
         g: *const f64,
@@ -6053,8 +5106,6 @@ extern "C" {
         snl: *mut f64,
         csl: *mut f64,
     );
-}
-extern "C" {
     pub fn dlaswp_(
         n: *const ::std::os::raw::c_int,
         a: *mut f64,
@@ -6064,8 +5115,6 @@ extern "C" {
         ipiv: *const ::std::os::raw::c_int,
         incx: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasy2_(
         ltranl: *const ::std::os::raw::c_int,
         ltranr: *const ::std::os::raw::c_int,
@@ -6084,8 +5133,6 @@ extern "C" {
         xnorm: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasyf_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -6099,8 +5146,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlatbs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -6119,8 +5164,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dlatps_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -6137,8 +5180,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dlatrd_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -6151,8 +5192,6 @@ extern "C" {
         ldw: *const ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlatrs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -6170,8 +5209,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dlauu2_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -6180,8 +5217,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlauum_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -6190,15 +5225,11 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn izmax1_(
         n: *const ::std::os::raw::c_int,
         cx: *mut Rcomplex,
         incx: *const ::std::os::raw::c_int,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn zgecon_(
         norm: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -6211,8 +5242,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zgesv_(
         n: *const ::std::os::raw::c_int,
         nrhs: *const ::std::os::raw::c_int,
@@ -6223,8 +5252,6 @@ extern "C" {
         ldb: *const ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgeqp3_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -6237,8 +5264,6 @@ extern "C" {
         rwork: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zunmqr_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -6256,8 +5281,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn ztrtrs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -6273,8 +5296,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn zgesvd_(
         jobu: *const ::std::os::raw::c_char,
         jobvt: *const ::std::os::raw::c_char,
@@ -6294,8 +5315,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zheev_(
         jobz: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -6310,8 +5329,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zgeev_(
         jobvl: *const ::std::os::raw::c_char,
         jobvr: *const ::std::os::raw::c_char,
@@ -6330,8 +5347,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zlacn2_(
         n: *const ::std::os::raw::c_int,
         v: *mut Rcomplex,
@@ -6340,8 +5355,6 @@ extern "C" {
         kase: *mut ::std::os::raw::c_int,
         isave: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zlantr_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -6355,15 +5368,11 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn dzsum1_(
         n: *const ::std::os::raw::c_int,
         CX: *mut Rcomplex,
         incx: *const ::std::os::raw::c_int,
     ) -> f64;
-}
-extern "C" {
     pub fn zpotrf_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -6372,8 +5381,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zpotri_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -6382,8 +5389,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zpotrs_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -6395,8 +5400,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dbdsdc_(
         uplo: *const ::std::os::raw::c_char,
         compq: *const ::std::os::raw::c_char,
@@ -6415,8 +5418,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dgelsd_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -6433,8 +5434,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgesc2_(
         n: *mut ::std::os::raw::c_int,
         a: *mut f64,
@@ -6444,8 +5443,6 @@ extern "C" {
         jpiv: *mut ::std::os::raw::c_int,
         scale: *mut f64,
     );
-}
-extern "C" {
     pub fn dgesdd_(
         jobz: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -6463,8 +5460,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgetc2_(
         n: *mut ::std::os::raw::c_int,
         a: *mut f64,
@@ -6473,11 +5468,6 @@ extern "C" {
         jpiv: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-pub type L_fp = ::std::option::Option<
-    unsafe extern "C" fn(arg1: *mut f64, arg2: *mut f64, arg3: *mut f64) -> ::std::os::raw::c_int,
->;
-extern "C" {
     pub fn dggesx_(
         jobvsl: *const ::std::os::raw::c_char,
         jobvsr: *const ::std::os::raw::c_char,
@@ -6510,8 +5500,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dggev_(
         jobvl: *const ::std::os::raw::c_char,
         jobvr: *const ::std::os::raw::c_char,
@@ -6533,8 +5521,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dggevx_(
         balanc: *const ::std::os::raw::c_char,
         jobvl: *const ::std::os::raw::c_char,
@@ -6570,8 +5556,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dgtts2_(
         itrans: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -6584,8 +5568,6 @@ extern "C" {
         b: *mut f64,
         ldb: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlagv2_(
         a: *mut f64,
         lda: *mut ::std::os::raw::c_int,
@@ -6599,8 +5581,6 @@ extern "C" {
         csr: *mut f64,
         snr: *mut f64,
     );
-}
-extern "C" {
     pub fn dlals0_(
         icompq: *mut ::std::os::raw::c_int,
         nl: *mut ::std::os::raw::c_int,
@@ -6627,8 +5607,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlalsa_(
         icompq: *mut ::std::os::raw::c_int,
         smlsiz: *mut ::std::os::raw::c_int,
@@ -6657,8 +5635,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlalsd_(
         uplo: *const ::std::os::raw::c_char,
         smlsiz: *mut ::std::os::raw::c_int,
@@ -6675,16 +5651,12 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlamc1_(
         beta: *mut ::std::os::raw::c_int,
         t: *mut ::std::os::raw::c_int,
         rnd: *mut ::std::os::raw::c_int,
         ieee1: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlamc2_(
         beta: *mut ::std::os::raw::c_int,
         t: *mut ::std::os::raw::c_int,
@@ -6695,18 +5667,12 @@ extern "C" {
         emax: *mut ::std::os::raw::c_int,
         rmax: *mut f64,
     );
-}
-extern "C" {
     pub fn dlamc3_(a: *mut f64, b: *mut f64) -> f64;
-}
-extern "C" {
     pub fn dlamc4_(
         emin: *mut ::std::os::raw::c_int,
         start: *mut f64,
         base: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlamc5_(
         beta: *mut ::std::os::raw::c_int,
         p: *mut ::std::os::raw::c_int,
@@ -6715,8 +5681,6 @@ extern "C" {
         emax: *mut ::std::os::raw::c_int,
         rmax: *mut f64,
     );
-}
-extern "C" {
     pub fn dlaqp2_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -6729,8 +5693,6 @@ extern "C" {
         vn2: *mut f64,
         work: *mut f64,
     );
-}
-extern "C" {
     pub fn dlaqps_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -6747,8 +5709,6 @@ extern "C" {
         f: *mut f64,
         ldf: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlar1v_(
         n: *mut ::std::os::raw::c_int,
         b1: *mut ::std::os::raw::c_int,
@@ -6766,8 +5726,6 @@ extern "C" {
         isuppz: *mut ::std::os::raw::c_int,
         work: *mut f64,
     );
-}
-extern "C" {
     pub fn dlarrb_(
         n: *mut ::std::os::raw::c_int,
         d: *mut f64,
@@ -6785,8 +5743,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlarre_(
         n: *mut ::std::os::raw::c_int,
         d: *mut f64,
@@ -6801,8 +5757,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlarrf_(
         n: *mut ::std::os::raw::c_int,
         d: *mut f64,
@@ -6818,8 +5772,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlarrv_(
         n: *mut ::std::os::raw::c_int,
         d: *mut f64,
@@ -6837,8 +5789,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlarz_(
         side: *const ::std::os::raw::c_char,
         m: *mut ::std::os::raw::c_int,
@@ -6852,8 +5802,6 @@ extern "C" {
         work: *mut f64,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlarzb_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -6876,8 +5824,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn dlarzt_(
         direct: *const ::std::os::raw::c_char,
         storev: *const ::std::os::raw::c_char,
@@ -6891,8 +5837,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dlasd0_(
         n: *mut ::std::os::raw::c_int,
         sqre: *mut ::std::os::raw::c_int,
@@ -6907,8 +5851,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasd1_(
         nl: *mut ::std::os::raw::c_int,
         nr: *mut ::std::os::raw::c_int,
@@ -6925,8 +5867,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasd2_(
         nl: *mut ::std::os::raw::c_int,
         nr: *mut ::std::os::raw::c_int,
@@ -6952,8 +5892,6 @@ extern "C" {
         coltyp: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasd3_(
         nl: *mut ::std::os::raw::c_int,
         nr: *mut ::std::os::raw::c_int,
@@ -6976,8 +5914,6 @@ extern "C" {
         z: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasd4_(
         n: *mut ::std::os::raw::c_int,
         i: *mut ::std::os::raw::c_int,
@@ -6989,8 +5925,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasd5_(
         i: *mut ::std::os::raw::c_int,
         d: *mut f64,
@@ -7000,8 +5934,6 @@ extern "C" {
         dsigma: *mut f64,
         work: *mut f64,
     );
-}
-extern "C" {
     pub fn dlasd6_(
         icompq: *mut ::std::os::raw::c_int,
         nl: *mut ::std::os::raw::c_int,
@@ -7030,8 +5962,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasd7_(
         icompq: *mut ::std::os::raw::c_int,
         nl: *mut ::std::os::raw::c_int,
@@ -7061,8 +5991,6 @@ extern "C" {
         s: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasd8_(
         icompq: *mut ::std::os::raw::c_int,
         k: *mut ::std::os::raw::c_int,
@@ -7077,8 +6005,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasd9_(
         icompq: *mut ::std::os::raw::c_int,
         ldu: *mut ::std::os::raw::c_int,
@@ -7093,8 +6019,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasda_(
         icompq: *mut ::std::os::raw::c_int,
         smlsiz: *mut ::std::os::raw::c_int,
@@ -7121,8 +6045,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasdq_(
         uplo: *const ::std::os::raw::c_char,
         sqre: *mut ::std::os::raw::c_int,
@@ -7142,8 +6064,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dlasdt_(
         n: *mut ::std::os::raw::c_int,
         lvl: *mut ::std::os::raw::c_int,
@@ -7153,8 +6073,6 @@ extern "C" {
         ndimr: *mut ::std::os::raw::c_int,
         msub: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasq5_(
         i0: *mut ::std::os::raw::c_int,
         n0: *mut ::std::os::raw::c_int,
@@ -7169,8 +6087,6 @@ extern "C" {
         dnm2: *mut f64,
         ieee: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlasq6_(
         i0: *mut ::std::os::raw::c_int,
         n0: *mut ::std::os::raw::c_int,
@@ -7183,8 +6099,6 @@ extern "C" {
         dnm1: *mut f64,
         dnm2: *mut f64,
     );
-}
-extern "C" {
     pub fn dlatdf_(
         ijob: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7196,8 +6110,6 @@ extern "C" {
         ipiv: *mut ::std::os::raw::c_int,
         jpiv: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlatrz_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7207,8 +6119,6 @@ extern "C" {
         tau: *mut f64,
         work: *mut f64,
     );
-}
-extern "C" {
     pub fn dormr3_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -7226,8 +6136,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dormrz_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -7246,8 +6154,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dptts2_(
         n: *mut ::std::os::raw::c_int,
         nrhs: *mut ::std::os::raw::c_int,
@@ -7256,8 +6162,6 @@ extern "C" {
         b: *mut f64,
         ldb: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dsbgvd_(
         jobz: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -7279,8 +6183,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsbgvx_(
         jobz: *const ::std::os::raw::c_char,
         range: *const ::std::os::raw::c_char,
@@ -7311,8 +6213,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dspgvd_(
         itype: *mut ::std::os::raw::c_int,
         jobz: *const ::std::os::raw::c_char,
@@ -7331,8 +6231,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dspgvx_(
         itype: *mut ::std::os::raw::c_int,
         jobz: *const ::std::os::raw::c_char,
@@ -7358,8 +6256,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dstegr_(
         jobz: *const ::std::os::raw::c_char,
         range: *const ::std::os::raw::c_char,
@@ -7384,8 +6280,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dstevr_(
         jobz: *const ::std::os::raw::c_char,
         range: *const ::std::os::raw::c_char,
@@ -7410,8 +6304,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsygvd_(
         itype: *mut ::std::os::raw::c_int,
         jobz: *const ::std::os::raw::c_char,
@@ -7430,8 +6322,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dsygvx_(
         itype: *mut ::std::os::raw::c_int,
         jobz: *const ::std::os::raw::c_char,
@@ -7460,8 +6350,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtgex2_(
         wantq: *mut ::std::os::raw::c_int,
         wantz: *mut ::std::os::raw::c_int,
@@ -7481,8 +6369,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dtgexc_(
         wantq: *mut ::std::os::raw::c_int,
         wantz: *mut ::std::os::raw::c_int,
@@ -7501,8 +6387,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dtgsen_(
         ijob: *mut ::std::os::raw::c_int,
         wantq: *mut ::std::os::raw::c_int,
@@ -7530,8 +6414,6 @@ extern "C" {
         liwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dtgsna_(
         job: *const ::std::os::raw::c_char,
         howmny: *const ::std::os::raw::c_char,
@@ -7556,8 +6438,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dtgsy2_(
         trans: *const ::std::os::raw::c_char,
         ijob: *mut ::std::os::raw::c_int,
@@ -7583,8 +6463,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dtgsyl_(
         trans: *const ::std::os::raw::c_char,
         ijob: *mut ::std::os::raw::c_int,
@@ -7610,8 +6488,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dtzrzf_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7622,8 +6498,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dpstrf_(
         uplo: *const ::std::os::raw::c_char,
         n: *const ::std::os::raw::c_int,
@@ -7636,16 +6510,12 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn lsame_(
         ca: *const ::std::os::raw::c_char,
         cb: *const ::std::os::raw::c_char,
         arg1: usize,
         arg2: usize,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn zbdsqr_(
         uplo: *const ::std::os::raw::c_char,
         n: *mut ::std::os::raw::c_int,
@@ -7664,8 +6534,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zgebak_(
         job: *const ::std::os::raw::c_char,
         side: *const ::std::os::raw::c_char,
@@ -7680,8 +6548,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zgebal_(
         job: *const ::std::os::raw::c_char,
         n: *mut ::std::os::raw::c_int,
@@ -7693,8 +6559,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zgebd2_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7707,8 +6571,6 @@ extern "C" {
         work: *mut Rcomplex,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgebrd_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7722,8 +6584,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgehd2_(
         n: *mut ::std::os::raw::c_int,
         ilo: *mut ::std::os::raw::c_int,
@@ -7734,8 +6594,6 @@ extern "C" {
         work: *mut Rcomplex,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgehrd_(
         n: *mut ::std::os::raw::c_int,
         ilo: *mut ::std::os::raw::c_int,
@@ -7747,8 +6605,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgelq2_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7758,8 +6614,6 @@ extern "C" {
         work: *mut Rcomplex,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgelqf_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7770,8 +6624,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgeqr2_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7781,8 +6633,6 @@ extern "C" {
         work: *mut Rcomplex,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgeqrf_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7793,8 +6643,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgetf2_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7803,8 +6651,6 @@ extern "C" {
         ipiv: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgetrf_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7813,8 +6659,6 @@ extern "C" {
         ipiv: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zgetrs_(
         trans: *const ::std::os::raw::c_char,
         n: *mut ::std::os::raw::c_int,
@@ -7827,8 +6671,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zhetd2_(
         uplo: *const ::std::os::raw::c_char,
         n: *mut ::std::os::raw::c_int,
@@ -7840,8 +6682,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zhetrd_(
         uplo: *const ::std::os::raw::c_char,
         n: *mut ::std::os::raw::c_int,
@@ -7855,8 +6695,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zhseqr_(
         job: *const ::std::os::raw::c_char,
         compz: *const ::std::os::raw::c_char,
@@ -7874,8 +6712,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zlabrd_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7891,15 +6727,11 @@ extern "C" {
         y: *mut Rcomplex,
         ldy: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zlacgv_(
         n: *mut ::std::os::raw::c_int,
         x: *mut Rcomplex,
         incx: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zlacpy_(
         uplo: *const ::std::os::raw::c_char,
         m: *mut ::std::os::raw::c_int,
@@ -7910,8 +6742,6 @@ extern "C" {
         ldb: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zlahqr_(
         wantt: *mut ::std::os::raw::c_int,
         wantz: *mut ::std::os::raw::c_int,
@@ -7927,8 +6757,6 @@ extern "C" {
         ldz: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zlange_(
         norm: *const ::std::os::raw::c_char,
         m: *mut ::std::os::raw::c_int,
@@ -7938,8 +6766,6 @@ extern "C" {
         work: *mut f64,
         arg1: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn zlanhe_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -7950,8 +6776,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn zlanhs_(
         norm: *const ::std::os::raw::c_char,
         n: *mut ::std::os::raw::c_int,
@@ -7960,8 +6784,6 @@ extern "C" {
         work: *mut f64,
         arg1: usize,
     ) -> f64;
-}
-extern "C" {
     pub fn zlaqp2_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7974,8 +6796,6 @@ extern "C" {
         vn2: *mut f64,
         work: *mut Rcomplex,
     );
-}
-extern "C" {
     pub fn zlaqps_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -7992,8 +6812,6 @@ extern "C" {
         f: *mut Rcomplex,
         ldf: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zlarf_(
         side: *const ::std::os::raw::c_char,
         m: *mut ::std::os::raw::c_int,
@@ -8006,8 +6824,6 @@ extern "C" {
         work: *mut Rcomplex,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zlarfb_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -8029,8 +6845,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn zlarfg_(
         n: *mut ::std::os::raw::c_int,
         alpha: *mut Rcomplex,
@@ -8038,8 +6852,6 @@ extern "C" {
         incx: *mut ::std::os::raw::c_int,
         tau: *mut Rcomplex,
     );
-}
-extern "C" {
     pub fn zlarft_(
         direct: *const ::std::os::raw::c_char,
         storev: *const ::std::os::raw::c_char,
@@ -8053,8 +6865,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zlarfx_(
         side: *const ::std::os::raw::c_char,
         m: *mut ::std::os::raw::c_int,
@@ -8066,8 +6876,6 @@ extern "C" {
         work: *mut Rcomplex,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zlascl_(
         type_: *const ::std::os::raw::c_char,
         kl: *mut ::std::os::raw::c_int,
@@ -8081,8 +6889,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zlaset_(
         uplo: *const ::std::os::raw::c_char,
         m: *mut ::std::os::raw::c_int,
@@ -8093,8 +6899,6 @@ extern "C" {
         lda: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zlasr_(
         side: *const ::std::os::raw::c_char,
         pivot: *const ::std::os::raw::c_char,
@@ -8109,8 +6913,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn zlassq_(
         n: *mut ::std::os::raw::c_int,
         x: *mut Rcomplex,
@@ -8118,8 +6920,6 @@ extern "C" {
         scale: *mut f64,
         sumsq: *mut f64,
     );
-}
-extern "C" {
     pub fn zlaswp_(
         n: *mut ::std::os::raw::c_int,
         a: *mut Rcomplex,
@@ -8129,8 +6929,6 @@ extern "C" {
         ipiv: *mut ::std::os::raw::c_int,
         incx: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zlatrd_(
         uplo: *const ::std::os::raw::c_char,
         n: *mut ::std::os::raw::c_int,
@@ -8143,8 +6941,6 @@ extern "C" {
         ldw: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zlatrs_(
         uplo: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -8162,8 +6958,6 @@ extern "C" {
         arg3: usize,
         arg4: usize,
     );
-}
-extern "C" {
     pub fn zsteqr_(
         compz: *const ::std::os::raw::c_char,
         n: *mut ::std::os::raw::c_int,
@@ -8175,8 +6969,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn ztrcon_(
         norm: *const ::std::os::raw::c_char,
         uplo: *const ::std::os::raw::c_char,
@@ -8192,8 +6984,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn ztrevc_(
         side: *const ::std::os::raw::c_char,
         howmny: *const ::std::os::raw::c_char,
@@ -8213,8 +7003,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zung2l_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8225,8 +7013,6 @@ extern "C" {
         work: *mut Rcomplex,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zung2r_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8237,8 +7023,6 @@ extern "C" {
         work: *mut Rcomplex,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zungbr_(
         vect: *const ::std::os::raw::c_char,
         m: *mut ::std::os::raw::c_int,
@@ -8252,8 +7036,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zunghr_(
         n: *mut ::std::os::raw::c_int,
         ilo: *mut ::std::os::raw::c_int,
@@ -8265,8 +7047,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zungl2_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8277,8 +7057,6 @@ extern "C" {
         work: *mut Rcomplex,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zunglq_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8290,8 +7068,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zungql_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8303,8 +7079,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zungqr_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8316,8 +7090,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zungr2_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8328,8 +7100,6 @@ extern "C" {
         work: *mut Rcomplex,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zungrq_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8341,8 +7111,6 @@ extern "C" {
         lwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn zungtr_(
         uplo: *const ::std::os::raw::c_char,
         n: *mut ::std::os::raw::c_int,
@@ -8354,8 +7122,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zunm2r_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -8372,8 +7138,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zunmbr_(
         vect: *const ::std::os::raw::c_char,
         side: *const ::std::os::raw::c_char,
@@ -8393,8 +7157,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn zunml2_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -8411,8 +7173,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zunmlq_(
         side: *const ::std::os::raw::c_char,
         trans: *const ::std::os::raw::c_char,
@@ -8430,8 +7190,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn zgesdd_(
         jobz: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -8450,8 +7208,6 @@ extern "C" {
         info: *mut ::std::os::raw::c_int,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn zgelsd_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8469,8 +7225,6 @@ extern "C" {
         iwork: *mut ::std::os::raw::c_int,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dgegv_(
         jobvl: *const ::std::os::raw::c_char,
         jobvr: *const ::std::os::raw::c_char,
@@ -8492,8 +7246,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dgeqpf_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -8504,8 +7256,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dggsvd_(
         jobu: *const ::std::os::raw::c_char,
         jobv: *const ::std::os::raw::c_char,
@@ -8534,8 +7284,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn dtzrqf_(
         m: *const ::std::os::raw::c_int,
         n: *const ::std::os::raw::c_int,
@@ -8544,8 +7292,6 @@ extern "C" {
         tau: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlahrd_(
         n: *const ::std::os::raw::c_int,
         k: *const ::std::os::raw::c_int,
@@ -8558,8 +7304,6 @@ extern "C" {
         y: *mut f64,
         ldy: *const ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dlatzm_(
         side: *const ::std::os::raw::c_char,
         m: *const ::std::os::raw::c_int,
@@ -8573,8 +7317,6 @@ extern "C" {
         work: *mut f64,
         arg1: usize,
     );
-}
-extern "C" {
     pub fn dgegs_(
         jobvsl: *const ::std::os::raw::c_char,
         jobvsr: *const ::std::os::raw::c_char,
@@ -8596,8 +7338,6 @@ extern "C" {
         arg1: usize,
         arg2: usize,
     );
-}
-extern "C" {
     pub fn dgelsx_(
         m: *mut ::std::os::raw::c_int,
         n: *mut ::std::os::raw::c_int,
@@ -8612,8 +7352,6 @@ extern "C" {
         work: *mut f64,
         info: *mut ::std::os::raw::c_int,
     );
-}
-extern "C" {
     pub fn dggsvp_(
         jobu: *const ::std::os::raw::c_char,
         jobv: *const ::std::os::raw::c_char,
@@ -8643,8 +7381,6 @@ extern "C" {
         arg2: usize,
         arg3: usize,
     );
-}
-extern "C" {
     pub fn zlahrd_(
         n: *mut ::std::os::raw::c_int,
         k: *mut ::std::os::raw::c_int,
@@ -8657,14 +7393,4 @@ extern "C" {
         y: *mut Rcomplex,
         ldy: *mut ::std::os::raw::c_int,
     );
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __crt_locale_data {
-    pub _address: u8,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __crt_multibyte_data {
-    pub _address: u8,
 }

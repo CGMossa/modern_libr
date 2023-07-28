@@ -10,85 +10,35 @@ extern "C" {
         argc: ::std::os::raw::c_int,
         argv: *mut *mut ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn Rf_endEmbeddedR(fatal: ::std::os::raw::c_int);
-}
-extern "C" {
     pub fn Rf_initialize_R(
         ac: ::std::os::raw::c_int,
         av: *mut *mut ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn setup_Rmainloop();
-}
-extern "C" {
     pub fn R_ReplDLLinit();
-}
-extern "C" {
     pub fn R_ReplDLLdo1() -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn R_setStartTime();
-}
-extern "C" {
     pub fn R_RunExitFinalizers();
-}
-extern "C" {
     pub fn CleanEd();
-}
-extern "C" {
     pub fn Rf_KillAllDevices();
-}
-extern "C" {
     pub static mut R_DirtyImage: ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn R_CleanTempDir();
-}
-extern "C" {
     pub static mut R_TempDir: *mut ::std::os::raw::c_char;
-}
-extern "C" {
     pub fn R_SaveGlobalEnv();
-}
-extern "C" {
     pub fn getDLLVersion() -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
     pub fn getRUser() -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
     pub fn get_R_HOME() -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
     pub fn freeRUser(arg1: *mut ::std::os::raw::c_char);
-}
-extern "C" {
     pub fn free_R_HOME(arg1: *mut ::std::os::raw::c_char);
-}
-extern "C" {
     pub fn setup_term_ui();
-}
-extern "C" {
     pub static mut UserBreak: ::std::os::raw::c_int;
-}
-extern "C" {
     pub static mut AllDevicesKilled: Rboolean;
-}
-extern "C" {
     pub fn editorcleanall();
-}
-extern "C" {
     pub fn GA_initapp(
         arg1: ::std::os::raw::c_int,
         arg2: *mut *mut ::std::os::raw::c_char,
     ) -> ::std::os::raw::c_int;
-}
-extern "C" {
     pub fn GA_appcleanup();
-}
-extern "C" {
     pub fn readconsolecfg();
 }

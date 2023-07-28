@@ -50,38 +50,8 @@ pub const LIBINTL_VERSION: u32 = 4352;
 pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
-extern "C" {
-    pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
-}
 pub type __vcrt_bool = bool;
-extern "C" {
-    pub fn __security_init_cookie();
-}
-extern "C" {
-    pub fn __security_check_cookie(_StackCookie: usize);
-}
-extern "C" {
-    pub fn __report_gsfailure(_StackCookie: usize) -> !;
-}
-extern "C" {
-    pub static mut __security_cookie: usize;
-}
 pub type __crt_bool = bool;
-extern "C" {
-    pub fn _invalid_parameter_noinfo();
-}
-extern "C" {
-    pub fn _invalid_parameter_noinfo_noreturn() -> !;
-}
-extern "C" {
-    pub fn _invoke_watson(
-        _Expression: *const wchar_t,
-        _FunctionName: *const wchar_t,
-        _FileName: *const wchar_t,
-        _LineNo: ::std::os::raw::c_uint,
-        _Reserved: usize,
-    ) -> !;
-}
 pub type errno_t = ::std::os::raw::c_int;
 pub type wint_t = ::std::os::raw::c_ushort;
 pub type wctype_t = ::std::os::raw::c_ushort;
@@ -548,153 +518,6 @@ fn bindgen_test_layout_lconv() {
 pub struct tm {
     _unused: [u8; 0],
 }
-extern "C" {
-    pub fn _lock_locales();
-}
-extern "C" {
-    pub fn _unlock_locales();
-}
-extern "C" {
-    pub fn _configthreadlocale(_Flag: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn setlocale(
-        _Category: ::std::os::raw::c_int,
-        _Locale: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn localeconv() -> *mut lconv;
-}
-extern "C" {
-    pub fn _get_current_locale() -> _locale_t;
-}
-extern "C" {
-    pub fn _create_locale(
-        _Category: ::std::os::raw::c_int,
-        _Locale: *const ::std::os::raw::c_char,
-    ) -> _locale_t;
-}
-extern "C" {
-    pub fn _free_locale(_Locale: _locale_t);
-}
-extern "C" {
-    pub fn _wsetlocale(_Category: ::std::os::raw::c_int, _Locale: *const wchar_t) -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _wcreate_locale(_Category: ::std::os::raw::c_int, _Locale: *const wchar_t) -> _locale_t;
-}
-extern "C" {
-    pub fn ___lc_locale_name_func() -> *mut *mut wchar_t;
-}
-extern "C" {
-    pub fn ___lc_codepage_func() -> ::std::os::raw::c_uint;
-}
-extern "C" {
-    pub fn ___lc_collate_cp_func() -> ::std::os::raw::c_uint;
-}
-extern "C" {
-    pub fn _Getdays() -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _Getmonths() -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn _Gettnames() -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn _W_Getdays() -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _W_Getmonths() -> *mut wchar_t;
-}
-extern "C" {
-    pub fn _W_Gettnames() -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn _Strftime(
-        _Buffer: *mut ::std::os::raw::c_char,
-        _Max_size: usize,
-        _Format: *const ::std::os::raw::c_char,
-        _Timeptr: *const tm,
-        _Lc_time_arg: *mut ::std::os::raw::c_void,
-    ) -> usize;
-}
-extern "C" {
-    pub fn _Wcsftime(
-        _Buffer: *mut wchar_t,
-        _Max_size: usize,
-        _Format: *const wchar_t,
-        _Timeptr: *const tm,
-        _Lc_time_arg: *mut ::std::os::raw::c_void,
-    ) -> usize;
-}
-extern "C" {
-    pub static mut libintl_version: ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn libintl_gettext(__msgid: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn libintl_dgettext(
-        __domainname: *const ::std::os::raw::c_char,
-        __msgid: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn libintl_dcgettext(
-        __domainname: *const ::std::os::raw::c_char,
-        __msgid: *const ::std::os::raw::c_char,
-        __category: ::std::os::raw::c_int,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn libintl_ngettext(
-        __msgid1: *const ::std::os::raw::c_char,
-        __msgid2: *const ::std::os::raw::c_char,
-        __n: ::std::os::raw::c_ulong,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn libintl_dngettext(
-        __domainname: *const ::std::os::raw::c_char,
-        __msgid1: *const ::std::os::raw::c_char,
-        __msgid2: *const ::std::os::raw::c_char,
-        __n: ::std::os::raw::c_ulong,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn libintl_dcngettext(
-        __domainname: *const ::std::os::raw::c_char,
-        __msgid1: *const ::std::os::raw::c_char,
-        __msgid2: *const ::std::os::raw::c_char,
-        __n: ::std::os::raw::c_ulong,
-        __category: ::std::os::raw::c_int,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn libintl_textdomain(
-        __domainname: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn libintl_bindtextdomain(
-        __domainname: *const ::std::os::raw::c_char,
-        __dirname: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn libintl_bind_textdomain_codeset(
-        __domainname: *const ::std::os::raw::c_char,
-        __codeset: *const ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn libintl_set_relocation_prefix(
-        orig_prefix: *const ::std::os::raw::c_char,
-        curr_prefix: *const ::std::os::raw::c_char,
-    );
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __crt_locale_data {
@@ -704,4 +527,103 @@ pub struct __crt_locale_data {
 #[derive(Debug, Copy, Clone)]
 pub struct __crt_multibyte_data {
     pub _address: u8,
+}
+extern "C" {
+    pub fn __va_start(arg1: *mut *mut ::std::os::raw::c_char, ...);
+    pub fn __security_init_cookie();
+    pub fn __security_check_cookie(_StackCookie: usize);
+    pub fn __report_gsfailure(_StackCookie: usize) -> !;
+    pub static mut __security_cookie: usize;
+    pub fn _invalid_parameter_noinfo();
+    pub fn _invalid_parameter_noinfo_noreturn() -> !;
+    pub fn _invoke_watson(
+        _Expression: *const wchar_t,
+        _FunctionName: *const wchar_t,
+        _FileName: *const wchar_t,
+        _LineNo: ::std::os::raw::c_uint,
+        _Reserved: usize,
+    ) -> !;
+    pub fn _lock_locales();
+    pub fn _unlock_locales();
+    pub fn _configthreadlocale(_Flag: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+    pub fn setlocale(
+        _Category: ::std::os::raw::c_int,
+        _Locale: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn localeconv() -> *mut lconv;
+    pub fn _get_current_locale() -> _locale_t;
+    pub fn _create_locale(
+        _Category: ::std::os::raw::c_int,
+        _Locale: *const ::std::os::raw::c_char,
+    ) -> _locale_t;
+    pub fn _free_locale(_Locale: _locale_t);
+    pub fn _wsetlocale(_Category: ::std::os::raw::c_int, _Locale: *const wchar_t) -> *mut wchar_t;
+    pub fn _wcreate_locale(_Category: ::std::os::raw::c_int, _Locale: *const wchar_t) -> _locale_t;
+    pub fn ___lc_locale_name_func() -> *mut *mut wchar_t;
+    pub fn ___lc_codepage_func() -> ::std::os::raw::c_uint;
+    pub fn ___lc_collate_cp_func() -> ::std::os::raw::c_uint;
+    pub fn _Getdays() -> *mut ::std::os::raw::c_char;
+    pub fn _Getmonths() -> *mut ::std::os::raw::c_char;
+    pub fn _Gettnames() -> *mut ::std::os::raw::c_void;
+    pub fn _W_Getdays() -> *mut wchar_t;
+    pub fn _W_Getmonths() -> *mut wchar_t;
+    pub fn _W_Gettnames() -> *mut ::std::os::raw::c_void;
+    pub fn _Strftime(
+        _Buffer: *mut ::std::os::raw::c_char,
+        _Max_size: usize,
+        _Format: *const ::std::os::raw::c_char,
+        _Timeptr: *const tm,
+        _Lc_time_arg: *mut ::std::os::raw::c_void,
+    ) -> usize;
+    pub fn _Wcsftime(
+        _Buffer: *mut wchar_t,
+        _Max_size: usize,
+        _Format: *const wchar_t,
+        _Timeptr: *const tm,
+        _Lc_time_arg: *mut ::std::os::raw::c_void,
+    ) -> usize;
+    pub static mut libintl_version: ::std::os::raw::c_int;
+    pub fn libintl_gettext(__msgid: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+    pub fn libintl_dgettext(
+        __domainname: *const ::std::os::raw::c_char,
+        __msgid: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn libintl_dcgettext(
+        __domainname: *const ::std::os::raw::c_char,
+        __msgid: *const ::std::os::raw::c_char,
+        __category: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn libintl_ngettext(
+        __msgid1: *const ::std::os::raw::c_char,
+        __msgid2: *const ::std::os::raw::c_char,
+        __n: ::std::os::raw::c_ulong,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn libintl_dngettext(
+        __domainname: *const ::std::os::raw::c_char,
+        __msgid1: *const ::std::os::raw::c_char,
+        __msgid2: *const ::std::os::raw::c_char,
+        __n: ::std::os::raw::c_ulong,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn libintl_dcngettext(
+        __domainname: *const ::std::os::raw::c_char,
+        __msgid1: *const ::std::os::raw::c_char,
+        __msgid2: *const ::std::os::raw::c_char,
+        __n: ::std::os::raw::c_ulong,
+        __category: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn libintl_textdomain(
+        __domainname: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn libintl_bindtextdomain(
+        __domainname: *const ::std::os::raw::c_char,
+        __dirname: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn libintl_bind_textdomain_codeset(
+        __domainname: *const ::std::os::raw::c_char,
+        __codeset: *const ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+    pub fn libintl_set_relocation_prefix(
+        orig_prefix: *const ::std::os::raw::c_char,
+        curr_prefix: *const ::std::os::raw::c_char,
+    );
 }
