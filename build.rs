@@ -33,6 +33,7 @@ fn main() {
     let r_path = r_home.join("bin/x64/R");
 
     let mut binder = bindgen::builder()
+        // FIXME: enable this
         // .header("wrapper_head.h")
         .clang_arg(format!("-I{}", r_include.display()));
     for header in &r_headers {
@@ -40,6 +41,7 @@ fn main() {
         let header = header.to_str().unwrap();
         let header = header.replace("\\", "/");
         dbg!(&header);
+        // FIXME: enable this to get rid of bloated bindings
         // binder = binder.allowlist_file(header);
     }
 
@@ -52,14 +54,16 @@ fn main() {
         let bind_header = crate_root.join("src").join("bindings").join(bind_header);
 
         std::fs::create_dir_all(bind_header.parent().unwrap()).unwrap();
-
-        // let bind_header = bind_header.file_stem().unwrap();
         dbg!(&bind_header);
 
         let mut binder = binder.clone();
 
         let specific_header = header.strip_prefix(&r_include).unwrap().to_str().unwrap();
         match specific_header {
+            "Rmath.h" => {
+                // FIXME: enable this
+                // binder = binder.header("wrapper_head_Rcomplex.h");
+            }
             "R_ext\\Parse.h" => {
                 binder = binder.header("Rinternals.h");
             }
