@@ -271,7 +271,6 @@ pub const HT_TYPE_IDENTICAL: u32 = 0;
 pub const HT_TYPE_ADDRESS: u32 = 1;
 pub const TRUE: u32 = 1;
 pub const FALSE: u32 = 0;
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
 pub type __vcrt_bool = bool;

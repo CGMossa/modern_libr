@@ -187,7 +187,6 @@ pub const IDENT_USE_SRCREF: u32 = 32;
 pub const IDENT_EXTPTR_AS_REF: u32 = 64;
 pub const HT_TYPE_IDENTICAL: u32 = 0;
 pub const HT_TYPE_ADDRESS: u32 = 1;
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
 pub type __vcrt_bool = bool;

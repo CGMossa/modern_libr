@@ -6,7 +6,6 @@ pub struct __BindgenComplex<T> {
     pub re: T,
     pub im: T,
 }
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 #[repr(C)]
 #[derive(Copy, Clone)]

@@ -257,7 +257,6 @@ pub const lLongDashDotDot: u32 = 4272456;
 pub const HWINSB: u32 = 0;
 pub const VWINSB: u32 = 1;
 pub const CONTROLSB: u32 = 2;
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
 pub type __vcrt_bool = bool;

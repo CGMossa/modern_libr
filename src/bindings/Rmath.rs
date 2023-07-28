@@ -112,7 +112,6 @@ pub const M_LN_2PI: f64 = 1.8378770664093456;
 pub const M_LN_SQRT_PI: f64 = 0.5723649429247001;
 pub const M_LN_SQRT_2PI: f64 = 0.9189385332046728;
 pub const M_LN_SQRT_PId2: f64 = 0.22579135264472744;
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 #[doc = " <div rustbindgen replaces=\"Rcomplex\"></div>"]
 #[repr(C)]

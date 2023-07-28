@@ -142,7 +142,6 @@ pub const ENABLE_NLS: u32 = 1;
 pub const PR18534fixed: u32 = 1;
 pub const SIZEOF_SIZE_T: u32 = 8;
 pub const HAVE_UINTPTR_T: u32 = 1;
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
 pub type __vcrt_bool = bool;

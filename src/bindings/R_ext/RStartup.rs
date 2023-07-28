@@ -81,7 +81,6 @@ where
     }
 }
 pub const RSTART_VERSION: u32 = 1;
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub const Rboolean_FALSE: Rboolean = 0;
 pub const Rboolean_TRUE: Rboolean = 1;

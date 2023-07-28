@@ -47,7 +47,6 @@ pub const _DISABLE_PER_THREAD_LOCALE_NEW: u32 = 512;
 pub const LC_MESSAGES: u32 = 1729;
 pub const __USE_GNU_GETTEXT: u32 = 1;
 pub const LIBINTL_VERSION: u32 = 4352;
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
 pub type __vcrt_bool = bool;

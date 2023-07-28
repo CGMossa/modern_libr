@@ -261,7 +261,6 @@ pub const ETIMEDOUT: u32 = 138;
 pub const ETXTBSY: u32 = 139;
 pub const EWOULDBLOCK: u32 = 140;
 pub const _NLSCMPERROR: u32 = 2147483647;
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
 pub type __vcrt_bool = bool;

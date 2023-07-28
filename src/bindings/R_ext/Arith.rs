@@ -82,7 +82,6 @@ pub const OVERFLOW: u32 = 3;
 pub const UNDERFLOW: u32 = 4;
 pub const TLOSS: u32 = 5;
 pub const PLOSS: u32 = 6;
-pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type va_list = *mut ::std::os::raw::c_char;
 pub type __vcrt_bool = bool;
