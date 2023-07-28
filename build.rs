@@ -2,6 +2,8 @@ use std::{path::PathBuf, process::Command, str::FromStr};
 
 // TODO: don't bother with Rdefines.h
 
+// FIXME: Why is Rboolean included everywhere?
+
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
 
@@ -43,6 +45,9 @@ fn main() {
         .clang_arg("-fparse-all-comments")
         // does something
         // .generate_cstr(true)
+        // does nothing
+        // .size_t_is_usize(true)
+        .rustified_enum(".*")
         //FIXME: enable this maybe?
         .allowlist_recursively(false)
         .clang_arg(format!("-I{}", r_include.display()));
