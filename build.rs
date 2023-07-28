@@ -1,5 +1,7 @@
 use std::{path::PathBuf, process::Command, str::FromStr};
 
+// TODO: don't bother with Rdefines.h
+
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
 
