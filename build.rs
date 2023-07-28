@@ -35,6 +35,9 @@ fn main() {
     let binder = bindgen::builder()
         .layout_tests(false)
         .sort_semantically(true)
+        // does nothing
+        // .translate_enum_integer_types(true)  
+        .clang_arg("-std=c11")
         .header("wrapper_head.h")
         .blocklist_file(".*stddef\\.h")
         .blocklist_file(".*wrapper_header\\.h")
