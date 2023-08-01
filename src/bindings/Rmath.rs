@@ -15,13 +15,6 @@ pub type time_t = __time64_t;
 pub type rsize_t = usize;
 pub type float_t = f32;
 pub type double_t = f64;
-#[doc = " R 4.3 redefined `Rcomplex` to a union for compatibility with Fortran.\n But the old definition is compatible both the union version\n and the struct version.\n See: https://github.com/extendr/extendr/issues/524\n <div rustbindgen replaces=\"Rcomplex\"></div>"]
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct Rcomplex {
-    pub r: f64,
-    pub i: f64,
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __crt_locale_data_public {

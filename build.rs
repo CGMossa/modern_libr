@@ -112,11 +112,10 @@ fn generate_bindings() {
             }
 
             match specific_header {
-                "Rmath.h" => {
-                    // FIXME: so this causes a repetition that I'm not sure I particularly like.
+                // TODO: Add `R_ext\\Complex.h` and use the `Rcomplex` we defined in `wrapper_head_Rcomplex.h`
+                r"R_ext/Complex.h" => {
                     binder = binder.header("wrapper_head_Rcomplex.h");
                 }
-                // TODO: Add `R_ext\\Complex.h` and use the `Rcomplex` we defined in `wrapper_head_Rcomplex.h`
                 "R_ext\\Parse.h" => {
                     binder = binder.header("Rinternals.h");
                     binder = binder.blocklist_file(".*Rinternals\\.h");
