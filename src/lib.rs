@@ -1,7 +1,6 @@
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
-#![allow(ambiguous_glob_reexports)]
 
 pub mod bindings {
     #[path = "R.rs"]
@@ -133,18 +132,22 @@ pub mod bindings {
 
         // region: unmentioned api
 
-        // FIXME: skipped
-        // "R_ext/GraphicsDevice.h"
-        // why?
-        
+        pub mod graphics_device {
+            use super::super::r_internals::cetype_t;
+            use super::super::r_internals::SEXP;
+            use super::boolean::Rboolean;
 
-        // pub mod graphics_engine {
-        //     use super::super::r_internals::SEXP;
-        //     use super::boolean::Rboolean;
-        //     use super::super::r_internals::cetype_t;
+            include!("bindings/R_ext/GraphicsDevice.rs");
+        }
 
-        //     include!("bindings/R_ext/GraphicsEngine.rs");
-        // }
+        pub mod graphics_engine {
+            use super::super::r_internals::SEXP;
+            use super::boolean::Rboolean;
+            use super::super::r_internals::cetype_t;
+            use super::graphics_device::pDevDesc;
+
+            include!("bindings/R_ext/GraphicsEngine.rs");
+        }
 
         pub mod connections {
             use super::super::r_internals::SEXP;
@@ -152,7 +155,7 @@ pub mod bindings {
             include!("bindings/R_ext/Connections.rs");
         }
 
-        // pub mod itermacros;
+        pub mod itermacros;
 
         #[path = "MathThreads.rs"]
         pub mod math_threads;
@@ -202,6 +205,7 @@ pub mod bindings {
     pub mod r_config;
 
     pub mod r_prelude {
+        #![allow(ambiguous_glob_reexports)]
         //! The `R.h`-header would provide all of these objects, plus itself.
         //!
         pub use super::r_config::*;
