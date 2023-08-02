@@ -2,8 +2,9 @@
 use std::{path::PathBuf, process::Command, str::FromStr};
 
 // TODO: don't bother with Rdefines.h
-
 // TODO: itermacros.h needs custom import.
+// TODO: RS.h uses STRICT_R_HEADERS.
+// TODO: use `get_r_library`
 
 fn main() {
     // FIXME: use or remove these
@@ -15,9 +16,6 @@ fn main() {
     generate_bindings();
 }
 
-// TODO: RS.h uses STRICT_R_HEADERS.
-
-//TODO: use `get_r_library`
 
 /// Returns the path to the R library.
 #[cfg(feature = "generate_bindings")]
@@ -35,6 +33,7 @@ fn get_r_library(r_home: &std::path::Path) -> PathBuf {
 }
 
 #[cfg(feature = "generate_bindings")]
+/// Generates and stores bindings for each r-header.
 fn generate_bindings() {
     println!("cargo:rerun-if-changed=build.rs");
 
@@ -101,20 +100,19 @@ fn generate_bindings() {
                         // .generate_block(true)
                         // does nothing
                         .generate_comments(true)
-                        // does nothing?
                         .clang_arg("-fparse-all-comments")
+                        // does nothing?
                         // does something
                         // .generate_cstr(true)
                         // does nothing
                         // .size_t_is_usize(true)
+                        
                         // `VECTOR_PTR` is deprecated, use `DATAPTR` and friends instead
                         .blocklist_item("VECTOR_PTR")
                         .wrap_unsafe_ops(true)
                         .rustified_enum(".*")
                         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
                         .parse_callbacks(Box::new(FixDocs))
-                        //FIXME: enable this maybe?
-                        // .allowlist_recursively(false)
                         .clang_arg(format!("-I{}", (&r_include).display()));
 
                     //TODO: add platform specific define, #define Win32 for example
