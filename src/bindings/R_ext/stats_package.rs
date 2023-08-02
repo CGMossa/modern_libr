@@ -9,7 +9,7 @@ pub enum AlgType {
     OPT = 2,
 }
 #[repr(i32)]
-#[doc = " 0-based indices into v"]
+#[doc = "0-based indices into v"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum VPos {
     F = 9,
@@ -19,7 +19,7 @@ pub enum VPos {
     HC = 70,
 }
 #[repr(i32)]
-#[doc = " 0-based indices into iv"]
+#[doc = "0-based indices into iv"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum IVPos {
     AI = 90,

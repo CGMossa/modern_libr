@@ -2410,7 +2410,7 @@ extern "C" {
     ) -> *mut ::std::os::raw::c_char;
     pub fn strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
     pub fn R_FlushConsole();
-    #[doc = " always declared, but only usable under Win32 and Aqua"]
+    #[doc = "always declared, but only usable under Win32 and Aqua"]
     pub fn R_ProcessEvents();
     pub fn R_WaitEvent();
 }

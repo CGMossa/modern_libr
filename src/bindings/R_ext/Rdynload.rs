@@ -2,7 +2,7 @@
 
 pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
-#[doc = " Called with a variable argument set after casting to a compatible\nfunction pointer."]
+#[doc = "Called with a variable argument set after casting to a compatible\nfunction pointer."]
 pub type DL_FUNC = ::std::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>;
 pub type R_NativePrimitiveArgType = ::std::os::raw::c_uint;
 #[doc = "These are very similar to those in Rdynpriv.h,\nbut we maintain them separately to give us more freedom to do\nsome computations on the internal versions that are derived from\nthese definitions."]
@@ -57,14 +57,14 @@ extern "C" {
     pub fn R_useDynamicSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
     pub fn R_forceSymbols(info: *mut DllInfo, value: Rboolean) -> Rboolean;
     pub fn R_getDllInfo(name: *const ::std::os::raw::c_char) -> *mut DllInfo;
-    #[doc = " To be used by applications embedding R to register their symbols\nthat are not related to any dynamic module"]
+    #[doc = "To be used by applications embedding R to register their symbols\nthat are not related to any dynamic module"]
     pub fn R_getEmbeddingDllInfo() -> *mut DllInfo;
     pub fn R_FindSymbol(
         arg1: *const ::std::os::raw::c_char,
         arg2: *const ::std::os::raw::c_char,
         symbol: *mut R_RegisteredNativeSymbol,
     ) -> DL_FUNC;
-    #[doc = " Interface for exporting and importing functions from one package\nfor use from C code in a package.  The registration part probably\nought to be integrated with the other registrations.  The naming of\nthese routines may be less than ideal."]
+    #[doc = "Interface for exporting and importing functions from one package\nfor use from C code in a package.  The registration part probably\nought to be integrated with the other registrations.  The naming of\nthese routines may be less than ideal."]
     pub fn R_RegisterCCallable(
         package: *const ::std::os::raw::c_char,
         name: *const ::std::os::raw::c_char,

@@ -637,7 +637,7 @@ extern "C" {
         _Value: ::std::os::raw::c_int,
     ) -> *mut ::std::os::raw::c_char;
     pub fn strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-    #[doc = " S Like Memory Management"]
+    #[doc = "S Like Memory Management"]
     pub fn R_chk_calloc(arg1: usize, arg2: usize) -> *mut ::std::os::raw::c_void;
     pub fn R_chk_realloc(
         arg1: *mut ::std::os::raw::c_void,

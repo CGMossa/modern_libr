@@ -20,7 +20,7 @@ pub type float_t = f32;
 pub type double_t = f64;
 pub type __gnuc_va_list = __builtin_va_list;
 pub type pGEcontext = *mut R_GE_gcontext;
-#[doc = " --------- New (in 1.4.0) device driver structure ---------\n NOTES:\n 1. All locations and dimensions are in device coordinates.\n 2. I found this comment in the doc for dev_Open -- looks nasty\n    Any known instances of such a thing happening?  Should be\n    replaced by a function to query the device for preferred gpars\n    settings? (to be called when the device is initialised)\n\n NOTE that it is perfectly acceptable for this\n function to set generic graphics parameters too\n (i.e., override the generic parameter settings\n which GInit sets up) all at the author's own risk\n of course :)\n\n 3. Do we really need dev_StrWidth as well as dev_MetricInfo?\n    I can see the difference between the two -- its just a\n    question of whether dev_MetricInfo should just return\n    what dev_StrWidth would give if font metric information is\n    not available.  I guess having both allows the developer\n    to decide when to ask for which sort of value, and to decide\n    what to do when font metric information is not available.\n    And why not a dev_StrHeight?\n 4. Should \"ipr\", \"asp\", and \"cra\" be in the device description?\n    If not, then where?\n    I guess they don't need to be if no device makes use of them.\n    On the other hand, they would need to be replaced by a device\n    call that R base graphics could use to get enough information\n    to figure them out.  (e.g., some sort of dpi() function to\n    complement the size() function.)"]
+#[doc = "--------- New (in 1.4.0) device driver structure ---------\n NOTES:\n 1. All locations and dimensions are in device coordinates.\n 2. I found this comment in the doc for dev_Open -- looks nasty\n    Any known instances of such a thing happening?  Should be\n    replaced by a function to query the device for preferred gpars\n    settings? (to be called when the device is initialised)\n\n NOTE that it is perfectly acceptable for this\n function to set generic graphics parameters too\n (i.e., override the generic parameter settings\n which GInit sets up) all at the author's own risk\n of course :)\n\n 3. Do we really need dev_StrWidth as well as dev_MetricInfo?\n    I can see the difference between the two -- its just a\n    question of whether dev_MetricInfo should just return\n    what dev_StrWidth would give if font metric information is\n    not available.  I guess having both allows the developer\n    to decide when to ask for which sort of value, and to decide\n    what to do when font metric information is not available.\n    And why not a dev_StrHeight?\n 4. Should \"ipr\", \"asp\", and \"cra\" be in the device description?\n    If not, then where?\n    I guess they don't need to be if no device makes use of them.\n    On the other hand, they would need to be replaced by a device\n    call that R base graphics could use to get enough information\n    to figure them out.  (e.g., some sort of dpi() function to\n    complement the size() function.)"]
 pub type DevDesc = _DevDesc;
 pub type pDevDesc = *mut DevDesc;
 pub type GEDevDesc = _GEDevDesc;
@@ -71,95 +71,95 @@ pub struct _complex {
     pub x: f64,
     pub y: f64,
 }
-#[doc = " A structure containing graphical parameters\n\n This is how graphical parameters are passed from graphics systems\n to the graphics engine AND from the graphics engine to graphics\n devices.\n\n Devices are not *required* to honour graphical parameters\n (e.g., alpha transparency is going to be tough for some)"]
+#[doc = "A structure containing graphical parameters\n\n This is how graphical parameters are passed from graphics systems\n to the graphics engine AND from the graphics engine to graphics\n devices.\n\n Devices are not *required* to honour graphical parameters\n (e.g., alpha transparency is going to be tough for some)"]
 #[repr(C)]
 pub struct R_GE_gcontext {
-    #[doc = " pen colour (lines, text, borders, ...)"]
+    #[doc = "pen colour (lines, text, borders, ...)"]
     pub col: ::std::os::raw::c_int,
-    #[doc = " fill colour (for polygons, circles, rects, ...)"]
+    #[doc = "fill colour (for polygons, circles, rects, ...)"]
     pub fill: ::std::os::raw::c_int,
-    #[doc = " Gamma correction"]
+    #[doc = "Gamma correction"]
     pub gamma: f64,
-    #[doc = " Line width (roughly number of pixels)"]
+    #[doc = "Line width (roughly number of pixels)"]
     pub lwd: f64,
-    #[doc = " Line type (solid, dashed, dotted, ...)"]
+    #[doc = "Line type (solid, dashed, dotted, ...)"]
     pub lty: ::std::os::raw::c_int,
-    #[doc = " Line end"]
+    #[doc = "Line end"]
     pub lend: R_GE_lineend,
-    #[doc = " line join"]
+    #[doc = "line join"]
     pub ljoin: R_GE_linejoin,
-    #[doc = " line mitre"]
+    #[doc = "line mitre"]
     pub lmitre: f64,
-    #[doc = " Character expansion (font size = fontsize*cex)"]
+    #[doc = "Character expansion (font size = fontsize*cex)"]
     pub cex: f64,
-    #[doc = " Font size in points"]
+    #[doc = "Font size in points"]
     pub ps: f64,
-    #[doc = " Line height (multiply by font size)"]
+    #[doc = "Line height (multiply by font size)"]
     pub lineheight: f64,
-    #[doc = " Font face (plain, italic, bold, ...)"]
+    #[doc = "Font face (plain, italic, bold, ...)"]
     pub fontface: ::std::os::raw::c_int,
-    #[doc = " Font family"]
+    #[doc = "Font family"]
     pub fontfamily: [::std::os::raw::c_char; 201usize],
-    #[doc = " Reference to a pattern fill"]
+    #[doc = "Reference to a pattern fill"]
     pub patternFill: SEXP,
 }
 #[repr(C)]
 pub struct _DevDesc {
-    #[doc = " left raster coordinate"]
+    #[doc = "left raster coordinate"]
     pub left: f64,
-    #[doc = " right raster coordinate"]
+    #[doc = "right raster coordinate"]
     pub right: f64,
-    #[doc = " bottom raster coordinate"]
+    #[doc = "bottom raster coordinate"]
     pub bottom: f64,
-    #[doc = " top raster coordinate"]
+    #[doc = "top raster coordinate"]
     pub top: f64,
-    #[doc = " R only has the notion of a rectangular clipping region"]
+    #[doc = "R only has the notion of a rectangular clipping region"]
     pub clipLeft: f64,
     pub clipRight: f64,
     pub clipBottom: f64,
     pub clipTop: f64,
-    #[doc = " x character addressing offset - unused"]
+    #[doc = "x character addressing offset - unused"]
     pub xCharOffset: f64,
-    #[doc = " y character addressing offset"]
+    #[doc = "y character addressing offset"]
     pub yCharOffset: f64,
-    #[doc = " 1/2 interline space as frac of line height"]
+    #[doc = "1/2 interline space as frac of line height"]
     pub yLineBias: f64,
-    #[doc = " Inches per raster; [0]=x, [1]=y"]
+    #[doc = "Inches per raster; `[0]`=x, `[1]`=y"]
     pub ipr: [f64; 2usize],
-    #[doc = " Character size in rasters; [0]=x, [1]=y"]
+    #[doc = "Character size in rasters; `[0]`=x, `[1]`=y"]
     pub cra: [f64; 2usize],
-    #[doc = " (initial) Device Gamma Correction"]
+    #[doc = "(initial) Device Gamma Correction"]
     pub gamma: f64,
-    #[doc = " Device-level clipping"]
+    #[doc = "Device-level clipping"]
     pub canClip: Rboolean,
-    #[doc = " can the gamma factor be modified?"]
+    #[doc = "can the gamma factor be modified?"]
     pub canChangeGamma: Rboolean,
-    #[doc = " Can do at least some horiz adjust of text\n0 = none, 1 = {0,0.5,1}, 2 = [0,1]"]
+    #[doc = "Can do at least some horiz adjust of text\n0 = none, 1 = {0,0.5,1}, 2 = `[0,1]`"]
     pub canHAdj: ::std::os::raw::c_int,
-    #[doc = " Device initial settings\n/\n/* These are things that the device must set up when it is created.\n The graphics system can modify them and track current values,"]
+    #[doc = "Device initial settings\n/\n/* These are things that the device must set up when it is created.\n The graphics system can modify them and track current values,"]
     pub startps: f64,
-    #[doc = " sets par(\"fg\"), par(\"col\") and gpar(\"col\")"]
+    #[doc = "sets par(\"fg\"), par(\"col\") and gpar(\"col\")"]
     pub startcol: ::std::os::raw::c_int,
-    #[doc = " sets par(\"bg\") and gpar(\"fill\")"]
+    #[doc = "sets par(\"bg\") and gpar(\"fill\")"]
     pub startfill: ::std::os::raw::c_int,
     pub startlty: ::std::os::raw::c_int,
     pub startfont: ::std::os::raw::c_int,
     pub startgamma: f64,
-    #[doc = " pointer to device specific parameters"]
+    #[doc = "pointer to device specific parameters"]
     pub deviceSpecific: *mut ::std::os::raw::c_void,
-    #[doc = " toggle for initial display list status"]
+    #[doc = "toggle for initial display list status"]
     pub displayListOn: Rboolean,
-    #[doc = " can the device generate mousedown events"]
+    #[doc = "can the device generate mousedown events"]
     pub canGenMouseDown: Rboolean,
-    #[doc = " can the device generate mousemove events"]
+    #[doc = "can the device generate mousemove events"]
     pub canGenMouseMove: Rboolean,
-    #[doc = " can the device generate mouseup events"]
+    #[doc = "can the device generate mouseup events"]
     pub canGenMouseUp: Rboolean,
-    #[doc = " can the device generate keyboard events"]
+    #[doc = "can the device generate keyboard events"]
     pub canGenKeybd: Rboolean,
-    #[doc = " can the device generate idle events"]
+    #[doc = "can the device generate idle events"]
     pub canGenIdle: Rboolean,
-    #[doc = " This is set while getGraphicsEvent\nis actively looking for events"]
+    #[doc = "This is set while getGraphicsEvent\nis actively looking for events"]
     pub gettingEvent: Rboolean,
     pub activate: ::std::option::Option<unsafe extern "C" fn(arg1: pDevDesc)>,
     pub circle: ::std::option::Option<
@@ -265,12 +265,12 @@ pub struct _DevDesc {
         ),
     >,
     pub onExit: ::std::option::Option<unsafe extern "C" fn(dd: pDevDesc)>,
-    #[doc = " device_getEvent is no longer used, but the slot is kept for back\n compatibility of the structure."]
+    #[doc = "device_getEvent is no longer used, but the slot is kept for back\n compatibility of the structure."]
     pub getEvent: ::std::option::Option<
         unsafe extern "C" fn(arg1: SEXP, arg2: *const ::std::os::raw::c_char) -> SEXP,
     >,
     pub newFrameConfirm: ::std::option::Option<unsafe extern "C" fn(dd: pDevDesc) -> Rboolean>,
-    #[doc = " and strWidthUTF8"]
+    #[doc = "and strWidthUTF8"]
     pub hasTextUTF8: Rboolean,
     pub textUTF8: ::std::option::Option<
         unsafe extern "C" fn(
@@ -291,24 +291,24 @@ pub struct _DevDesc {
         ) -> f64,
     >,
     pub wantSymbolUTF8: Rboolean,
-    #[doc = " Is rotated text good enough to be preferable to Hershey in\ncontour labels?  Old default was FALSE."]
+    #[doc = "Is rotated text good enough to be preferable to Hershey in\ncontour labels?  Old default was FALSE."]
     pub useRotatedTextInContour: Rboolean,
-    #[doc = " This is an environment holding event handlers."]
+    #[doc = "This is an environment holding event handlers."]
     pub eventEnv: SEXP,
     pub eventHelper:
         ::std::option::Option<unsafe extern "C" fn(dd: pDevDesc, code: ::std::os::raw::c_int)>,
     pub holdflush: ::std::option::Option<
         unsafe extern "C" fn(dd: pDevDesc, level: ::std::os::raw::c_int) -> ::std::os::raw::c_int,
     >,
-    #[doc = " 1 = no, 2 = yes"]
+    #[doc = "1 = no, 2 = yes"]
     pub haveTransparency: ::std::os::raw::c_int,
-    #[doc = " 1 = no, 2 = fully, 3 = semi"]
+    #[doc = "1 = no, 2 = fully, 3 = semi"]
     pub haveTransparentBg: ::std::os::raw::c_int,
-    #[doc = " 1 = no, 2 = yes, 3 = except for missing values"]
+    #[doc = "1 = no, 2 = yes, 3 = except for missing values"]
     pub haveRaster: ::std::os::raw::c_int,
-    #[doc = " 1 = no, 2 = yes"]
+    #[doc = "1 = no, 2 = yes"]
     pub haveCapture: ::std::os::raw::c_int,
-    #[doc = " 1 = no, 2 = yes"]
+    #[doc = "1 = no, 2 = yes"]
     pub haveLocator: ::std::os::raw::c_int,
     pub setPattern:
         ::std::option::Option<unsafe extern "C" fn(pattern: SEXP, dd: pDevDesc) -> SEXP>,
@@ -319,9 +319,9 @@ pub struct _DevDesc {
     pub setMask:
         ::std::option::Option<unsafe extern "C" fn(path: SEXP, ref_: SEXP, dd: pDevDesc) -> SEXP>,
     pub releaseMask: ::std::option::Option<unsafe extern "C" fn(ref_: SEXP, dd: pDevDesc)>,
-    #[doc = " This should match R_GE_version,\n BUT it does not have to.\n It give the graphics engine a chance to work with\n graphics device packages BEFORE they update to\n changes in R_GE_version."]
+    #[doc = "This should match R_GE_version,\n BUT it does not have to.\n It give the graphics engine a chance to work with\n graphics device packages BEFORE they update to\n changes in R_GE_version."]
     pub deviceVersion: ::std::os::raw::c_int,
-    #[doc = " This can be used to OVERRIDE canClip so that graphics engine\n leaves ALL clipping to the graphics device"]
+    #[doc = "This can be used to OVERRIDE canClip so that graphics engine\n leaves ALL clipping to the graphics device"]
     pub deviceClip: Rboolean,
     pub defineGroup: ::std::option::Option<
         unsafe extern "C" fn(
@@ -356,38 +356,38 @@ pub struct _DevDesc {
             dd: pDevDesc,
         ),
     >,
-    #[doc = " Area for future expansion.\nBy zeroing this, devices are more likely to work if loaded\ninto a later version of R than that they were compiled under."]
+    #[doc = "Area for future expansion.\nBy zeroing this, devices are more likely to work if loaded\ninto a later version of R than that they were compiled under."]
     pub reserved: [::std::os::raw::c_char; 64usize],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct GESystemDesc {
-    #[doc = " An array of information about each graphics system that\n has registered with the graphics engine.\n This is used to store graphics state for each graphics\n system on each device."]
+    #[doc = "An array of information about each graphics system that\n has registered with the graphics engine.\n This is used to store graphics state for each graphics\n system on each device."]
     pub systemSpecific: *mut ::std::os::raw::c_void,
-    #[doc = " An array of function pointers, one per graphics system that\n has registered with the graphics engine.\n\n system_Callback is called when the graphics engine wants\n to give a graphics system the chance to play with its\n device-specific information (stored in systemSpecific)\n There are two parameters:  an \"event\" to tell the graphics\n system why the graphics engine has called this function,\n and the systemSpecific pointer.  The graphics engine\n has to pass the systemSpecific pointer because only\n the graphics engine will know what array index to use."]
+    #[doc = "An array of function pointers, one per graphics system that\n has registered with the graphics engine.\n\n system_Callback is called when the graphics engine wants\n to give a graphics system the chance to play with its\n device-specific information (stored in systemSpecific)\n There are two parameters:  an \"event\" to tell the graphics\n system why the graphics engine has called this function,\n and the systemSpecific pointer.  The graphics engine\n has to pass the systemSpecific pointer because only\n the graphics engine will know what array index to use."]
     pub callback: GEcallback,
 }
 #[repr(C)]
 pub struct _GEDevDesc {
-    #[doc = " Stuff that the devices can see (and modify).\n All detailed in GraphicsDevice.h"]
+    #[doc = "Stuff that the devices can see (and modify).\n All detailed in GraphicsDevice.h"]
     pub dev: pDevDesc,
-    #[doc = " toggle for display list status"]
+    #[doc = "toggle for display list status"]
     pub displayListOn: Rboolean,
-    #[doc = " display list"]
+    #[doc = "display list"]
     pub displayList: SEXP,
-    #[doc = " A pointer to the end of the display list\nto avoid traversing pairlists"]
+    #[doc = "A pointer to the end of the display list\nto avoid traversing pairlists"]
     pub DLlastElt: SEXP,
-    #[doc = " The last element of the display list\n just prior to when the display list\n was last initialised"]
+    #[doc = "The last element of the display list\n just prior to when the display list\n was last initialised"]
     pub savedSnapshot: SEXP,
-    #[doc = " Has the device received any output?"]
+    #[doc = "Has the device received any output?"]
     pub dirty: Rboolean,
-    #[doc = " Should a graphics call be stored\n on the display list?\n Set to FALSE by do_recordGraphics,\n do_dotcallgr, and do_Externalgr\n so that nested calls are not\n recorded on the display list"]
+    #[doc = "Should a graphics call be stored\n on the display list?\n Set to FALSE by do_recordGraphics,\n do_dotcallgr, and do_Externalgr\n so that nested calls are not\n recorded on the display list"]
     pub recordGraphics: Rboolean,
-    #[doc = " Stuff about the device that only graphics systems see.\n The graphics engine has no idea what is in here.\n Used by graphics systems to store system state per device."]
+    #[doc = "Stuff about the device that only graphics systems see.\n The graphics engine has no idea what is in here.\n Used by graphics systems to store system state per device."]
     pub gesd: [*mut GESystemDesc; 24usize],
-    #[doc = " per-device setting for 'ask' (use NewFrameConfirm)"]
+    #[doc = "per-device setting for 'ask' (use NewFrameConfirm)"]
     pub ask: Rboolean,
-    #[doc = " Is a device appending a path ?"]
+    #[doc = "Is a device appending a path ?"]
     pub appending: Rboolean,
 }
 #[repr(C)]
@@ -601,12 +601,12 @@ pub const R_GE_text_style_normal: u32 = 1;
 pub const R_GE_text_style_italic: u32 = 2;
 pub const R_GE_text_style_oblique: u32 = 3;
 #[repr(i32)]
-#[doc = " The graphics engine will only accept locations and dimensions\n in native device coordinates, but it provides the following functions\n for converting between a couple of simple alternative coordinate\n systems and device coordinates:\n    DEVICE = native units of the device\n    NDC = Normalised device coordinates\n    INCHES = inches (!)\n    CM = centimetres (!!)"]
+#[doc = "The graphics engine will only accept locations and dimensions\n in native device coordinates, but it provides the following functions\n for converting between a couple of simple alternative coordinate\n systems and device coordinates:\n    DEVICE = native units of the device\n    NDC = Normalised device coordinates\n    INCHES = inches (!)\n    CM = centimetres (!!)"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum GEUnit {
-    #[doc = " native device coordinates (rasters)"]
+    #[doc = "native device coordinates (rasters)"]
     GE_DEVICE = 0,
-    #[doc = " normalised device coordinates x=(0,1), y=(0,1)"]
+    #[doc = "normalised device coordinates x=(0,1), y=(0,1)"]
     GE_NDC = 1,
     GE_INCHES = 2,
     GE_CM = 3,
@@ -614,27 +614,27 @@ pub enum GEUnit {
 #[repr(i32)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum GEevent {
-    #[doc = " In response to this event, the registered graphics system\n should allocate and initialise the systemSpecific structure\n\n Should return R_NilValue on failure so that engine\n can tidy up memory allocation"]
+    #[doc = "In response to this event, the registered graphics system\n should allocate and initialise the systemSpecific structure\n\n Should return R_NilValue on failure so that engine\n can tidy up memory allocation"]
     GE_InitState = 0,
-    #[doc = " This event gives the registered system a chance to undo\n anything done in the initialisation."]
+    #[doc = "This event gives the registered system a chance to undo\n anything done in the initialisation."]
     GE_FinaliseState = 1,
-    #[doc = " This is sent by the graphics engine prior to initialising\n the display list.  It give the graphics system the chance\n to squirrel away information it will need for redrawing the\n the display list"]
+    #[doc = "This is sent by the graphics engine prior to initialising\n the display list.  It give the graphics system the chance\n to squirrel away information it will need for redrawing the\n the display list"]
     GE_SaveState = 2,
-    #[doc = " This is sent by the graphics engine prior to replaying the\n display list.  It gives the graphics system the chance to\n restore any information it saved on the GE_SaveState event"]
+    #[doc = "This is sent by the graphics engine prior to replaying the\n display list.  It gives the graphics system the chance to\n restore any information it saved on the GE_SaveState event"]
     GE_RestoreState = 6,
-    #[doc = " Copy system state information to the current device.\n This is used when copying graphics from one device to another\n so all the graphics system needs to do is to copy across\n the bits required for the display list to draw faithfully\n on the new device."]
+    #[doc = "Copy system state information to the current device.\n This is used when copying graphics from one device to another\n so all the graphics system needs to do is to copy across\n the bits required for the display list to draw faithfully\n on the new device."]
     GE_CopyState = 3,
-    #[doc = " Create a snapshot of the system state that is sufficient\n for the current \"image\" to be reproduced"]
+    #[doc = "Create a snapshot of the system state that is sufficient\n for the current \"image\" to be reproduced"]
     GE_SaveSnapshotState = 4,
-    #[doc = " Restore the system state that is saved by GE_SaveSnapshotState"]
+    #[doc = "Restore the system state that is saved by GE_SaveSnapshotState"]
     GE_RestoreSnapshotState = 5,
-    #[doc = " When replaying the display list, the graphics engine\n checks, after each replayed action, that the action\n produced valid output.  This is the graphics system's\n chance to say that the output is crap (in which case the\n graphics engine will abort the display list replay)."]
+    #[doc = "When replaying the display list, the graphics engine\n checks, after each replayed action, that the action\n produced valid output.  This is the graphics system's\n chance to say that the output is crap (in which case the\n graphics engine will abort the display list replay)."]
     GE_CheckPlot = 7,
-    #[doc = " The device wants to scale the current pointsize\n (for scaling an image)\n This is not a nice general solution, but a quick fix for\n the Windows device."]
+    #[doc = "The device wants to scale the current pointsize\n (for scaling an image)\n This is not a nice general solution, but a quick fix for\n the Windows device."]
     GE_ScalePS = 8,
 }
 #[repr(i32)]
-#[doc = "  Some line end/join constants"]
+#[doc = "Some line end/join constants"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum R_GE_lineend {
     GE_ROUND_CAP = 1,
@@ -649,7 +649,7 @@ pub enum R_GE_linejoin {
     GE_BEVEL_JOIN = 3,
 }
 #[repr(i32)]
-#[doc = " These give the indices of some known keys"]
+#[doc = "These give the indices of some known keys"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum R_KeyName {
     knUNKNOWN = -1,
@@ -677,7 +677,7 @@ pub enum R_KeyName {
     knDEL = 21,
 }
 #[repr(i32)]
-#[doc = " These are the three possible mouse events"]
+#[doc = "These are the three possible mouse events"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum R_MouseEvent {
     meMouseDown = 0,
@@ -1364,7 +1364,7 @@ extern "C" {
     pub fn R_GE_checkVersionOrDie(version: ::std::os::raw::c_int);
     pub fn Rf_ndevNumber(arg1: pDevDesc) -> ::std::os::raw::c_int;
     pub fn Rf_NumDevices() -> ::std::os::raw::c_int;
-    #[doc = " Check for an available device slot"]
+    #[doc = "Check for an available device slot"]
     pub fn R_CheckDeviceAvailable();
     pub fn R_CheckDeviceAvailableBool() -> Rboolean;
     pub fn Rf_curDevice() -> ::std::os::raw::c_int;
@@ -1403,7 +1403,7 @@ extern "C" {
         in_: *const ::std::os::raw::c_char,
         usePUA: Rboolean,
     ) -> *const ::std::os::raw::c_char;
-    #[doc = " Translates Unicode point to UTF-8"]
+    #[doc = "Translates Unicode point to UTF-8"]
     pub fn Rf_ucstoutf8(s: *mut ::std::os::raw::c_char, c: ::std::os::raw::c_uint) -> usize;
     pub fn Rf_desc2GEDesc(dd: pDevDesc) -> pGEDevDesc;
     pub fn GEdeviceNumber(arg1: pGEDevDesc) -> ::std::os::raw::c_int;
@@ -1437,7 +1437,7 @@ extern "C" {
     pub fn Rf_RGBpar(arg1: SEXP, arg2: ::std::os::raw::c_int) -> rcolor;
     pub fn Rf_RGBpar3(arg1: SEXP, arg2: ::std::os::raw::c_int, arg3: rcolor) -> rcolor;
     pub fn Rf_col2name(col: rcolor) -> *const ::std::os::raw::c_char;
-    #[doc = " Convert either a name or a #RRGGBB[AA] string to internal.\nBecause people were using it, it also converts \"1\", \"2\" ...\nto a colour in the palette, and \"0\" to transparent white."]
+    #[doc = "Convert either a name or a #RRGGBB`[AA]` string to internal.\nBecause people were using it, it also converts \"1\", \"2\" ...\nto a colour in the palette, and \"0\" to transparent white."]
     pub fn R_GE_str2col(s: *const ::std::os::raw::c_char) -> rcolor;
     pub fn GE_LENDpar(value: SEXP, ind: ::std::os::raw::c_int) -> R_GE_lineend;
     pub fn GE_LENDget(lend: R_GE_lineend) -> SEXP;
@@ -1550,7 +1550,7 @@ extern "C" {
     #[doc = "-------------------------------------------------------------------\n\n  LINE TEXTURE CODE is concerned with the internals of R\n  line texture representation."]
     pub fn GE_LTYpar(arg1: SEXP, arg2: ::std::os::raw::c_int) -> ::std::os::raw::c_uint;
     pub fn GE_LTYget(arg1: ::std::os::raw::c_uint) -> SEXP;
-    #[doc = " Raster operations"]
+    #[doc = "Raster operations"]
     pub fn R_GE_rasterScale(
         sraster: *mut ::std::os::raw::c_uint,
         sw: ::std::os::raw::c_int,
@@ -1600,7 +1600,7 @@ extern "C" {
         gc: pGEcontext,
         perPixelAlpha: Rboolean,
     );
-    #[doc = " From plotmath.c"]
+    #[doc = "From plotmath.c"]
     pub fn GEExpressionWidth(expr: SEXP, gc: pGEcontext, dd: pGEDevDesc) -> f64;
     pub fn GEExpressionHeight(expr: SEXP, gc: pGEcontext, dd: pGEDevDesc) -> f64;
     pub fn GEExpressionMetric(
@@ -1621,7 +1621,7 @@ extern "C" {
         gc: pGEcontext,
         dd: pGEDevDesc,
     );
-    #[doc = " From plot3d.c : used in package clines"]
+    #[doc = "From plot3d.c : used in package clines"]
     pub fn GEcontourLines(
         x: *mut f64,
         nx: ::std::os::raw::c_int,
@@ -1631,7 +1631,7 @@ extern "C" {
         levels: *mut f64,
         nl: ::std::os::raw::c_int,
     ) -> SEXP;
-    #[doc = " From vfonts.c"]
+    #[doc = "From vfonts.c"]
     pub fn R_GE_VStrWidth(
         s: *const ::std::os::raw::c_char,
         enc: cetype_t,
@@ -1681,7 +1681,7 @@ extern "C" {
         log: Rboolean,
         axis: ::std::os::raw::c_int,
     );
-    #[doc = " Patterns - from ../../main/patterns.c"]
+    #[doc = "Patterns - from ../../main/patterns.c"]
     pub fn R_GE_isPattern(x: SEXP) -> Rboolean;
     pub fn R_GE_patternType(pattern: SEXP) -> ::std::os::raw::c_int;
     pub fn R_GE_linearGradientX1(pattern: SEXP) -> f64;

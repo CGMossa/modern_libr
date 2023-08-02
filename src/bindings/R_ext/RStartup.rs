@@ -26,9 +26,9 @@ pub struct structRstart {
     pub ppsize: usize,
     pub _bitfield_align_1: [u16; 0],
     pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize]>,
-    #[doc = " R_HOME"]
+    #[doc = "R_HOME"]
     pub rhome: *mut ::std::os::raw::c_char,
-    #[doc = " HOME"]
+    #[doc = "HOME"]
     pub home: *mut ::std::os::raw::c_char,
     pub ReadConsole: ::std::option::Option<
         unsafe extern "C" fn(
@@ -41,17 +41,17 @@ pub struct structRstart {
     pub WriteConsole: ::std::option::Option<
         unsafe extern "C" fn(arg1: *const ::std::os::raw::c_char, arg2: ::std::os::raw::c_int),
     >,
-    #[doc = " ProcessEvents under Unix"]
+    #[doc = "ProcessEvents under Unix"]
     pub CallBack: ::std::option::Option<unsafe extern "C" fn()>,
     pub ShowMessage:
         ::std::option::Option<unsafe extern "C" fn(arg1: *const ::std::os::raw::c_char)>,
     pub YesNoCancel: ::std::option::Option<
         unsafe extern "C" fn(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int,
     >,
-    #[doc = " Return value here is expected to be 1 for Yes, -1 for No and\n0 for Cancel: symbolic constants in graphapp.h"]
+    #[doc = "Return value here is expected to be 1 for Yes, -1 for No and\n0 for Cancel: symbolic constants in graphapp.h"]
     pub Busy: ::std::option::Option<unsafe extern "C" fn(arg1: ::std::os::raw::c_int)>,
     pub CharacterMode: UImode,
-    #[doc = " The following field has been added in R 2.5.0"]
+    #[doc = "The following field has been added in R 2.5.0"]
     pub WriteConsoleEx: ::std::option::Option<
         unsafe extern "C" fn(
             arg1: *const ::std::os::raw::c_char,
@@ -59,9 +59,9 @@ pub struct structRstart {
             arg3: ::std::os::raw::c_int,
         ),
     >,
-    #[doc = " The following field has been added in R 4.0.0."]
+    #[doc = "The following field has been added in R 4.0.0."]
     pub EmitEmbeddedUTF8: Rboolean,
-    #[doc = " The following fields have been added in R 4.2.0 and are only\navailable with RstarVersion 1."]
+    #[doc = "The following fields have been added in R 4.2.0 and are only\navailable with RstarVersion 1."]
     pub CleanUp: ::std::option::Option<
         unsafe extern "C" fn(
             arg1: SA_TYPE,
@@ -83,13 +83,13 @@ pub enum UImode {
     LinkDLL = 2,
 }
 #[repr(i32)]
-#[doc = " Startup Actions"]
+#[doc = "Startup Actions"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum SA_TYPE {
-    #[doc = " = 0"]
+    #[doc = "= 0"]
     SA_NORESTORE = 0,
     SA_RESTORE = 1,
-    #[doc = " was === SA_RESTORE"]
+    #[doc = "was === SA_RESTORE"]
     SA_DEFAULT = 2,
     SA_NOSAVE = 3,
     SA_SAVE = 4,
@@ -214,7 +214,7 @@ impl structRstart {
 extern "C" {
     pub fn R_DefParams(arg1: Rstart);
     pub fn R_DefParamsEx(arg1: Rstart, arg2: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-    #[doc = " New code should always use R_DefParamsEx(Rstart, RSTART_VERSION) to\ninform R about the version of the structure used. R_DefParams(Rstart)\nonly supports version 0 of the structure."]
+    #[doc = "New code should always use R_DefParamsEx(Rstart, RSTART_VERSION) to\ninform R about the version of the structure used. R_DefParams(Rstart)\nonly supports version 0 of the structure."]
     pub fn R_SetParams(arg1: Rstart);
     pub fn R_DefCallbacks(arg1: Rstart, arg2: ::std::os::raw::c_int);
     pub fn R_SetWin32(arg1: Rstart);

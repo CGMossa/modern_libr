@@ -68,67 +68,67 @@ pub struct _complex {
     pub x: f64,
     pub y: f64,
 }
-#[doc = " A structure containing graphical parameters\n\n This is how graphical parameters are passed from graphics systems\n to the graphics engine AND from the graphics engine to graphics\n devices.\n\n Devices are not *required* to honour graphical parameters\n (e.g., alpha transparency is going to be tough for some)"]
+#[doc = "A structure containing graphical parameters\n\n This is how graphical parameters are passed from graphics systems\n to the graphics engine AND from the graphics engine to graphics\n devices.\n\n Devices are not *required* to honour graphical parameters\n (e.g., alpha transparency is going to be tough for some)"]
 #[repr(C)]
 pub struct R_GE_gcontext {
-    #[doc = " pen colour (lines, text, borders, ...)"]
+    #[doc = "pen colour (lines, text, borders, ...)"]
     pub col: ::std::os::raw::c_int,
-    #[doc = " fill colour (for polygons, circles, rects, ...)"]
+    #[doc = "fill colour (for polygons, circles, rects, ...)"]
     pub fill: ::std::os::raw::c_int,
-    #[doc = " Gamma correction"]
+    #[doc = "Gamma correction"]
     pub gamma: f64,
-    #[doc = " Line width (roughly number of pixels)"]
+    #[doc = "Line width (roughly number of pixels)"]
     pub lwd: f64,
-    #[doc = " Line type (solid, dashed, dotted, ...)"]
+    #[doc = "Line type (solid, dashed, dotted, ...)"]
     pub lty: ::std::os::raw::c_int,
-    #[doc = " Line end"]
+    #[doc = "Line end"]
     pub lend: R_GE_lineend,
-    #[doc = " line join"]
+    #[doc = "line join"]
     pub ljoin: R_GE_linejoin,
-    #[doc = " line mitre"]
+    #[doc = "line mitre"]
     pub lmitre: f64,
-    #[doc = " Character expansion (font size = fontsize*cex)"]
+    #[doc = "Character expansion (font size = fontsize*cex)"]
     pub cex: f64,
-    #[doc = " Font size in points"]
+    #[doc = "Font size in points"]
     pub ps: f64,
-    #[doc = " Line height (multiply by font size)"]
+    #[doc = "Line height (multiply by font size)"]
     pub lineheight: f64,
-    #[doc = " Font face (plain, italic, bold, ...)"]
+    #[doc = "Font face (plain, italic, bold, ...)"]
     pub fontface: ::std::os::raw::c_int,
-    #[doc = " Font family"]
+    #[doc = "Font family"]
     pub fontfamily: [::std::os::raw::c_char; 201usize],
-    #[doc = " Reference to a pattern fill"]
+    #[doc = "Reference to a pattern fill"]
     pub patternFill: SEXP,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct GESystemDesc {
-    #[doc = " An array of information about each graphics system that\n has registered with the graphics engine.\n This is used to store graphics state for each graphics\n system on each device."]
+    #[doc = "An array of information about each graphics system that\n has registered with the graphics engine.\n This is used to store graphics state for each graphics\n system on each device."]
     pub systemSpecific: *mut ::std::os::raw::c_void,
-    #[doc = " An array of function pointers, one per graphics system that\n has registered with the graphics engine.\n\n system_Callback is called when the graphics engine wants\n to give a graphics system the chance to play with its\n device-specific information (stored in systemSpecific)\n There are two parameters:  an \"event\" to tell the graphics\n system why the graphics engine has called this function,\n and the systemSpecific pointer.  The graphics engine\n has to pass the systemSpecific pointer because only\n the graphics engine will know what array index to use."]
+    #[doc = "An array of function pointers, one per graphics system that\n has registered with the graphics engine.\n\n system_Callback is called when the graphics engine wants\n to give a graphics system the chance to play with its\n device-specific information (stored in systemSpecific)\n There are two parameters:  an \"event\" to tell the graphics\n system why the graphics engine has called this function,\n and the systemSpecific pointer.  The graphics engine\n has to pass the systemSpecific pointer because only\n the graphics engine will know what array index to use."]
     pub callback: GEcallback,
 }
 #[repr(C)]
 pub struct _GEDevDesc {
-    #[doc = " Stuff that the devices can see (and modify).\n All detailed in GraphicsDevice.h"]
+    #[doc = "Stuff that the devices can see (and modify).\n All detailed in GraphicsDevice.h"]
     pub dev: pDevDesc,
-    #[doc = " toggle for display list status"]
+    #[doc = "toggle for display list status"]
     pub displayListOn: Rboolean,
-    #[doc = " display list"]
+    #[doc = "display list"]
     pub displayList: SEXP,
-    #[doc = " A pointer to the end of the display list\nto avoid traversing pairlists"]
+    #[doc = "A pointer to the end of the display list\nto avoid traversing pairlists"]
     pub DLlastElt: SEXP,
-    #[doc = " The last element of the display list\n just prior to when the display list\n was last initialised"]
+    #[doc = "The last element of the display list\n just prior to when the display list\n was last initialised"]
     pub savedSnapshot: SEXP,
-    #[doc = " Has the device received any output?"]
+    #[doc = "Has the device received any output?"]
     pub dirty: Rboolean,
-    #[doc = " Should a graphics call be stored\n on the display list?\n Set to FALSE by do_recordGraphics,\n do_dotcallgr, and do_Externalgr\n so that nested calls are not\n recorded on the display list"]
+    #[doc = "Should a graphics call be stored\n on the display list?\n Set to FALSE by do_recordGraphics,\n do_dotcallgr, and do_Externalgr\n so that nested calls are not\n recorded on the display list"]
     pub recordGraphics: Rboolean,
-    #[doc = " Stuff about the device that only graphics systems see.\n The graphics engine has no idea what is in here.\n Used by graphics systems to store system state per device."]
+    #[doc = "Stuff about the device that only graphics systems see.\n The graphics engine has no idea what is in here.\n Used by graphics systems to store system state per device."]
     pub gesd: [*mut GESystemDesc; 24usize],
-    #[doc = " per-device setting for 'ask' (use NewFrameConfirm)"]
+    #[doc = "per-device setting for 'ask' (use NewFrameConfirm)"]
     pub ask: Rboolean,
-    #[doc = " Is a device appending a path ?"]
+    #[doc = "Is a device appending a path ?"]
     pub appending: Rboolean,
 }
 #[repr(C)]
@@ -338,12 +338,12 @@ pub const R_GE_text_style_normal: u32 = 1;
 pub const R_GE_text_style_italic: u32 = 2;
 pub const R_GE_text_style_oblique: u32 = 3;
 #[repr(i32)]
-#[doc = " The graphics engine will only accept locations and dimensions\n in native device coordinates, but it provides the following functions\n for converting between a couple of simple alternative coordinate\n systems and device coordinates:\n    DEVICE = native units of the device\n    NDC = Normalised device coordinates\n    INCHES = inches (!)\n    CM = centimetres (!!)"]
+#[doc = "The graphics engine will only accept locations and dimensions\n in native device coordinates, but it provides the following functions\n for converting between a couple of simple alternative coordinate\n systems and device coordinates:\n    DEVICE = native units of the device\n    NDC = Normalised device coordinates\n    INCHES = inches (!)\n    CM = centimetres (!!)"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum GEUnit {
-    #[doc = " native device coordinates (rasters)"]
+    #[doc = "native device coordinates (rasters)"]
     GE_DEVICE = 0,
-    #[doc = " normalised device coordinates x=(0,1), y=(0,1)"]
+    #[doc = "normalised device coordinates x=(0,1), y=(0,1)"]
     GE_NDC = 1,
     GE_INCHES = 2,
     GE_CM = 3,
@@ -351,27 +351,27 @@ pub enum GEUnit {
 #[repr(i32)]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum GEevent {
-    #[doc = " In response to this event, the registered graphics system\n should allocate and initialise the systemSpecific structure\n\n Should return R_NilValue on failure so that engine\n can tidy up memory allocation"]
+    #[doc = "In response to this event, the registered graphics system\n should allocate and initialise the systemSpecific structure\n\n Should return R_NilValue on failure so that engine\n can tidy up memory allocation"]
     GE_InitState = 0,
-    #[doc = " This event gives the registered system a chance to undo\n anything done in the initialisation."]
+    #[doc = "This event gives the registered system a chance to undo\n anything done in the initialisation."]
     GE_FinaliseState = 1,
-    #[doc = " This is sent by the graphics engine prior to initialising\n the display list.  It give the graphics system the chance\n to squirrel away information it will need for redrawing the\n the display list"]
+    #[doc = "This is sent by the graphics engine prior to initialising\n the display list.  It give the graphics system the chance\n to squirrel away information it will need for redrawing the\n the display list"]
     GE_SaveState = 2,
-    #[doc = " This is sent by the graphics engine prior to replaying the\n display list.  It gives the graphics system the chance to\n restore any information it saved on the GE_SaveState event"]
+    #[doc = "This is sent by the graphics engine prior to replaying the\n display list.  It gives the graphics system the chance to\n restore any information it saved on the GE_SaveState event"]
     GE_RestoreState = 6,
-    #[doc = " Copy system state information to the current device.\n This is used when copying graphics from one device to another\n so all the graphics system needs to do is to copy across\n the bits required for the display list to draw faithfully\n on the new device."]
+    #[doc = "Copy system state information to the current device.\n This is used when copying graphics from one device to another\n so all the graphics system needs to do is to copy across\n the bits required for the display list to draw faithfully\n on the new device."]
     GE_CopyState = 3,
-    #[doc = " Create a snapshot of the system state that is sufficient\n for the current \"image\" to be reproduced"]
+    #[doc = "Create a snapshot of the system state that is sufficient\n for the current \"image\" to be reproduced"]
     GE_SaveSnapshotState = 4,
-    #[doc = " Restore the system state that is saved by GE_SaveSnapshotState"]
+    #[doc = "Restore the system state that is saved by GE_SaveSnapshotState"]
     GE_RestoreSnapshotState = 5,
-    #[doc = " When replaying the display list, the graphics engine\n checks, after each replayed action, that the action\n produced valid output.  This is the graphics system's\n chance to say that the output is crap (in which case the\n graphics engine will abort the display list replay)."]
+    #[doc = "When replaying the display list, the graphics engine\n checks, after each replayed action, that the action\n produced valid output.  This is the graphics system's\n chance to say that the output is crap (in which case the\n graphics engine will abort the display list replay)."]
     GE_CheckPlot = 7,
-    #[doc = " The device wants to scale the current pointsize\n (for scaling an image)\n This is not a nice general solution, but a quick fix for\n the Windows device."]
+    #[doc = "The device wants to scale the current pointsize\n (for scaling an image)\n This is not a nice general solution, but a quick fix for\n the Windows device."]
     GE_ScalePS = 8,
 }
 #[repr(i32)]
-#[doc = "  Some line end/join constants"]
+#[doc = "Some line end/join constants"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum R_GE_lineend {
     GE_ROUND_CAP = 1,
@@ -1095,7 +1095,7 @@ extern "C" {
     pub fn Rf_RGBpar(arg1: SEXP, arg2: ::std::os::raw::c_int) -> rcolor;
     pub fn Rf_RGBpar3(arg1: SEXP, arg2: ::std::os::raw::c_int, arg3: rcolor) -> rcolor;
     pub fn Rf_col2name(col: rcolor) -> *const ::std::os::raw::c_char;
-    #[doc = " Convert either a name or a #RRGGBB[AA] string to internal.\nBecause people were using it, it also converts \"1\", \"2\" ...\nto a colour in the palette, and \"0\" to transparent white."]
+    #[doc = "Convert either a name or a #RRGGBB`[AA]` string to internal.\nBecause people were using it, it also converts \"1\", \"2\" ...\nto a colour in the palette, and \"0\" to transparent white."]
     pub fn R_GE_str2col(s: *const ::std::os::raw::c_char) -> rcolor;
     pub fn GE_LENDpar(value: SEXP, ind: ::std::os::raw::c_int) -> R_GE_lineend;
     pub fn GE_LENDget(lend: R_GE_lineend) -> SEXP;
@@ -1208,7 +1208,7 @@ extern "C" {
     #[doc = "-------------------------------------------------------------------\n\n  LINE TEXTURE CODE is concerned with the internals of R\n  line texture representation."]
     pub fn GE_LTYpar(arg1: SEXP, arg2: ::std::os::raw::c_int) -> ::std::os::raw::c_uint;
     pub fn GE_LTYget(arg1: ::std::os::raw::c_uint) -> SEXP;
-    #[doc = " Raster operations"]
+    #[doc = "Raster operations"]
     pub fn R_GE_rasterScale(
         sraster: *mut ::std::os::raw::c_uint,
         sw: ::std::os::raw::c_int,
@@ -1258,7 +1258,7 @@ extern "C" {
         gc: pGEcontext,
         perPixelAlpha: Rboolean,
     );
-    #[doc = " From plotmath.c"]
+    #[doc = "From plotmath.c"]
     pub fn GEExpressionWidth(expr: SEXP, gc: pGEcontext, dd: pGEDevDesc) -> f64;
     pub fn GEExpressionHeight(expr: SEXP, gc: pGEcontext, dd: pGEDevDesc) -> f64;
     pub fn GEExpressionMetric(
@@ -1279,7 +1279,7 @@ extern "C" {
         gc: pGEcontext,
         dd: pGEDevDesc,
     );
-    #[doc = " From plot3d.c : used in package clines"]
+    #[doc = "From plot3d.c : used in package clines"]
     pub fn GEcontourLines(
         x: *mut f64,
         nx: ::std::os::raw::c_int,
@@ -1289,7 +1289,7 @@ extern "C" {
         levels: *mut f64,
         nl: ::std::os::raw::c_int,
     ) -> SEXP;
-    #[doc = " From vfonts.c"]
+    #[doc = "From vfonts.c"]
     pub fn R_GE_VStrWidth(
         s: *const ::std::os::raw::c_char,
         enc: cetype_t,
@@ -1339,7 +1339,7 @@ extern "C" {
         log: Rboolean,
         axis: ::std::os::raw::c_int,
     );
-    #[doc = " Patterns - from ../../main/patterns.c"]
+    #[doc = "Patterns - from ../../main/patterns.c"]
     pub fn R_GE_isPattern(x: SEXP) -> Rboolean;
     pub fn R_GE_patternType(pattern: SEXP) -> ::std::os::raw::c_int;
     pub fn R_GE_linearGradientX1(pattern: SEXP) -> f64;

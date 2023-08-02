@@ -201,7 +201,7 @@ pub const UNDERFLOW: u32 = 4;
 pub const TLOSS: u32 = 5;
 pub const PLOSS: u32 = 6;
 #[repr(i32)]
-#[doc = " PARSE_NULL will not be returned by R_ParseVector"]
+#[doc = "PARSE_NULL will not be returned by R_ParseVector"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum ParseStatus {
     PARSE_NULL = 0,

@@ -12,5 +12,6 @@ generate_bindings = []
 
 [build-dependencies]
 bindgen = "0.66"
+linkify = "0.10"
 
 [dependencies]

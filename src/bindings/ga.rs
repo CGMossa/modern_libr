@@ -44,9 +44,9 @@ pub type div_t = _div_t;
 pub type ldiv_t = _ldiv_t;
 pub type lldiv_t = _lldiv_t;
 pub type popup = menu;
-#[doc = " printer.c"]
+#[doc = "printer.c"]
 pub type printer = objptr;
-#[doc = " metafile.c"]
+#[doc = "metafile.c"]
 pub type metafile = objptr;
 pub type __builtin_va_list = *mut ::std::os::raw::c_char;
 #[repr(C)]
@@ -117,7 +117,7 @@ pub struct _LONGDOUBLE {
 pub struct _LDBL12 {
     pub ld12: [::std::os::raw::c_uchar; 12usize],
 }
-#[doc = " gmenus.c"]
+#[doc = "gmenus.c"]
 #[repr(C)]
 pub struct MenuItem {
     pub nm: *mut ::std::os::raw::c_char,

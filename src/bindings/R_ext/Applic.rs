@@ -14,11 +14,11 @@ pub type _locale_t = *mut __crt_locale_pointers;
 pub type mbstate_t = _Mbstatet;
 pub type time_t = __time64_t;
 pub type rsize_t = usize;
-#[doc = " ../../appl/integrate.c"]
+#[doc = "../../appl/integrate.c"]
 pub type integr_fn = ::std::option::Option<
     unsafe extern "C" fn(x: *mut f64, n: ::std::os::raw::c_int, ex: *mut ::std::os::raw::c_void),
 >;
-#[doc = " main/optim.c"]
+#[doc = "main/optim.c"]
 pub type optimfn = ::std::option::Option<
     unsafe extern "C" fn(
         arg1: ::std::os::raw::c_int,
@@ -34,7 +34,7 @@ pub type optimgr = ::std::option::Option<
         arg4: *mut ::std::os::raw::c_void,
     ),
 >;
-#[doc = " type of pointer to the target and gradient functions"]
+#[doc = "type of pointer to the target and gradient functions"]
 pub type fcn_p = ::std::option::Option<
     unsafe extern "C" fn(
         arg1: ::std::os::raw::c_int,
@@ -43,7 +43,7 @@ pub type fcn_p = ::std::option::Option<
         arg4: *mut ::std::os::raw::c_void,
     ),
 >;
-#[doc = " type of pointer to the hessian functions"]
+#[doc = "type of pointer to the hessian functions"]
 pub type d2fcn_p = ::std::option::Option<
     unsafe extern "C" fn(
         arg1: ::std::os::raw::c_int,
@@ -676,7 +676,7 @@ extern "C" {
         _Value: ::std::os::raw::c_int,
     ) -> *mut ::std::os::raw::c_char;
     pub fn strupr(_String: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
-    #[doc = " vectorizing function   f(x[1:n], ...) -> x[]  {overwriting x[]}."]
+    #[doc = "vectorizing function   f(x`[1:n]`, ...) -> x`[]`  {overwriting x`[]`}."]
     pub fn Rdqags(
         f: integr_fn,
         ex: *mut ::std::os::raw::c_void,
@@ -794,7 +794,7 @@ extern "C" {
         trace: ::std::os::raw::c_int,
         ex: *mut ::std::os::raw::c_void,
     );
-    #[doc = " appl/interv.c: Also in Utils.h, used in package eco"]
+    #[doc = "appl/interv.c: Also in Utils.h, used in package eco"]
     pub fn findInterval(
         xt: *mut f64,
         n: ::std::os::raw::c_int,
@@ -850,7 +850,7 @@ extern "C" {
         ny: *mut ::std::os::raw::c_int,
         xb: *mut f64,
     );
-    #[doc = " appl/pretty.c: for use in engine.c and util.c"]
+    #[doc = "appl/pretty.c: for use in engine.c and util.c"]
     pub fn R_pretty(
         lo: *mut f64,
         up: *mut f64,
@@ -874,7 +874,7 @@ extern "C" {
         ndigit: ::std::os::raw::c_int,
         typx: *mut f64,
     );
-    #[doc = " Also used in packages nlme, pcaPP"]
+    #[doc = "Also used in packages nlme, pcaPP"]
     pub fn optif9(
         nr: ::std::os::raw::c_int,
         n: ::std::os::raw::c_int,

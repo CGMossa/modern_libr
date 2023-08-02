@@ -43,7 +43,7 @@ pub type _invalid_parameter_handler = ::std::option::Option<
 pub type div_t = _div_t;
 pub type ldiv_t = _ldiv_t;
 pub type lldiv_t = _lldiv_t;
-#[doc = "  Types."]
+#[doc = "Types."]
 pub type GAbyte = ::std::os::raw::c_uchar;
 pub type objptr = *mut gui_obj;
 pub type rgb = ::std::os::raw::c_ulong;
@@ -68,7 +68,7 @@ pub type menu = control;
 pub type menuitem = control;
 pub type drawstate = *mut drawstruct;
 pub type image = *mut imagedata;
-#[doc = "  Call-backs."]
+#[doc = "Call-backs."]
 pub type voidfn = ::std::option::Option<unsafe extern "C" fn()>;
 pub type timerfn = ::std::option::Option<unsafe extern "C" fn(data: *mut ::std::os::raw::c_void)>;
 pub type actionfn = ::std::option::Option<unsafe extern "C" fn(c: control)>;
@@ -170,13 +170,13 @@ pub struct point {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct rect {
-    #[doc = " top-left point inside rect"]
+    #[doc = "top-left point inside rect"]
     pub x: ::std::os::raw::c_int,
-    #[doc = " top-left point inside rect"]
+    #[doc = "top-left point inside rect"]
     pub y: ::std::os::raw::c_int,
-    #[doc = " width and height of rect"]
+    #[doc = "width and height of rect"]
     pub width: ::std::os::raw::c_int,
-    #[doc = " width and height of rect"]
+    #[doc = "width and height of rect"]
     pub height: ::std::os::raw::c_int,
 }
 #[repr(C)]

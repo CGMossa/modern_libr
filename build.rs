@@ -112,6 +112,7 @@ fn generate_bindings() {
                         .wrap_unsafe_ops(true)
                         .rustified_enum(".*")
                         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
+                        .parse_callbacks(Box::new(FixDocs))
                         //FIXME: enable this maybe?
                         // .allowlist_recursively(false)
                         .clang_arg(format!("-I{}", (&r_include).display()));
@@ -200,4 +201,101 @@ fn read_dir_recursively(root: &std::path::Path) -> Vec<PathBuf> {
         }
     }
     result
+}
+
+#[cfg(feature = "generate_bindings")]
+#[derive(Debug)]
+struct FixDocs;
+
+#[cfg(feature = "generate_bindings")]
+impl bindgen::callbacks::ParseCallbacks for FixDocs {
+    fn will_parse_macro(&self, _name: &str) -> bindgen::callbacks::MacroParsingBehavior {
+        bindgen::callbacks::MacroParsingBehavior::Default
+    }
+
+    fn generated_name_override(
+        &self,
+        _item_info: bindgen::callbacks::ItemInfo<'_>,
+    ) -> Option<String> {
+        None
+    }
+
+    fn generated_link_name_override(
+        &self,
+        _item_info: bindgen::callbacks::ItemInfo<'_>,
+    ) -> Option<String> {
+        None
+    }
+
+    fn int_macro(&self, _name: &str, _value: i64) -> Option<bindgen::callbacks::IntKind> {
+        None
+    }
+
+    fn str_macro(&self, _name: &str, _value: &[u8]) {}
+
+    fn func_macro(&self, _name: &str, _value: &[&[u8]]) {}
+
+    fn enum_variant_behavior(
+        &self,
+        _enum_name: Option<&str>,
+        _original_variant_name: &str,
+        _variant_value: bindgen::callbacks::EnumVariantValue,
+    ) -> Option<bindgen::callbacks::EnumVariantCustomBehavior> {
+        None
+    }
+
+    fn enum_variant_name(
+        &self,
+        _enum_name: Option<&str>,
+        _original_variant_name: &str,
+        _variant_value: bindgen::callbacks::EnumVariantValue,
+    ) -> Option<String> {
+        None
+    }
+
+    fn item_name(&self, _original_item_name: &str) -> Option<String> {
+        None
+    }
+
+    fn include_file(&self, _filename: &str) {}
+
+    fn read_env_var(&self, _key: &str) {}
+
+    fn blocklisted_type_implements_trait(
+        &self,
+        _name: &str,
+        _derive_trait: bindgen::callbacks::DeriveTrait,
+    ) -> Option<bindgen::callbacks::ImplementsTrait> {
+        None
+    }
+
+    fn add_derives(&self, _info: &bindgen::callbacks::DeriveInfo<'_>) -> Vec<String> {
+        vec![]
+    }
+
+    /// Trims the comments found by clang.
+    fn process_comment(&self, comment: &str) -> Option<String> {
+        let mut comment = comment.trim().to_string();
+
+        let finder = linkify::LinkFinder::new();
+        let comment_links = comment.clone();
+        let links = finder.links(comment_links.as_str()).collect::<Vec<_>>();
+        for link in &links {
+            comment.replace_range(link.start()..link.end(), &format!("<{}>", link.as_str()));
+        }
+        // let comment = comment.replace("\\n", "\n");
+        let comment = comment.replace("[", r"`[");
+        let comment = comment.replace("]", r"]`");
+        // another approach
+        // let comment = comment.replace("[", r"\[");
+        // let comment = comment.replace("]", r"\]");
+        Some(comment)
+    }
+
+    fn field_visibility(
+        &self,
+        _info: bindgen::callbacks::FieldInfo<'_>,
+    ) -> Option<bindgen::FieldVisibilityKind> {
+        None
+    }
 }

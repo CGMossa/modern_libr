@@ -65,7 +65,7 @@ pub struct _complex {
 pub struct Rconn {
     pub class: *mut ::std::os::raw::c_char,
     pub description: *mut ::std::os::raw::c_char,
-    #[doc = " the encoding of 'description'"]
+    #[doc = "the encoding of 'description'"]
     pub enc: ::std::os::raw::c_int,
     pub mode: [::std::os::raw::c_char; 5usize],
     pub text: Rboolean,
@@ -77,9 +77,9 @@ pub struct Rconn {
     pub blocking: Rboolean,
     pub isGzcon: Rboolean,
     pub open: ::std::option::Option<unsafe extern "C" fn(arg1: *mut Rconn) -> Rboolean>,
-    #[doc = " routine closing after auto open"]
+    #[doc = "routine closing after auto open"]
     pub close: ::std::option::Option<unsafe extern "C" fn(arg1: *mut Rconn)>,
-    #[doc = " when closing connection"]
+    #[doc = "when closing connection"]
     pub destroy: ::std::option::Option<unsafe extern "C" fn(arg1: *mut Rconn)>,
     pub vfprintf: ::std::option::Option<
         unsafe extern "C" fn(
@@ -119,25 +119,25 @@ pub struct Rconn {
             arg4: *mut Rconn,
         ) -> usize,
     >,
-    #[doc = " number of lines, position on top line"]
+    #[doc = "number of lines, position on top line"]
     pub nPushBack: ::std::os::raw::c_int,
-    #[doc = " number of lines, position on top line"]
+    #[doc = "number of lines, position on top line"]
     pub posPushBack: ::std::os::raw::c_int,
     pub PushBack: *mut *mut ::std::os::raw::c_char,
     pub save: ::std::os::raw::c_int,
     pub save2: ::std::os::raw::c_int,
     pub encname: [::std::os::raw::c_char; 101usize],
-    #[doc = " will be iconv_t, which is a pointer. NULL if not in use"]
+    #[doc = "will be iconv_t, which is a pointer. NULL if not in use"]
     pub inconv: *mut ::std::os::raw::c_void,
-    #[doc = " will be iconv_t, which is a pointer. NULL if not in use"]
+    #[doc = "will be iconv_t, which is a pointer. NULL if not in use"]
     pub outconv: *mut ::std::os::raw::c_void,
-    #[doc = " The idea here is that no MBCS char will ever not fit"]
+    #[doc = "The idea here is that no MBCS char will ever not fit"]
     pub iconvbuff: [::std::os::raw::c_char; 25usize],
-    #[doc = " The idea here is that no MBCS char will ever not fit"]
+    #[doc = "The idea here is that no MBCS char will ever not fit"]
     pub oconvbuff: [::std::os::raw::c_char; 50usize],
-    #[doc = " The idea here is that no MBCS char will ever not fit"]
+    #[doc = "The idea here is that no MBCS char will ever not fit"]
     pub next: *mut ::std::os::raw::c_char,
-    #[doc = " The idea here is that no MBCS char will ever not fit"]
+    #[doc = "The idea here is that no MBCS char will ever not fit"]
     pub init_out: [::std::os::raw::c_char; 25usize],
     pub navail: ::std::os::raw::c_short,
     pub inavail: ::std::os::raw::c_short,
@@ -146,7 +146,7 @@ pub struct Rconn {
     pub id: *mut ::std::os::raw::c_void,
     pub ex_ptr: *mut ::std::os::raw::c_void,
     pub private: *mut ::std::os::raw::c_void,
-    #[doc = " for pipes etc"]
+    #[doc = "for pipes etc"]
     pub status: ::std::os::raw::c_int,
     pub buff: *mut ::std::os::raw::c_uchar,
     pub buff_len: usize,
