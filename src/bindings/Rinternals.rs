@@ -1085,7 +1085,6 @@ extern "C" {
     pub fn SET_VECTOR_ELT(x: SEXP, i: R_xlen_t, v: SEXP) -> SEXP;
     pub fn STRING_PTR(x: SEXP) -> *mut SEXP;
     pub fn STRING_PTR_RO(x: SEXP) -> *const SEXP;
-    pub fn VECTOR_PTR(x: SEXP) -> !;
     pub fn INTEGER_GET_REGION(
         sx: SEXP,
         i: R_xlen_t,

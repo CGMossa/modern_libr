@@ -12,6 +12,23 @@ fn main() {
     generate_bindings();
 }
 
+//TODO: use `get_r_library`
+
+/// Returns the path to the R library.
+#[cfg(feature = "generate_bindings")]
+fn get_r_library(r_home: &std::path::Path) -> PathBuf {
+    use std::path::Path;
+    let pkg_target_arch = std::env::var("CARGO_CFG_TARGET_ARCH").unwrap();
+    match (cfg!(windows), pkg_target_arch.as_str()) {
+        // For Windows
+        (true, "x86_64") => Path::new(r_home).join("bin").join("x64"),
+        (true, "x86") => Path::new(r_home).join("bin").join("i386"),
+        (true, _) => panic!("Unknown architecture"),
+        // For Unix-alike
+        (false, _) => Path::new(r_home).join("lib"),
+    }
+}
+
 #[cfg(feature = "generate_bindings")]
 fn generate_bindings() {
     println!("cargo:rerun-if-changed=build.rs");
@@ -20,7 +37,7 @@ fn generate_bindings() {
     // requires that either R is available in path or that R_HOME is set.
     let r_available = Command::new("R")
         .args(r_args)
-        .args(["-e", "cat(R.home())"])
+        .args(["-e", "cat(normalizePath(R.home()))"])
         .output();
     // dbg!(&r_available);
 
@@ -74,21 +91,33 @@ fn generate_bindings() {
                 // does nothing
                 // .generate_block(true)
                 // does nothing
-                // .generate_comments(true)
+                .generate_comments(true)
                 // does nothing?
                 .clang_arg("-fparse-all-comments")
                 // does something
                 // .generate_cstr(true)
                 // does nothing
                 // .size_t_is_usize(true)
+                // `VECTOR_PTR` is deprecated, use `DATAPTR` and friends instead
+                .blocklist_item("VECTOR_PTR")
+                .wrap_unsafe_ops(true)
                 .rustified_enum(".*")
+                .parse_callbacks(Box::new(bindgen::CargoCallbacks))
                 //FIXME: enable this maybe?
                 // .allowlist_recursively(false)
                 .clang_arg(format!("-I{}", (&r_include).display()));
 
-            //TODO: add platform specific define, #define Win32 for example
-            // it is in `wrapper_head` right now, 
+            // FIXME: use or remove these
+            // let target = env::var("TARGET").expect("Could not get the target triple");
+            // let target_os = std::env::var("CARGO_CFG_TARGET_OS").unwrap();
+            // let target_arch = env::var("CARGO_CFG_TARGET_ARCH").unwrap();
 
+            //TODO: add platform specific define, #define Win32 for example
+            // it is in `wrapper_head` right now,
+            
+    if cfg!(windows) {
+        binder = binder.clang_arg("-DWin32");
+    }
 
             // output path and name + extension
             let bind_header = full_r_header
@@ -119,17 +148,18 @@ fn generate_bindings() {
             }
 
             match specific_header {
-                // TODO: Add `R_ext\\Complex.h` and use the `Rcomplex` we defined in `wrapper_head_Rcomplex.h`
                 r"R_ext/Complex.h" => {
-                    binder = binder.header("wrapper_head_Rcomplex.h");  
+                    binder = binder.header("wrapper_head_Rcomplex.h");
                 }
                 "R_ext\\Parse.h" => {
-                    // binder = binder.header("Rinternals.h");
-                    binder = binder.clang_arg("-include Rinternals.h");
+                    binder = binder.header("Rinternals.h");
+                    // this doesn't work
+                    // binder = binder.clang_arg("-include Rinternals.h");
                 }
                 "R_ext\\Altrep.h" => {
-                    // binder = binder.header("Rinternals.h");
-                    binder = binder.clang_arg("-include Rinternals.h");
+                    binder = binder.header("Rinternals.h");
+                    // this doesn't work
+                    // binder = binder.clang_arg("-include Rinternals.h");
                 }
                 "R_ext\\GraphicsEngine.h" | "R_ext\\GraphicsDevice.h" | "R_ext\\Connections.h" => {
                     // ignore for now

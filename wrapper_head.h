@@ -1,7 +1,6 @@
 #define R_NO_REMAP
+#define R_NO_REMAP_RMATH
 #define STRICT_R_HEADERS
-//TODO: make this multiplatform...
-#define Win32
 
 // From r83513 (R 4.3), R defines the `NORET` macro differently depending on the
 // C/C++ standard the compiler uses. It matters when the header is used in C/C++
@@ -24,5 +23,3 @@
 #else
 #define SWITCH_TO_NAMED_RUST_MACROS
 #endif
-
-#define R_NO_REMAP_RMATH
