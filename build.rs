@@ -103,6 +103,13 @@ fn generate_bindings() {
                 .clang_arg("-std=c2x")
                 .header("wrapper_head.h")
                 .blocklist_file(".*wrapper_head\\.h")
+                // addresses: <https://github.com/rust-lang/rust-bindgen/issues/2596>
+                // ONEWAY
+                // .blocklist_file(".*math\\.h")
+                // ANOTHER
+                .blocklist_item(
+                    "FP_INT_UPWARD|FP_INT_DOWNWARD|FP_INT_TOWARDZERO|FP_NAN|FP_INFINITE|FP_ZERO|FP_SUBNORMAL|FP_NORMAL|FP_INT_TONEARESTFROMZERO|FP_INT_TONEAREST"
+                )
                 .merge_extern_blocks(true)
                 // does nothing
                 // .generate_block(true)

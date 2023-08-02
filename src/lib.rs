@@ -1,12 +1,14 @@
-#![allow(non_snake_case)]
+// #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 
 pub mod bindings {
     #[path = "R.rs"]
+    #[allow(improper_ctypes)] // unix
     pub mod r;
 
     #[path = "Rinternals.rs"]
+    #[allow(improper_ctypes)] // unix
     pub mod r_internals {
         use super::r_ext::boolean::Rboolean;
         use super::r_ext::complex::Rcomplex;
@@ -16,15 +18,18 @@ pub mod bindings {
     }
 
     #[path = "Rmath.rs"]
+    #[allow(improper_ctypes)] // unix
     pub mod r_math;
 
     #[path = "Rversion.rs"]
     pub mod r_version;
 
     //TODO: unix specific?
-    // #[path = "Rinterface.rs"]
-    // pub mod r_interface;
-    // pub use r_interface::*;
+    #[cfg(unix)]
+    pub mod r_interface {
+        use super::r_ext::boolean::Rboolean;
+        include!("bindings/Rinterface.rs");
+    }
 
     pub mod r_embedded {
         use super::r_ext::boolean::Rboolean;
@@ -44,7 +49,7 @@ pub mod bindings {
             include!("bindings/R_ext/BLAS.rs");
         }
 
-        // #[path = "Callbacks.rs"]
+        #[allow(improper_ctypes)] // unix
         pub mod callbacks {
             use super::super::r_internals::SEXP;
             use super::boolean::Rboolean;
@@ -53,10 +58,12 @@ pub mod bindings {
         }
 
         //TODO: another platform?
-        // #[path = "GetX11Image.rs"]
-        // pub mod GetX11Image;
+        #[cfg(unix)]
+        pub mod get_x11_image {
+            use super::boolean::Rboolean;
+            include!("bindings/R_ext/GetX11Image.rs");
+        }
 
-        // #[path ="Lapack.rs"]
         pub mod lapack {
             use super::complex::Rcomplex;
             include!("bindings/R_ext/Lapack.rs");
@@ -66,6 +73,7 @@ pub mod bindings {
         pub mod linpack;
 
         #[path = "Parse.rs"]
+        #[allow(improper_ctypes)] // unix
         pub mod parse {
             use super::super::r_internals::SEXP;
             include!("bindings/R_ext/Parse.rs");
@@ -87,9 +95,10 @@ pub mod bindings {
         #[path = "Visibility.rs"]
         pub mod visibility;
 
-        // TODO: another platform?
-        // #[path ="eventloop.rs"]
-        // pub mod event_loop;
+        
+        #[path = "eventloop.rs"]
+        #[cfg(unix)]
+        pub mod event_loop;
 
         #[path = "Boolean.rs"]
         pub mod boolean;
@@ -98,6 +107,7 @@ pub mod bindings {
         pub mod complex;
 
         #[path = "Arith.rs"]
+        #[allow(improper_ctypes)] // unix
         pub mod arith;
 
         #[path = "Constants.rs"]
@@ -107,6 +117,7 @@ pub mod bindings {
         pub mod error;
 
         #[path = "Memory.rs"]
+        #[allow(improper_ctypes)] // unix
         pub mod memory;
 
         #[path = "Print.rs"]
@@ -126,32 +137,38 @@ pub mod bindings {
             include!("bindings/R_ext/Utils.rs");
         }
 
-        //TODO: this is windows specific.
         #[path = "libextern.rs"]
+        #[cfg(windows)]
         pub mod libextern;
 
         // region: unmentioned api
 
+        #[path = "QuartzDevice.rs"]
+        pub mod quartz_device;
+
+        #[allow(improper_ctypes)] // unix
         pub mod graphics_device {
-            #[cfg(unix)]
-            use super::graphics_engine::pGEcontext;
             #[cfg(windows)]
             use super::super::r_internals::cetype_t;
             use super::super::r_internals::SEXP;
             use super::boolean::Rboolean;
+            #[cfg(unix)]
+            use super::graphics_engine::pGEcontext;
 
             include!("bindings/R_ext/GraphicsDevice.rs");
         }
 
+        #[allow(improper_ctypes)] // unix
         pub mod graphics_engine {
+            use super::super::r_internals::cetype_t;
             use super::super::r_internals::SEXP;
             use super::boolean::Rboolean;
-            use super::super::r_internals::cetype_t;
             use super::graphics_device::pDevDesc;
 
             include!("bindings/R_ext/GraphicsEngine.rs");
         }
 
+        #[allow(improper_ctypes)] // unix
         pub mod connections {
             use super::super::r_internals::SEXP;
             use super::boolean::Rboolean;
@@ -163,6 +180,7 @@ pub mod bindings {
         #[path = "MathThreads.rs"]
         pub mod math_threads;
 
+        #[allow(improper_ctypes)] // unix
         pub mod prt_util {
             use super::super::r_internals::{R_xlen_t, SEXP};
             use super::complex::Rcomplex;
@@ -175,28 +193,32 @@ pub mod bindings {
 
         pub mod stats_package;
 
+        #[allow(improper_ctypes)] // unix
         pub mod stats_stubs;
 
         // endregion
     }
 
     // region: unmentioned API
-
+    #[cfg(windows)]
     pub mod ga {
         use super::graphapp::*;
         include!("bindings/ga.rs");
     }
 
+    #[cfg(windows)]
     #[path = "graphapp.rs"]
     pub mod graphapp;
 
     #[path = "iconv.rs"]
+    #[cfg(windows)]
     pub mod iconv;
-
+    
+    #[cfg(windows)]
     pub mod libintl;
 
-    // TODO: ignore this...
-    // #[path = "Rdefines.rs"]
+    // TODO: ignore this... or make a warning
+    #[allow(improper_ctypes)] // unix
     pub mod r_defines {
         use super::r_internals::SEXPREC;
         include!("bindings/Rdefines.rs");
@@ -217,6 +239,7 @@ pub mod bindings {
         pub use super::r_ext::complex::*;
         pub use super::r_ext::constants::*;
         pub use super::r_ext::error::*;
+        #[cfg(windows)]
         pub use super::r_ext::libextern::*;
         pub use super::r_ext::memory::*;
         pub use super::r_ext::print::*;
