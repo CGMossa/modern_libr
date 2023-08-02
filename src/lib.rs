@@ -133,6 +133,9 @@ pub mod bindings {
         // region: unmentioned api
 
         pub mod graphics_device {
+            #[cfg(unix)]
+            use super::graphics_engine::pGEcontext;
+            #[cfg(windows)]
             use super::super::r_internals::cetype_t;
             use super::super::r_internals::SEXP;
             use super::boolean::Rboolean;
@@ -154,7 +157,7 @@ pub mod bindings {
             use super::boolean::Rboolean;
             include!("bindings/R_ext/Connections.rs");
         }
-
+        #[path = "Itermacros.rs"]
         pub mod itermacros;
 
         #[path = "MathThreads.rs"]
