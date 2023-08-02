@@ -121,8 +121,8 @@ pub mod bindings {
 
         #[path = "Utils.rs"]
         pub mod utils {
-            use super::complex::Rcomplex;
             use super::boolean::Rboolean;
+            use super::complex::Rcomplex;
 
             include!("bindings/R_ext/Utils.rs");
         }
@@ -130,12 +130,71 @@ pub mod bindings {
         //TODO: this is windows specific.
         #[path = "libextern.rs"]
         pub mod libextern;
+
+        // region: unmentioned api
+
+        // FIXME: skipped
+        // "R_ext/GraphicsEngine.h"
+        // "R_ext/GraphicsDevice.h"
+        // "R_ext/Connections.h"
+        // why?
+        //
+
+        // #[path = "Connections.rs"]
+        // pub mod connections;
+
+        pub mod itermacros;
+
+        #[path = "MathThreads.rs"]
+        pub mod math_threads;
+
+        pub mod prt_util {
+            use super::super::r_internals::{R_xlen_t, SEXP};
+            use super::complex::Rcomplex;
+
+            include!("bindings/R_ext/PrtUtil.rs");
+        }
+
+        #[path = "Rallocators.rs"]
+        pub mod r_allocators;
+
+        pub mod stats_package;
+
+        pub mod stats_stubs;
+
+        // endregion
     }
+
+    // region: unmentioned API
+
+    pub mod ga {
+        use super::graphapp::*;
+        include!("bindings/ga.rs");
+    }
+
+    #[path = "graphapp.rs"]
+    pub mod graphapp;
+
+    #[path = "iconv.rs"]
+    pub mod iconv;
+
+    pub mod libintl;
+
+    // TODO: ignore this...
+    // #[path = "Rdefines.rs"]
+    pub mod r_defines {
+        use super::r_internals::SEXPREC;
+        include!("bindings/Rdefines.rs");
+    }
+
+    // endregion
 
     #[path = "Rconfig.rs"]
     pub mod r_config;
 
     pub mod r_prelude {
+        //! The `R.h`-header would provide all of these objects, plus itself.
+        //!
         pub use super::r_config::*;
         pub use super::r_ext::arith::*;
         pub use super::r_ext::boolean::*;
@@ -148,5 +207,8 @@ pub mod bindings {
         pub use super::r_ext::random::*;
         pub use super::r_ext::rs::*;
         pub use super::r_ext::utils::*;
+
+        // note: should this also be included? I guess so?
+        pub use super::r::*;
     }
 }
