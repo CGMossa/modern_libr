@@ -155,6 +155,7 @@ pub mod bindings {
             include!("bindings/R_ext/Connections.rs");
         }
 
+        #[path = "Itermacros.rs"]
         pub mod itermacros;
 
         #[path = "MathThreads.rs"]
