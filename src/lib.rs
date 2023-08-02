@@ -134,16 +134,25 @@ pub mod bindings {
         // region: unmentioned api
 
         // FIXME: skipped
-        // "R_ext/GraphicsEngine.h"
         // "R_ext/GraphicsDevice.h"
-        // "R_ext/Connections.h"
         // why?
-        //
+        
 
-        // #[path = "Connections.rs"]
-        // pub mod connections;
+        // pub mod graphics_engine {
+        //     use super::super::r_internals::SEXP;
+        //     use super::boolean::Rboolean;
+        //     use super::super::r_internals::cetype_t;
 
-        pub mod itermacros;
+        //     include!("bindings/R_ext/GraphicsEngine.rs");
+        // }
+
+        pub mod connections {
+            use super::super::r_internals::SEXP;
+            use super::boolean::Rboolean;
+            include!("bindings/R_ext/Connections.rs");
+        }
+
+        // pub mod itermacros;
 
         #[path = "MathThreads.rs"]
         pub mod math_threads;

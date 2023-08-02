@@ -8,10 +8,9 @@ resolver = "2"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
-generate_bindings = ["rayon"]
+generate_bindings = []
 
 [build-dependencies]
 bindgen = "0.66"
-rayon = { version = "1.7", optional = true }
 
 [dependencies]
