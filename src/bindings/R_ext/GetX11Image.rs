@@ -9,4 +9,12 @@ pub struct max_align_t {
     pub __bindgen_padding_0: u64,
     pub __clang_max_align_nonce2: u128,
 }
-pub const GET_REGION_BUFSIZE: u32 = 512;
+extern "C" {
+    #[doc = "used by package tkrplot"]
+    pub fn R_GetX11Image(
+        d: ::std::os::raw::c_int,
+        pximage: *mut ::std::os::raw::c_void,
+        pwidth: *mut ::std::os::raw::c_int,
+        pheight: *mut ::std::os::raw::c_int,
+    ) -> Rboolean;
+}
