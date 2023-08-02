@@ -5,7 +5,7 @@ use std::{path::PathBuf, process::Command, str::FromStr};
 
 // TODO: don't bother with Rdefines.h
 
-// FIXME: Why is Rboolean included everywhere?
+// TODO: itermacros.h needs custom import.
 
 fn main() {
     #[cfg(feature = "generate_bindings")]
@@ -51,6 +51,10 @@ fn generate_bindings() {
     //     .num_threads(1)
     //     .build_global()
     //     .unwrap();
+    rayon::ThreadPoolBuilder::new()
+        .num_threads(4)
+        .build_global()
+        .unwrap();
     r_headers
         .into_par_iter()
         .zip(r_file_item_list.clone().into_par_iter())
@@ -64,9 +68,8 @@ fn generate_bindings() {
                 // .clang_arg("-std=c11")
                 // .clang_arg("-std=c17")
                 .clang_arg("-std=c2x")
-                // .header("wrapper_head.h")
-                // .blocklist_file(".*stddef\\.h")
-                .blocklist_file(".*wrapper_header\\.h")
+                .header("wrapper_head.h")
+                .blocklist_file(".*wrapper_head\\.h")
                 .merge_extern_blocks(true)
                 // does nothing
                 // .generate_block(true)
@@ -82,6 +85,10 @@ fn generate_bindings() {
                 //FIXME: enable this maybe?
                 // .allowlist_recursively(false)
                 .clang_arg(format!("-I{}", (&r_include).display()));
+
+            //TODO: add platform specific define, #define Win32 for example
+            // it is in `wrapper_head` right now, 
+
 
             // output path and name + extension
             let bind_header = full_r_header
@@ -114,15 +121,15 @@ fn generate_bindings() {
             match specific_header {
                 // TODO: Add `R_ext\\Complex.h` and use the `Rcomplex` we defined in `wrapper_head_Rcomplex.h`
                 r"R_ext/Complex.h" => {
-                    binder = binder.header("wrapper_head_Rcomplex.h");
+                    binder = binder.header("wrapper_head_Rcomplex.h");  
                 }
                 "R_ext\\Parse.h" => {
-                    binder = binder.header("Rinternals.h");
-                    binder = binder.blocklist_file(".*Rinternals\\.h");
+                    // binder = binder.header("Rinternals.h");
+                    binder = binder.clang_arg("-include Rinternals.h");
                 }
                 "R_ext\\Altrep.h" => {
-                    binder = binder.header("Rinternals.h");
-                    binder = binder.blocklist_file(".*Rinternals\\.h");
+                    // binder = binder.header("Rinternals.h");
+                    binder = binder.clang_arg("-include Rinternals.h");
                 }
                 "R_ext\\GraphicsEngine.h" | "R_ext\\GraphicsDevice.h" | "R_ext\\Connections.h" => {
                     // ignore for now

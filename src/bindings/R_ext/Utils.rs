@@ -41,6 +41,9 @@ extern "C" {
     );
     #[doc = " ../../main/util.c  and others :"]
     pub fn R_ExpandFileName(arg1: *const ::std::os::raw::c_char) -> *const ::std::os::raw::c_char;
+    pub fn R_ExpandFileNameUTF8(
+        arg1: *const ::std::os::raw::c_char,
+    ) -> *const ::std::os::raw::c_char;
     pub fn Rf_setIVector(
         arg1: *mut ::std::os::raw::c_int,
         arg2: ::std::os::raw::c_int,
