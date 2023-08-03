@@ -103,13 +103,7 @@ fn generate_bindings() {
                 .clang_arg("-std=c2x")
                 .header("wrapper_head.h")
                 .blocklist_file(".*wrapper_head\\.h")
-                // addresses: <https://github.com/rust-lang/rust-bindgen/issues/2596>
-                // ONEWAY
-                // .blocklist_file(".*math\\.h")
-                // ANOTHER
-                .blocklist_item(
-                    "FP_INT_UPWARD|FP_INT_DOWNWARD|FP_INT_TOWARDZERO|FP_NAN|FP_INFINITE|FP_ZERO|FP_SUBNORMAL|FP_NORMAL|FP_INT_TONEARESTFROMZERO|FP_INT_TONEAREST"
-                )
+                .parse_callbacks(Box::new(IgnoreMacros::new()))
                 .merge_extern_blocks(true)
                 // does nothing
                 // .generate_block(true)
@@ -315,3 +309,58 @@ impl bindgen::callbacks::ParseCallbacks for FixDocs {
         None
     }
 }
+
+// region: bindgen of math.h and cmath.h is complicated
+
+// <https://github.com/rust-lang/rust-bindgen/issues/687#issuecomment-1312298570>
+
+#[cfg(feature = "generate_bindings")]
+use bindgen::callbacks::{MacroParsingBehavior, ParseCallbacks};
+
+#[cfg(feature = "generate_bindings")]
+const IGNORE_MACROS: [&str; 20] = [
+    "FE_DIVBYZERO",
+    "FE_DOWNWARD",
+    "FE_INEXACT",
+    "FE_INVALID",
+    "FE_OVERFLOW",
+    "FE_TONEAREST",
+    "FE_TOWARDZERO",
+    "FE_UNDERFLOW",
+    "FE_UPWARD",
+    "FP_INFINITE",
+    "FP_INT_DOWNWARD",
+    "FP_INT_TONEAREST",
+    "FP_INT_TONEARESTFROMZERO",
+    "FP_INT_TOWARDZERO",
+    "FP_INT_UPWARD",
+    "FP_NAN",
+    "FP_NORMAL",
+    "FP_SUBNORMAL",
+    "FP_ZERO",
+    "IPPORT_RESERVED",
+];
+
+#[cfg(feature = "generate_bindings")]
+#[derive(Debug)]
+struct IgnoreMacros(std::collections::HashSet<String>);
+
+#[cfg(feature = "generate_bindings")]
+impl ParseCallbacks for IgnoreMacros {
+    fn will_parse_macro(&self, name: &str) -> MacroParsingBehavior {
+        if self.0.contains(name) {
+            MacroParsingBehavior::Ignore
+        } else {
+            MacroParsingBehavior::Default
+        }
+    }
+}
+
+#[cfg(feature = "generate_bindings")]
+impl IgnoreMacros {
+    fn new() -> Self {
+        Self(IGNORE_MACROS.into_iter().map(|s| s.to_owned()).collect())
+    }
+}
+
+// endregion
