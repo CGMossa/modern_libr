@@ -1,13 +1,14 @@
-// #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 
 pub mod bindings {
     #[path = "R.rs"]
+    #[allow(non_snake_case)]
     #[allow(improper_ctypes)] // unix
     pub mod r;
 
     #[path = "Rinternals.rs"]
+    #[allow(non_snake_case)]
     #[allow(improper_ctypes)] // unix
     pub mod r_internals {
         use super::r_ext::boolean::Rboolean;
@@ -26,6 +27,7 @@ pub mod bindings {
 
     //TODO: unix specific?
     #[cfg(unix)]
+    #[allow(non_snake_case)]
     pub mod r_interface {
         use super::r_ext::boolean::Rboolean;
         include!("bindings/Rinterface.rs");
@@ -50,6 +52,7 @@ pub mod bindings {
         }
 
         #[allow(improper_ctypes)] // unix
+        #[allow(non_snake_case)]
         pub mod callbacks {
             use super::super::r_internals::SEXP;
             use super::boolean::Rboolean;
@@ -74,16 +77,19 @@ pub mod bindings {
 
         #[path = "Parse.rs"]
         #[allow(improper_ctypes)] // unix
+        #[allow(non_snake_case)]
         pub mod parse {
             use super::super::r_internals::SEXP;
             include!("bindings/R_ext/Parse.rs");
         }
 
+        #[allow(non_snake_case)]
         pub mod r_startup {
             use super::boolean::Rboolean;
             include!("bindings/R_ext/RStartup.rs");
         }
 
+        #[allow(non_snake_case)]
         pub mod r_dynload {
             use super::boolean::Rboolean;
             include!("bindings/R_ext/Rdynload.rs");
@@ -95,9 +101,9 @@ pub mod bindings {
         #[path = "Visibility.rs"]
         pub mod visibility;
 
-        
-        #[path = "eventloop.rs"]
         #[cfg(unix)]
+        #[path = "eventloop.rs"]
+        #[allow(non_snake_case)]
         pub mod event_loop;
 
         #[path = "Boolean.rs"]
@@ -137,16 +143,19 @@ pub mod bindings {
             include!("bindings/R_ext/Utils.rs");
         }
 
-        #[path = "libextern.rs"]
         #[cfg(windows)]
+        #[path = "libextern.rs"]
         pub mod libextern;
 
         // region: unmentioned api
 
+        #[cfg(unix)]
         #[path = "QuartzDevice.rs"]
+        #[allow(non_snake_case)]
         pub mod quartz_device;
 
         #[allow(improper_ctypes)] // unix
+        #[allow(non_snake_case)]
         pub mod graphics_device {
             #[cfg(windows)]
             use super::super::r_internals::cetype_t;
@@ -159,6 +168,7 @@ pub mod bindings {
         }
 
         #[allow(improper_ctypes)] // unix
+        #[allow(non_snake_case)]
         pub mod graphics_engine {
             use super::super::r_internals::cetype_t;
             use super::super::r_internals::SEXP;
@@ -170,6 +180,7 @@ pub mod bindings {
 
         #[allow(improper_ctypes)] // unix
         pub mod connections {
+            #![allow(non_snake_case)]
             use super::super::r_internals::SEXP;
             use super::boolean::Rboolean;
             include!("bindings/R_ext/Connections.rs");
@@ -181,6 +192,7 @@ pub mod bindings {
         pub mod math_threads;
 
         #[allow(improper_ctypes)] // unix
+        #[allow(non_snake_case)]
         pub mod prt_util {
             use super::super::r_internals::{R_xlen_t, SEXP};
             use super::complex::Rcomplex;
@@ -194,6 +206,7 @@ pub mod bindings {
         pub mod stats_package;
 
         #[allow(improper_ctypes)] // unix
+        #[allow(non_snake_case)]
         pub mod stats_stubs;
 
         // endregion
@@ -213,12 +226,13 @@ pub mod bindings {
     #[path = "iconv.rs"]
     #[cfg(windows)]
     pub mod iconv;
-    
+
     #[cfg(windows)]
     pub mod libintl;
 
     // TODO: ignore this... or make a warning
     #[allow(improper_ctypes)] // unix
+    #[allow(non_snake_case)]
     pub mod r_defines {
         use super::r_internals::SEXPREC;
         include!("bindings/Rdefines.rs");
