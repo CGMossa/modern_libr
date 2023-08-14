@@ -391,6 +391,7 @@ extern "C" {
         __nmemb: ::std::os::raw::c_ulong,
         __size: ::std::os::raw::c_ulong,
     ) -> *mut ::std::os::raw::c_void;
+    #[must_use]
     pub fn realloc(
         __ptr: *mut ::std::os::raw::c_void,
         __size: ::std::os::raw::c_ulong,
