@@ -16,14 +16,6 @@ pub type quartz_create_fn_t = ::std::option::Option<
     ) -> QuartzDesc_t,
 >;
 #[repr(C)]
-#[repr(align(16))]
-#[derive(Debug, Copy, Clone)]
-pub struct max_align_t {
-    pub __clang_max_align_nonce1: ::std::os::raw::c_longlong,
-    pub __bindgen_padding_0: u64,
-    pub __clang_max_align_nonce2: u128,
-}
-#[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct QuartzBackend_s {
     #[doc = "structure size"]

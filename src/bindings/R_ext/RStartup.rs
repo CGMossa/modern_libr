@@ -8,14 +8,6 @@ pub struct __BindgenBitfieldUnit<Storage> {
     storage: Storage,
 }
 #[repr(C)]
-#[repr(align(16))]
-#[derive(Debug, Copy, Clone)]
-pub struct max_align_t {
-    pub __clang_max_align_nonce1: ::std::os::raw::c_longlong,
-    pub __bindgen_padding_0: u64,
-    pub __clang_max_align_nonce2: u128,
-}
-#[repr(C)]
 pub struct structRstart {
     pub R_Quiet: Rboolean,
     pub R_NoEcho: Rboolean,
