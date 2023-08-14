@@ -221,6 +221,10 @@ struct FixDocs;
 
 #[cfg(feature = "generate_bindings")]
 impl bindgen::callbacks::ParseCallbacks for FixDocs {
+    fn wrap_as_variadic_fn(&self, _name: &str) -> Option<String> {
+        None
+    }
+
     fn will_parse_macro(&self, _name: &str) -> bindgen::callbacks::MacroParsingBehavior {
         bindgen::callbacks::MacroParsingBehavior::Default
     }
