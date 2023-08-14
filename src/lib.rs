@@ -185,6 +185,7 @@ pub mod bindings {
             use super::boolean::Rboolean;
             include!("bindings/R_ext/Connections.rs");
         }
+
         #[path = "Itermacros.rs"]
         pub mod itermacros;
 
