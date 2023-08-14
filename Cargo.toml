@@ -11,7 +11,7 @@ resolver = "2"
 generate_bindings = []
 
 [build-dependencies]
-bindgen = "0.66"
+bindgen = { version = "0.66", features = ["experimental"] }
 linkify = "0.10"
 
 [dependencies]

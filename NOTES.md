@@ -9,3 +9,8 @@ cargo build -vv
 ```shell
 cargo watch -c -x "build -vv"
 ```
+
+```r
+> R.home("include")
+[1] "/usr/share/R/include"
+```
