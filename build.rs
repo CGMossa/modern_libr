@@ -119,6 +119,7 @@ fn generate_bindings() {
                 .blocklist_item("VECTOR_PTR")
                 .wrap_unsafe_ops(true)
                 .rustified_enum(".*")
+                .enable_function_attribute_detection()
                 .parse_callbacks(Box::new(bindgen::CargoCallbacks))
                 .parse_callbacks(Box::new(FixDocs))
                 .clang_arg(format!("-I{}", (&r_include).display()));
