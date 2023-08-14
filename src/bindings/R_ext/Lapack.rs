@@ -4,14 +4,6 @@ pub type wchar_t = ::std::os::raw::c_int;
 pub type L_fp = ::std::option::Option<
     unsafe extern "C" fn(arg1: *mut f64, arg2: *mut f64, arg3: *mut f64) -> ::std::os::raw::c_int,
 >;
-#[repr(C)]
-#[repr(align(16))]
-#[derive(Debug, Copy, Clone)]
-pub struct max_align_t {
-    pub __clang_max_align_nonce1: ::std::os::raw::c_longlong,
-    pub __bindgen_padding_0: u64,
-    pub __clang_max_align_nonce2: u128,
-}
 pub const _STRING_H: u32 = 1;
 pub const _FEATURES_H: u32 = 1;
 pub const __GLIBC_USE_ISOC2X: u32 = 1;

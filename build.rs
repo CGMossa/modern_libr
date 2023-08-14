@@ -117,6 +117,8 @@ fn generate_bindings() {
                 // .size_t_is_usize(true)
                 // `VECTOR_PTR` is deprecated, use `DATAPTR` and friends instead
                 .blocklist_item("VECTOR_PTR")
+                .blocklist_type("max_align_t")
+                .wrap_static_fns(true)
                 .wrap_unsafe_ops(true)
                 .rustified_enum(".*")
                 .enable_function_attribute_detection()

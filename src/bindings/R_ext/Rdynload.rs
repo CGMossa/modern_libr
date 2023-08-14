@@ -9,14 +9,6 @@ pub type R_FortranMethodDef = R_CMethodDef;
 pub type R_ExternalMethodDef = R_CallMethodDef;
 pub type DllInfo = _DllInfo;
 pub type R_RegisteredNativeSymbol = Rf_RegisteredNativeSymbol;
-#[repr(C)]
-#[repr(align(16))]
-#[derive(Debug, Copy, Clone)]
-pub struct max_align_t {
-    pub __clang_max_align_nonce1: ::std::os::raw::c_longlong,
-    pub __bindgen_padding_0: u64,
-    pub __clang_max_align_nonce2: u128,
-}
 #[doc = "These are very similar to those in Rdynpriv.h,\nbut we maintain them separately to give us more freedom to do\nsome computations on the internal versions that are derived from\nthese definitions."]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
